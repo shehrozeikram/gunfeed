@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="301px" height="250px" viewBox="0 0 301 250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Page 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="-87.3304597%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#6CFFFC" offset="0%"></stop>
+            <stop stop-color="#5484F9" offset="100%"></stop>
+        </linearGradient>
+        <path d="M172.4965,65.9383 C179.7605,58.6743 179.7585,46.8953 172.4915,39.6293 C165.2255,32.3623 153.4465,32.3603 146.1825,39.6243 C138.9185,46.8883 138.9205,58.6673 146.1875,65.9333 C153.4535,73.2003 165.2325,73.2023 172.4965,65.9383" id="path-2"></path>
+        <filter x="-4.0%" y="-4.0%" width="108.1%" height="108.1%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="0" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Logo-Rules" transform="translate(-2924.000000, -1751.000000)">
+            <g id="Dark-background" transform="translate(2500.000000, 1250.000000)">
+                <g id="Group" transform="translate(424.000000, 500.000000)">
+                    <g id="Page-1">
+                        <g id="Group-3" transform="translate(17.000000, 0.741000)" fill="url(#linearGradient-1)">
+                            <path d="M49.755,0.259 L14.114,55.898 L0.852,76.679 L11.657,90.03 L46.332,75.543 L117.879,45.51 C119.467,44.844 121.227,44.517 123.02,44.516 C124.73,44.476 126.481,44.741 128.151,45.318 L182.33,65.056 L185.954,66.369 C185.999,66.385 186.044,66.409 186.089,66.426 C189.842,67.797 193.107,71.001 194.814,75.027 C196.592,79.221 196.583,83.671 194.786,87.563 L169.353,143.707 C168.633,145.207 167.712,146.514 166.637,147.589 C165.311,148.915 163.751,149.892 162.034,150.449 L86.292,182.248 L86.304,182.262 L141.039,249.892 L141.126,250 L283.606,76.644 L234.78,0.259 L49.755,0.259 Z" id="Fill-1"></path>
+                        </g>
+                        <g id="Group-10" transform="translate(0.000000, 44.741000)">
+                            <path d="M28.6199,46.1136 L7.5959,54.9386 C7.2309,55.0916 6.8789,55.2686 6.5329,55.4516 C3.9689,57.0146 1.9939,59.4256 0.8999,62.4316 C-0.4231,66.0746 -0.2821,70.1136 1.2919,73.8056 L34.1319,150.9476 C35.8049,154.8796 38.7499,157.8786 42.4279,159.3856 C45.9699,160.8376 49.6669,160.8246 52.7699,159.3776 L93.4099,142.3966 L103.0019,138.3696 L28.6199,46.1136 Z" id="Fill-4" fill="#20D2FF"></path>
+                            <path d="M146.1823,39.624 C153.4463,32.36 165.2253,32.362 172.4913,39.629 C179.7583,46.895 179.7603,58.674 172.4963,65.938 C165.2323,73.202 153.4533,73.2 146.1873,65.933 C138.9203,58.667 138.9183,46.888 146.1823,39.624 Z M103.2923,138.248 L179.0343,106.449 C180.7513,105.892 182.3113,104.915 183.6363,103.589 C184.7133,102.513 185.6333,101.207 186.3533,99.707 L211.7863,43.562 C213.5833,39.671 213.5923,35.221 211.8143,31.027 C210.1073,27 206.8423,23.796 203.0893,22.426 L199.3303,21.056 L144.8003,1.304 C143.2453,0.77 141.6193,0.515 140.0203,0.516 C138.3533,0.555 136.7233,0.882 135.2453,1.5 L63.3323,31.543 L28.6983,46.081 L103.2923,138.248 Z" id="Fill-6" fill="#FFFFFF"></path>
+                            <g id="Fill-8">
+                                <use fill="#1E65C4" fill-rule="evenodd" xlink:href="#path-2"></use>
+                                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

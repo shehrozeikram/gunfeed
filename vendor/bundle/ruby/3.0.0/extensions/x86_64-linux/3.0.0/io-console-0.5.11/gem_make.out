@@ -1,0 +1,20 @@
+current directory: /home/shehroze/Desktop/gunfeed/vendor/bundle/ruby/3.0.0/gems/io-console-0.5.11/ext/io/console
+/home/shehroze/.rvm/rubies/ruby-3.0.2/bin/ruby -I /home/shehroze/.rvm/rubies/ruby-3.0.2/lib/ruby/3.0.0 -r ./siteconf20221007-7924-34tl7h.rb extconf.rb
+checking for termios.h... yes
+checking for cfmakeraw() in termios.h... yes
+checking for sys/ioctl.h... yes
+checking for HAVE_RUBY_FIBER_SCHEDULER_H... no
+checking for rb_scheduler_timeout()... no
+creating Makefile
+
+current directory: /home/shehroze/Desktop/gunfeed/vendor/bundle/ruby/3.0.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\= clean
+
+current directory: /home/shehroze/Desktop/gunfeed/vendor/bundle/ruby/3.0.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\=
+compiling console.c
+linking shared-object io/console.so
+
+current directory: /home/shehroze/Desktop/gunfeed/vendor/bundle/ruby/3.0.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\= install
+/usr/bin/install -m 0755 console.so ./.gem.20221007-7924-a2rdpt/io
