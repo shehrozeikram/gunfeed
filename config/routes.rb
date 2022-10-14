@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   get "/post_a_deal" , to: "homes#post_a_deal"
   get "/about_us" , to: "homes#about_us"
   get "/contact_us" , to: "homes#contact_us"
+  get "/FAQ" , to: "homes#FAQ"
+  get "/newsletter" , to: "homes#newsletter"
+  get "/moderator" , to: "homes#moderator"
 end

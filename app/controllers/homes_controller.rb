@@ -16,4 +16,16 @@ class HomesController < ApplicationController
     
   end
 
+  def FAQ
+
+  end
+
+  def newsletter
+
+  end
+
+  def moderator
+
+  end
+
 end
