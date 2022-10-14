@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<%= render partial: 'partials/title' %>
+<body class="body-style">
+<%= render partial: 'partials/header' %>
+<section>
+  <div class="container">
+    <div class="add-section post-section">
+    </div>
+  </div>
+</section>
+<!-- -----------------add a new deal section start here--------------- -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div id="alerts-content" class="col-xs-12">
+        <div class="alert alert-danger">
+          <ul class="list-unstyled">
+            <li>Dealers are limited to 1 post/bump every 6 months. If you would like to advertise or
+              purchase posting privileges, please visit our Dealers &amp; Advertising Page. To edit
+              this post without bumping, make sure "do not bump" check box is selected. If you have a
+              Paid Dealer subscription, please ignore this message.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <form action="/node/add/product" accept-charset="UTF-8" method="post" id="node-form"
+              enctype="multipart/form-data" class="product-form">
+          <div>
+            <div class="card card--title p-4">
+              <div class="card__title">
+                <h1>Add a New Deal</h1>
+              </div>
+              <div class="card__content">
+                <h2 class="subtitle">NO AUCTIONS, PERSONAL ADS, GIVEAWAYS or RAFFLES. NO EBAY, GUN
+                  BROKER or CLASSIFIEDS LISTINGS.</h2>
+                <div class="subtitle">Please read our
+                  <a target="_blank" href="/content/faq">FAQ</a> page before posting and search
+                  website first to avoid reposts.
+                </div>
+              </div>
+            </div>
+            <div class="row form-deelgun">
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="card card--product-url p-4">
+                  <div class="card__content">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <div class="form-group" id="edit-product-url-wrapper">
+                          <a href="#"> <label for="edit-product-url"
+                                              title="Link to the product on the seller's website"
+                                              data-toggle="tooltip">Product URL: </label></a>
+                          <input type="text"  maxlength="128" size="25" class="form-text required form-control">
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-md-10">
+                        <div class="form-group">
+                          <input type="submit" name="op" id="edit-submit" value="Fetch page" class="form-submit btn  new-primary-btn">
+                          <input type="submit" name="op" id="edit-submit" value="Fetch additional images" class="form-submit btn btn-default btn-primary disabled">
+                          <!-- <button id="do_fetch_page" class="btn btn-primary">Fetch
+                              page</button>
+                          <button id="do_fetch_additional_images"
+                              class="btn btn-primary disabled" data-original-title=""
+                              title="">Fetch additional images</button> -->
+                          <span id="ajax-loader-span"
+                                style="display : none; position:relative; top:5px; left: 5px;">
+                                                            <img id="fetch_page_ajax_loader" style="vertical-align:top"
+                                                                 src="https://gun.deals/sites/all/themes/slickdeals/images/rolling.svg">
+                                                        </span>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-md-2 text-right"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-md-5">
+                <div class="card card--status is-dealer">
+                  <div class="card__content">
+                    <fieldset class="fieldset-no-label">
+                      <legend>Status</legend>
+                      <div class="form-group" id="edit-expires-wrapper">
+                        <div class="js-field-toggle field-toggle field-toggle--switch js-linked-input field-toggle--light field-toggle--mini field-toggle--with-title field-toggle--title-after"
+                             data-linked-input="#edit-expires-date-wrapper">
+                          <div class="field-toggle__container">
+                            <input id="field-toggle-edit-expires" type="checkbox"
+                                   class="field-toggle__checkbox" name="expires" value="1">
+                            <label for="field-toggle-edit-expires"
+                                   class="field-toggle__label">
+                              <span class="field-toggle__icon"></span>
+                              <span class="field-toggle__icon"></span>
+                            </label>
+                          </div>
+                          <span class="field-toggle__title js-field-toggle-title noselect"
+                                role="button"> Expires </span>
+                        </div>
+                      </div>
+                      <div class="form-group" id="edit-expired-wrapper">
+                        <div
+                          class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--mini field-toggle--with-title field-toggle--title-after">
+                          <div class="field-toggle__container">
+                            <input id="field-toggle-edit-expired" type="checkbox"
+                                   class="field-toggle__checkbox" name="expired" value="1">
+                            <label for="field-toggle-edit-expired"
+                                   class="field-toggle__label">
+                              <span class="field-toggle__icon"></span>
+                              <span class="field-toggle__icon"></span>
+                            </label>
+                          </div>
+                          <span class="field-toggle__title js-field-toggle-title noselect"
+                                role="button"> Expired </span>
+                        </div>
+                      </div>
+                      <div class="form-group" id="edit-out-of-stock-wrapper">
+                        <div
+                          class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--mini field-toggle--with-title field-toggle--title-after">
+                          <div class="field-toggle__container">
+                            <input id="field-toggle-edit-out-of-stock" type="checkbox"
+                                   class="field-toggle__checkbox" name="out_of_stock"
+                                   value="1">
+                            <label for="field-toggle-edit-out-of-stock"
+                                   class="field-toggle__label">
+                              <span class="field-toggle__icon"></span>
+                              <span class="field-toggle__icon"></span>
+                            </label>
+                          </div>
+                          <span class="field-toggle__title js-field-toggle-title noselect"
+                                role="button"> Out of Stock </span>
+                        </div>
+                      </div>
+                      <div class="form-group" id="edit-expires-date-wrapper"
+                           style="display: none;">
+                        <label for="edit-expires-date">Expires date: </label>
+                        <input type="text" maxlength="128" name="expires_date"
+                               id="edit-expires-date" size="20" value=""
+                               class="form-text datepicker form-control hasDatepicker">
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-md-7">
+                <div class="card">
+                  <div class="card__content">
+                    <div class="product-form__inline-toggle-container">
+                      <div class="form-group" id="edit-change-date-wrapper">
+                        <div
+                          class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--mini field-toggle--with-title field-toggle--title-after">
+                          <div class="field-toggle__container">
+                            <input id="field-toggle-edit-change-date" type="checkbox"
+                                   class="field-toggle__checkbox" name="change_date"
+                                   value="1">
+                            <label for="field-toggle-edit-change-date"
+                                   class="field-toggle__label">
+                              <span class="field-toggle__icon"></span>
+                              <span class="field-toggle__icon"></span>
+                            </label>
+                          </div>
+                          <span class="field-toggle__title js-field-toggle-title noselect"
+                                role="button"> Bump this post </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row form-deelgun">
+              <div class="col-xs-12">
+                <div class="card">
+                  <div class="card__content">
+                    <div class="row">
+                      <div class="col-xs-12 col-md-12">
+                        <div class="form-group" id="edit-title-wrapper">
+                          <label for="edit-title">Title:
+                            <span class="form-required"
+                                  title="This field is required.">*</span>
+                          </label>
+                          <input type="text" maxlength="255" name="title" id="edit-title"
+                                 size="110" value="" class="form-text required form-control">
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-md-2">
+                        <div class="form-group" id="edit-price-wrapper">
+                          <a href="#"> <label for="edit-price" title="Product's price."
+                                              data-toggle="tooltip">Price:
+                            <span id="price-removable-asterisk"
+                                  title="This field is required."
+                                  class="form-required">*</span>
+                          </label></a>
+                          <input type="text" maxlength="128" name="price" id="edit-price"
+                                 size="12" value="" class="form-text form-control">
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-md-2">
+                        <div class="form-group" id="edit-store-wrapper">
+                          <a href="#"> <label for="edit-store" title="Product store."
+                                              data-toggle="tooltip">Store: </label></a>
+                          <select name="store"
+                                  class="form-select js-stores-select form-control select2-hidden-accessible"
+                                  data-ajax-path="/ajax-search-store-by-term"
+                                  data-trigger-event="initialize-select2-for-stores-select"
+                                  data-allow-clear="1" id="edit-store" tabindex="-1"
+                                  aria-hidden="true">
+                            <option value="" selected="selected">Cooose an option</option>
+                          </select>
+                          <!-- <span class="select2 select2-container select2-container--light"
+                              dir="ltr" style="width: 100%;">
+                              <span class="selection">
+                                  <span
+                                      class="select2-selection select2-selection--single"
+                                      role="combobox" aria-haspopup="true"
+                                      aria-expanded="false" tabindex="0"
+                                      aria-labelledby="select2-edit-store-container">
+                                      <span class="select2-selection__rendered"
+                                          id="select2-edit-store-container">
+                                          <span
+                                              class="select2-selection__placeholder">Choose
+                                              an option</span>
+                                      </span>
+                                      <span class="select2-selection__arrow"
+                                          role="presentation">
+                                          <b role="presentation"></b>
+                                      </span>
+                                  </span>
+                              </span>
+                              <span class="dropdown-wrapper" aria-hidden="true"></span>
+                          </span> -->
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-md-2">
+                        <div class="form-group" id="edit-amount-wrapper">
+                          <a href="#"><label for="edit-amount" title="Amount in a packageAmmo only"
+                                             data-toggle="tooltip">Amount: </label></a>
+                          <input type="text" maxlength="128" name="amount"
+                                 id="edit-amount" size="12" value="1"
+                                 class="form-text form-control">
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-md-2">
+                        <div class="form-group" id="edit-category-wrapper">
+                          <a href="#"> <label for="edit-category" title="Product category."
+                                              data-toggle="tooltip">Category:
+                            <span class="form-required"
+                                  title="This field is required.">*</span>
+                          </label></a>
+                          <select name="category"
+                                  class="form-select required js-product-calibers-change form-control select2-hidden-accessible"
+                                  id="edit-category" tabindex="-1" aria-hidden="true">
+                            <option value="0">Choose an option</option>
+                            <option value="5">Accessories</option>
+                            <option value="4">Ammo</option>
+                            <option value="400731">Archery</option>
+                            <option value="263056">Gun Parts</option>
+                            <option value="2">Handguns</option>
+                            <option value="2469">Knives</option>
+                            <option value="48">News</option>
+                            <option value="619351">NFA</option>
+                            <option value="619336">Optics and Sights</option>
+                            <option value="77844">Reloading</option>
+                            <option value="3">Rifles</option>
+                            <option value="45">Shotguns</option>
+                          </select>
+                          <!-- <span class="select2 select2-container select2-container--light"
+                              dir="ltr" style="width: 100%;">
+                              <span class="selection">
+                                  <span
+                                      class="select2-selection select2-selection--single"
+                                      role="combobox" aria-haspopup="true"
+                                      aria-expanded="false" tabindex="0"
+                                      aria-labelledby="select2-edit-category-container">
+                                      <span class="select2-selection__rendered"
+                                          id="select2-edit-category-container"
+                                          title="Choose an option">Choose an option</span>
+                                      <span class="select2-selection__arrow"
+                                          role="presentation">
+                                          <b role="presentation"></b>
+                                      </span>
+                                  </span>
+                              </span>
+                              <span class="dropdown-wrapper" aria-hidden="true"></span>
+                          </span> -->
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-md-2">
+                        <div class="form-group" id="edit-caliber-wrapper">
+                          <label for="edit-caliber">Caliber: </label>
+                          <select name="caliber"
+                                  class="form-select js-product-calibers form-control select2-hidden-accessible"
+                                  id="edit-caliber" tabindex="-1" aria-hidden="true">
+                            <option value="" selected="selected">Cooose an option</option>
+                          </select>
+                          <!-- <span class="select2 select2-container select2-container--light"
+                              dir="ltr" style="width: 100%;">
+                              <span class="selection">
+                                  <span
+                                      class="select2-selection select2-selection--single"
+                                      role="combobox" aria-haspopup="true"
+                                      aria-expanded="false" tabindex="0"
+                                      aria-labelledby="select2-edit-caliber-container">
+                                      <span class="select2-selection__rendered"
+                                          id="select2-edit-caliber-container">
+                                          <span
+                                              class="select2-selection__placeholder">Choose
+                                              an option</span>
+                                      </span>
+                                      <span class="select2-selection__arrow"
+                                          role="presentation">
+                                          <b role="presentation"></b>
+                                      </span>
+                                  </span>
+                              </span>
+                              <span class="dropdown-wrapper" aria-hidden="true"></span>
+                          </span> -->
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-md-2">
+                        <div class="form-group" id="edit-brand-wrapper">
+                          <label for="edit-brand">Brand: </label>
+                          <select name="brand"
+                                  class="form-select js-brand-select form-control select2-hidden-accessible"
+                                  data-ajax-path="/ajax-search-brand-by-term"
+                                  data-trigger-event="initialize-select2-for-brand-select"
+                                  data-allow-clear="1" id="edit-brand" tabindex="-1"
+                                  aria-hidden="true">
+                            <option value="" selected="selected">Cooose an option</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12 col-md-2">
+                        <div class="form-group" id="edit-sku-wrapper">
+                          <label for="edit-sku">MPN: </label>
+                          <input type="text" maxlength="255" name="sku" id="edit-sku"
+                                 size="30" value="" class="form-text form-control">
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-md-2">
+                        <div class="form-group" id="edit-upc-wrapper">
+                          <a href="#"><label for="edit-upc"
+                                             title="UPC is in 12 digits format with leading zeros"
+                                             data-toggle="tooltip">UPC: </label></a>
+                          <input type="text" maxlength="128" name="upc" id="edit-upc"
+                                 size="30" value="" class="form-text form-control">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__content">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <fieldset>
+                      <legend>Deal tags</legend>
+                      <div class="row">
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">
+                          <div class="form-group" id="edit-flag-rimfire-wrapper">
+                            <div
+                              class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--mini field-toggle--with-title field-toggle--title-after">
+                              <div class="field-toggle__container">
+                                <input id="field-toggle-edit-flag-rimfire"
+                                       type="checkbox" class="field-toggle__checkbox"
+                                       name="flag_rimfire" value="1">
+                                <label for="field-toggle-edit-flag-rimfire"
+                                       class="field-toggle__label">
+                                  <span class="field-toggle__icon"></span>
+                                  <span class="field-toggle__icon"></span>
+                                </label>
+                              </div>
+                              <span
+                                class="field-toggle__title js-field-toggle-title noselect"
+                                role="button"> Rimfire </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">
+                          <div class="form-group" id="edit-flag-1911-wrapper">
+                            <div
+                              class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--mini field-toggle--with-title field-toggle--title-after">
+                              <div class="field-toggle__container">
+                                <input id="field-toggle-edit-flag-1911"
+                                       type="checkbox" class="field-toggle__checkbox"
+                                       name="flag_1911" value="1">
+                                <label for="field-toggle-edit-flag-1911"
+                                       class="field-toggle__label">
+                                  <span class="field-toggle__icon"></span>
+                                  <span class="field-toggle__icon"></span>
+                                </label>
+                              </div>
+                              <span
+                                class="field-toggle__title js-field-toggle-title noselect"
+                                role="button"> 1911 </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">
+                          <div class="form-group" id="edit-california-legal-wrapper">
+                            <div
+                              class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--mini field-toggle--with-title field-toggle--title-after">
+                              <div class="field-toggle__container">
+                                <input id="field-toggle-edit-california-legal"
+                                       type="checkbox" class="field-toggle__checkbox"
+                                       name="california_legal" value="1">
+                                <label for="field-toggle-edit-california-legal"
+                                       class="field-toggle__label">
+                                  <span class="field-toggle__icon"></span>
+                                  <span class="field-toggle__icon"></span>
+                                </label>
+                              </div>
+                              <span
+                                class="field-toggle__title js-field-toggle-title noselect"
+                                role="button"> California legal </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">
+                          <div class="form-group" id="edit-flag-ar-wrapper">
+                            <div
+                              class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--mini field-toggle--with-title field-toggle--title-after">
+                              <div class="field-toggle__container">
+                                <input id="field-toggle-edit-flag-ar"
+                                       type="checkbox" class="field-toggle__checkbox"
+                                       name="flag_ar" value="1">
+                                <label for="field-toggle-edit-flag-ar"
+                                       class="field-toggle__label">
+                                  <span class="field-toggle__icon"></span>
+                                  <span class="field-toggle__icon"></span>
+                                </label>
+                              </div>
+                              <span
+                                class="field-toggle__title js-field-toggle-title noselect"
+                                role="button"> AR </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">
+                          <div class="form-group" id="edit-flag-revolvers-wrapper">
+                            <div
+                              class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--mini field-toggle--with-title field-toggle--title-after">
+                              <div class="field-toggle__container">
+                                <input id="field-toggle-edit-flag-revolvers"
+                                       type="checkbox" class="field-toggle__checkbox"
+                                       name="flag_revolvers" value="1">
+                                <label for="field-toggle-edit-flag-revolvers"
+                                       class="field-toggle__label">
+                                  <span class="field-toggle__icon"></span>
+                                  <span class="field-toggle__icon"></span>
+                                </label>
+                              </div>
+                              <span
+                                class="field-toggle__title js-field-toggle-title noselect"
+                                role="button"> Revolver </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">
+                          <div class="form-group" id="edit-flag-cr-wrapper">
+                            <div
+                              class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--mini field-toggle--with-title field-toggle--title-after">
+                              <div class="field-toggle__container">
+                                <input id="field-toggle-edit-flag-cr"
+                                       type="checkbox" class="field-toggle__checkbox"
+                                       name="flag_cr" value="1">
+                                <label for="field-toggle-edit-flag-cr"
+                                       class="field-toggle__label">
+                                  <span class="field-toggle__icon"></span>
+                                  <span class="field-toggle__icon"></span>
+                                </label>
+                              </div>
+                              <span
+                                class="field-toggle__title js-field-toggle-title noselect"
+                                role="button"> C&amp;R </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">
+                          <div class="form-group" id="edit-flag-ak-wrapper">
+                            <div
+                              class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--mini field-toggle--with-title field-toggle--title-after">
+                              <div class="field-toggle__container">
+                                <input id="field-toggle-edit-flag-ak"
+                                       type="checkbox" class="field-toggle__checkbox"
+                                       name="flag_ak" value="1">
+                                <label for="field-toggle-edit-flag-ak"
+                                       class="field-toggle__label">
+                                  <span class="field-toggle__icon"></span>
+                                  <span class="field-toggle__icon"></span>
+                                </label>
+                              </div>
+                              <span
+                                class="field-toggle__title js-field-toggle-title noselect"
+                                role="button"> AK </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">
+                          <div class="form-group" id="edit-used-wrapper">
+                            <div
+                              class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--mini field-toggle--with-title field-toggle--title-after">
+                              <div class="field-toggle__container">
+                                <input id="field-toggle-edit-used" type="checkbox"
+                                       class="field-toggle__checkbox" name="used"
+                                       value="1">
+                                <label for="field-toggle-edit-used"
+                                       class="field-toggle__label">
+                                  <span class="field-toggle__icon"></span>
+                                  <span class="field-toggle__icon"></span>
+                                </label>
+                              </div>
+                              <span
+                                class="field-toggle__title js-field-toggle-title noselect"
+                                role="button"> Used </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="body-field-wrapper">
+                      <div class="teaser-checkbox">
+                        <div class="form-group" id="edit-teaser-include-wrapper">
+                          <label class="option" for="edit-teaser-include">
+                            <input type="checkbox" name="teaser_include"
+                                   id="edit-teaser-include" value="1" checked="checked"
+                                   class="form-checkbox"> Show summary in full view
+                          </label>
+                        </div>
+                      </div>
+                      <div class="form-group" id="edit-body-wrapper">
+                        <label for="edit-body">Body: </label>
+                        <div class="resizable-textarea">
+                                                        <span>
+                                                            <textarea cols="60" rows="10" name="body" id="edit-body"
+                                                                      class="form-textarea resizable wysiwyg form-control textarea-processed"></textarea>
+                                                            <div class="grippie" style="margin-right: 0px;"></div>
+                                                        </span>
+                        </div>
+                      </div>
+                      <ul class="tips">
+                        <li>Web page addresses and e-mail addresses turn into links
+                          automatically.</li>
+                        <li>Allowed HTML tags: &lt;div&gt; &lt;span&gt; &lt;table&gt;
+                          &lt;tr&gt; &lt;td&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt;
+                          &lt;h4&gt; &lt;h5&gt; &lt;h6&gt; &lt;a&gt; &lt;p&gt;
+                          &lt;table&gt; &lt;tr&gt; &lt;td&gt; &lt;em&gt; &lt;strong&gt;
+                          &lt;b&gt; &lt;cite&gt; &lt;code&gt; &lt;ul&gt; &lt;ol&gt;
+                          &lt;li&gt; &lt;br&gt; &lt;dl&gt; &lt;dt&gt; &lt;dd&gt; &lt;i&gt;
+                          &lt;u&gt;</li>
+                        <li>Lines and paragraphs break automatically.</li>
+                      </ul>
+                      <p>
+                        <a href="/filter/tips">More information about formatting options</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row js-product-images-wrapper">
+                  <div class="col-xs-12">
+                    <fieldset class=" collapsible">
+                      <legend class="collapse-processed">
+                        <a href="#">Images</a>
+                      </legend>
+                      <div class="fieldset-wrapper">
+                        <div class="js-dropzone dropzone dz-clickable">
+                          <div class="dz-default dz-message">
+                            <span>Add or drag your images here</span>
+                          </div>
+                        </div>
+                        <input type="hidden" name="fetched_dropzone_images"
+                               id="edit-fetched-dropzone-images" value="">
+                        <input type="hidden" name="main_image" id="edit-main-image"
+                               value="">
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <fieldset class=" collapsible collapsed">
+                      <legend class="collapse-processed">
+                        <a href="#">YouTube</a>
+                      </legend>
+                      <div class="fieldset-wrapper d-none">
+                        <div class="description">Add YouTube link for video that will be
+                          shown at the end of the body</div>
+                        <div id="youtube-videos">
+                          <input type="hidden" name="youtube_videos_hidden_value"
+                                 id="edit-youtube-videos-hidden-value" value="[]">
+                          <div class="form-item">
+                            <label>YouTube link 1:</label>
+                            <input data-id="1" size="110"
+                                   class="form-text clear youtube-link-text-field">
+                          </div>
+                        </div>
+                        <a href="#" id="add-more-youtube-links"
+                           class="form-submit youtube-add-more-link">Add more</a>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="form-group" id="edit-subscribe-notifications-wrapper">
+                      <div
+                        class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--mini field-toggle--with-title field-toggle--title-after">
+                        <div class="field-toggle__container">
+                          <input id="field-toggle-edit-subscribe-notifications"
+                                 type="checkbox" class="field-toggle__checkbox"
+                                 name="subscribe_notifications" value="1" checked="checked">
+                          <label for="field-toggle-edit-subscribe-notifications"
+                                 class="field-toggle__label">
+                            <span class="field-toggle__icon"></span>
+                            <span class="field-toggle__icon"></span>
+                          </label>
+                        </div>
+                        <span class="field-toggle__title js-field-toggle-title noselect"
+                              role="button"> Subscribe to comments, price drops and back in
+                                                        stock notifications for this deal </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <input type="submit" name="op" id="edit-submit" value="Save"
+                           class="form-submit btn btn-default btn-primary">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="card">
+                  <div class="card__content">
+                    <fieldset class=" collapsible collapsed">
+                      <legend class="collapse-processed">
+                        <a href="#">Comment settings</a>
+                      </legend>
+                      <div class="fieldset-wrapper" style="display: none;">
+                        <div class="form-radios">
+                          <div class="form-group" id="edit-comment-0-wrapper">
+                            <label class="option" for="edit-comment-0">
+                              <input type="radio" id="edit-comment-0" name="comment"
+                                     value="0" class="form-radio"> Disabled
+                            </label>
+                          </div>
+                          <div class="form-group" id="edit-comment-1-wrapper">
+                            <label class="option" for="edit-comment-1">
+                              <input type="radio" id="edit-comment-1" name="comment"
+                                     value="1" class="form-radio"> Read only
+                            </label>
+                          </div>
+                          <div class="form-group" id="edit-comment-2-wrapper">
+                            <label class="option" for="edit-comment-2">
+                              <input type="radio" id="edit-comment-2" name="comment"
+                                     value="2" checked="checked" class="form-radio">
+                              Read/Write
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" name="changed" id="edit-changed" value="">
+            <input type="hidden" name="form_build_id"
+                   id="form-3N0-GVXMoZDdZk8WxAumv-zU6_eDMN421xiD1VA5kEo"
+                   value="form-3N0-GVXMoZDdZk8WxAumv-zU6_eDMN421xiD1VA5kEo">
+            <input type="hidden" name="form_token" id="edit-product-node-form-form-token"
+                   value="aa2f2513bd09d414b3780c018ff1c5ec">
+            <input type="hidden" name="form_id" id="edit-product-node-form" value="product_node_form">
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- -----------------add a new deal section end here--------------- -->
+
+<!-- card section two start here  -->
+<%= render partial: 'partials/middle_adds' %>
+<section class="mb-4">
+  <div class="container">
+    <div class="row">
+     <%= render partial: 'partials/bottom_cards' %>
+    </div>
+  </div>
+</section>
+<%= render partial: 'partials/footer' %>
+</body>
+</html>

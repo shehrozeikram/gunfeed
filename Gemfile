@@ -13,6 +13,10 @@ gem "activeadmin"
 
 gem 'sass-rails'
 
+gem 'bootstrap', '~> 4.2.1'
+
+gem 'jquery-rails'
+
 # Use pgsql as the database for Active Record
 gem "pg", "~> 1.1"
 

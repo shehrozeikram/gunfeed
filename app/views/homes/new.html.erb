@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<%= render partial: 'partials/title' %>
+<div class="body-style">
+<%= render partial: 'partials/header' %>
+<section>
+  <div class="container">
+    <div class="add-section add-banner-section">
+    </div>
+  </div>
+</section>
+<!-- signup section start -->
+<div class="mb-4">
+  <div class="container mt-5 form-deelgun ">
+    <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Login</button></li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                type="button" role="tab" aria-controls="profile-tab-pane"
+                aria-selected="false">Register</button></li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
+                type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Reset Password</button></li>
+    </ul>
+    <div class="form-pages bg-white p-4">
+      <div class="tab-content  mt-4" id="myTabContent">
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+             tabindex="0">
+          <h1>User account</h1>
+          <form action="#" class="form">
+            <div class="mb-3">
+              <a href="#"> <label for="usernameEmail" class="form-label">Username or Email address:*</label></a>
+              <input type="email"  maxlength="128" size="25" class="form-text required form-control">
+            </div>
+            <div class="mb-3">
+              <a href="#"><label for="password" class="form-label">Password:*</label></a>
+              <input type="password" maxlength="128" size="25" class="form-text required form-control">
+            </div>
+            <div class="form-group">
+              <input type="submit" name="op" id="edit-submit" value="Log In" class="form-submit btn btn-default btn-primary">
+            </div>
+          </form>
+        </div>
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+             tabindex="0">
+          <h1>Register Account</h1>
+          <form action="#" class="form">
+            <div class="mb-3">
+              <a href="#">   <label for="username" class="form-label">Username:*</label></a>
+              <input type="text"  maxlength="128" size="25" class="form-text required form-control">
+
+            </div>
+            <div class="mb-3">
+              <a href="#"><label for="email" class="form-label">E-mail Address:*</label></a>
+              <input type="text" maxlength="128" size="25" class="form-text required form-control">
+            </div>
+            <div class="mb-3">
+              <a href="#">  <label for="email" class="form-label">Confirm e-mail address:*</label></a>
+              <input type="email" maxlength="128" size="25" class="form-text required form-control">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password:*</label>
+              <input type="password" maxlength="128" size="25" class="form-text required form-control">
+              <span>Password Strength:</span>
+
+            </div>
+            <div class="mb-3">
+              <label for="confirm" class="form-label">Confirm Password:*</label>
+              <input type="password" maxlength="128" size="25" class="form-text required form-control">
+              <span>Password Match:</span>
+            </div>
+            <div class="mb-3">
+              <strong>Role:</strong>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDisabled" id="rollUser"
+                       checked>
+                <label class="form-check-label" for="rollUser">
+                  User
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDisabled" id="rollSeller">
+                <label class="form-check-label" for="rollSeller">
+                  Seller
+                </label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="">
+                <label class="option" for="edit-read-and-agree">
+                  <input type="checkbox" name="read_and_agree" id="edit-read-and-agree" value="1" class="form-checkbox"> I have read and agree to the
+                  <a target="_blank" href="#">Terms of Service</a>,
+                  <a target="_blank" href="#">Privacy Policy</a> and the use of Cookies on this website
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="submit" name="op" id="edit-submit" value="Create new account" class="form-submit btn btn-default btn-primary">
+            </div>
+          </form>
+        </div>
+        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
+             tabindex="0">
+          <h1>User account</h1>
+          <form action="#" class="form">
+            <div class="mb-3">
+              <label for="usernameEmail" class="form-label">Username or Email address:*</label>
+              <input type="text" maxlength="128" size="25" class="form-text required form-control">
+            </div>
+            <div class="form-group">
+              <input type="submit" name="op" id="edit-submit" value="E-mail new password" class="form-submit btn btn-default btn-primary">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+<!-- card section two start here  -->
+  <%= render partial: 'partials/middle_adds' %>
+  <section class="mb-4">
+    <div class="container">
+      <div class="row">
+        <%= render partial: 'partials/bottom_cards' %>
+      </div>
+    </div>
+  </section>
+  <%= render partial: 'partials/footer' %>
+  </body>
+</html>
