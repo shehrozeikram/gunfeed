@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<%= render partial: 'partials/title' %>
+<div class="body-style">
+  <%= render partial: 'partials/header' %>
+  <section>
+    <div class="container">
+      <div class="add-section add-banner-section">
+      </div>
+    </div>
+  </section>
+  <!--------------------- dealer api section start here ---------------------  -->
+  <section class="dealer-api mb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="card p-3">
+            <div class="card__title">
+              <h1>Dealers API access</h1>
+            </div>
+            <div class="card__content">
+              <p>Compare and optimize your pricing for best exposure on gun.deals and online</p>
+              <p>To access paid dealers API subscription, you will need API key. For obtaining your API
+                key, please complete the monthly recurring subscription for your desired API</p>
+              <h3>Top products</h3>
+              <p>Prices for top most populars products on gun.deals website.</p>
+              <p>
+                <a href="#" target="_blank">Monthly Recurring Subscription
+                  for Top 150 most viewed products only ($399.99 per month)</a>
+              </p>
+              <pre>GET https://api.gunengine.com/api/dealers/v1/top-products?api_key={API_KEY}&amp;total_results={INT}</pre>
+              <ul>
+                <li>api_key (required)</li>
+                <li>total_results (optional, default: 5)</li>
+              </ul>
+              <h3>Prices by UPC - Full Access to entire database</h3>
+              <p>Get prices for one or million products by UPC.
+                <br>
+                <a href="#" target="_blank">Monthly Recurring Subscription
+                  for Full Access to entire database ($699.99 per month)</a>
+              </p>
+              <h4>Fetch prices for single UPC</h4>
+              <pre>GET https://api.gunengine.com/api/dealers/v1/search-by-upc?api_key={API_KEY}&amp;upc={UPC}&amp;total_results={INT}</pre>
+              <ul>
+                <li>api_key (required)</li>
+                <li>upc (required)</li>
+                <li>total_results (optional, default: 5)</li>
+              </ul>
+              <p>Here is an example of the UPC API results</p>
+              <pre>{
+"count":20,
+"upc":"736676011513",
+"products":[
+  {
+     "storeName":"Deguns.net",
+     "price":"207.00"
+  },
+  {
+     "storeName":"Gunprime",
+     "price":"208.00"
+  },
+  {
+     "storeName":"Sportsman's Guide",
+     "price":"209.99"
+  },
+  {
+     "storeName":"Locked Loaded",
+     "price":"212.98"
+  },
+  {
+     "storeName":"Smoky Mountain Guns &amp; Ammo",
+     "price":"214.99"
+  },
+  {
+     "storeName":"Guns Midwest",
+     "price":"219.00"
+  },
+  {
+     "storeName":"Academy Sports &amp; Outdoors",
+     "price":"219.99"
+  },
+  {
+     "storeName":"Omaha Outdoors",
+     "price":"225.00"
+  },
+  {
+     "storeName":"Guns Midwest",
+     "price":"226.91"
+  },
+  {
+     "storeName":"Guns Midwest",
+     "price":"226.91"
+  },
+  {
+     "storeName":"Guns Midwest",
+     "price":"226.91"
+  },
+  {
+     "storeName":"National Gun Owner Association &amp; Buyers Club",
+     "price":"226.99"
+  },
+  {
+     "storeName":"Peak Firearms",
+     "price":"229.00"
+  },
+  {
+     "storeName":"Shoot Straight",
+     "price":"229.00"
+  },
+  {
+     "storeName":"Bass Pro Shops",
+     "price":"229.99"
+  },
+  {
+     "storeName":"Sportsmans Outdoor Superstore",
+     "price":"229.99"
+  },
+  {
+     "storeName":"Tombstone Tactical",
+     "price":"232.09"
+  },
+  {
+     "storeName":"Guns for Gals",
+     "price":"232.89"
+  },
+  {
+     "storeName":"R&amp;R Sports &amp; Outdoors",
+     "price":"233.99"
+  },
+  {
+     "storeName":"Bear Arms Munitions",
+     "price":"233.99"
+  }
+]
+}
+</pre>
+              <hr>
+              <h4>List of vendor IDs</h4>
+              <pre>GET https://api.gunengine.com/api/dealers/v1/merchant-list?api_key={API_KEY}</pre>
+              <ul>
+                <li>api_key (required)</li>
+              </ul>
+              <hr>
+              <h4>Return results from selected vendor only</h4>
+              <pre>GET https://api.gunengine.com/api/dealers/v1/search-by-upc?api_key={API_KEY}&amp;upc={UPC}&amp;merchant={merchant ID}</pre>
+              <ul>
+                <li>api_key (required)</li>
+                <li>upc (required)</li>
+                <li>merchant (optional, default: all vendors)</li>
+              </ul>
+              <hr>
+              <h4>Fetch prices for multiple UPCs in one API call (batch fetch)</h4>
+              <pre>POST https://api.gunengine.com/api/dealers/v1/product/search?api_key={API_KEY}&amp;merchant={merchant ID}</pre>
+              <ul>
+                <li>api_key (required)</li>
+                <li>merchant (optional, default: all vendors)</li>
+              </ul>
+              <p>Request body: (maximum 1000 UPCs per batch)</p>
+              <pre>{
+"upcs": ["&lt;upc1&gt;", "&lt;upc2&gt;", ...]
+}</pre>
+              <hr>Please contact us if you would like to enable URLs from vendors in the API call
+              <p></p>
+              <hr>
+              <h4>Postman collection</h4>
+              <p>We have created a
+                <a href="#" target="_blank">Postman</a> collection for your
+                convenience so you can try all Dealers API requests.
+                <br>
+              </p>
+              <p></p>
+              <p>You can
+                <b>
+                  <a href="#"
+                     download="gun.deals_Dealers_API_Postman_Collection.json">download the Postman
+                    collection here</a>
+                </b> and import it into your workspace.
+              </p>
+              <p>Before start using it, you need to enter your Dealers API key into the variables section
+                like in the image below:</p>
+              <p>
+                <img src="/sites/default/files/postman/DealersAPIPostmanInstructions20221012.png"
+                     alt="Dealers API key instruction">
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!---------------------dealer api section end here ---------------------  -->
+</div>
+<!-- card section two start here  -->
+<%= render partial: 'partials/middle_adds' %>
+<section class="mb-4">
+  <div class="container">
+    <div class="row">
+      <%= render partial: 'partials/bottom_cards' %>
+    </div>
+  </div>
+</section>
+<%= render partial: 'partials/footer' %>
+</body>
+</html>

@@ -1,8 +1,66 @@
 
+/* ---------------create new button start style----------------- */
+.custom-button {
+  color: #fff;
+  background-color: #2e66a5!important;
+  border-color: #285a91!important;
+  border: 2px solid #285a91!important;
+  box-shadow: none;
+  padding: 6px 8px;
+  border-radius: 7px;
+  outline: none;
+
+}
+form input[type=submit], form input[type=button], form button{
+  background-image: linear-gradient(180deg, #2e66a5, #2e66a3);
+}
+
+form input[type=submit]:not(.disabled):hover, form input[type=button]:not(.disabled):hover, form button:not(.disabled):hover {
+  background-color: #8b9297;
+  background-image: linear-gradient(180deg, #234d7d, #2e66a5);
+  color: white;
+}
+a.button:not(.disabled):hover, a.button:link:not(.disabled):hover, a.button:visited:not(.disabled):hover, input[type=submit]:not(.disabled):hover, input[type=button]:not(.disabled):hover, button:not(.disabled):hover {
+  background-color: transparent;
+  background-image: linear-gradient(180deg, #e4e6e8, #e4e6e9);
+}
+a.button:not(.disabled):active, a.button:link:not(.disabled):active, a.button:visited:not(.disabled):active, input[type=submit]:not(.disabled):active, input[type=button]:not(.disabled):active, button:not(.disabled):active {
+  background-color: transparent;
+  background-image: linear-gradient(180deg, #fff, #ffffff);
+}
+.custom-button:hover {
+  color: #fff;
+  background-color: #234d7d;
+  border-color: #1b3c61;
+}
+//form input[type=submit], form input[type=button], form button {
+//  border-radius: 200px;
+//  display: inline-block;
+//  font-weight: bold;
+//  font-size: 1.0em;
+//  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+//  line-height: 12px;
+//  margin-right: 3px;
+//  padding: 7px 16px 6px;
+//  text-decoration: none;
+//  background-color: #838a90;
+//  background-image: linear-gradient(180deg, #838a90, #414549);
+//  text-shadow: #000 0 1px 0;
+//  box-shadow: 0 1px 1px rgb(0 0 0 / 10%), 0 1px 0 0px rgb(255 255 255 / 20%) inset;
+//  border: solid 1px #484e53;
+//  border-color: #484e53;
+//  border-top-color: #616a71;
+//  border-right-color: #484e53;
+//  border-bottom-color: #363b3f;
+//  border-left-color: #484e53;
+//  color: #efefef;
+//  cursor: pointer;
+//}
+/* ---------------create new button end style----------------- */
 
 
 /* --------color scheeme-------- */
-.btn.disabled, .btn:disabled, fieldset:disabled .btn{
+.btn.disabled, .btn:disabled, fieldset:disabled{
   background-color: #2e66a5!important;
   border-color: #285a91!important;
 }
@@ -1323,7 +1381,7 @@ a:visited {
 .caliber-listing-logo a {
   position: relative;
   width: 100%;
-  background: url(banner.jpg) no-repeat center center;
+  background: url(card-centre3.jpg) no-repeat center center;
   min-height: 100px;
   max-height: 100px;
   height: 20%;
@@ -1585,11 +1643,6 @@ a:visited {
   display: block;
   width: 100%;
 }
-.coupons {
-  color: #fff;
-  background-color: #2e66a5;
-  border-color: #285a91;
-}
 
 img{
   height: auto;
@@ -1780,10 +1833,10 @@ ul {
 
 
 //button section start for neww code in custom.....
-.new-primary-btn{
-  color: #fff;
-
-}
+//.new-primary-btn{
+//  color: #fff;
+//
+//}
 
 .coupon--inline .coupon__code span, .coupon--inline .coupon__code .fa {
   font-size: 14px;
@@ -1831,61 +1884,6 @@ ul {
   font-weight: 700;
 }
 
-/* .price-cta {
-    padding-left: 0;
-    list-style: none;
-    margin-bottom: 0;
-    display: flex;
-    overflow: hidden;
-    height: 44px;
-    white-space: nowrap;
-    border-radius: 50px;
-    background: #f2f4f6;
-
-} */
-/* .price-cta li {
-    height: 44px;
-    vertical-align: top;
-    font-size: 14px;
-} */
-/* .price-cta>li {
-    display: inline-block;
-}
-.price-cta__price-wrapper {
-    height: 44px;
-    text-align: center;
-    color: #fff;
-    border-radius: 50px;
-    background: #d41d00;
-    box-shadow: 0 0 0 3px #fff;
-    flex-grow: 1;
-}
-.price-cta__price-wrapper>span {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    align-content: center;
-}
-.price-cta__price-vertical-align {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.price-cta__price {
-    font-size: 16px;
-}
-.child {
-    font-size: 16px;
-    line-height: 44px;
-    flex-grow: 2;
-}
- .price-cta .icon-fa-link {
-    display: block;
-    width: 100%;
-    text-align: center;
-    color: #3b3f47;
-} */
 .icon-fa-link {
   padding: 0;
   border: 0;
@@ -1900,12 +1898,6 @@ ul {
 .card--basic-info .card__footer {
   padding-bottom: 5px;
 }
-/* .card__footer {
-    margin-right: -19px;
-    margin-bottom: -19px;
-    margin-left: -19px;
-    padding: 10px 20px;
-} */
 .card__footer {
   margin-right: -24px;
   margin-bottom: -24px;
@@ -2108,61 +2100,6 @@ ul {
   font-weight: 700;
 }
 
-/* .price-cta {
-    padding-left: 0;
-    list-style: none;
-    margin-bottom: 0;
-    display: flex;
-    overflow: hidden;
-    height: 44px;
-    white-space: nowrap;
-    border-radius: 50px;
-    background: #f2f4f6;
-
-} */
-/* .price-cta li {
-    height: 44px;
-    vertical-align: top;
-    font-size: 14px;
-} */
-/* .price-cta>li {
-    display: inline-block;
-}
-.price-cta__price-wrapper {
-    height: 44px;
-    text-align: center;
-    color: #fff;
-    border-radius: 50px;
-    background: #d41d00;
-    box-shadow: 0 0 0 3px #fff;
-    flex-grow: 1;
-}
-.price-cta__price-wrapper>span {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    align-content: center;
-}
-.price-cta__price-vertical-align {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.price-cta__price {
-    font-size: 16px;
-}
-.child {
-    font-size: 16px;
-    line-height: 44px;
-    flex-grow: 2;
-}
- .price-cta .icon-fa-link {
-    display: block;
-    width: 100%;
-    text-align: center;
-    color: #3b3f47;
-} */
 .icon-fa-link {
   padding: 0;
   border: 0;
@@ -2383,62 +2320,6 @@ ul {
 .dealer-comparison-info a {
   font-weight: 700;
 }
-
-/* .price-cta {
-    padding-left: 0;
-    list-style: none;
-    margin-bottom: 0;
-    display: flex;
-    overflow: hidden;
-    height: 44px;
-    white-space: nowrap;
-    border-radius: 50px;
-    background: #f2f4f6;
-
-} */
-/* .price-cta li {
-    height: 44px;
-    vertical-align: top;
-    font-size: 14px;
-} */
-/* .price-cta>li {
-    display: inline-block;
-}
-.price-cta__price-wrapper {
-    height: 44px;
-    text-align: center;
-    color: #fff;
-    border-radius: 50px;
-    background: #d41d00;
-    box-shadow: 0 0 0 3px #fff;
-    flex-grow: 1;
-}
-.price-cta__price-wrapper>span {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    align-content: center;
-}
-.price-cta__price-vertical-align {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.price-cta__price {
-    font-size: 16px;
-}
-.child {
-    font-size: 16px;
-    line-height: 44px;
-    flex-grow: 2;
-}
- .price-cta .icon-fa-link {
-    display: block;
-    width: 100%;
-    text-align: center;
-    color: #3b3f47;
-} */
 .icon-fa-link {
   padding: 0;
   border: 0;
@@ -2687,16 +2568,164 @@ fieldset {
   font-weight: 300;
 }
 
-
-/* .product-form-label a label{
-  margin-bottom: 4px;
-  border-bottom: 1px dotted #3b3f47;
-
-}
-.product-form-label label{
-font-weight: bold;
-color: black;
-
-} */
-
 /* -----------------------------post a deal end style here------------------------ */
+
+//--------------------------------------new navbar background cooolor create-------
+.new-nav-bg-color{
+  background-color: #3b3f47;
+}
+
+/* -------------------newsletter section start here-------------------------- */
+.newsletter-subscribe-page__intro-teaser-icon {
+  font-size: 50px;
+}
+.media-middle {
+  vertical-align: middle;
+}
+.media-left {
+  padding-right: 10px;
+}
+.media-left, .media-right, .media-body {
+  display: table-cell;
+}
+.media-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+h4.media-heading {
+  font-size: 1.1rem;
+}
+.media:first-child {
+  margin-top: 0;
+}
+.media, .media-body {
+  zoom: 1;
+  overflow: hidden;
+}
+
+/* -------------------newsletter section end here-------------------------- */
+
+
+
+/* ------------------dealer API section style start here----------------------- */
+pre {
+  display: block;
+  padding: 10.5px;
+  margin: 0 0 11px;
+  font-size: 15px;
+  line-height: 1.428571429;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* ------------------dealer API section style end here----------------------- */
+
+/* -------------------trusted related program page style start here--------------------------------- */
+.badge-card .card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.badge-card__copy-text {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.btn-default, .teaser-button {
+  color: #333;
+  background-color: #fff!important;
+  border-color: #ccc!important;
+}
+
+.form-control[disabled], .select2-container--dark [disabled].select2-selection--multiple, .select2-container--dark [disabled].select2-selection--single, .select2-container--light [disabled].select2-selection--multiple, .select2-container--light [disabled].select2-selection--single, .form-control[readonly], .select2-container--dark [readonly].select2-selection--multiple, .select2-container--dark [readonly].select2-selection--single, .select2-container--light [readonly].select2-selection--multiple, .select2-container--light [readonly].select2-selection--single, fieldset[disabled] .form-control, fieldset[disabled] .select2-container--dark .select2-selection--multiple, .select2-container--dark fieldset[disabled] .select2-selection--multiple, fieldset[disabled] .select2-container--dark .select2-selection--single, .select2-container--dark fieldset[disabled] .select2-selection--single, fieldset[disabled] .select2-container--light .select2-selection--multiple, .select2-container--light fieldset[disabled] .select2-selection--multiple, fieldset[disabled] .select2-container--light .select2-selection--single, .select2-container--light fieldset[disabled] .select2-selection--single {
+  background-color: #eee;
+  opacity: 1;
+}
+/* -------------------trusted related program page style end here--------------------------------- */
+
+/* --------------------------------shopping comparison page start here --------------------*/
+.select2-container {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+}
+.select2-container--light .select2-selection--single {
+  height: 36px!important;
+}
+.select2-container--light .select2-selection--single .select2-selection__rendered {
+  padding-left: 0;
+  padding-right: 0;
+}
+.select2-container .select2-selection--single .select2-selection__rendered {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.label-success {
+  background-color: #5cb85c;
+}
+.label-warning {
+  background-color: #f0ad4e;
+}
+.label {
+  padding-bottom: 0.2em;
+}
+.label {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+}
+/* --------------------------------shopping comparison page end here --------------------*/
+
+
+/* --------------------------------Dealer and advertising page start here --------------------*/
+
+
+/* --------------------------------Dealer and advertising page end here --------------------*/
+
+
+/* --------------------------gateaway page style start here----------------------------- */
+html body .e-widget-wrapper {
+  margin: auto;
+  max-width: 540px;
+  padding: 0;
+}
+html body .e-widget-preloader, html body iframe.e-embed-frame {
+  width: 100%;
+  max-width: 540px;
+  min-width: 320px;
+  margin: 0 auto 20px;
+  display: block;
+  float: none;
+  background: white;
+}
+html.enter {
+  overflow: hidden;
+  height: 100%;
+  max-width: 540px;
+  min-width: 320px;
+}
+.e-embed-frame{
+  width: 40px;
+  height: 500px;
+  overflow: hidden;
+}
+
+
+/* --------------------------gateaway page style end here----------------------------- */
+
+

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<%= render partial: 'partials/title' %>
+<div class="body-style">
+  <%= render partial: 'partials/header' %>
+  <section>
+    <div class="container">
+      <div class="add-section add-banner-section">
+      </div>
+    </div>
+  </section>
+  <!------------------ cutomer reviewes section start here ------------------------ -->
+
+  <section>
+    <div class="container">
+      <div class="card customerreview-deal-page p-3">
+        <div class="card__title">
+          <h2 class="js-card-title customerreview-deal-page__title">Customer reviews</h2>
+          <div class="customerreview-deal-page__leave-a-review-container">
+            <a href="#" class="btn btn-primary">Leave a review</a>
+          </div>
+        </div>
+        <div class="card__content">
+          <div> This product hasn't received any reviews yet. Be the first one to
+            <a href="#">rate, describe your experience or upload photos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!------------------ cutomer reviewes section start here ------------------------ -->
+  <!-- ------------add reviews section start here -=======================-->
+
+  <section class="add-product-review my-3">
+    <div class="container">
+      <div class="card p-3">
+        <div class="card__title">
+          <h2 class="js-card-title">Reviews</h2>
+        </div>
+        <div class="card__content">
+          <p>There are no reviews yet for this product</p>
+          <a class="btn btn-primary" href="#">
+            <i class="fa fa-fw fa-list-alt"></i>
+            <span>Add product review</span>
+          </a>
+          <h3>Video reviews</h3>
+          <p>There are no video reviews yet for this product</p>
+          <a class="btn btn-primary" href="#">
+            <i class="fa fa-fw fa-youtube-play"></i>
+            <span>Add video review</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- -------------customer review sectiohn end----------------- -->
+  <!-- --------------------------comment section start here------------------------------------- -->
+  <section class="comment-section mb-3">
+    <div class="container">
+      <div class="card--comments p-3 js-collapsible-card anchor card--collapsed" id="comments"
+           data-collapsible-card="xs sm md lg">
+        <div class="card__title d-none">
+          <h2 class="js-card-title">Comments (2)</h2>
+        </div>
+        <div class="card__content d-none">
+          <div id="comment-form-content"></div>
+          <form action="/ajax/comment/reply/1076271" accept-charset="UTF-8" method="post" id="comment-form-1"
+                class="js-ajax-comment-form" style="display: none;">
+            <div>
+              <div style="display:none">
+                <div class="form-group">
+                  <label>Your name: </label>
+                  <a href="#" title="View user profile.">BirminghamPistol</a>
+                </div>
+              </div>
+              <div class="form-group">
+                <div id="comments-policy"></div>
+              </div>
+              <div class="form-group" id="edit-comment-1-wrapper">
+                <label for="edit-comment-1">Comment:
+                  <span class="form-required" title="This field is required.">*</span>
+                </label>
+                <div class="resizable-textarea">
+                                    <span>
+                                        <textarea cols="60" rows="5" name="comment" id="edit-comment-1"
+                                                  class="form-textarea resizable required wysiwyg form-control textarea-processed"></textarea>
+                                        <div class="grippie" style="margin-right: 0px;"></div>
+                                    </span>
+                </div>
+              </div>
+              <ul class="tips">
+                <li>Web page addresses and e-mail addresses turn into links automatically.</li>
+                <li>Allowed HTML tags: &lt;div&gt; &lt;span&gt; &lt;table&gt; &lt;tr&gt; &lt;td&gt;
+                  &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt; &lt;a&gt;
+                  &lt;p&gt; &lt;table&gt; &lt;tr&gt; &lt;td&gt; &lt;em&gt; &lt;strong&gt; &lt;b&gt;
+                  &lt;cite&gt; &lt;code&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; &lt;br&gt; &lt;dl&gt;
+                  &lt;dt&gt; &lt;dd&gt; &lt;i&gt; &lt;u&gt;</li>
+                <li>Lines and paragraphs break automatically.</li>
+              </ul>
+              <p>
+                <a href="#">More information about formatting options</a>
+              </p>
+              <input type="hidden" name="form_build_id"
+                     id="form-mTHzAaUmCylTLkCmIo6WZKeMTzoRPZJ42HvudEdMFB0"
+                     value="form-mTHzAaUmCylTLkCmIo6WZKeMTzoRPZJ42HvudEdMFB0">
+              <input type="hidden" name="form_token" id="edit-form-token-1"
+                     value="a123ec0f2f5c93657fb78d48ba4e0d6d">
+              <input type="hidden" name="form_id" id="edit-comment-form-1" value="comment_form">
+              <fieldset class=" collapsible collapsed">
+                <legend class="collapse-processed">
+                  <a href="#">Images</a>
+                </legend>
+                <div class="fieldset-wrapper">
+                  <div class="js-dropzone dropzone dz-clickable">
+                    <div class="dz-default dz-message">
+                      <span>Add or drag your images here</span>
+                    </div>
+                  </div>
+                  <input type="hidden" name="fetched_dropzone_images"
+                         id="edit-fetched-dropzone-images-1" value="">
+                </div>
+              </fieldset>
+              <div class="form-group" id="edit-notify-1-wrapper">
+                <label class="option" for="edit-notify-1">
+                  <input type="checkbox" name="notify" id="edit-notify-1" value="1" checked="checked"
+                         class="form-checkbox"> Subscribe to comments, price drops and back in stock
+                  notifications for this deal
+                </label>
+              </div>
+              <input type="submit" name="op" id="edit-submit-1" value="Save"
+                     class="form-submit btn btn-default btn-primary">
+            </div>
+          </form>
+          <a id="comment-1165241"></a>
+          <div class="comment comment-published clear-block" data-cid="1165241">
+            <div class="submitted">
+              <div class="submitted-info"> By
+                <a href="#" title="View user profile.">jethro_tull</a>,
+                <a href="#comment-1165241" class="comment__hyperlink">3 months ago</a>
+              </div>
+              <div class="submitted_report">
+                <a class="js-report-comment" href="#">Report</a>
+              </div>
+            </div>
+            <div class="content">
+              <div class="comment-content js-comment-content">
+                <p>Buy the Tisas GI instead. The upper grip bushing hole was stripped on mine, and the
+                  extractor was adjusted incorrectly from the factory, resulting in stovepipes every
+                  other round. Once I removed and adjusted the extractor, it worked fine. The included
+                  magazine stovepipes on the final round, every time. Save your money.</p>
+              </div>
+              <div class="rate-widget-2 rate-widget clear-block rate-average rate-widget-thumbs_up_down_count rate-fa950b899227ef1b0da0a2e96d8dcb38 rate-processed rate-custom-processed"
+                   id="rate-comment-1165241-2-1">
+                <div class="votes-up-down-widget">
+                  <div class="thumb-up">
+                    <div class="" title="100%">
+                      <a class="rate-button rate-thumbs-up-down-btn-up" id="rate-button-7"
+                         rel="nofollow"
+                         href="#">up</a>
+                    </div>
+                    <div class="percent">1 vote</div>
+                  </div>
+                  <div class="thumb-down">
+                    <div title="0%">
+                      <a class="rate-button rate-thumbs-up-down-btn-down" id="rate-button-8"
+                         rel="nofollow"
+                         href="#">down</a>
+                    </div>
+                    <div class="percent">0 votes</div>
+                  </div>
+                  <div class="voting-results-link">
+                    <a href="#">View score</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ul class="links">
+              <li class="comment_reply first last">
+                <a href="#">reply</a>
+              </li>
+            </ul>
+          </div>
+          <div class="indented">
+            <a id="comment-1171131"></a>
+            <div class="comment comment-published clear-block" data-cid="1171131">
+              <div class="submitted">
+                <div class="submitted-info"> By
+                  <a href="#" title="View user profile.">Cole982</a>,
+                  <a href="#comment-1171131" class="comment__hyperlink">1 month ago</a>
+                </div>
+                <div class="submitted_report">
+                  <a class="js-report-comment" href="#">Report</a>
+                </div>
+              </div>
+              <div class="content">
+                <div class="comment-content js-comment-content">
+                  <p>Sounds like a quick and easy fix by adjusting the extractor and using better
+                    mags. It’s a $360 1911. If issues like that are a deal breaker for you, the
+                    Tisas likely won’t fare much better. Personally, I’d take the one made in Italy
+                    over the one made in Turkey.</p>
+                </div>
+                <div class="rate-widget-2 rate-widget clear-block rate-average rate-widget-thumbs_up_down_count rate-0dbfe68b512e9ad1fd0af49bdf469686 rate-processed rate-custom-processed"
+                     id="rate-comment-1171131-2-1">
+                  <div class="votes-up-down-widget">
+                    <div class="thumb-up">
+                      <div class="" title="0%">
+                        <a class="rate-button rate-thumbs-up-down-btn-up" id="rate-button-11"
+                           rel="nofollow"
+                           href="#">up</a>
+                      </div>
+                      <div class="percent">0 votes</div>
+                    </div>
+                    <div class="thumb-down">
+                      <div title="100%">
+                        <a class="rate-button rate-thumbs-up-down-btn-down" id="rate-button-12"
+                           rel="nofollow"
+                           href="#">down</a>
+                      </div>
+                      <div class="percent">1 vote</div>
+                    </div>
+                    <div class="voting-results-link">
+                      <a href="#">View
+                        score</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="links">
+                <li class="comment_reply first last">
+                  <a href="#">reply</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="box">
+            <h2>Post new comment</h2>
+            <div class="content">
+              <form action="/ajax/comment/reply/1076271" accept-charset="UTF-8" method="post"
+                    id="comment-form" class="js-ajax-comment-form">
+                <div>
+                  <div style="display:none">
+                    <div class="form-group">
+                      <label>Your name: </label>
+                      <a href="#"
+                         title="View user profile.">BirminghamPistol</a>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div id="comments-policy"></div>
+                  </div>
+                  <div class="form-group" id="edit-comment-wrapper">
+                    <label for="edit-comment">Comment:
+                      <span class="form-required" title="This field is required.">*</span>
+                    </label>
+                    <div class="resizable-textarea">
+                                            <span>
+                                                <textarea cols="60" rows="5" name="comment" id="edit-comment"
+                                                          class="form-textarea resizable required wysiwyg form-control textarea-processed"></textarea>
+                                                <div class="grippie" style="margin-right: 0px;"></div>
+                                            </span>
+                    </div>
+                  </div>
+                  <ul class="tips">
+                    <li>Web page addresses and e-mail addresses turn into links automatically.</li>
+                    <li>Allowed HTML tags: &lt;div&gt; &lt;span&gt; &lt;table&gt; &lt;tr&gt;
+                      &lt;td&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt;
+                      &lt;a&gt; &lt;p&gt; &lt;table&gt; &lt;tr&gt; &lt;td&gt; &lt;em&gt;
+                      &lt;strong&gt; &lt;b&gt; &lt;cite&gt; &lt;code&gt; &lt;ul&gt; &lt;ol&gt;
+                      &lt;li&gt; &lt;br&gt; &lt;dl&gt; &lt;dt&gt; &lt;dd&gt; &lt;i&gt; &lt;u&gt;
+                    </li>
+                    <li>Lines and paragraphs break automatically.</li>
+                  </ul>
+                  <p>
+                    <a href="#">More information about formatting options</a>
+                  </p>
+                  <input type="hidden" name="form_build_id"
+                         id="form-mHD9hWW6AfpichtQut1i9KdoOcGkEQL5bwTNa4VFE-w"
+                         value="form-mHD9hWW6AfpichtQut1i9KdoOcGkEQL5bwTNa4VFE-w">
+                  <input type="hidden" name="form_token" id="edit-form-token"
+                         value="a123ec0f2f5c93657fb78d48ba4e0d6d">
+                  <input type="hidden" name="form_id" id="edit-comment-form" value="comment_form">
+                  <fieldset class=" collapsible collapsed">
+                    <legend class="collapse-processed">
+                      <a href="#">Images</a>
+                    </legend>
+                    <div class="fieldset-wrapper">
+                      <div class="js-dropzone dropzone dz-clickable">
+                        <div class="dz-default dz-message">
+                          <span>Add or drag your images here</span>
+                        </div>
+                      </div>
+                      <input type="hidden" name="fetched_dropzone_images"
+                             id="edit-fetched-dropzone-images" value="">
+                    </div>
+                  </fieldset>
+                  <div class="form-group" id="edit-notify-wrapper">
+                    <label class="option" for="edit-notify">
+                      <input type="checkbox" name="notify" id="edit-notify" value="1"
+                             checked="checked" class="form-checkbox"> Subscribe to comments, price
+                      drops and back in stock notifications for this deal
+                    </label>
+                  </div>
+                  <input type="submit" name="op" id="edit-submit" value="Save"
+                         class="form-submit btn btn-default btn-primary">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <button class="card__collapsed-title btn-block text-left d-flex justify-content-between" tabindex="0">
+          <div>Comments (2)</div>
+          <div><i class="card__caret fa fa-caret-down"></i></div>
+        </button>
+
+      </div>
+    </div>
+  </section>
+  <!-- --------------------=--------comment section end here----------------------------------- -->
+</div>
+<!-- card section two start here  -->
+<%= render partial: 'partials/middle_adds' %>
+<section class="mb-4">
+  <div class="container">
+    <div class="row">
+      <%= render partial: 'partials/bottom_cards' %>
+    </div>
+  </div>
+</section>
+<%= render partial: 'partials/footer' %>
+</body>
+</html>

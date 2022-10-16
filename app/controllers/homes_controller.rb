@@ -28,4 +28,48 @@ class HomesController < ApplicationController
 
   end
 
+  def banners
+
+  end
+
+  def giveaways
+
+  end
+
+  def banner_ads
+
+  end
+
+  def dealers_advertising
+
+  end
+
+  def trusted_retailer_program
+
+  end
+
+  def dealers_api_access
+
+  end
+
+  def terms_service
+
+  end
+
+  def privacy_policy
+
+  end
+
+  def refund_policy
+
+  end
+
+  def how_order_gun_online
+
+  end
+
+  def show_page
+
+  end
+
 end

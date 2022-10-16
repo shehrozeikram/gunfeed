@@ -9,6 +9,53 @@
       </div>
     </div>
   </section>
+  <!--------------------- newsletter section start here ---------------------  -->
+  <section class="newsletter mb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="card p-3">
+            <div class="card__title">
+              <h1>Subscribe to our newsletter</h1>
+            </div>
+            <div class="card__content">
+              <div class="row">
+                <div class="col-md-6 col-xs-12 newsletter-subscribe-page__intro">
+                  <div class="media">
+                    <div class="media-left media-middle newsletter-subscribe-page__intro-teaser-icon">
+                      <i class="fa fa-envelope"></i>
+                    </div>
+                    <div class="media-body media-middle">
+                      <h4 class="media-heading">DON'T MISS THE DEALS! SUBSCRIBE TO NEWSLETTER</h4>
+                    </div>
+                  </div>
+                  <div>Sign up for our newsletter to receive the best deals on guns and ammo.</div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                  <form action="/newsletter-subscribe" accept-charset="UTF-8" method="post" id="slickguns-newsletter-subscribe-form">
+                    <div>
+                      <div class="form-group" id="edit-email-wrapper">
+                        <label for="edit-email">Email:
+                          <span class="form-required" title="This field is required.">*</span>
+                        </label>
+                        <input type="text" maxlength="128" name="email" id="edit-email" size="60" value="" class="form-text required form-control">
+                      </div>
+                      <p class="help-block">We will not use this information for any other purpose than to contact you via the mailing list you have signed up for. We will not pass your email address or other details to other companies.</p>
+                      <input type="submit" name="op" id="edit-submit-subscribe" value="SUBSCRIBE ME" class="form-submit btn btn-default btn-primary">
+                      <input type="hidden" name="form_build_id" id="form-Rrn1EBo6MwDAYfxhwF-eYKllvl7i2-ZCWQQfCoPDyj4" value="form-Rrn1EBo6MwDAYfxhwF-eYKllvl7i2-ZCWQQfCoPDyj4">
+                      <input type="hidden" name="form_id" id="edit-slickguns-newsletter-subscribe-form" value="slickguns_newsletter_subscribe_form">
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="newsletter-subscribe-page__customise-link"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--------------------- newsletter section end here ---------------------  -->
 </div>
 <!-- card section two start here  -->
 <%= render partial: 'partials/middle_adds' %>
