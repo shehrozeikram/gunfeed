@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
   get "/index", to: "homes#index"
   root "homes#index"
+  get "/today" , to: "homes#today"
+  get "/stock_guns" , to: "homes#stock_guns"
   get "/new" , to: "homes#new"
   get "/post_a_deal" , to: "homes#post_a_deal"
   get "/about_us" , to: "homes#about_us"

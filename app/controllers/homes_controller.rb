@@ -2,6 +2,13 @@ class HomesController < ApplicationController
   def index
   end
 
+  def today
+  end
+
+  def stock_guns
+
+  end
+
   def new
   end
 
