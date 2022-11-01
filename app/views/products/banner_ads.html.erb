@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<%= render partial: 'partials/title' %>
+<div class="body-style">
+  <%= render partial: 'partials/header' %>
+  <section>
+    <div class="container">
+      <div class="add-section add-banner-section">
+      </div>
+    </div>
+  </section>
+  <!--------------------- banner ads section start here ---------------------  -->
+  <section class=" mb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="card p-3">
+            <div class="card__title">
+              <h1>gun.deals banner ads</h1>
+            </div>
+            <div class="card__content">
+              <br>Apply Coupon code "30percent" for 30% discount for the first 10 customers on banners for life
+              <br>You may place your banner order directly on this page below or visit our
+              <a href="#" target="_blank">Buysellads market place here </a>
+              <br>
+              <div class="bsa-sitecart-inventory"></div>
+              <script src="//s3.buysellads.com/ac/sitecart.js" id="bsasitecart" data-site="285464" type="text/javascript"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--------------------- banner ads section end here ---------------------  -->
+</div>
+<!-- card section two start here  -->
+<%= render partial: 'partials/middle_adds' %>
+<section class="mb-4">
+  <div class="container">
+    <div class="row">
+      <%= render partial: 'partials/bottom_cards' %>
+    </div>
+  </div>
+</section>
+<%= render partial: 'partials/footer' %>
+</body>
+</html>

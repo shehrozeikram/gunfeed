@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%= render partial: 'partials/title' %>
+<div class="body-style">
+  <%= render partial: 'partials/header' %>
+  <section>
+    <div class="container">
+      <div class="add-section add-banner-section">
+      </div>
+    </div>
+  </section>
+  <!--------------------- refund policy section start here ---------------------  -->
+  <section class="refund-policy mb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="card p-3">
+            <div class="card__title">
+              <h1>Refund Policy</h1>
+            </div>
+            <div class="card__content">
+              <p>Gun.Deals does not sell or ship Firearms or any products. Gun.deals is a search engine and we help you find the best deals available online from federally licenced gun dealers. All firearms must be shipped to your local FFL for background check, no exceptions. Most other products that are not firearms may be shipped directly to your home, please verify your state laws.</p>
+              <p>We provide software services and advertising subscriptions to licenced gun dealers and sports &amp; outdoors shops. All our plans are monthly recurring subscriptions. These plans will automatically bill your credit card on file and renew each month, until you cancel it. We will not issue refund for past or unused months. We reserve the right to modify pricing in the future (in this case we would notify you in advance). We do not provide phone support! Email us or use the contact us form with any questions. There will be no refunds, you must cancel your subscription before it renews. Please follow the instructions on the invoice how to cancel or contact us via "contact us" form and we will cancel it on your behalf.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--------------------- refund policy section end here ---------------------  -->
+</div>
+<!-- card section two start here  -->
+<%= render partial: 'partials/middle_adds' %>
+<section class="mb-4">
+  <div class="container">
+    <div class="row">
+      <%= render partial: 'partials/bottom_cards' %>
+    </div>
+  </div>
+</section>
+<%= render partial: 'partials/footer' %>
+</body>
+</html>

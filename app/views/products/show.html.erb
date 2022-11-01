@@ -1,0 +1,1273 @@
+<!--<h1><%#= @product.title %></h1>-->
+
+<!--<p><%#= @product.body %></p>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<%= render partial: 'partials/title' %>
+<div class="body-style">
+  <%= render partial: 'partials/header' %>
+  <section>
+    <div class="container">
+      <div class="add-section add-banner-section">
+      </div>
+    </div>
+  </section>
+  <section class="mt-4">
+    <div class="container">
+      <div class="card card--basic-info p-4">
+        <div class="card__title">
+          <span class="js-badge-wrapper"></span>
+          <h1><%= @product.title %></h1>
+        </div>
+        <div class="card__content">
+          <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-3">
+              <ul class="price-cta">
+                <li class="price-cta__price-wrapper">
+                                    <span class="price-cta__price-vertical-align">
+                                        <span class="price-cta__price">$<%= @product.price %></span>
+                                    </span>
+                </li>
+                <li>
+                  <a href="#" class="icon-fa-link js-statistics-link js-ga-event"
+                     data-nid="1076271"
+                     data-current-url="product/charles-daly-1911-field-grade-45-acp-5-barrel-8-rounds-wood-grips-42999"
+                     data-ga-action="External Click" data-ga-category="GrabAGun.com"
+                     data-ga-label="Deal page - &quot;Go to deal&quot; button" target="_blank"
+                     title="Go to deal">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>Go to deal</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <div class="product__detail ">
+                <i class="fa fa-user"></i>
+                <span> Posted by
+                                    <a href="#">Ward Green</a>
+                                </span>
+              </div>
+              <div class="product__detail">
+                <i class="fa fa-calendar"></i>Updated by
+                <a href="#">JamesS</a> 1 day ago
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <div class="product__detail">
+                <i class="fa fa-map-marker"></i>More deals from
+                <a href="#" data-nid="1076271"
+                   data-current-url="product/charles-daly-1911-field-grade-45-acp-5-barrel-8-rounds-wood-grips-42999">GrabAGun.com</a>
+              </div>
+              <div class="product__detail">
+                <i class="fa fa-eye"></i>8114 views
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card__footer">
+          <ul class="pill-list">
+            <li>
+                            <span class="pill pill--category">
+                                <span class="pill__title">Category</span>
+                                <span class="pill__value">
+                                    <a href="#">Handguns</a>
+                                </span>
+                            </span>
+            </li>
+            <li>
+                            <span class="pill pill--caliber">
+                                <span class="pill__title">Caliber</span>
+                                <span class="pill__value">
+                                    <a href="#"><%= @product.caliber %></a>
+                                </span>
+                            </span>
+            </li>
+            <li>
+                            <span class="pill pill--brand">
+                                <span class="pill__title">Brand</span>
+                                <span class="pill__value">
+                                    <a href="#"><%= @product.brand %></a>
+                                </span>
+                            </span>
+            </li>
+            <li>
+                            <span class="pill pill--upc">
+                                <span class="pill__title">UPC</span>
+                                <span class="pill__value">
+                                    <a href="#"><%= @product.upc %></a>
+                                </span>
+                            </span>
+            </li>
+            <li>
+                            <span class="pill pill--mpn">
+                                <span class="pill__title">MPN</span>
+                                <span class="pill__value">
+                                    <a href="#"><%= @product.mpn %></a>
+                                </span>
+                            </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ----------------discription section start here------------------------------- -->
+  <section class="discription-section my-3">
+    <div class="container">
+
+      <div class="card--description ">
+        <div class="card p-3">
+          <div class="row row-relative changing-compare-price-list">
+            <div class="col-lg-3 px-1">
+              <div class="img-gallery product-actions-bottom-margin">
+                <a href="#">
+                  <image src = "<%= @product.image %>", class = "p-4 pt-0" />
+                </a>
+              </div>
+              <ul class="product-actions product-actions--expanded">
+                <li class="product-actions__cta">
+                  <a href="#" data-nid="1076271"
+                     data-current-url="product/charles-daly-1911-field-grade-45-acp-5-barrel-8-rounds-wood-grips-42999"
+                     data-ga-action="External Click" data-ga-category="GrabAGun.com"
+                     data-ga-label="Deal page - &quot;Buy at&quot; button" target="_blank"
+                     class="js-statistics-link js-ga-event" title="Buy at GrabAGun.com">
+                    <i class="fa fa-shopping-cart"></i> Buy at GrabAGun.com
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="btn btn-product-icon btn-product-icon-config btn-block text-black js-tooltip js-modal-caller  "
+                    data-original-icon="fa-bell-o fa-fw" data-inverse-icon="fa-bell-o fa-fw"
+                    data-original-text="Notify me" data-inverse-text="Following product (UPC)"
+                    data-status="0" data-toggle="modal" data-target="#modalUpcSubscribe"
+                    data-placement="bottom"
+                    data-title="Notifies when price drops below limit price you set. Tracks all products with same product UPC, sitewide."
+                    data-original-title="" title="">
+                    <i class="fa fa-bell-o fa-fw"></i>
+                    <span>Notify me</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="btn btn-product-icon btn-block text-left text-black js-ajax-toggle-link js-ajax-toggle-watchlist"
+                    data-ajax-path="ajax-status-change-comments-watchlist-subscribe"
+                    data-original-icon=" gun-icon-Shape-1" data-inverse-icon=" gun-icon-Shape-1"
+                    data-original-text="Add to watchlist" data-inverse-text="In watchlist"
+                    data-status-value="1" data-values="{&quot;nid&quot;:&quot;1076271&quot;}">
+                    <i class="fa fa- gun-icon-Shape-1 fa-fw watchlist-icon"></i>
+                    <span>Add to watchlist</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="btn btn-product-icon btn-block text-left text-black js-ajax-toggle-link js-ajax-toggle-watchlist-chained"
+                    data-ajax-path="ajax-toggle-status-change-subscribe"
+                    data-original-icon="fa-dollar fa-fw" data-inverse-icon="fa-dollar fa-fw"
+                    data-original-text="Subscribe to price drop"
+                    data-inverse-text="Subscribed to price drop" data-status-value="1"
+                    data-values="{&quot;nid&quot;:&quot;1076271&quot;}">
+                    <i class="fa fa-dollar fa-fw"></i>
+                    <span>Subscribe to price drop</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="btn btn-product-icon btn-block text-black js-ajax-toggle-link js-ajax-toggle-watchlist-chained"
+                    data-ajax-path="ajax-toggle-comments-subscribe"
+                    data-original-icon="fa-comments-o fa-fw" data-inverse-icon="fa-comments-o fa-fw"
+                    data-original-text="Subscribe to comments"
+                    data-inverse-text="Subscribed to comments" data-status-value="1"
+                    data-values="{&quot;nid&quot;:&quot;1076271&quot;,&quot;uid&quot;:&quot;104841&quot;}">
+                    <i class="fa fa-comments-o fa-fw"></i>
+                    <span>Subscribe to comments</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#"
+                     class="btn btn-product-icon btn-block compare-price" target="_blank">
+                    <i class="fa fa-balance-scale"></i>
+                    <span>Compare prices for this model</span>
+                  </a>
+                </li>
+              </ul>
+              <div class="product-actions-bottom-wrapper">
+                <ul class="product-actions product-actions--expanded product-actions--bottom">
+                  <li>
+                    <div class="btn-group btn-group-sm btn-block">
+                      <a type="button" class="btn btn-product-icon btn-block text-black"
+                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-fw fa-ban"></i>Block similar deals
+                        <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li>
+                          <button class="btn-blank js-ajax-toggle-link" data-ajax-type="get"
+                                  data-original-text="Block caliber (45 ACP)"
+                                  data-inverse-text="Unblock caliber (45 ACP)"
+                                  data-status-value="1"
+                                  data-ajax-path="slickguns-ajax-deals-blocking"
+                                  data-values="{&quot;uid&quot;:&quot;104841&quot;,&quot;type&quot;:&quot;subcategory&quot;,&quot;nid&quot;:&quot;1076271&quot;}">
+                            <span>Block caliber (45 ACP)</span>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-blank js-ajax-toggle-link" data-ajax-type="get"
+                                  data-original-text="Block store (GrabAGun.com)"
+                                  data-inverse-text="Unblock store (GrabAGun.com)"
+                                  data-status-value="1"
+                                  data-ajax-path="slickguns-ajax-deals-blocking"
+                                  data-values="{&quot;uid&quot;:&quot;104841&quot;,&quot;type&quot;:&quot;store&quot;,&quot;nid&quot;:&quot;1076271&quot;}">
+                            <span>Block store (GrabAGun.com)</span>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-blank js-ajax-toggle-link" data-ajax-type="get"
+                                  data-original-text="Block this deal (from this vendor)"
+                                  data-inverse-text="Unblock this deal (from this vendor)"
+                                  data-status-value="1"
+                                  data-ajax-path="slickguns-ajax-deals-blocking"
+                                  data-values="{&quot;uid&quot;:&quot;104841&quot;,&quot;type&quot;:&quot;single_deal&quot;,&quot;nid&quot;:&quot;1076271&quot;}">
+                            <span>Block this deal (from this vendor)</span>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-blank js-ajax-toggle-link" data-ajax-type="get"
+                                  data-original-text="Block this product (from all vendors)"
+                                  data-inverse-text="Unblock this product (from all vendors)"
+                                  data-status-value="1"
+                                  data-ajax-path="slickguns-ajax-deals-blocking"
+                                  data-values="{&quot;uid&quot;:&quot;104841&quot;,&quot;type&quot;:&quot;upc&quot;,&quot;nid&quot;:&quot;8053800943246&quot;}">
+                            <span>Block this product (from all vendors)</span>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-blank js-ajax-toggle-link" data-ajax-type="get"
+                                  data-original-text="Block brand (Charles Daly /kbi Inc)"
+                                  data-inverse-text="Unblock brand (Charles Daly /kbi Inc)"
+                                  data-status-value="1"
+                                  data-ajax-path="slickguns-ajax-deals-blocking"
+                                  data-values="{&quot;uid&quot;:&quot;104841&quot;,&quot;type&quot;:&quot;brand&quot;,&quot;nid&quot;:&quot;1076271&quot;}">
+                            <span>Block brand (Charles Daly /kbi Inc)</span>
+                          </button>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                          <a href="#">
+                            <i class="fa fa-cog"></i> Moderate blocked settings
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <a data-toggle="modal" data-target="#modalReportProblem"
+                       data-reset-content-on-close="1"
+                       data-content-path="/report-a-problem?nid=1076271&amp;title=Charles%20Daly%201911%20Field%20Grade%20.45%20ACP%205%26quot%3B%20Barrel%208-Rounds%20Wood%20Grips%20-%20%24473.99%20%28%247.99%20S%2FH%20on%20Firearms%29"
+                       class="btn btn-product-icon btn-block btn-sm text-black js-report-product">
+                      <i class="fa fa-fw fa-exclamation-circle"></i>Report Product
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-9">
+              <div class="product-description js-product-description">
+                <div class="product-description-inner">
+                  <h2 class="card__heading">Description</h2>
+                  <p>Hit the Grab A Quote button right next to the Add To Cart button, you will
+                    instantly get the advertised price sent to your email -</p>
+                  <p></p>
+                  <p><%= @product.body %>
+                    <br>1911 Field Grade Specifications
+                    <br> Caliber:<%= @product.caliber %>
+                    <br> Action: Semi-Auto
+                    <br> Barrel Length: 5" (127 mm)
+                    <br> Capacity: 8+1
+                    <br> Feed In: Magazine
+                    <br> Grips: Diamond Checkered Walnut
+                    <br> Front Sight: Fiber Optic Adjustable Windage
+                    <br> Rear Sight: Red Fiber Optic Adjustable Windage
+                    <br> Safety: Manual &amp; Internal
+                    <br> Weight: 2.57 lbs
+                    <br> Length: 8.63"
+                    <br> Material: Steel
+                    <br> Finish: Black
+                  </p>Explore more
+                  <a href="#">Charles Daly /kbi Inc 45 ACP
+                    handguns</a>.
+                  <p></p>
+                </div>
+              </div>
+              <button class="product-description-btn js-product-description-btn is-hidden d-none">
+                <i class="fa fa-angle-down"></i>
+                <span>see more</span>
+              </button>
+              <ul class="social-share product-share social-share--with-bg social-share--product">
+                <li>
+                  <a href="#"
+                     class="icon-fa-link social-share social-share--facebook js-social-share"
+                     target="_blank">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#"
+                     class="icon-fa-link social-share social-share--twitter js-social-share"
+                     target="_blank">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#"
+                     class="icon-fa-link social-share social-share--pinterest js-social-share"
+                     target="_blank">
+                    <i class="fa fa-pinterest"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#"
+                     class="icon-fa-link social-share social-share--reddit js-social-share"
+                     target="_blank">
+                    <i class="fa fa-reddit"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#"
+                     class="icon-fa-link social-share social-share--email">
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+              <img typeof="foaf:Image" class="d-none" src="" width="1" height="1" alt="" title=""
+                   class="tracking-pixel">
+            </div>
+          </div>
+          <div class="card__footer-discription">
+            <div class="row">
+              <div class="col-xs-12 col-sm-4 col-md-3">
+                <ul class="product-rating js-product-rating">
+                  <li class="js-rating-container">
+                    <a
+                      class="icon-fa-link js-rate-action product-rating__like product-rating__like1076271"
+                      data-action="like" data-content-id="1076271"
+                      data-sibling=".product-rating__dislike1076271">
+                      <i class="fa fa-thumbs-up"></i>
+                      <span>8</span>
+                    </a>
+                  </li>
+                  <li class="js-rating-container">
+                    <a
+                      class="icon-fa-link js-popover-thumb-down popover-thumb-down product-rating__dislike product-rating__dislike1076271 js-popover"
+                      data-action="dislike" data-content-id="1076271" data-content=""
+                      data-placement="bottom" data-title="Dislike confirmation"
+                      data-sibling=".product-rating__like1076271">
+                      <i class="fa fa-thumbs-down"></i>
+                      <span>1</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#comments" class="icon-fa-link" title="2">
+                      <i class="fa fa-comments"></i>
+                      <span>2</span>
+                    </a>
+                  </li>
+                </ul>
+                <div class="text-center votes-down-reason-btn d-none">
+                  <button class="btn-unstyled text-primary border-0 "
+                          data-content-path="/vote-feedback/1076271" data-reset-content-on-close="true"
+                          data-toggle="modal" data-target="#modalVoteFeedback">
+                                        <span class="no-border"
+                                              title="Click here to see down vote reasons for this product"
+                                              data-toggle="tooltip">Voting reasons</span>
+                  </button>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-8 col-md-9">
+                <div class="product-copy-wrapper"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ----------------discription section end here------------------------------- -->
+  <!-- --------------coupan card start------------------ -->
+  <section class="mt-3">
+    <div class="container">
+      <div class="card card--coupons card--component-half-margin p-4">
+        <div class="card__title">
+          <h2 class="js-card-title">Coupons for GrabAGun.com store</h2>
+        </div>
+        <div class="card__content">
+          <div class="coupons-inline">
+            <div class="coupon coupon--inline">
+              <div class="coupon__title">
+                <a href="#" target="_blank" class="js-ga-event"
+                   data-ga-action="External Click" data-ga-category=""
+                   data-ga-label="Coupon link - Store page">Free Shipping on One Firearm Purchase per
+                  Order</a>
+              </div>
+              <div class="coupon__code coupon__code--coupon">
+                <span>GAGSHIPOFF22</span>
+                <div class="js-copy-text coupon__copy">
+                  <div class="coupon__input-wrapper">
+                    <input class="coupon__input" type="text" value="GAGSHIPOFF22" readonly="">
+                  </div>
+                  <a class="coupon__copy-btn no-border js-copy-action text-dark ps-1" data-toggle="tooltip"
+                     title="Copy coupon code">
+                    <i class="fa fa-scissors"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="coupon__pills">
+                                <span class="pill">
+                                    <span class="pill__title">Expiration date</span>
+                                    <span class="pill__value">Unknown</span>
+                                </span>
+                <span class="pill js-report-problem pill--value_only" data-toggle="modal"
+                      data-target="#modalReportProblem" data-reset-content-on-close="1"
+                      data-content-path="/report-a-problem?nid=1131346&amp;title=Free%20Shipping%20on%20One%20Firearm%20Purchase%20per%20Order">
+                                    <span class="pill__value">Report</span>
+                                </span>
+              </div>
+            </div>
+            <div class="coupon--button-inline">
+              <a class="btn btn-primary btn-block" href="#" target="_blank">
+                <i class="fa fa-scissors"></i> Add a Coupon
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- --------------coupan card end------------------ -->
+  <!-- -----------live inventory search section start here ----------------------------- -->
+  <section
+    class="table-section price-compare-section--product js-make-element-smaller js-price-compare-wikiarms-result js-price-compare-minified price-compare-section"
+    data-smaller-sizes="xs" data-check-result-term="8053800943246">
+    <div class="container">
+      <div class="card card--coupons  p-4">
+
+        <div class="table-section__header">
+          <div>
+            <h2>Live Inventory Search</h2>
+            <div class="dealer-comparison-info">
+              <i class="fa fa-bullhorn" aria-hidden="true"></i>
+              <span>Want to see your products here? Click this</span>
+              <a href="#">link</a>.
+            </div>
+          </div>
+          <div>
+            <p>Compare prices for 8053800943246 - Charles Daly 1911 Field Grade .45 ACP 5&amp;quot; Barrel
+              8-Rounds
+              Walnut Grips 440.132 from all vendors</p>
+            <div></div>
+          </div>
+        </div>
+        <div class="table-section__content">
+          <div class="price-compare-table__wrapper" itemprop="offers" itemscope=""
+               itemtype="http://schema.org/AggregateOffer">
+            <meta itemprop="priceCurrency" content="USD">
+            <meta itemprop="lowPrice" content="473.99">
+            <meta itemprop="highPrice" content="510.99">
+            <span itemprop="offerCount" content="2"></span>
+            <table id="price-compare-table" class="table price-compare-table">
+              <thead>
+              <tr>
+                <th class="price-compare-table__store-hd">Store</th>
+                <th class="js-price price-compare-table__price-hd">Price</th>
+                <th>Shipping rate</th>
+                <th class="price-compare-table__show-hd">Show more</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr data-id="9698262896" class="" itemprop="offers" itemscope=""
+                  itemtype="http://schema.org/Offer">
+                <td class="js-link-column price-compare-table__store-column">
+                  <a target="_blank" href="#">Wikiarms
+                    Search</a>
+                </td>
+                <td class="js-price-column price-compare-table__price-column">
+                  <div class="price-tag price-tag--one-line">$473.99</div>
+                </td>
+                <td class="price-compare-table__shipping-column" data-header="Shipping rate: "></td>
+                <td class="price-compare-table__show-more-column"></td>
+              </tr>
+              <tr data-id="9698262896" class="" itemprop="offers" itemscope=""
+                  itemtype="http://schema.org/Offer">
+                <td class="js-link-column price-compare-table__store-column">
+                  <a target="_blank"
+                     href="#">GunEngine
+                    Search</a>
+                </td>
+                <td class="js-price-column price-compare-table__price-column">
+                  <div class="price-tag price-tag--one-line">$473.99</div>
+                </td>
+                <td class="price-compare-table__shipping-column" data-header="Shipping rate: "></td>
+                <td class="price-compare-table__show-more-column"></td>
+              </tr>
+              <tr data-id="9698262896" data-store-id="6497" data-price="473.99" class=""
+                  itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                <td class="js-link-column price-compare-table__store-column">
+                  <div>
+                    <a itemprop="url" target="_blank"
+                       href="#" class="js-ga-event"
+                       data-ga-action="External Click" data-ga-category="GrabAGun.com"
+                       data-ga-label="gun.deals merchant table">
+                                                <span itemprop="offeredBy"
+                                                      itemtype="http://schema.org/Organization">GrabAGun.com</span>
+                    </a>
+                    <button class="icon-fa-link js-popover" data-toggle="popover"
+                            title="Available coupons" data-content="
+                                                                    <ul>
+                                                                        <li>
+                                                                            <span>Free Shipping on One Firearm Purchase per Order</span>
+                                                                            <br>
+                                                                                <span>
+                                                                                    <strong>GAGSHIPOFF22</strong>
+                                                                                    <a href=&quot;http://www.grabagun.com&quot; class=&quot;icon-fa-link&amp;#x20;primary-dark-link&quot;>
+                                                                                        <i class=&quot;fa fa-link&quot;></i>
+                                                                                    </a>
+                                                                                </span>
+                                                                            </li>
+                                                                        </ul> " data-popover-content-raw="1">
+                      <i class="fa fa-scissors"></i>
+                    </button>
+                  </div>
+                </td>
+                <td class="js-price-column price-compare-table__price-column">
+                  <div>
+                    <div class="price-tag price-tag--one-line">
+                                                <span>
+                                                    <span itemprop="price">$473.99</span>
+                                                </span>
+                      <link itemprop="availability" href="#">
+                    </div>
+                  </div>
+                </td>
+                <td class="price-compare-table__shipping-column" data-header="Shipping rate: ">
+                  $7.99</td>
+                <td class="price-compare-table__show-more-column">
+                  <button
+                    class="price-compare-table__more-details-btn button-toggle js-collapsible-elements-btn"
+                    data-method="closest" data-selector="tr">
+                    <span> details</span>
+                    <span class="caret"></span>
+                  </button>
+                </td>
+              </tr>
+              <tr data-id="9970306541" data-store-id="163486" data-price="510.99" class=""
+                  itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                <td class="js-link-column price-compare-table__store-column">
+                  <div>
+                    <a itemprop="url" target="_blank"
+                       href="#" class="js-ga-event"
+                       data-ga-action="External Click" data-ga-category="Guns.com"
+                       data-ga-label="gun.deals merchant table">
+                                                <span itemprop="offeredBy"
+                                                      itemtype="http://schema.org/Organization">Guns.com</span>
+                    </a>
+                  </div>
+                </td>
+                <td class="js-price-column price-compare-table__price-column">
+                  <div>
+                    <div class="price-tag price-tag--one-line">
+                                                <span>
+                                                    <span itemprop="price">$510.99</span>
+                                                </span>
+                      <link itemprop="availability" href="#">
+                    </div>
+                  </div>
+                </td>
+                <td class="price-compare-table__shipping-column" data-header="Shipping rate: "> Free
+                  S/H
+                </td>
+                <td class="price-compare-table__show-more-column">
+                  <button
+                    class="price-compare-table__more-details-btn button-toggle js-collapsible-elements-btn"
+                    data-method="closest" data-selector="tr">
+                    <span> details</span>
+                    <span class="caret"></span>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- -----------live inventory search section end here ----------------------------- -->
+  <!-- -----------------------similar products table start here  ------------------------>
+  <section>
+    <div class="container">
+      <div id="async-similar-products-section" class="product-details-tiles-section card">
+        <section class="table-section">
+          <div class="table-section__header">
+            <div>
+              <h2>Similar Products</h2>
+            </div>
+          </div>
+          <div class="table-section__content">
+            <div class="product-details-tiles-section--no-deals">
+              <p>
+                <i class="fa fa-exclamation-triangle"></i> No products found.
+              </p>
+            </div>
+            <div class="product-details-tiles-section__slider js-tile-slider js-tile-slider-async is-hidden d-none"
+                 style="overflow-x: hidden;">
+              <div class="product-details-tiles-section__slider-tiles-container js-similar-products-section"
+                   data-suggestion-term="8053800943246" data-term-to-exclude="8053800943246"
+                   data-ga-action="Similar Products Click" data-ga-category="Product Page"
+                   data-tile-template="
+                                <div class=&quot;product-details-tile&quot;>
+                                    <div class=&quot;price-tag-container&quot;></div>
+                                    <div class=&quot;product-details-tile__image-container&quot;>
+                                        <a>
+                                            <img >
+                                            </a>
+                                        </div>
+                                        <div class=&quot;product-details-tile__info&quot;>
+                                            <div class=&quot;product-details-tile__title&quot;>
+                                                <a>
+                                                </a>
+                                            </div>
+                                            <div class=&quot;product-details-tile__info-container&quot;></div>
+                                            <div>
+
+                                            </div>
+                                        </div>
+                                    </div>" data-info-row-template="
+                                    <div class=&quot;product-details-tile__info__specs&quot;>
+
+
+                                    </div>" data-price-tag-template="
+
+                                    </div>" data-page-token="">
+                <div class="tiles-slider-section-container"></div>
+              </div>
+              <button class="scroll-previous tile-slider__direction tile-slider__direction--previous">
+                <i class="fa fa-chevron-left"></i>
+              </button>
+              <button class="scroll-next tile-slider__direction tile-slider__direction--next">
+                <i class="fa fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+  <!-- ------------------------similar product section end--------------------------------- -->
+  <!-- ---------------------------live price section start here-------------------------- -->
+  <section class="py-4">
+    <div class="container">
+      <section
+        class="table-section js-collapsible-card wikiarms-section--product wikiarms-section js-wikiarms-section js-make-element-smaller card--collapsed"
+        data-collapsible-card="xs sm md lg" id="wikiarms-section" data-smaller-sizes="xs">
+
+        <div class="table-section__header d-none">
+          <div>
+            <h2 class="js-card-title">Wikiarms.com Live Prices</h2>
+            <div class="dealer-comparison-info">
+              <i class="fa fa-bullhorn" aria-hidden="true"></i>
+              <span>Want to see your products here? Click this</span>
+              <a href="#" target="_blank">link</a>.
+            </div>
+          </div>
+          <div>
+            <p class="js-wikiarms-section-subtitle"></p>
+            <div>
+              <div class="wikiarms-section__controls js-wikiarms-controls"></div>
+            </div>
+          </div>
+        </div>
+        <div class="table-section__content d-none">
+          <table class="table wikiarms-table js-wikiarms-live-prices-table is-hidden"
+                 data-wikiarms-caliber="45ACP" data-filter-template="
+
+                    <div >
+                        <div >
+                            <input >
+                                <label>
+                                    <span >
+                                    </span>
+                                </label>
+                            </div>
+                        </div> "
+                 data-row-template="
+                        <tr>
+                            <td class=&quot;wikiarms-table__product&quot;>
+
+                            </td>
+                            <td class=&quot;wikiarms-table__grid-row-second collapsible-element&quot; data-header=&quot;Store:&quot;>
+
+                            </td>
+                            <td >
+                            </td>
+                            <td >
+                                <div >
+                                </div>
+                                <button class=&quot;button-toggle js-collapsible-elements-btn&quot; data-method=&quot;closest&quot; data-selector=&quot;tr&quot;>
+                                    <span>details</span>
+                                    <span class=&quot;caret&quot;></span>
+                                </button>
+                            </td> &amp;lt;&amp;#x2F;tr&amp;gt;&amp;#x0A;&amp;#x20;&amp;#x20;&amp;#x20;&amp;#x20;&amp;#x20;&amp;#x20;"
+                 data-pagination-template="
+
+                            <ul class=&quot;pagination js-wikiarms-pagination&quot;>
+                                <li class=&quot;prev&quot;>
+                                    <button >
+                                        <i class=&quot;fa fa-angle-left&quot;></i>
+                                    </button>
+                                </li>
+                                <li class=&quot;current&quot;>
+                                    <span>
+                                    </span>
+                                </li>
+                                <li class=&quot;next&quot;>
+                                    <button >
+                                        <i class=&quot;fa fa-angle-right&quot;></i>
+                                    </button>
+                                </li>
+                            </ul>
+        " data-pagination-item-template="
+
+                            <li>
+                                <button
+                                </button>
+                            </li
+        ">
+            <thead>
+            <tr>
+              <th>Product</th>
+              <th>Store</th>
+              <th>Price</th>
+              <th>PPR</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div class="card card--no-deals js-wikiarms-empty-data is-hidden">
+            <div class="card__content">
+              <p>
+                <i class="fa fa-exclamation-triangle"></i> No deals found for this data entry. Try other
+                filters.
+              </p>
+            </div>
+          </div>
+          <nav class="table-section__pagination js-wikiarms-pagination-section"></nav>
+        </div>
+        <div class="table-section__footer d-none">
+          <img src="/sites/all/themes/slickdeals/images/wikiarms-icon.png" alt="Wikiarms.com">
+          <span> Powered by
+                        <a target="_blank" href="#">Wikiarms.com</a>
+                    </span>
+        </div>
+        <div class="live-button d-flex justify-content-between">
+          <a class="card__collapsed-title btn-block text-left text-white text-decoration-none" tabindex="0">Wikiarms.com Live Prices
+
+          </a>
+          <div>
+            <i class="card__caret fa fa-caret-down fs-4"></i>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+  <!-- live price section end here -->
+
+
+
+  <!------------------ cutomer reviewes section start here ------------------------ -->
+
+  <section>
+    <div class="container">
+      <div class="card customerreview-deal-page p-3">
+        <div class="card__title">
+          <h2 class="js-card-title customerreview-deal-page__title">Customer reviews</h2>
+          <div class="customerreview-deal-page__leave-a-review-container">
+            <a href="#" class="btn btn-primary">Leave a review</a>
+          </div>
+        </div>
+        <div class="card__content">
+          <div> This product hasn't received any reviews yet. Be the first one to
+            <a href="#">rate, describe your experience or upload photos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!------------------ cutomer reviewes section start here ------------------------ -->
+  <!-- ------------add reviews section start here -=======================-->
+
+  <section class="add-product-review my-3">
+    <div class="container">
+      <div class="card p-3">
+        <div class="card__title">
+          <h2 class="js-card-title">Reviews</h2>
+        </div>
+        <div class="card__content">
+          <p>There are no reviews yet for this product</p>
+          <a class="btn btn-primary" href="#">
+            <i class="fa fa-fw fa-list-alt"></i>
+            <span>Add product review</span>
+          </a>
+          <h3>Video reviews</h3>
+          <p>There are no video reviews yet for this product</p>
+          <a class="btn btn-primary" href="#">
+            <i class="fa fa-fw fa-youtube-play"></i>
+            <span>Add video review</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- -------------customer review sectiohn end----------------- -->
+
+  <!-- --------------------------comment section start here------------------------------------- -->
+  <section class="comment-section mb-3">
+    <div class="container">
+      <div class="card--comments p-3 js-collapsible-card anchor card--collapsed" id="comments"
+           data-collapsible-card="xs sm md lg">
+        <div class="card__title d-none">
+          <h2 class="js-card-title">Comments (2)</h2>
+        </div>
+        <div class="card__content d-none">
+          <div id="comment-form-content"></div>
+          <form action="/ajax/comment/reply/1076271" accept-charset="UTF-8" method="post" id="comment-form-1"
+                class="js-ajax-comment-form" style="display: none;">
+            <div>
+              <div style="display:none">
+                <div class="form-group">
+                  <label>Your name: </label>
+                  <a href="#" title="View user profile.">BirminghamPistol</a>
+                </div>
+              </div>
+              <div class="form-group">
+                <div id="comments-policy"></div>
+              </div>
+              <div class="form-group" id="edit-comment-1-wrapper">
+                <label for="edit-comment-1">Comment:
+                  <span class="form-required" title="This field is required.">*</span>
+                </label>
+                <div class="resizable-textarea">
+                                    <span>
+                                        <textarea cols="60" rows="5" name="comment" id="edit-comment-1"
+                                                  class="form-textarea resizable required wysiwyg form-control textarea-processed"></textarea>
+                                        <div class="grippie" style="margin-right: 0px;"></div>
+                                    </span>
+                </div>
+              </div>
+              <ul class="tips">
+                <li>Web page addresses and e-mail addresses turn into links automatically.</li>
+                <li>Allowed HTML tags: &lt;div&gt; &lt;span&gt; &lt;table&gt; &lt;tr&gt; &lt;td&gt;
+                  &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt; &lt;a&gt;
+                  &lt;p&gt; &lt;table&gt; &lt;tr&gt; &lt;td&gt; &lt;em&gt; &lt;strong&gt; &lt;b&gt;
+                  &lt;cite&gt; &lt;code&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; &lt;br&gt; &lt;dl&gt;
+                  &lt;dt&gt; &lt;dd&gt; &lt;i&gt; &lt;u&gt;</li>
+                <li>Lines and paragraphs break automatically.</li>
+              </ul>
+              <p>
+                <a href="#">More information about formatting options</a>
+              </p>
+              <input type="hidden" name="form_build_id"
+                     id="form-mTHzAaUmCylTLkCmIo6WZKeMTzoRPZJ42HvudEdMFB0"
+                     value="form-mTHzAaUmCylTLkCmIo6WZKeMTzoRPZJ42HvudEdMFB0">
+              <input type="hidden" name="form_token" id="edit-form-token-1"
+                     value="a123ec0f2f5c93657fb78d48ba4e0d6d">
+              <input type="hidden" name="form_id" id="edit-comment-form-1" value="comment_form">
+              <fieldset class=" collapsible collapsed">
+                <legend class="collapse-processed">
+                  <a href="#">Images</a>
+                </legend>
+                <div class="fieldset-wrapper">
+                  <div class="js-dropzone dropzone dz-clickable">
+                    <div class="dz-default dz-message">
+                      <span>Add or drag your images here</span>
+                    </div>
+                  </div>
+                  <input type="hidden" name="fetched_dropzone_images"
+                         id="edit-fetched-dropzone-images-1" value="">
+                </div>
+              </fieldset>
+              <div class="form-group" id="edit-notify-1-wrapper">
+                <label class="option" for="edit-notify-1">
+                  <input type="checkbox" name="notify" id="edit-notify-1" value="1" checked="checked"
+                         class="form-checkbox"> Subscribe to comments, price drops and back in stock
+                  notifications for this deal
+                </label>
+              </div>
+              <input type="submit" name="op" id="edit-submit-1" value="Save"
+                     class="form-submit btn btn-default btn-primary">
+            </div>
+          </form>
+          <a id="comment-1165241"></a>
+          <div class="comment comment-published clear-block" data-cid="1165241">
+            <div class="submitted">
+              <div class="submitted-info"> By
+                <a href="#" title="View user profile.">jethro_tull</a>,
+                <a href="#comment-1165241" class="comment__hyperlink">3 months ago</a>
+              </div>
+              <div class="submitted_report">
+                <a class="js-report-comment" href="#">Report</a>
+              </div>
+            </div>
+            <div class="content">
+              <div class="comment-content js-comment-content">
+                <p>Buy the Tisas GI instead. The upper grip bushing hole was stripped on mine, and the
+                  extractor was adjusted incorrectly from the factory, resulting in stovepipes every
+                  other round. Once I removed and adjusted the extractor, it worked fine. The included
+                  magazine stovepipes on the final round, every time. Save your money.</p>
+              </div>
+              <div class="rate-widget-2 rate-widget clear-block rate-average rate-widget-thumbs_up_down_count rate-fa950b899227ef1b0da0a2e96d8dcb38 rate-processed rate-custom-processed"
+                   id="rate-comment-1165241-2-1">
+                <div class="votes-up-down-widget">
+                  <div class="thumb-up">
+                    <div class="" title="100%">
+                      <a class="rate-button rate-thumbs-up-down-btn-up" id="rate-button-7"
+                         rel="nofollow"
+                         href="#">up</a>
+                    </div>
+                    <div class="percent">1 vote</div>
+                  </div>
+                  <div class="thumb-down">
+                    <div title="0%">
+                      <a class="rate-button rate-thumbs-up-down-btn-down" id="rate-button-8"
+                         rel="nofollow"
+                         href="#">down</a>
+                    </div>
+                    <div class="percent">0 votes</div>
+                  </div>
+                  <div class="voting-results-link">
+                    <a href="#">View score</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ul class="links">
+              <li class="comment_reply first last">
+                <a href="#">reply</a>
+              </li>
+            </ul>
+          </div>
+          <div class="indented">
+            <a id="comment-1171131"></a>
+            <div class="comment comment-published clear-block" data-cid="1171131">
+              <div class="submitted">
+                <div class="submitted-info"> By
+                  <a href="#" title="View user profile.">Cole982</a>,
+                  <a href="#comment-1171131" class="comment__hyperlink">1 month ago</a>
+                </div>
+                <div class="submitted_report">
+                  <a class="js-report-comment" href="#">Report</a>
+                </div>
+              </div>
+              <div class="content">
+                <div class="comment-content js-comment-content">
+                  <p>Sounds like a quick and easy fix by adjusting the extractor and using better
+                    mags. It’s a $360 1911. If issues like that are a deal breaker for you, the
+                    Tisas likely won’t fare much better. Personally, I’d take the one made in Italy
+                    over the one made in Turkey.</p>
+                </div>
+                <div class="rate-widget-2 rate-widget clear-block rate-average rate-widget-thumbs_up_down_count rate-0dbfe68b512e9ad1fd0af49bdf469686 rate-processed rate-custom-processed"
+                     id="rate-comment-1171131-2-1">
+                  <div class="votes-up-down-widget">
+                    <div class="thumb-up">
+                      <div class="" title="0%">
+                        <a class="rate-button rate-thumbs-up-down-btn-up" id="rate-button-11"
+                           rel="nofollow"
+                           href="#">up</a>
+                      </div>
+                      <div class="percent">0 votes</div>
+                    </div>
+                    <div class="thumb-down">
+                      <div title="100%">
+                        <a class="rate-button rate-thumbs-up-down-btn-down" id="rate-button-12"
+                           rel="nofollow"
+                           href="#">down</a>
+                      </div>
+                      <div class="percent">1 vote</div>
+                    </div>
+                    <div class="voting-results-link">
+                      <a href="#">View
+                        score</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="links">
+                <li class="comment_reply first last">
+                  <a href="#">reply</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="box">
+            <h2>Post new comment</h2>
+            <div class="content">
+              <form action="/ajax/comment/reply/1076271" accept-charset="UTF-8" method="post"
+                    id="comment-form" class="js-ajax-comment-form">
+                <div>
+                  <div style="display:none">
+                    <div class="form-group">
+                      <label>Your name: </label>
+                      <a href="#"
+                         title="View user profile.">BirminghamPistol</a>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div id="comments-policy"></div>
+                  </div>
+                  <div class="form-group" id="edit-comment-wrapper">
+                    <label for="edit-comment">Comment:
+                      <span class="form-required" title="This field is required.">*</span>
+                    </label>
+                    <div class="resizable-textarea">
+                                            <span>
+                                                <textarea cols="60" rows="5" name="comment" id="edit-comment"
+                                                          class="form-textarea resizable required wysiwyg form-control textarea-processed"></textarea>
+                                                <div class="grippie" style="margin-right: 0px;"></div>
+                                            </span>
+                    </div>
+                  </div>
+                  <ul class="tips">
+                    <li>Web page addresses and e-mail addresses turn into links automatically.</li>
+                    <li>Allowed HTML tags: &lt;div&gt; &lt;span&gt; &lt;table&gt; &lt;tr&gt;
+                      &lt;td&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt;
+                      &lt;a&gt; &lt;p&gt; &lt;table&gt; &lt;tr&gt; &lt;td&gt; &lt;em&gt;
+                      &lt;strong&gt; &lt;b&gt; &lt;cite&gt; &lt;code&gt; &lt;ul&gt; &lt;ol&gt;
+                      &lt;li&gt; &lt;br&gt; &lt;dl&gt; &lt;dt&gt; &lt;dd&gt; &lt;i&gt; &lt;u&gt;
+                    </li>
+                    <li>Lines and paragraphs break automatically.</li>
+                  </ul>
+                  <p>
+                    <a href="#">More information about formatting options</a>
+                  </p>
+                  <input type="hidden" name="form_build_id"
+                         id="form-mHD9hWW6AfpichtQut1i9KdoOcGkEQL5bwTNa4VFE-w"
+                         value="form-mHD9hWW6AfpichtQut1i9KdoOcGkEQL5bwTNa4VFE-w">
+                  <input type="hidden" name="form_token" id="edit-form-token"
+                         value="a123ec0f2f5c93657fb78d48ba4e0d6d">
+                  <input type="hidden" name="form_id" id="edit-comment-form" value="comment_form">
+                  <fieldset class=" collapsible collapsed">
+                    <legend class="collapse-processed">
+                      <a href="#">Images</a>
+                    </legend>
+                    <div class="fieldset-wrapper">
+                      <div class="js-dropzone dropzone dz-clickable">
+                        <div class="dz-default dz-message">
+                          <span>Add or drag your images here</span>
+                        </div>
+                      </div>
+                      <input type="hidden" name="fetched_dropzone_images"
+                             id="edit-fetched-dropzone-images" value="">
+                    </div>
+                  </fieldset>
+                  <div class="form-group" id="edit-notify-wrapper">
+                    <label class="option" for="edit-notify">
+                      <input type="checkbox" name="notify" id="edit-notify" value="1"
+                             checked="checked" class="form-checkbox"> Subscribe to comments, price
+                      drops and back in stock notifications for this deal
+                    </label>
+                  </div>
+                  <input type="submit" name="op" id="edit-submit" value="Save"
+                         class="form-submit btn btn-default btn-primary">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <a class="card__collapsed-title btn-block text-left text-white text-decoration-none d-flex justify-content-between" tabindex="0">
+          <div>Comments (2)</div>
+          <div><i class="card__caret fa fa-caret-down"></i></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+  <!-- --------------------=--------comment section end here----------------------------------- -->
+
+
+</div>
+<!-- card section two start here  -->
+<%= render partial: 'partials/middle_adds' %>
+<section class="recent-card-section recent-products py-4">
+  <div class="container">
+    <h3 class="recent-products__heading">Recently viewed deals</h3>
+    <div class="row row-cols-5 card-devider">
+      <div class="col my-3 sub-card">
+        <div class="card h-100">
+          <div class="card-body d-flex justify-content-between">
+            <span class="tile__sponsored"><a href="#">Sponsored</a></span>
+            <a href="#" class="card-link "><span></span></a>
+            <span class="card-link price-tag price-tag--one-line"><span>$746.99</span></span>
+          </div>
+          <%= image_tag "card-img.webp", class: "tile-image" %>
+          <div class="card-body tile__title">
+            <p class="card-text "><a href="#">Kimber MICRO 9 9mm 3.2" Barrel 7rd Stainless - $746.99
+              (Free
+              S/H on Firearms)</a></p>
+          </div>
+
+          <div class="card-body d-flex justify-content-between tile__actions-container">
+            <a href="#" class="card-link tile__rate-action tile__likes icon-fa-link"><i
+              class="fa fa-thumbs-up"></i> <span>2</span></a>
+            <a href="#" class="card-link tile__rate-action tile__dislikes icon-fa-link"><i
+              class="fa fa-thumbs-down"></i> <span>13</span></a>
+            <a href="#" class="card-link tile__rate-action tile__comments icon-fa-link"><i
+              class="fa fa-comments"></i> <span>0</span></a>
+          </div>
+          <div class="card-body d-flex justify-content-between card-footer tile__actions-container">
+            <a href="#" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span>
+                                    KyGunCo</span></a>
+            <a href="#" class="card-link icon-fa-link"><i
+              class="fa fa-balance-scale"></i><span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="col my-3 sub-card">
+        <div class="card h-100">
+          <div class="card-body d-flex justify-content-between">
+            <span class="tile__sponsored"><a href="#">Sponsored</a></span>
+            <a href="#" class="card-link "><span></span></a>
+            <span class="card-link price-tag price-tag--one-line"><span>$746.99</span></span>
+          </div>
+          <%= image_tag "card-img2.jpg", class: "tile-image" %>
+          <div class="card-body tile__title">
+            <p class="card-text "><a href="#">Kimber MICRO 9 9mm 3.2" Barrel 7rd Stainless - $746.99
+              (Free
+              S/H on Firearms)</a></p>
+          </div>
+
+          <div class="card-body d-flex justify-content-between tile__actions-container">
+            <a href="#" class="card-link tile__rate-action tile__likes icon-fa-link"><i
+              class="fa fa-thumbs-up"></i> <span>2</span></a>
+            <a href="#" class="card-link tile__rate-action tile__dislikes icon-fa-link"><i
+              class="fa fa-thumbs-down"></i> <span>13</span></a>
+            <a href="#" class="card-link tile__rate-action tile__comments icon-fa-link"><i
+              class="fa fa-comments"></i> <span>0</span></a>
+          </div>
+          <div class="card-body d-flex justify-content-between card-footer tile__actions-container">
+            <a href="#" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span>
+                                    KyGunCo</span></a>
+            <a href="#" class="card-link icon-fa-link"><i
+              class="fa fa-balance-scale"></i><span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="col my-3 sub-card">
+        <div class="card h-100">
+          <div class="card-body d-flex justify-content-between">
+            <span class="tile__sponsored"><a href="#">Sponsored</a></span>
+            <a href="#" class="card-link "><span></span></a>
+            <span class="card-link price-tag price-tag--one-line"><span>$746.99</span></span>
+          </div>
+          <%= image_tag "card-img3.webp", class: "tile-image" %>
+          <div class="card-body tile__title">
+            <p class="card-text "><a href="#">Kimber MICRO 9 9mm 3.2" Barrel 7rd Stainless - $746.99
+              (Free
+              S/H on Firearms)</a></p>
+          </div>
+
+          <div class="card-body d-flex justify-content-between tile__actions-container">
+            <a href="#" class="card-link tile__rate-action tile__likes icon-fa-link"><i
+              class="fa fa-thumbs-up"></i> <span>2</span></a>
+            <a href="#" class="card-link tile__rate-action tile__dislikes icon-fa-link"><i
+              class="fa fa-thumbs-down"></i> <span>13</span></a>
+            <a href="#" class="card-link tile__rate-action tile__comments icon-fa-link"><i
+              class="fa fa-comments"></i> <span>0</span></a>
+          </div>
+          <div class="card-body d-flex justify-content-between card-footer tile__actions-container">
+            <a href="#" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span>
+                                    KyGunCo</span></a>
+            <a href="#" class="card-link icon-fa-link"><i
+              class="fa fa-balance-scale"></i><span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="col py-3 sub-card">
+        <div class="card h-100">
+          <div class="card-body d-flex justify-content-between">
+            <span class="tile__sponsored"><a href="#">Sponsored</a></span>
+            <a href="#" class="card-link "><span></span></a>
+            <span class="card-link price-tag price-tag--one-line"><span>$746.99</span></span>
+          </div>
+          <%= image_tag "card-img-4.webp", class: "tile-image" %>
+          <div class="card-body tile__title">
+            <p class="card-text "><a href="#">Kimber MICRO 9 9mm 3.2" Barrel 7rd Stainless - $746.99
+              (Free
+              S/H on Firearms)</a></p>
+          </div>
+
+          <div class="card-body d-flex justify-content-between tile__actions-container">
+            <a href="#" class="card-link tile__rate-action tile__likes icon-fa-link"><i
+              class="fa fa-thumbs-up"></i> <span>2</span></a>
+            <a href="#" class="card-link tile__rate-action tile__dislikes icon-fa-link"><i
+              class="fa fa-thumbs-down"></i> <span>13</span></a>
+            <a href="#" class="card-link tile__rate-action tile__comments icon-fa-link"><i
+              class="fa fa-comments"></i> <span>0</span></a>
+          </div>
+          <div class="card-body d-flex justify-content-between card-footer tile__actions-container">
+            <a href="#" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span>
+                                    KyGunCo</span></a>
+            <a href="#" class="card-link icon-fa-link"><i
+              class="fa fa-balance-scale"></i><span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="col my-3 sub-card">
+        <div class="card h-100">
+          <div class="card-body d-flex justify-content-between">
+            <span class="tile__sponsored"><a href="#">Sponsored</a></span>
+            <a href="#" class="card-link "><span></span></a>
+            <span class="card-link price-tag price-tag--one-line"><span>$746.99</span></span>
+          </div>
+          <%= image_tag "card-img5.webp", class: "tile-image" %>
+          <div class="card-body tile__title">
+            <p class="card-text "><a href="#">Kimber MICRO 9 9mm 3.2" Barrel 7rd Stainless - $746.99
+              (Free
+              S/H on Firearms)</a></p>
+          </div>
+
+          <div class="card-body d-flex justify-content-between tile__actions-container">
+            <a href="#" class="card-link tile__rate-action tile__likes icon-fa-link"><i
+              class="fa fa-thumbs-up"></i> <span>2</span></a>
+            <a href="#" class="card-link tile__rate-action tile__dislikes icon-fa-link"><i
+              class="fa fa-thumbs-down"></i> <span>13</span></a>
+            <a href="#" class="card-link tile__rate-action tile__comments icon-fa-link"><i
+              class="fa fa-comments"></i> <span>0</span></a>
+          </div>
+          <div class="card-body d-flex justify-content-between card-footer tile__actions-container">
+            <a href="#" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span>
+                                    KyGunCo</span></a>
+            <a href="#" class="card-link icon-fa-link"><i
+              class="fa fa-balance-scale"></i><span></span></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<section class="mb-4">
+  <div class="container">
+    <div class="row">
+      <%= render partial: 'partials/bottom_cards' %>
+    </div>
+  </div>
+</section>
+<%= render partial: 'partials/footer' %>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<%= render partial: 'partials/title' %>
+<div class="body-style">
+  <%= render partial: 'partials/header' %>
+  <section>
+    <div class="container">
+      <div class="add-section add-banner-section">
+      </div>
+    </div>
+  </section>
+  <!--------------------- contact us section start here ---------------------  -->
+  <section class="contact-us mb-4">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="card p-3">
+            <div class="card__title">
+              <h1>Contact us</h1>
+            </div>
+            <div class="card__content">
+              <div id="contact-us-info-text"> gun.deals is a gun &amp; ammo search engine. We don’t sell anything, but we show you where to get the best deals! If you are inquiring about your order or recent purchase, please contact the vendor where you placed your order. If you are looking to advertise on gun.deals, please log in with your dealer account and review our options.</div>
+              <form action="/contact" accept-charset="UTF-8" method="post" id="slickguns-contact-us-form">
+                <div>
+                  <div class="form-group" id="edit-full-name-wrapper">
+                    <label for="edit-full-name">Full Name:
+                      <span class="form-required" title="This field is required.">*</span>
+                    </label>
+                    <input type="text" maxlength="128" name="full_name" id="edit-full-name" size="60" value="" class="form-text required form-control">
+                  </div>
+                  <div class="form-group" id="edit-email-wrapper">
+                    <label for="edit-email">Email:
+                      <span class="form-required" title="This field is required.">*</span>
+                    </label>
+                    <input type="text" maxlength="128" name="email" id="edit-email" size="60" value="" class="form-text required form-control">
+                  </div>
+                  <div class="form-group" id="edit-confirm-email-wrapper">
+                    <label for="edit-confirm-email">Confirm email:
+                      <span class="form-required" title="This field is required.">*</span>
+                    </label>
+                    <input type="text" maxlength="128" name="confirm_email" id="edit-confirm-email" size="60" value="" class="form-text required form-control">
+                  </div>
+                  <div class="form-group" id="edit-subject-wrapper">
+                    <label for="edit-subject">Subject:
+                      <span class="form-required" title="This field is required.">*</span>
+                    </label>
+                    <input type="text" maxlength="128" name="subject" id="edit-subject" size="60" value="" class="form-text required form-control">
+                  </div>
+                  <div class="form-group" id="edit-username-wrapper">
+                    <label for="edit-username">gun.deals username (optional): </label>
+                    <input type="text" maxlength="128" name="username" id="edit-username" size="60" value="" class="form-text form-control">
+                  </div>
+                  <div class="form-group" id="edit-link-wrapper">
+                    <label for="edit-link" title="To expedite your request, please provide URL / Link to our inquiry." data-toggle="tooltip">Link (optional): </label>
+                    <input type="text" maxlength="128" name="link" id="edit-link" size="60" value="" class="form-text form-control">
+                  </div>
+                  <div class="form-group">
+                    <label>How do you use gun.deals:
+                      <span class="form-required" title="This field is required.">*</span>
+                    </label>
+                    <div class="form-radios">
+                      <div class="form-group" id="edit-type-visitor-email-wrapper">
+                        <label class="option" for="edit-type-visitor-email">
+                          <input type="radio" id="edit-type-visitor-email" name="type" value="visitor_email" class="form-radio"> as a user/visitor
+                        </label>
+                      </div>
+                      <div class="form-group" id="edit-type-dealer-email-wrapper">
+                        <label class="option" for="edit-type-dealer-email">
+                          <input type="radio" id="edit-type-dealer-email" name="type" value="dealer_email" class="form-radio"> as a dealer/vendor
+                        </label>
+                      </div>
+                      <div class="form-group" id="edit-type-general-email-wrapper">
+                        <label class="option" for="edit-type-general-email">
+                          <input type="radio" id="edit-type-general-email" name="type" value="general_email" class="form-radio"> other/general
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group" id="edit-message-wrapper">
+                    <label for="edit-message">Message:
+                      <span class="form-required" title="This field is required.">*</span>
+                    </label>
+                    <div class="resizable-textarea">
+                                                                            <span>
+                                                                                <textarea cols="60" rows="10" name="message" id="edit-message" class="form-textarea resizable required form-control textarea-processed"></textarea>
+                                                                                <div class="grippie" style="margin-right: 0px;"></div>
+                                                                            </span>
+                    </div>
+                  </div>
+                  <input type="submit" name="op" id="edit-submit-send-message" value="Send message" class="form-submit btn btn-default btn-primary">
+                  <input type="hidden" name="form_build_id" id="form-vthx75BDtp6ivHyjYCJ8vMds1L1aclAZQ_O3myYYaOE" value="form-vthx75BDtp6ivHyjYCJ8vMds1L1aclAZQ_O3myYYaOE">
+                  <input type="hidden" name="form_id" id="edit-slickguns-contact-us-form" value="slickguns_contact_us_form">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!--------------------- contact us section end here ---------------------  -->
+</div>
+<!-- card section two start here  -->
+<%= render partial: 'partials/middle_adds' %>
+<section class="mb-4">
+  <div class="container">
+    <div class="row">
+      <%= render partial: 'partials/bottom_cards' %>
+    </div>
+  </div>
+</section>
+<%= render partial: 'partials/footer' %>
+</body>
+</html>

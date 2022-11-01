@@ -4,35 +4,41 @@
       <div id="header" class="header region-header py-0 bg-white">
         <div class="container-fluid">
           <div class="row " >
-            <div class="col-lg-12 mt-4">
+            <div class="col-lg-12 mt-4 px-0">
               <div class=" d-flex justify-content-between">
-                <div class="logo">
+                <div class="logo d-none d-sm-block">
                   <%= image_tag('logo.jpeg', class: "img-logo" , alt: "logo" )%>
+                </div>
+                <div class="logo d-sm-none d-xs-block">
+                  <%= image_tag('secondLogo.jpeg', class: "img-logo-2" , alt: "logo" )%>
                 </div>
                 <div class="main-nav-bar ">
                   <div class="top-header navbar-nav ms-auto">
                     <div class="inner-header">
                       <!-- Actual search box -->
-                      <div class="form-group has-search pe-3">
+                      <div class="form-group has-search pe-xs-0 pe-sm-3 d-xs-block d-sm-none d-md-block ">
                         <span class="fa fa-search form-control-feedback"></span>
                         <input type="text" class="form-control" placeholder="Search keyword">
                       </div>
                       <div class="social-menu social-menu--header">
                         <ul class=" list-inline d-flex mt-1">
-                          <li>
+                          <li class="d-none d-sm-block">
                             <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
                           </li>
-                          <li>
+                          <li class="d-none d-sm-block">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                           </li>
-                          <li>
+                          <li class="d-none d-sm-block">
                             <a href="#"><i class="fa fa-twitter"></i></a>
                           </li>
-                          <li>
+                          <li class="d-none d-sm-block">
                             <a href="#"><i class="fa fa-rss"></i></a>
                           </li>
-                          <li>
+                          <li class="d-none d-sm-block">
                             <a href="#"><i class="fa fa-bell"></i></a>
+                          </li>
+                          <li class="d-none d-sm-block d-md-none">
+                            <a href="#"><i class="fa fa-search"></i></a>
                           </li>
                         </ul>
                       </div>
@@ -50,15 +56,107 @@
 </section>
 <section class="pb-1 new-nav-bg-color">
   <div class="container">
-    <div class="header__bottom">
-      <div
-        class="primary-menu primary-menu--header header__submenu-container menu-header ms-5">
+    <div class="d-md-none d-sm-block d-xs-block">
+
+      <nav class="navbar navbar-dark pt-1 pb-0">
+        <div class="text-left">
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Gun Feed</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a href="/" title="All deals" class="nav-link active">All Deals</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" title="Gun Deals Posted Today" class="nav-link">Today</a>
+                </li>
+                <li class="nav-item ">
+
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Categories
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-white">
+                    <li><a class="dropdown-item" href="#">Handguns</a></li>
+                    <li><a class="dropdown-item" href="#">Rifles</a></li>
+                    <li><a class="dropdown-item" href="#">Shotguns</a></li>
+                    <li><a class="dropdown-item" href="#">Parts</a></li>
+                    <li><a class="dropdown-item" href="#">Ammo</a></li>
+                    <li><a class="dropdown-item" href="#">Optics & Sights</a></li>
+                    <li><a class="dropdown-item" href="#">Accessories</a></li>
+                    <li><a class="dropdown-item" href="#">NFA</a></li>
+                    <li><a class="dropdown-item" href="#">Knives</a></li>
+                    <li><a class="dropdown-item" href="#">Archery</a></li>
+                    <li><a class="dropdown-item" href="#">Reloading</a></li>
+                    <li><a class="dropdown-item" href="#">Services</a></li>
+                    <li><a class="dropdown-item" href="#">CA Legal</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item ">
+
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Quick links
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-white">
+                    <li><a class="dropdown-item" href="#">Vulcan</a></li>
+                    <li><a class="dropdown-item" href="#">Revolver</a></li>
+                    <li><a class="dropdown-item" href="#">Rimfire</a></li>
+                    <li><a class="dropdown-item" href="#">C&R</a></li>
+                    <li><a class="dropdown-item" href="#">1911</a></li>
+                    <li><a class="dropdown-item" href="#">AR Deals</a></li>
+                    <li><a class="dropdown-item" href="#">AK Deals</a></li>
+                    <li><a class="dropdown-item" href="#">Stores</a></li>
+                    <li><a class="dropdown-item" href="#">Rebates</a></li>
+                    <li><a class="dropdown-item" href="#">Recent Comments</a></li>
+                    <li><a class="dropdown-item" href="#">Top Articles</a></li>
+                    <li><a class="dropdown-item" href="#">Compare Guns</a></li>
+                    <li><a class="dropdown-item" href="#">Used Guns</a></li>
+                    <li><a class="dropdown-item" href="#">Blog</a></li>
+                    <li><a class="dropdown-item" href="#">22 LR Ammo</a></li>
+                    <li><a class="dropdown-item" href="#">9mm Ammo</a></li>
+                    <li><a class="dropdown-item" href="#">223/5.56 Ammo</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="#" title="Gun Deals Posted Today" class="nav-link">Popular</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" title="Gun Deals Posted Today" class="nav-link"><i class="fa fa-pencil"></i> <span>Post a Deal</span></a>
+                </li>
+                <li class="nav-item ">
+
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-user"></i>
+                    <span>Welcome, guest
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-white">
+                    <li><a class="dropdown-item" href="#">Subscribe to newsletter</a></li>
+                    <li><a class="dropdown-item" href="#">Login</a></li>
+                    <li><a class="dropdown-item" href="#">Register</a></li>
+                    <li><a class="dropdown-item" href="#">Reset Password</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="header__bottom justify-content-between d-none d-md-block">
+      <div class="primary-menu primary-menu--header header__submenu-container menu-header">
+
         <ul role="menu">
           <li class="leaf first active-trail">
-            <a href="./index.html" title="All deals" class="active">All Deals</a>
+            <a href="<%= root_path %>" title="All deals" class="active">All Deals</a>
           </li>
           <li class="leaf">
-            <a href="/today" title="Gun Deals Posted Today">Today</a>
+            <a href="/products/today" title="Gun Deals Posted Today">Today</a>
           </li>
           <li class="expanded dropdown">
             <a class="nolink" data-toggle="dropdown" title="Categories">Categories
@@ -184,10 +282,10 @@
         </ul>
       </div>
       <div
-        class="secondary-menu secondary-menu--header header__submenu-container menu-header ms-5 ps-5">
+        class="secondary-menu secondary-menu--header header__submenu-container menu-header">
         <ul>
           <li class="hidden-xs hidden-sm">
-            <a href="./post_a_deal" class="icon-fa-link" title="Post a Deal">
+            <a href="<%= new_product_path %>" class="icon-fa-link" title="Post a Deal">
               <i class="fa fa-pencil"></i>
               <span>Post a Deal</span>
             </a>
@@ -206,13 +304,13 @@
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <a href="/new" title="Login">Login</a>
+                <a href="<%= new_user_session_path %>" title="Login">Login</a>
               </li>
               <li>
-                <a href="/new" title="Register">Register</a>
+                <a href="<%= new_user_registration_path %>" title="Register">Register</a>
               </li>
               <li>
-                <a href="/new" title="Reset Password">Reset
+                <a href="<%= edit_user_password_path %>" title="Reset Password">Reset
                   Password</a>
               </li>
             </ul>

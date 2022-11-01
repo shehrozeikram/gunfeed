@@ -9,13 +9,24 @@ gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-gem "activeadmin"
+gem "net-http"
 
+gem 'devise'
+
+# gem 'activeadmin'
 gem 'sass-rails'
+
+gem 'cancancan'
+gem 'draper'
+gem 'pundit'
 
 gem 'bootstrap', '~> 4.2.1'
 
 gem 'jquery-rails'
+
+gem 'nokogiri', '~> 1.13', '>= 1.13.8'
+
+gem 'carrierwave', '~> 2.0'
 
 # Use pgsql as the database for Active Record
 gem "pg", "~> 1.1"
@@ -38,7 +49,6 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
-gem 'devise'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -60,7 +70,7 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  # gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
