@@ -2640,6 +2640,71 @@ html.enter {
   padding: 3px;
 }
 
+// button dark mode style start here
+
+.btn-switch {
+  position: relative;
+  display: inline-block;
+  width: 39px;
+  height: 24px;
+}
+
+.btn-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.btn-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.btn-slider:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .btn-slider {
+  background-color: #2e66a5;
+}
+
+input:focus + .btn-slider {
+  box-shadow: 0 0 1px #2e66a5;
+}
+
+input:checked + .btn-slider:before {
+  -webkit-transform: translateX(12px);
+  -ms-transform: translateX(12px);
+  transform: translateX(12px);
+}
+
+/* Rounded sliders */
+.btn-slider.btn-round {
+  border-radius: 34px;
+}
+
+.btn-slider.btn-round:before {
+  border-radius: 50%;
+}
+
+// button dark mode styel end here
+
+
 // -------------------media query-------------------------
 @media screen and (min-device-width: 481px) and (max-device-width: 768px){
   .header__bottom {
