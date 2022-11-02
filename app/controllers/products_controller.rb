@@ -10,7 +10,16 @@ class ProductsController < ApplicationController
   def new
 
     # doc = Nokogiri::HTML(open("https://gunprime.com/products/fn-america-fn15-patrol-carbine-556-nato-ar-15-ar15-36-100580"))
-    # @product = doc.css('.lead')
+    # @product_title = doc.css('//*[@id="product-description"]/h1/text()')
+    # @product_price = doc.css('#product-price > div:nth-child(2) > span.lead.original-price.selling.text()')
+    # @product_store = doc.css('//*[@id="details"]/div/div[1]/span[2]/a/text()')
+    # @product_category = doc.css('#similar_items_by_taxon > a:nth-child(2)/text()')
+    # @product_caliber = doc.css('//*[@id="details"]/div/div[3]/span[2]/a/text()')
+    # @product_brand = doc.css('//*[@id="sku-mpn-upc"]/div/div[4]/text()')
+    # @product_mpn = doc.css('//*[@id="sku-mpn-upc"]/div/div[2]/text()')
+    # @product_upc = doc.css('//*[@id="sku-mpn-upc"]/div/div[3]/text()')
+    # @product_image = doc.css('//*[@id="main-image"]/div/a[1]/img')
+
 
     @product = Product.new
   end

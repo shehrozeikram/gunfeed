@@ -37,7 +37,7 @@
           <div>
             <div class="card card--title p-4">
               <div class="card__title">
-<!--                <h1><%#= @product_scrap %></h1>-->
+                <h1><%= @product_scrap %></h1>
                 <h1>Add a New Deal</h1>
               </div>
               <div class="card__content">
@@ -167,7 +167,7 @@
                                   title="This field is required.">*</span>
                           </label>
                           <input type="text" maxlength="255" name="title" id="edit-title"
-                                 size="110" value='<%= @product.title %>' class="form-text required form-control">
+                                 size="110" value='<%= @product_title  %>' class="form-text required form-control">
                         </div>
                       </div>
                       <div class="col-xs-12 col-md-2">
@@ -192,7 +192,8 @@
                                   data-trigger-event="initialize-select2-for-stores-select"
                                   data-allow-clear="1" id="edit-store" tabindex="-1"
                                   aria-hidden="true">
-                            <option value="Cooose an option" selected="selected">Cooose an option</option>
+<!--                            <option value="Cooose an option" selected="selected">Cooose an option</option>-->
+                            <option value="<%= @product_store %>" selected="selected"><%= @product_store %></option>
                             <option value="Cabela's">Cabela's</option>
                             <option value="Able Ammo">Able Ammo</option>
                             <option value="Black Label Tactical">Black Label Tactical</option>
@@ -219,7 +220,8 @@
                           <select name="category"
                                   class="form-select required js-product-calibers-change form-control select2-hidden-accessible"
                                   id="edit-category" value="1" tabindex="-1" aria-hidden="true">
-                            <option value="Choose an option">Choose an option</option>
+<!--                            <option value="Choose an option">Choose an option</option>-->
+                            <option value="<%= @product_category %>"><%= @product_category %></option>
                             <option value="Accessories">Accessories</option>
                             <option value="Ammo">Ammo</option>
                             <option value="Archery">Archery</option>
@@ -241,6 +243,7 @@
                           <select name="caliber"
                                   class="form-select js-product-calibers form-control select2-hidden-accessible"
                                   id="edit-caliber" tabindex="-1" aria-hidden="true" aria-placeholder="choose an option">
+                            <option value="<%= @product_caliber %>"><%= @product_caliber %></option>
                             <option value="None">None</option>
                             <option value="10mm">10mm</option>
                             <option value="12 GA">12 GA</option>
@@ -259,7 +262,8 @@
                                   data-trigger-event="initialize-select2-for-brand-select"
                                   data-allow-clear="1" id="edit-brand" tabindex="-1"
                                   aria-hidden="true">
-                            <option value="" selected="selected">Cooose an option</option>
+<!--                            <option value="" selected="selected">Cooose an option</option>-->
+                            <option value="<%= @product_brand %>"><%= @product_brand %></option>
                             <option value="Sabre Defence">Sabre Defence</option>
                             <option value="Parabellum Armamen">Parabellum Armament</option>
                             <option value="Cabela's">Cabela's</option>
@@ -275,7 +279,7 @@
                         <div class="form-group" id="edit-sku-wrapper">
                           <label for="edit-sku">MPN: </label>
                           <input type="text" maxlength="255" name="mpn" id="edit-sku"
-                                 size="30" value="<%= @product.mpn %>" class="form-text form-control">
+                                 size="30" value="<%= @product_mpn %>" class="form-text form-control">
                         </div>
                       </div>
                       <div class="col-xs-12 col-md-2">
@@ -284,7 +288,7 @@
                                              title="UPC is in 12 digits format with leading zeros"
                                              data-toggle="tooltip">UPC: </label></a>
                           <input type="text" maxlength="128" name="upc" id="edit-upc"
-                                 size="30" value= "<%= @product.upc %>" class="form-text form-control">
+                                 size="30" value= "<%= @product_upc %>" class="form-text form-control">
                         </div>
                       </div>
                     </div>
@@ -478,20 +482,9 @@
                         <a href="#">Images</a>
                       </legend>
                       <div class="fieldset-wrapper">
-<!--                        <div class="js-dropzone dropzone dz-clickable">-->
-<!--                          <div class="dz-default dz-message">-->
-                            <%#= form.file_field :image %>
-                            <%#= form.file_field :image %>
-<!--                            <input type="file" id="myfile" name="myfile">-->
+
                             <input type="file" name="image" id="image"
-                                    value= '<%= @product.image %>'>
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                        <input type="hidden" name="fetched_dropzone_images"-->
-<!--                               id="edit-fetched-dropzone-images" value="abc">-->
-<!--                        <input type="hidden" name="main_image" id="edit-main-image"-->
-<!--                               value="">-->
-                      </div>
+                                    value= '<%= @product_image %>'> </div>
                     </fieldset>
                   </div>
                 </div>

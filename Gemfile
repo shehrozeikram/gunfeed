@@ -10,11 +10,9 @@ gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 gem "sprockets-rails"
 
 gem "net-http"
+gem 'sass-rails'
 
 gem 'devise'
-
-# gem 'activeadmin'
-gem 'sass-rails'
 
 gem 'cancancan'
 gem 'draper'
