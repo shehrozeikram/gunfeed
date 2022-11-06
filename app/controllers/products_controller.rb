@@ -179,7 +179,7 @@ class ProductsController < ApplicationController
 
   def compare_guns
     @product = Product.find(params[:id])
-    @compared = Product.find(params[:compared_id])
+    @compared = Product.last
     @products = Product.where(id: 1, active: true).where.not(stock: nil ).where.not(stock: 'out of stock')
     @compared_products = Product.where(id: 2, active: true).where.not(stock: nil ).where.not(stock: 'out of stock')
   end

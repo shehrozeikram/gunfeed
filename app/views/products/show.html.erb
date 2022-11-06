@@ -151,7 +151,7 @@
                   </a>
                 </li>
                 <li class="list-item-price">
-                  <a href="#" class="btn-compare-price">
+                  <a href="<%= compare_guns_path %>" class="btn-compare-price">
                     <i class="fa fa-exchange"></i>
                     <span>Compare with another gun</span>
                   </a>
@@ -198,8 +198,8 @@
                   </a>
                 </li>
                 <li class="compare-price-modal-list">
-                  <a href="<%= live_inventory_search_path() %>"
-                     class="" target="_blank">
+                  <a class="compare-price-link" href="<%= live_inventory_search_path() %>"
+                     target="_blank">
                     <i class="fa fa-balance-scale"></i>
                     <span>Compare prices for this model</span>
                   </a>
