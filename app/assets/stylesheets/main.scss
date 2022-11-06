@@ -5430,6 +5430,7 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active {
 
 .report-product {
   margin-top: 100px;
+  margin-bottom: 30px;
 }
 
 
@@ -5572,6 +5573,10 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active {
   flex-direction: column;
   width: 100%;
 }
+.detail-search span {
+  font-size: 12px;
+
+}
 
 .search-products-card {
 
@@ -5689,15 +5694,24 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active {
 .remove-price {
   font-size: 10px;
   color: #777;
-  margin-left: 3px;
+  margin-left: 30px;
   display: none !important;
 }
 
 .fa-remove-price {
   font-size: 10px;
   color: #777;
-  margin-left: 3px;
+  margin-left: 30px;
   display: none !important;
+}
+
+.fa-remove-wish {
+  margin-left: 85px !important;
+  display: none !important;
+  color: #777;
+}
+.compare-price-link {
+  margin-left: -11px !important;
 }
 
 .list-bg {
@@ -5708,7 +5722,9 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active {
   overflow: hidden !important;
   white-space: nowrap !important;
   text-overflow: ellipsis !important;
-  width: 50px !important;
+  width: 150px !important;
+  font-size: 12px;
+  color: #333;
 }
 
 .comment-color {
