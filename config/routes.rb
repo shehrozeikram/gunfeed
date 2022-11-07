@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :products
   root to: "products#index"
 
-
   # Header routes
   get "/today" , to: "products#today"
 
