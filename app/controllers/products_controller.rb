@@ -3,13 +3,16 @@ class ProductsController < ApplicationController
   require 'open-uri'
   require 'nokogiri'
 
+  before_action :authenticate_user!
+
   def index
     @products = Product.all
   end
 
   def new
 
-    # doc = Nokogiri::HTML(open("https://gunprime.com/products/fn-america-fn15-patrol-carbine-556-nato-ar-15-ar15-36-100580"))
+    # url = "https://gunprime.com/products/fn-america-fn15-patrol-carbine-556-nato-ar-15-ar15-36-100580"
+    # doc = Nokogiri::HTML(URI.open(url))
     # @product_title = doc.css('//*[@id="product-description"]/h1/text()')
     # @product_price = doc.css('#product-price > div:nth-child(2) > span.lead.original-price.selling.text()')
     # @product_store = doc.css('//*[@id="details"]/div/div[1]/span[2]/a/text()')
@@ -25,13 +28,17 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    if @product.save
-      redirect_to products_path
+    if user_signed_in?
+      @product = current_user.products.new(product_params)
+      if @product.save
+        redirect_to products_path
+      else
+        render :new, status: :unprocessable_entity
+      end
     else
       render :new, status: :unprocessable_entity
     end
-  end
+      end
 
   def show
     @product = Product.find(params[:id])

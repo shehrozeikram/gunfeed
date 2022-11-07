@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # devise_for :users
+  devise_for :users, :controllers => { registration: 'registration' }
   # main routes
   resources :products
   root to: "products#index"
 
   # Header routes
-  get "products/today" , to: "products#today"
+  get "/today" , to: "products#today"
 
   # footer routes
   get "/stock_guns" , to: "products#stock_guns"

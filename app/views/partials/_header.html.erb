@@ -137,9 +137,9 @@
                   </a>
                   <ul class="dropdown-menu dropdown-menu-white">
                     <li><a class="dropdown-item" href="#">Subscribe to newsletter</a></li>
-                    <li><a class="dropdown-item" href="#">Login</a></li>
-                    <li><a class="dropdown-item" href="#">Register</a></li>
-                    <li><a class="dropdown-item" href="#">Reset Password</a></li>
+                    <li><a class="dropdown-item" href="<%= user_session_path %>">Login</a></li>
+                    <li><a class="dropdown-item" href="<%= new_user_registration_path %>">Register</a></li>
+                    <li><a class="dropdown-item" href="<%= edit_user_password_path %>">Reset Password</a></li>
                   </ul>
                 </li>
               </ul>
@@ -156,7 +156,7 @@
             <a href="<%= root_path %>" title="All deals" class="active">All Deals</a>
           </li>
           <li class="leaf">
-            <a href="/products/today" title="Gun Deals Posted Today">Today</a>
+            <a href="<%=today_path %>" title="Gun Deals Posted Today">Today</a>
           </li>
           <li class="expanded dropdown">
             <a class="nolink" data-toggle="dropdown" title="Categories">Categories
