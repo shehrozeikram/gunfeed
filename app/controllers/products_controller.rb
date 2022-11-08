@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
         render :new, status: :unprocessable_entity
       end
     else
-      render :new, status: :unprocessable_entity
+      redirect_to new_user_registration_path
     end
       end
 
