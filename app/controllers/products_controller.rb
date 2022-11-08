@@ -1,9 +1,8 @@
 class ProductsController < ApplicationController
-
   require 'open-uri'
   require 'nokogiri'
 
-  before_action :authenticate_user!
+
 
   def index
     @products = Product.all
