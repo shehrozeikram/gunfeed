@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   require 'open-uri'
   require 'nokogiri'
+  require 'date'
 
 
 
@@ -56,6 +57,7 @@ class ProductsController < ApplicationController
   # footer actions
 
   def today
+    @products = Product.where(created_at: Date.today.all_day)
   end
 
   def about_us
