@@ -4,25 +4,36 @@
       <div class="row d-flex align-items-center">
         <div class="col-lg-9">
           <% if @category.name == 'handguns' %>
-          <h1 class="listing-title "> Handguns Posted Today
+          <h1 class="listing-title "> In Stock Handgun Deals
             <span class="subtitle subtitle--listing"> (
                                     <span class="pager-total-items" id="pager-total-items"><%= @products.all.count %></span> deals total)
                                 </span>
           </h1>
+            <p class="subtitle">
+              Find the best handgun price at gun.deals. Whether you prefer a pistol or revolver, we've got you covered. We display for you a wide range of high-quality firearms and trusted brands, including
+              <a href="https://gun.deals/category/hand-guns?brand=99">Glock Guns</a>
+              ,
+              <a href="https://gun.deals/category/hand-guns?brand=106">S&amp;W Handguns</a>
+              ,
+              <a href="https://gun.deals/category/hand-guns?brand=81">Beretta Pistols</a>
+              ,
+              <a href="https://gun.deals/category/hand-guns?brand=183">Taurus Guns</a>
+              and more.
+            </p>
             <% elsif @category.name == 'stockguns'%>
-            <h1 class="listing-title "> Stockguns Posted Today
+            <h1 class="listing-title "> In Stock Stockguns Deals
               <span class="subtitle subtitle--listing"> (
                                     <span class="pager-total-items" id="pager-total-items"><%= @products.all.count %></span> deals total)
                                 </span>
             </h1>
           <% elsif @category.name == 'knives'%>
-            <h1 class="listing-title "> Knives Posted Today
+            <h1 class="listing-title ">  Tactical & Hunting Knife Deals
               <span class="subtitle subtitle--listing"> (
                                     <span class="pager-total-items" id="pager-total-items"><%= @products.all.count %></span> deals total)
                                 </span>
             </h1>
           <% elsif @category.name == 'parts'%>
-            <h1 class="listing-title "> Parts Posted Today
+            <h1 class="listing-title "> Gun Parts
               <span class="subtitle subtitle--listing"> (
                                     <span class="pager-total-items" id="pager-total-items"><%= @products.all.count %></span> deals total)
                                 </span>
