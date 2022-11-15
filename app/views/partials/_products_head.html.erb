@@ -1,0 +1,74 @@
+<section class="pb-4">
+  <div class="container">
+    <div class="card card--listing-header card--listing-header-smaller p-3">
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-9">
+          <% if @category.name == 'handguns' %>
+          <h1 class="listing-title "> Handguns Posted Today
+            <span class="subtitle subtitle--listing"> (
+                                    <span class="pager-total-items" id="pager-total-items"><%= @products.all.count %></span> deals total)
+                                </span>
+          </h1>
+            <% elsif @category.name == 'stockguns'%>
+            <h1 class="listing-title "> Stockguns Posted Today
+              <span class="subtitle subtitle--listing"> (
+                                    <span class="pager-total-items" id="pager-total-items"><%= @products.all.count %></span> deals total)
+                                </span>
+            </h1>
+          <% elsif @category.name == 'knives'%>
+            <h1 class="listing-title "> Knives Posted Today
+              <span class="subtitle subtitle--listing"> (
+                                    <span class="pager-total-items" id="pager-total-items"><%= @products.all.count %></span> deals total)
+                                </span>
+            </h1>
+          <% elsif @category.name == 'parts'%>
+            <h1 class="listing-title "> Parts Posted Today
+              <span class="subtitle subtitle--listing"> (
+                                    <span class="pager-total-items" id="pager-total-items"><%= @products.all.count %></span> deals total)
+                                </span>
+            </h1>
+          <% end %>
+        </div>
+        <div class="col-lg-3">
+          <div class="card--filters js-page-filters card--transparent card--filters-header">
+            <div class="card__title"></div>
+            <div class="card__content">
+              <form action="">
+                <div class="filters filters--header mt-5">
+                  <div class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--with-icons field-toggle--product-view-control hidden-xs field-toggle--square" data-toggle="tooltip" data-title="Switch product view" data-original-title="" title="">
+
+                    <div class="form-group filters__container filters__sort-container">
+                      <label for="ddlSort" class="filters__sort-label filters__label text-nowrap">Sort by</label>
+                      <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                        <option selected>Newest date</option>
+                        <option value="1">Oldest date</option>
+                        <option value="2">Top rated</option>
+                        <option value="3">Lowest rated</option>
+                        <option value="2">Highest price</option>
+                        <option value="3">Lowest price</option>
+                      </select>
+                      <div class="field-toggle__container">
+                        <div class="create-new-border ms-2 mb-3">
+
+                          <div class="d-flex justify-content-between">
+                            <div class="first-list-toogle pe-2" >
+                              <i class="fa fa-th-list" style="font-size:20px;"></i>
+                            </div>
+                            <div class="second-list-toogle">
+                              <i class="fa fa-th-list" style="font-size:20px;color:gray"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a class="today-yesterday-link hidden-xs" href="/yesterday">View yesterday's deals</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

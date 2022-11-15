@@ -216,24 +216,27 @@
                             <span class="form-required"
                                   title="This field is required.">*</span>
                           </label></a>
-                          <select name="category"
-                                  class="form-select required js-product-calibers-change form-control select2-hidden-accessible"
-                                  id="edit-category" value="1" tabindex="-1" aria-hidden="true">
+                          <%#= select_tag(:category_id, options_for_select(@categories), :prompt => "Zgjidhni kategorine:") %>
+                          <%= form.select(:category_id, Category.all.map{|c| [c.name, c.id]}, {prompt: true, selected: :category_id}, {class: "form-select required js-product-calibers-change form-control select2-hidden-accessible"}) %>
+                          <%#= form.select :category, options_for_select(@categories) , :selected => :category ,class:'form-select required js-product-calibers-change form-control select2-hidden-accessible', id: "edit-category" %>
+<!--                          <select name="category"-->
+<!--                                  class="form-select required js-product-calibers-change form-control select2-hidden-accessible"-->
+<!--                                  id="edit-category" value="1" tabindex="-1" aria-hidden="true">-->
 <!--                            <option value="Choose an option">Choose an option</option>-->
-                            <option value="<%= @product.category %>"><%= @product.category %></option>
-                            <option value="Accessories">Accessories</option>
-                            <option value="Ammo">Ammo</option>
-                            <option value="Archery">Archery</option>
-                            <option value="Gun Parts">Gun Parts</option>
-                            <option value="Handguns">Handguns</option>
-                            <option value="Knives">Knives</option>
-                            <option value="News">News</option>
-                            <option value="NFA">NFA</option>
-                            <option value="Optics and Sights">Optics and Sights</option>
-                            <option value="Reloading">Reloading</option>
-                            <option value="Rifles">Rifles</option>
-                            <option value="Shotguns">Shotguns</option>
-                          </select>
+<!--                            <option value="<%#= @product.category %>"><%#= @product.category %></option>-->
+<!--                            <option value="Accessories">Accessories</option>-->
+<!--                            <option value="Ammo">Ammo</option>-->
+<!--                            <option value="Archery">Archery</option>-->
+<!--                            <option value="Gun Parts">Gun Parts</option>-->
+<!--                            <option value="Handguns">Handguns</option>-->
+<!--                            <option value="Knives">Knives</option>-->
+<!--                            <option value="News">News</option>-->
+<!--                            <option value="NFA">NFA</option>-->
+<!--                            <option value="Optics and Sights">Optics and Sights</option>-->
+<!--                            <option value="Reloading">Reloading</option>-->
+<!--                            <option value="Rifles">Rifles</option>-->
+<!--                            <option value="Shotguns">Shotguns</option>-->
+<!--                          </select>-->
                         </div>
                       </div>
                       <div class="col-xs-12 col-md-2">

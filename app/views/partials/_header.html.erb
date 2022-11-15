@@ -163,55 +163,14 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-              <li class="leaf first">
-                <a href="/stock_guns" title="Handguns"
-                   class="icon-handguns">Handguns</a>
-              </li>
-              <li class="leaf">
-                <a href="#" title="Rifles"
-                   class="icon-rifles">Rifles</a>
-              </li>
-              <li class="leaf">
-                <a href="#" title="Shotguns"
-                   class="icon-shotguns">Shotguns</a>
-              </li>
-              <li class="leaf">
-                <a href="#" title="Parts"
-                   class="icon-gun-parts">Parts</a>
-              </li>
-              <li class="leaf">
-                <a href="#" title="Ammo" class="icon-ammo">Ammo</a>
-              </li>
-              <li class="leaf">
-                <a href="#"
-                   class="icon-optics-sights">Optics &amp; Sights</a>
-              </li>
-              <li class="leaf">
-                <a href="#" title="Accessories"
-                   class="icon-accessories">Accessories</a>
-              </li>
-              <li class="leaf">
-                <a href="#" class="icon-nfa">NFA</a>
-              </li>
-              <li class="leaf">
-                <a href="#" title="Knives"
-                   class="icon-knives">Knives</a>
-              </li>
-              <li class="leaf">
-                <a href="#" title="Archery"
-                   class="icon-archery">Archery</a>
-              </li>
-              <li class="leaf">
-                <a href="#" title="Reloading"
-                   class="icon-reloading">Reloading</a>
-              </li>
-              <li class="leaf">
-                <a href="#" class="icon-services">Services</a>
-              </li>
-              <li class="leaf last">
-                <a href="#" title="California Legal Firearms"
-                   class="icon-ca-legal">CA Legal</a>
-              </li>
+              <% unless !@categories.present? %>
+              <% @categories.each do |category| %>
+                <li class="leaf first">
+                  <a href="<%= category_path(category) %>" title="<%= category.name %>"
+                     class="icon-handguns"><%= category.name %></a>
+                </li>
+              <% end %>
+               <% end %>
             </ul>
           </li>
           <li class="expanded dropdown">

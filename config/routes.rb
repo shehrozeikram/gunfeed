@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   # Header routes
   get "/today" , to: "products#today"
 
+  get "/category/:id" , to: "products#category", as: :category
+
+
   # footer routes
-  get "/stock_guns" , to: "products#stock_guns"
   get "/about_us" , to: "products#about_us"
   get "/contact_us" , to: "products#contact_us"
   get "/FAQ" , to: "products#FAQ"

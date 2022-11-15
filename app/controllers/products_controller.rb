@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @categories = Category.all
   end
 
   def new
@@ -23,13 +24,17 @@ class ProductsController < ApplicationController
     # @product_upc = doc.css('//*[@id="sku-mpn-upc"]/div/div[3]/text()')
     # @product_image = doc.css('//*[@id="main-image"]/div/a[1]/img')
 
-
+    # @categories = Category.all.to_a.map{ |c| [c.name, c.id]}
+    @categories = Category.all
     @product = Product.new
   end
 
   def create
     if user_signed_in?
       @product = current_user.products.new(product_params)
+      @product.category_id = params[:product][:category_id]
+      # category = @product.category
+      # @product.category = category
       if @product.save
         redirect_to products_path
       else
@@ -41,6 +46,7 @@ class ProductsController < ApplicationController
       end
 
   def show
+    @categories = Category.all
     @product = Product.find(params[:id])
   end
 
@@ -57,8 +63,16 @@ class ProductsController < ApplicationController
   # footer actions
 
   def today
+    @categories = Category.all
     @products = Product.where(created_at: Date.today.all_day)
   end
+
+  def category
+    @categories = Category.all
+    @category =  Category.find(params[:id])
+    @products = Product.where(category_id: params[:id])
+  end
+
 
   def about_us
   end
