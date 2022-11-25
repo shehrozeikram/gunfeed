@@ -58,9 +58,6 @@ class ProductsController < ApplicationController
   end
 
   def new
-
-
-
     # @categories = Category.all.to_a.map{ |c| [c.name, c.id]}
     @categories = Category.all
     @product = Product.new
