@@ -14,6 +14,8 @@ gem 'sass-rails'
 
 gem 'devise'
 
+
+
 gem 'activeadmin'
 
 gem 'cancancan'
