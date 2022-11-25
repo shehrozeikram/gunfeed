@@ -19,7 +19,7 @@
       <div class="card card--basic-info p-4">
         <div class="card__title">
           <span class="js-badge-wrapper"></span>
-          <h1><%= @product.title %></h1>
+          <h1><%= @deal.title %></h1>
         </div>
         <div class="card__content">
           <div class="row">
@@ -27,7 +27,7 @@
               <ul class="price-cta">
                 <li class="price-cta__price-wrapper">
                                     <span class="price-cta__price-vertical-align">
-                                        <span class="price-cta__price">$<%= @product.price %></span>
+                                        <span class="price-cta__price">$<%= @deal.price %></span>
                                     </span>
                 </li>
                 <li>
@@ -47,12 +47,12 @@
               <div class="product__detail ">
                 <i class="fa fa-user"></i>
                 <span> Posted by
-                                    <a href="#"><%= @product.user.email %></a>
+                                    <a href="#"><%= @deal.user.email %></a>
                                 </span>
               </div>
               <div class="product__detail">
                 <i class="fa fa-calendar"></i>Updated by
-                <a href="#"><%= @product.user.email %></a> <%= @product.updated_at %>
+                <a href="#"><%= @deal.user.email %></a> <%= @deal.updated_at %>
               </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
@@ -81,7 +81,7 @@
                             <span class="pill pill--caliber">
                                 <span class="pill__title">Caliber</span>
                                 <span class="pill__value">
-                                    <a href="#"><%= @product.caliber %></a>
+                                    <a href="#"><%= @deal.caliber %></a>
                                 </span>
                             </span>
             </li>
@@ -89,7 +89,7 @@
                             <span class="pill pill--brand">
                                 <span class="pill__title">Brand</span>
                                 <span class="pill__value">
-                                    <a href="#"><%= @product.brand %></a>
+                                    <a href="#"><%= @deal.brand %></a>
                                 </span>
                             </span>
             </li>
@@ -97,7 +97,7 @@
                             <span class="pill pill--upc">
                                 <span class="pill__title">UPC</span>
                                 <span class="pill__value">
-                                    <a href="#"><%= @product.upc %></a>
+                                    <a href="#"><%= @deal.upc %></a>
                                 </span>
                             </span>
             </li>
@@ -105,7 +105,7 @@
                             <span class="pill pill--mpn">
                                 <span class="pill__title">MPN</span>
                                 <span class="pill__value">
-                                    <a href="#"><%= @product.mpn %></a>
+                                    <a href="#"><%= @deal.mpn %></a>
                                 </span>
                             </span>
             </li>
@@ -124,7 +124,7 @@
             <div class="col-lg-3 px-1">
               <div class="img-gallery product-actions-bottom-margin">
                 <a href="#">
-                  <image src = "<%= @product.image %>", class = "p-4 pt-0" />
+                  <image src = "<%= @deal.image %>", class = "p-4 pt-0" />
                 </a>
               </div>
               <ul class="product-actions product-actions--expanded">
@@ -277,9 +277,9 @@
               <div class="product-description js-product-description">
                 <div class="product-description-inner">
                   <h2 class="card__heading">Description</h2>
-                  <p><%= @product.body %>
+                  <p><%= @deal.body %>
                     <br>1911 Field Grade Specifications
-                    <br> Caliber:<%= @product.caliber %>
+                    <br> Caliber:<%= @deal.caliber %>
                     <br> Action: Semi-Auto
                     <br> Barrel Length: 5" (127 mm)
                     <br> Capacity: 8+1
@@ -782,181 +782,6 @@
       </section>
     </div>
   </section>
-
-  <!-- ----------------------dropdown Live Prices start here------------------------------------ -->
-  <section class="compaire-price-table2 mb-4">
-    <div class="container px-0">
-      <div class="card p-3">
-        <div class="">
-          <div class="d-flex justify-content-between">
-            <div>
-              <h2>Wikiarms.com Live Prices</h2>
-            </div>
-            <div class="dealer-comparison-info"> <i class="fa fa-bullhorn" aria-hidden="true"></i> <span>Want to
-                          see your products here? Click this</span> <a href="/content/shopping-comparison">link</a>.
-            </div>
-          </div>
-
-          <div class="d-flex justify-content-between mt-3">
-            <div>
-              <p>In Stock 9mm Ammo</p>
-            </div>
-            <div>
-              <div class="wikiarms-section__controls js-wikiarms-controls">
-                <div class="js-field-toggle field-toggle field-checkbox--light dot-indicator dot-indicator__right dot-indicator--brass field-checkbox--with-title field-checkbox--title-after">
-                  <div class="field-checkbox__container">
-                    <input checked="" id="field-checkbox-brass-case" type="checkbox" class="field-checkbox__input js-wikiarms-ammo-filter" value="brass_case">
-                    <label for="field-checkbox-brass-case" class="field-checkbox__label">
-                      <span class="field-checkbox__title">Brass</span>
-                    </label>
-                  </div>
-                </div>
-                <div class="js-field-toggle field-toggle field-checkbox--light dot-indicator dot-indicator__right dot-indicator--steel field-checkbox--with-title field-checkbox--title-after">
-                  <div class="field-checkbox__container">
-                    <input checked="" id="field-checkbox-steel-case" type="checkbox" class="field-checkbox__input js-wikiarms-ammo-filter" value="steel_case">
-                    <label for="field-checkbox-steel-case" class="field-checkbox__label">
-                      <span class="field-checkbox__title">Steel</span>
-                    </label>
-                  </div>
-                </div>
-                <div class="js-field-toggle field-toggle field-checkbox--light dot-indicator dot-indicator__right dot-indicator--reloads field-checkbox--with-title field-checkbox--title-after">
-                  <div class="field-checkbox__container">
-                    <input checked="" id="field-checkbox-reload" type="checkbox" class="field-checkbox__input js-wikiarms-ammo-filter" value="reload">
-                    <label for="field-checkbox-reload" class="field-checkbox__label">
-                      <span class="field-checkbox__title">Reloads</span>
-                    </label>
-                  </div>
-                </div>
-                <div class="js-field-toggle field-toggle field-checkbox--light backorder-filter field-checkbox--with-title field-checkbox--title-after">
-                  <div class="field-checkbox__container">
-                    <input checked="" id="field-checkbox-backorder" type="checkbox" class="field-checkbox__input js-wikiarms-ammo-filter" value="backorder">
-                    <label for="field-checkbox-backorder" class="field-checkbox__label">
-                      <span class="field-checkbox__title">Backorder</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div class="table-section__content">
-            <table class="table price-compare-table  wikiarms-table-2">
-              <thead class="bg-dark text-white">
-              <tr>
-                <th>Product</th>
-                <th>Store</th>
-                <th>Price</th>
-                <th>PPR</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td>
-                  <a target="_blank" class="dot-indicator dot-indicator__left dot-indicator--brass" href="#"> ZQI 9MM NATO 124 Grain 50 Round </a>
-                </td>
-                <td class=""><span> <a href="#">Durkin Tactical </a></span></td>
-                <td> $9.99 </td>
-                <td>$0.20</td>
-              </tr>
-              <tr>
-                <td>
-                  <a target="_blank" class="dot-indicator dot-indicator__left dot-indicator--brass" href="#">ZSR *ON SALE* 9mm 115 Grain Full Metal Jacket [300] Rounds - FREE 24x36" Silhouette Paper Target & Training Pack with purchase for Range Day! Learn - Exert - Preserve</a>
-                </td>
-                <td class=""><span> <a href="#">Bestow Training Group</a></span></td>
-                <td> $64.50</td>
-                <td> $0.22</td>
-              </tr>
-              <tr>
-                <td>
-                  <a target="_blank" class="dot-indicator dot-indicator__left dot-indicator--brass" href="#">ZSR *ON SALE* 9mm 115 Grain Full Metal Jacket [400] Rounds - FREE 24x36" Silhouette Paper Target & Permanent Marker with purchase for Range Day! **No CC Fees** 3% Discount with Payment Options - See Details</a>
-                </td>
-                <td class=""><a href="#">Bestow Training Group</a></td>
-                <td>$86.00</td>
-                <td>$0.22</td>
-              </tr>
-              <tr>
-                <td><a target="_blank" class="dot-indicator dot-indicator__left dot-indicator--brass" href="#">ZSR *ON SALE* 9mm 115 Grain Full Metal Jacket [600] Rounds - FREE 24x36" Silhouette Paper Target & Training Pack with purchase for Range Day! Learn - Exert - Preserve</a></td>
-                <td class=""><a href="#">Bestow Training Group</a></td>
-                <td>$129.00</td>
-                <td>$0.22</td>
-              </tr>
-              <tr>
-                <td><a target="_blank" class="dot-indicator dot-indicator__left dot-indicator--brass" href="#">Fiocchi ** ON SALE ** Pistol Shooting Dynamics Brass 9mm Luger 115 Grain (600) Rounds - FREE 24x36" Silhouette Paper Target & Permanent Marker with purchase for Range Day! Learn - Exert - Preserve</a></td>
-                <td class=""><a href="#">Bestow Training Group</a></td>
-                <td>$129.00</td>
-                <td>$0.22</td>
-              </tr>
-              <tr>
-                <td><a target="_blank" class="dot-indicator dot-indicator__left dot-indicator--brass" href="#">ZSR *ON SALE* 9mm 115 Grain Full Metal Jacket [800] Rounds - FREE 24x36" Silhouette Paper Target & Training Pack with purchase for Range Day! Learn - Exert - Preserve</a></td>
-                <td class=""><a href="#">Bestow Training Group</a></td>
-                <td>$172.00</td>
-                <td>$0.22</td>
-              </tr>
-              <tr>
-                <td><a target="_blank" class="dot-indicator dot-indicator__left dot-indicator--brass" href="#">Norma - 9mm Ammunition FMJ 115 gr 2000ct!! NO CC FEE PLUS TWO FREE AMMO CANs - LOOSE PACK 810036150255</a></td>
-                <td class=""><a href="#">Bestow Training Group</a></td>
-                <td>$432.00</td>
-                <td>$0.22</td>
-              </tr>
-              <tr>
-                <td><a target="_blank" class="dot-indicator dot-indicator__left dot-indicator--brass" href="#">PMC *ON SALE* 9mm Ammunition Bronze 115 Grain Full Metal Jacket [600] Rounds - FREE 24x36" Silhouette Paper Target & Training Pack with purchase for Range Day! Learn - Exert - Preserve 741569070270</a>
-                </td>
-                <td class=""><a href="#">Bestow Training Group</a></td>
-                <td>$229.00</td>
-                <td>$0.22</td>
-              </tr>
-              <tr>
-                <td><a target="_blank" class="dot-indicator dot-indicator__left dot-indicator--brass" href="#">Norma - 9mm Ammunition FMJ 115 gr - 1000ct- NO CC FEE PLUS FREE AMMO CAN - LOOSE PACK 810036150255</a></td>
-                <td class=""><a href="#">Bestow Training Group</a></td>
-                <td>$329.00</td>
-                <td>$0.22</td>
-              </tr>
-              <tr>
-                <td><a target="_blank" class="dot-indicator dot-indicator__left dot-indicator--brass" href="#">PMC **ON SALE** 9mm Ammunition Bronze 115 Grain Full Metal Jacket [300] Rounds - FREE 24x36" Silhouette Paper Target & Training Pack with purchase for Range Day! Learn - Exert - Preserve 741569070270</a>
-                </td>
-                <td class=""><a href="#">Bestow Training Group</a></td>
-                <td>$129.00</td>
-                <td>$0.22</td>
-              </tr>
-
-              </tbody>
-            </table>
-            <nav class="table-section__pagination js-wikiarms-pagination-section pb-3">
-              <ul class="pagination js-wikiarms-pagination">
-                <li class="prev">
-                  <button data-page-number="0" class="js-wikiarms-pagination-btn" disabled="">
-                    <i class="fa fa-angle-left"></i>
-                  </button>
-                </li>
-                <li class="current right-dots">
-                  <span>1</span>
-                </li>
-                <li>
-                  <button data-page-number="23" class="js-wikiarms-pagination-btn"> 23 </button>
-                </li>
-                <li class="next">
-                  <button data-page-number="2" class="js-wikiarms-pagination-btn">
-                    <i class="fa fa-angle-right"></i>
-                  </button>
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          <div class="table-section__footer">
-            <%#= image_tag  'wiki.webp'  , class: "powered-by-img"%>
-            <!-- <img class="" style="height: 24px ; width:24px;" src="wikiarms-logo.png"
-                alt="Wikiarms.com"> -->
-            <span> Powered by
-                      <a target="_blank" href="#">Wikiarms.com</a>
-                  </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- -----------------------dropdown Live Prices end here------------------------------------ -->
-
   <!-- live price section end here -->
 
 
@@ -969,7 +794,7 @@
         <div class="card__title">
           <h2 class="js-card-title customerreview-deal-page__title">Customer reviews</h2>
           <div class="customerreview-deal-page__leave-a-review-container">
-            <a href="<%=new_review_path %>" class="btn btn-primary">Leave a review</a>
+            <a href="#" class="btn btn-primary">Leave a review</a>
           </div>
         </div>
         <div class="card__content">
@@ -1008,12 +833,12 @@
   <!-- -------------customer review sectiohn end----------------- -->
 
   <!-- --------------------------comment section start here------------------------------------- -->
-  <section class="comment-section mb-3" id="Div1">
+  <section class="comment-section mb-3">
     <div class="container">
       <div class="card--comments p-3 js-collapsible-card anchor card--collapsed" id="comments"
            data-collapsible-card="xs sm md lg">
         <div class="card__title d-none">
-          <h2 class="js-card-title">Comments <%=@product.comments.all.count %></h2>
+          <h2 class="js-card-title">Comments (2)</h2>
         </div>
         <div class="card__content d-none">
           <div id="comment-form-content"></div>
@@ -1260,8 +1085,8 @@
             </div>
           </div>
         </div>
-        <a id="Button1" class="card__collapsed-title btn-block text-left text-white text-decoration-none d-flex justify-content-between" tabindex="0">
-          <div>Comments <%=@product.comments.all.count %> </div>
+        <a class="card__collapsed-title btn-block text-left text-white text-decoration-none d-flex justify-content-between" tabindex="0">
+          <div>Comments (2)</div>
           <div><i class="card__caret fa fa-caret-down"></i></div>
         </a>
 
@@ -1269,183 +1094,6 @@
     </div>
   </section>
   <!-- --------------------=--------comment section end here----------------------------------- -->
-
-  <!-- -----------------------dropdown comment section start here -------------------------- -->
-
-  <section id="Div2">
-    <div class="container">
-      <div class="row">
-        <div class="card card--comments pb-5" id="comments" data-collapsible-card="xs sm md lg" tabindex="">
-          <div class="card__title">
-            <h2 class="js-card-title">Comments <%=@product.comments.all.count %></h2>
-          </div>
-          <div class="card__content">
-            <div id="comment-form-content"></div>
-
-          <form action="/ajax/comment/reply/1135586" accept-charset="UTF-8" method="post"
-                  id="comment-form-1" class="js-ajax-comment-form" style="display: none;">
-              <div>
-                <div style="display:none">
-                  <div class="form-group"> <label>Your name: </label> <a
-                    href="/users/birminghampistol"
-                    title="View user profile.">BirminghamPistol</a></div>
-                </div>
-                <div class="form-group">
-                  <div id="comments-policy"></div>
-                </div>
-                <div class="form-group" id="edit-comment-1-wrapper"> <label
-                  for="edit-comment-1">Comment: <span class="form-required"
-                                                      title="This field is required.">*</span></label>
-                  <div class="resizable-textarea"><span><textarea cols="60" rows="5" name="comment" id="edit-comment-1" class="form-textarea resizable required wysiwyg form-control textarea-processed"></textarea>
-                                            <div class="grippie" style="margin-right: 0px;"></div>
-                                        </span></div>
-                </div>
-                <ul class="tips">
-                  <li>Web page addresses and e-mail addresses turn into links automatically.</li>
-                  <li>Allowed HTML tags: &lt;div&gt; &lt;span&gt; &lt;table&gt; &lt;tr&gt; &lt;td&gt;
-                    &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt; &lt;a&gt;
-                    &lt;p&gt; &lt;table&gt; &lt;tr&gt; &lt;td&gt; &lt;em&gt; &lt;strong&gt;
-                    &lt;b&gt; &lt;cite&gt; &lt;code&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; &lt;br&gt;
-                    &lt;dl&gt; &lt;dt&gt; &lt;dd&gt; &lt;i&gt; &lt;u&gt;</li>
-                  <li>Lines and paragraphs break automatically.</li>
-                </ul>
-                <p><a href="/filter/tips">More information about formatting options</a></p><input
-                type="hidden" name="form_build_id"
-                id="form-DryZuj-7lzx5Pc8a8W865w5bmb0_XQUxDOz4GhPznUY"
-                value="form-DryZuj-7lzx5Pc8a8W865w5bmb0_XQUxDOz4GhPznUY"><input type="hidden"
-                                                                                name="form_token" id="edit-form-token-1"
-                                                                                value="d8ded4533b6208a68e75e9dcbe7a1e89"><input type="hidden" name="form_id"
-                                                                                                                                id="edit-comment-form-1" value="comment_form">
-                <fieldset class=" collapsible collapsed">
-                  <legend class="collapse-processed"><a href="#">Images</a></legend>
-                  <div class="fieldset-wrapper">
-                    <div class="js-dropzone dropzone dz-clickable">
-                      <div class="dz-default dz-message"><span>Add or drag your images here</span>
-                      </div>
-                    </div><input type="hidden" name="fetched_dropzone_images"
-                                 id="edit-fetched-dropzone-images-1" value="">
-                  </div>
-                </fieldset>
-                <div class="form-group" id="edit-notify-1-wrapper"> <label class="option"
-                                                                           for="edit-notify-1"><input type="checkbox" name="notify" id="edit-notify-1"
-                                                                                                      value="1" checked="checked" class="form-checkbox"> Subscribe to comments,
-                  price drops and back in stock notifications for this deal</label></div><input
-                type="submit" name="op" id="edit-submit-1" value="Save"
-                class="form-submit btn btn-default btn-primary">
-              </div>
-            </form> <a id="comment-1177471"></a>
-            <% unless !@product.comments.present? %>
-            <%= @product.comments.each do |comment| %>
-            <div class="comment comment-published clear-block" data-cid="1177471">
-
-              <div class="submitted">
-                <div class="submitted-info"> By <a href="/users/surfncnow2"
-                                                   title="View user profile."><%= comment.user.user_name %></a>, <a href="#comment-1177471"
-                                                                                                 class="comment__hyperlink"><%= comment.created_at %></a></div>
-                <div class="submitted_report"> <a class="js-report-comment"
-                                                  href="/ajax-report-comment/1177471">Report</a></div>
-              </div>
-              <div class="content">
-                <div class="comment-content js-comment-content">
-                  <p><%= comment.body %></p>
-                </div>
-                <div class="rate-widget-2 rate-widget clear-block rate-average rate-widget-thumbs_up_down_count rate-b1af0c4050c20a8627157b8bdac33c9b rate-processed rate-custom-processed"
-                     id="rate-comment-1177471-2-1">
-                  <div class="votes-up-down-widget">
-<!--                    <div class="thumb-up">-->
-<!--                      <div class="" title="50%"><a class="rate-button rate-thumbs-up-down-btn-up"-->
-<!--                                                   id="rate-button-7" rel="nofollow"-->
-<!--                                                   href="/product/winchester-silvertip-9mm-115-grain-hollow-point-1000-rounds-550?rate=2e52b9d46be73c06cd3ade9843aa6ed7"></a>-->
-<!--                      </div>-->
-<!--                      <div class="percent">0 votes</div>-->
-<!--                    </div>-->
-<!--                    <div class="thumb-down">-->
-<!--                      <div title="50%"><a class="rate-button rate-thumbs-up-down-btn-down"-->
-<!--                                          id="rate-button-8" rel="nofollow"-->
-<!--                                          href="/product/winchester-silvertip-9mm-115-grain-hollow-point-1000-rounds-550?rate=620fdff013c3b5da5192570982d203f1"></a>-->
-<!--                      </div>-->
-<!--                      <div class="percent">0 votes</div>-->
-<!--                    </div>-->
-<!--                    <div class="voting-results-link"><a-->
-<!--                      href="/voting-results?nid=1177471&amp;content-type=comment">View-->
-<!--                      score</a></div>-->
-                  </div>
-                </div>
-              </div>
-              <ul class="links">
-<!--                <li class="comment_reply first last"><a href="/comment/reply/1135586/1177471">reply</a>-->
-                </li>
-              </ul>
-            </div><a id="comment-1176661"></a>
-            <% end %>
-              <% end %>
-            <div class="box">
-              <h2>Post new comment</h2>
-              <div class="content">
-                <%= form_with model: @comment , url: '/comments' ,id:"comment-form-1",class:"js-ajax-comment-form", html: { multipart: true } do |form| %>
-<!--                <form action="/ajax/comment/reply/1135586" accept-charset="UTF-8" method="post"-->
-<!--                      id="comment-form" class="js-ajax-comment-form">-->
-                  <div>
-                    <div style="display:none">
-                      <div class="form-group"> <label>Your name: </label> <a
-                        href="/users/birminghampistol"
-                        title="View user profile.">BirminghamPistol</a></div>
-                    </div>
-                    <div class="form-group">
-                      <div id="comments-policy"></div>
-                    </div>
-                    <div class="form-group" id="edit-comment-wrapper"> <label for="edit-comment">Comment: <span class="form-required" title="This field is required.">*</span></label>
-                      <div class="resizable-textarea"><span><textarea cols="60" rows="5" value="<%= @comment.body %>" name="comment" id="edit-comment"
-                                                                      class="form-textarea resizable required wysiwyg form-control textarea-processed"></textarea>
-                                                    <div class="grippie" style="margin-right: 0px;"></div>
-                                                </span></div>
-                    </div>
-                    <input type="hidden" id="custId" name="product_id" value="<%= @product.id %>">
-                    <ul class="tips">
-                      <li>Web page addresses and e-mail addresses turn into links automatically.
-                      </li>
-                      <li>Allowed HTML tags: &lt;div&gt; &lt;span&gt; &lt;table&gt; &lt;tr&gt;
-                        &lt;td&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt;
-                        &lt;h6&gt; &lt;a&gt; &lt;p&gt; &lt;table&gt; &lt;tr&gt; &lt;td&gt;
-                        &lt;em&gt; &lt;strong&gt; &lt;b&gt; &lt;cite&gt; &lt;code&gt; &lt;ul&gt;
-                        &lt;ol&gt; &lt;li&gt; &lt;br&gt; &lt;dl&gt; &lt;dt&gt; &lt;dd&gt;
-                        &lt;i&gt; &lt;u&gt;</li>
-                      <li>Lines and paragraphs break automatically.</li>
-                    </ul>
-                    <p><a href="/filter/tips">More information about formatting options</a></p>
-                    <input type="hidden" name="form_build_id"
-                           id="form-l6NMZQWNaVwuKial8lv6KDn7s2Ih3_OvcPvlFQ1gvh0"
-                           value="form-l6NMZQWNaVwuKial8lv6KDn7s2Ih3_OvcPvlFQ1gvh0"><input
-                    type="hidden" name="form_token" id="edit-form-token"
-                    value="d8ded4533b6208a68e75e9dcbe7a1e89"><input type="hidden" name="form_id"
-                                                                    id="edit-comment-form" value="comment_form">
-                    <fieldset class=" collapsible collapsed">
-                      <legend class="collapse-processed"><a href="#">Images</a></legend>
-                      <div class="fieldset-wrapper">
-                        <div class="js-dropzone dropzone dz-clickable">
-                          <div class="dz-default dz-message"><span>Add or drag your images
-                                                            here</span></div>
-                        </div><input type="hidden" name="fetched_dropzone_images"
-                                     id="edit-fetched-dropzone-images" value="">
-                      </div>
-                    </fieldset>
-                    <div class="form-group" id="edit-notify-wrapper"> <label class="option"
-                                                                             for="edit-notify"><input type="checkbox" name="notify" id="edit-notify"
-                                                                                                      value="1" checked="checked" class="form-checkbox"> Subscribe to
-                      comments, price drops and back in stock notifications for this
-                      deal</label></div><input type="submit" name="op" id="edit-submit"
-                                               value="Save" class="form-submit btn btn-default btn-primary">
-                  </div>
-<!--                </form>-->
-              <% end %>
-                  </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
 
 </div>
 <!-- card section two start here  -->
@@ -1617,21 +1265,5 @@
   </div>
 </section>
 <%= render partial: 'partials/footer' %>
-
-<script>
-    var div1 = document.getElementById('Div1'),
-        div2 = document.getElementById('Div2');
-    function switchVisible() {
-        if(!div1) return;
-        if (getComputedStyle(div1).display == 'block') {
-            div1.style.display = 'none';
-            div2.style.display = 'block';
-        } else {
-            div1.style.display = 'block';
-            div2.style.display = 'none';
-        }
-    }
-    document.getElementById('Button1').addEventListener('click', switchVisible);
-</script>
 </body>
 </html>

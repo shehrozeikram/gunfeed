@@ -1,16 +1,50 @@
 Rails.application.routes.draw do
+  resources :reviews
+  # get 'reviews/new'
+  get 'comments/new'
+  resources :comments
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
   # main routes
   resources :products
   root to: "products#index"
+  get "/search_products" , to: "products#search_products"
+  get "/fetch_data_from_url" , to: "products#fetch_data_from_url"
+
+  resources :customer_reviews
+  get 'deals/index'
+  get 'blogs/index'
+  get 'stores/index'
 
   # Header routes
   get "/today" , to: "products#today"
-
   get "/category/:id" , to: "products#category", as: :category
 
+  # Quicklink routes
+  # get "/vulcan" , to: "products#vulcan"
+  get "/stores" , to: "stores#index"
+  get "/blogs" , to: "blogs#index"
+  get "/revolvers" , to: "deals#revolvers"
+  get "/revolvers/:id" , to: "deals#revolver_show", as: :revolver_show
+  get "/rimfire" , to: "deals#rimfire"
+  get "/rimfire/:id" , to: "deals#rimfire_show", as: :rimfire_show
+  get "/c_and_r" , to: "deals#c_and_r"
+  get "/c_and_r/:id" , to: "deals#c_and_r_show", as: :c_and_r_show
+  get "/ar_deals" , to: "deals#ar_deals"
+  get "/ar_deal/:id" , to: "deals#ar_deal_show", as: :ar_deal_show
+  get "/ak_deals" , to: "deals#ak_deals"
+  get "/ak_deal/:id" , to: "deals#ak_deal_show", as: :ak_deal_show
+  get "/twentytwo_lr_ammo" , to: "deals#twentytwo_lr_ammo"
+  get "/twentytwo_lr_ammo/:id" , to: "deals#twentytwo_lr_ammo_show", as: :twentytwo_lr_ammo_show
+  get "/nine_mm_ammo" , to: "deals#nine_mm_ammo"
+  get "/nine_mm_ammo/:id" , to: "deals#nine_mm_ammo_show", as: :nine_mm_ammo_show
+  get "/used_guns" , to: "deals#used_guns"
+  get "/used_gun/:id" , to: "deals#used_gun_show", as: :used_gun_show
+  get "/top_articles" , to: "deals#top_articles"
+  get "/top_article/:id" , to: "deals#top_article_show", as: :top_article_show
+  get "/popular" , to: "deals#popular"
+  get "/popular/:id" , to: "deals#popular_show", as: :popular_show
 
   # footer routes
   get "/about_us" , to: "products#about_us"

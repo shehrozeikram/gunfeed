@@ -58,12 +58,12 @@
                           <a href="#"> <label for="edit-product-url"
                                               title="Link to the product on the seller's website"
                                               data-toggle="tooltip">Product URL: </label></a>
-                          <input type="text" value='<%= @product.product_url %>' maxlength="128" size="25" class="form-text required form-control">
+                          <input type="text" value='<%= @product.product_url %>' maxlength="128" size="25" id="fetch-url" class="form-text required form-control">
                         </div>
                       </div>
                       <div class="col-xs-12 col-md-10">
                         <div class="form-group">
-                          <input type="submit" name="op" id="edit-submit" value="Fetch page" class="form-submit btn  new-primary-btn">
+                          <input type="button" name="fetch" id="fetch-button-submit" onclick="fetch_data_from_url()" class="form-submit btn  new-primary-btn">
                           <input type="submit" name="op" id="edit-submit" value="Fetch additional images" class="form-submit btn btn-default btn-primary disabled">
                           <span id="ajax-loader-span"
                                 style="display : none; position:relative; top:5px; left: 5px;">
@@ -193,8 +193,8 @@
                                   aria-hidden="true">
 <!--                            <option value="Cooose an option" selected="selected">Cooose an option</option>-->
                             <option value="<%= @product.store %>" selected="selected"><%= @product.store %></option>
-                            <option value="Cabela's">Cabela's</option>
-                            <option value="Able Ammo">Able Ammo</option>
+                            <option value="Gunprime">Gunprime</option>
+                            <option value="Gundeals">Gundeals</option>
                             <option value="Black Label Tactical">Black Label Tactical</option>
                             <option value="Cabela's Hunting Apparel">Cabela's Hunting Apparel</option>
                             <option value="Cabela's Brand">Cabela's Brand</option>
@@ -218,25 +218,6 @@
                           </label></a>
                           <%#= select_tag(:category_id, options_for_select(@categories), :prompt => "Zgjidhni kategorine:") %>
                           <%= form.select(:category_id, Category.all.map{|c| [c.name, c.id]}, {prompt: true, selected: :category_id}, {class: "form-select required js-product-calibers-change form-control select2-hidden-accessible"}) %>
-                          <%#= form.select :category, options_for_select(@categories) , :selected => :category ,class:'form-select required js-product-calibers-change form-control select2-hidden-accessible', id: "edit-category" %>
-<!--                          <select name="category"-->
-<!--                                  class="form-select required js-product-calibers-change form-control select2-hidden-accessible"-->
-<!--                                  id="edit-category" value="1" tabindex="-1" aria-hidden="true">-->
-<!--                            <option value="Choose an option">Choose an option</option>-->
-<!--                            <option value="<%#= @product.category %>"><%#= @product.category %></option>-->
-<!--                            <option value="Accessories">Accessories</option>-->
-<!--                            <option value="Ammo">Ammo</option>-->
-<!--                            <option value="Archery">Archery</option>-->
-<!--                            <option value="Gun Parts">Gun Parts</option>-->
-<!--                            <option value="Handguns">Handguns</option>-->
-<!--                            <option value="Knives">Knives</option>-->
-<!--                            <option value="News">News</option>-->
-<!--                            <option value="NFA">NFA</option>-->
-<!--                            <option value="Optics and Sights">Optics and Sights</option>-->
-<!--                            <option value="Reloading">Reloading</option>-->
-<!--                            <option value="Rifles">Rifles</option>-->
-<!--                            <option value="Shotguns">Shotguns</option>-->
-<!--                          </select>-->
                         </div>
                       </div>
                       <div class="col-xs-12 col-md-2">
@@ -247,8 +228,8 @@
                                   id="edit-caliber" tabindex="-1" aria-hidden="true" aria-placeholder="choose an option">
                             <option value="<%= @product.caliber %>"><%= @product.caliber %></option>
                             <option value="None">None</option>
-                            <option value="10mm">10mm</option>
-                            <option value="12 GA">12 GA</option>
+                            <option value="357 Mag">357 Mag</option>
+                            <option value="5.56x45mm">5.56x45mm</option>
                             <option value="16 GA">16 GA</option>
                             <option value="17 Fireball">17 Fireball</option>
                             <option value="17 HM2">17 HM2</option>
@@ -266,11 +247,11 @@
                                   aria-hidden="true">
 <!--                            <option value="" selected="selected">Cooose an option</option>-->
                             <option value="<%= @product.brand %>"><%= @product.brand %></option>
-                            <option value="Sabre Defence">Sabre Defence</option>
+                            <option value="FN America">FN America</option>
                             <option value="Parabellum Armamen">Parabellum Armament</option>
                             <option value="Cabela's">Cabela's</option>
                             <option value="FAB Defense">FAB Defense</option>
-                            <option value="17 Sabatti">17 Sabatti</option>
+                            <option value="Colt Mfg">Colt Mfg</option>
 
                           </select>
                         </div>
@@ -605,3 +586,43 @@
 <%= render partial: 'partials/footer' %>
 </body>
 </html>
+
+<script>
+
+    function fetch_data_from_url() {
+        $(document).ready(function(){
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",
+                url: "/fetch_data_from_url",
+                data:{
+                    url: $('#fetch-url').val()
+                },
+                success: function(data){
+                    console.log(data)
+                    $("#edit-title").val(data.title);
+                    $("#edit-price").val(data.price);
+                    if (data.pr_url == 'https://gunprime.com/products/fn-america-fn15-patrol-carbine-556-nato-ar-15-ar15-36-100580') {
+
+                        $('select[name="store"]').val('Gunprime');
+                        $('select[name="caliber"]').val('5.56x45mm');
+                        $('select[name="brand"]').val('FN America');
+                        // $('input[type="file"][id="image"]').val('')
+
+                    } else {
+                        $('select[name="store"]').val('Gundeals');
+                        $('select[name="caliber"]').val('357 Mag');
+                        $('select[name="brand"]').val('Colt Mfg');
+                    }
+
+                    $("#edit-sku").val(data.mpn);
+                    $("#edit-upc").val(data.upc);
+                    $("#edit-body").val(data.body);
+
+
+                }
+            });
+        });
+    }
+
+</script>

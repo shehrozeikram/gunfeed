@@ -1,9 +1,56 @@
 class ProductsController < ApplicationController
+
+  before_action :authenticate_user!
+
   require 'open-uri'
   require 'nokogiri'
   require 'date'
 
+  def search_products
+    if params[:q].present?
+      @products = Product.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%").page params[:page]
+      render json:  @products
+    end
+  end
 
+  def fetch_data_from_url
+    if params[:url].present?
+      url = params[:url]
+      if url == "https://gunprime.com/products/fn-america-fn15-patrol-carbine-556-nato-ar-15-ar15-36-100580"
+        doc = Nokogiri::HTML(URI.open(url))
+        @product_title = doc.css('//*[@id="product-description"]/h1/text()').to_s
+        @product_price = '$1,220.00'
+        @product_store = doc.css('//*[@id="details"]/div/div[1]/span[2]/a/text()').to_s
+        @product_category = doc.css('#similar_items_by_taxon > a:nth-child(2)/text()').to_s
+        @product_caliber = doc.css('//*[@id="details"]/div/div[3]/span[2]/a/text()').to_s
+        @product_brand = doc.css('//*[@id="sku-mpn-upc"]/div/div[4]/text()').to_s
+        @product_mpn = doc.css('//*[@id="sku-mpn-upc"]/div/div[2]/text()').to_s
+        @product_upc = doc.css('//*[@id="sku-mpn-upc"]/div/div[3]/text()').to_s
+        @product_body = doc.css('#product-description > div.well > p:nth-child(1)').to_s
+        @product_image = doc.css('#main-image > div > a > img').to_s
+        @product_url = "https://gunprime.com/products/fn-america-fn15-patrol-carbine-556-nato-ar-15-ar15-36-100580"
+        render json:  {title: @product_title, price: @product_price, store: @product_store, category: @product_category, caliber: @product_caliber, brand: @product_brand, mpn: @product_mpn, upc: @product_upc, body: @product_body, image: @product_image, pr_url: @product_url }
+
+      elsif url == "https://gunprime.com/products/colt-python-357-mag-4-25-barrel-2020-stainless-steel-python-sp4wts"
+        doc = Nokogiri::HTML(URI.open(url))
+        @product_title = doc.css('//*[@id="product-description"]/h1/text()').to_s
+        @product_price = '$1,315.00'
+        @product_store = doc.css('//*[@id="details"]/div/div[1]/span[2]/a/text()').to_s
+        @product_category = doc.css('#similar_items_by_taxon > a:nth-child(2)/text()').to_s
+        @product_caliber = doc.css('//*[@id="details"]/div/div[3]/span[2]/a/text()').to_s
+        @product_brand = doc.css('//*[@id="sku-mpn-upc"]/div/div[4]/text()').to_s
+        @product_mpn = doc.css('//*[@id="sku-mpn-upc"]/div/div[2]/text()').to_s
+        @product_upc = doc.css('//*[@id="sku-mpn-upc"]/div/div[3]/text()').to_s
+        @product_body = doc.css('#product-description > div.well > p:nth-child(1)').to_s
+        @product_image = doc.css('#main-image > div > a > img').to_s
+        @product_url = "https://gunprime.com/products/colt-python-357-mag-4-25-barrel-2020-stainless-steel-python-sp4wts"
+        render json:  {title: @product_title, price: @product_price, store: @product_store, category: @product_category, caliber: @product_caliber, brand: @product_brand, mpn: @product_mpn, upc: @product_upc, body: @product_body, image: @product_image, pr_url: @product_url}
+      else
+        render json: {status: 'Url is not registered'}
+      end
+
+    end
+  end
 
   def index
     @products = Product.all
@@ -12,17 +59,7 @@ class ProductsController < ApplicationController
 
   def new
 
-    # url = "https://gunprime.com/products/fn-america-fn15-patrol-carbine-556-nato-ar-15-ar15-36-100580"
-    # doc = Nokogiri::HTML(URI.open(url))
-    # @product_title = doc.css('//*[@id="product-description"]/h1/text()')
-    # @product_price = doc.css('#product-price > div:nth-child(2) > span.lead.original-price.selling.text()')
-    # @product_store = doc.css('//*[@id="details"]/div/div[1]/span[2]/a/text()')
-    # @product_category = doc.css('#similar_items_by_taxon > a:nth-child(2)/text()')
-    # @product_caliber = doc.css('//*[@id="details"]/div/div[3]/span[2]/a/text()')
-    # @product_brand = doc.css('//*[@id="sku-mpn-upc"]/div/div[4]/text()')
-    # @product_mpn = doc.css('//*[@id="sku-mpn-upc"]/div/div[2]/text()')
-    # @product_upc = doc.css('//*[@id="sku-mpn-upc"]/div/div[3]/text()')
-    # @product_image = doc.css('//*[@id="main-image"]/div/a[1]/img')
+
 
     # @categories = Category.all.to_a.map{ |c| [c.name, c.id]}
     @categories = Category.all
@@ -33,8 +70,6 @@ class ProductsController < ApplicationController
     if user_signed_in?
       @product = current_user.products.new(product_params)
       @product.category_id = params[:product][:category_id]
-      # category = @product.category
-      # @product.category = category
       if @product.save
         redirect_to products_path
       else
@@ -46,6 +81,7 @@ class ProductsController < ApplicationController
       end
 
   def show
+    @comment = Comment.new
     @categories = Category.all
     @product = Product.find(params[:id])
   end
@@ -71,6 +107,12 @@ class ProductsController < ApplicationController
     @categories = Category.all
     @category =  Category.find(params[:id])
     @products = Product.where(category_id: params[:id])
+  end
+
+  # Quicklink Routes
+  def vulcan
+    @categories = Category.all
+    @products = Product.where(created_at: Date.today.all_day)
   end
 
 

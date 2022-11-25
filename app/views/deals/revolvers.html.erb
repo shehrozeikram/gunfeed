@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<%= render partial: 'partials/title' %>
+<div class="body-style">
+  <%= render partial: 'partials/header' %>
+  <section>
+    <div class="container">
+      <div class="add-section add-banner-section">
+      </div>
+    </div>
+  </section>
+  <!-- ------------handgun first discription section start----------------- -->
+
+  <section class="pb-4">
+    <div class="container">
+      <div class="card card--listing-header card--listing-header-smaller p-3">
+        <div class="row d-flex align-items-center">
+          <div class="col-lg-9">
+            <h1 class="listing-title "> Revolver Deals
+              <span class="subtitle subtitle--listing"> (
+                                    <span class="pager-total-items" id="pager-total-items"><%= @deals.all.count %></span> deals total)
+                                </span>
+            </h1>
+          </div>
+          <div class="col-lg-3">
+            <div class="card--filters js-page-filters card--transparent card--filters-header">
+              <div class="card__title"></div>
+              <div class="card__content">
+                <form action="">
+                  <div class="filters filters--header mt-5">
+                    <div class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--with-icons field-toggle--product-view-control hidden-xs field-toggle--square" data-toggle="tooltip" data-title="Switch product view" data-original-title="" title="">
+
+                      <div class="form-group filters__container filters__sort-container">
+                        <label for="ddlSort" class="filters__sort-label filters__label text-nowrap">Sort by</label>
+                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                          <option selected>Newest date</option>
+                          <option value="1">Oldest date</option>
+                          <option value="2">Top rated</option>
+                          <option value="3">Lowest rated</option>
+                          <option value="2">Highest price</option>
+                          <option value="3">Lowest price</option>
+                        </select>
+                        <div class="field-toggle__container">
+                          <div class="create-new-border ms-2 mb-3">
+
+                            <div class="d-flex justify-content-between">
+                              <div class="first-list-toogle pe-2" >
+                                <i class="fa fa-th-list" style="font-size:20px;"></i>
+                              </div>
+                              <div class="second-list-toogle">
+                                <i class="fa fa-th-list" style="font-size:20px;color:gray"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <a class="today-yesterday-link hidden-xs" href="/yesterday">View yesterday's deals</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------------handgun first discription section end----------------- -->
+
+  <!-- ----------------new section for hand gun card section start--------------- -->
+
+  <section class="pb-4">
+    <div class="container">
+      <div class="">
+        <div class="d-flex justify-content-between gap-3">
+          <div class="set-width-left-card">
+            <%= render partial: 'partials/sidebar_filters' %>
+          </div>
+          <div class="set-width-right-card">
+            <div class="row row-cols-4">
+              <% @deals.each do |deal| %>
+                <div class="col mb-3 ">
+                  <div class="card h-100 ">
+                    <div class="card-body d-flex justify-content-between ">
+                      <% unless deal.sponsored != true %>
+                      <span class="tile__sponsored "><a href="# ">Sponsored</a></span>
+                      <% end %>
+                      <a href="# " class="card-link "><span></span></a>
+                      <span class="card-link price-tag price-tag--one-line "><span>$<%= deal.price %></span></span>
+                    </div>
+                    <a href="<%=revolver_show_path(deal)%>"><image src = "<%= deal.image %>" /></a>
+                    <div class="card-body tile__title ">
+                      <p class="card-text "><a href="<%=revolver_show_path(deal) %>"><%= deal.title %></a>
+                      </p>
+                    </div>
+
+                    <div class="card-body d-flex justify-content-between tile__actions-container">
+                      <a href="#" class="card-link tile_rate-action tile_likes icon-fa-link"><i
+                        class="fa fa-thumbs-up"></i> <span>2</span></a>
+                      <a href="#" class="card-link tile_rate-action tile_dislikes icon-fa-link"><i
+                        class="fa fa-thumbs-down"></i> <span>13</span></a>
+                      <a href="#" class="card-link tile_rate-action tile_comments icon-fa-link"><i
+                        class="fa fa-comments"></i> <span>0</span></a>
+                    </div>
+                    <div class="card-footer card-body">
+                      <p>UPC: <span><a href="#"><%= deal.upc %></a></span></p>
+                      <p>MPN: <span><a href="#"><%= deal.mpn %></a></span></p>
+
+                      <div class=" d-flex justify-content-between  tile__actions-container">
+                        <a href="#" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span><%= deal.store %></span></a>
+                        <a href="#" class="card-link icon-fa-link"><i class="fa fa-balance-scale"></i><span></span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <%end%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ----------------new section for hand gun-end-------------- -->
+</div>
+<!-- card section two start here  -->
+<%= render partial: 'partials/middle_adds' %>
+<section class="mb-4">
+  <div class="container">
+    <div class="row">
+      <%= render partial: 'partials/bottom_cards' %>
+    </div>
+  </div>
+</section>
+<%= render partial: 'partials/footer' %>
+</body>
+</html>
