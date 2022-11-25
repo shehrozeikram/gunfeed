@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new]
 
   require 'open-uri'
   require 'nokogiri'
