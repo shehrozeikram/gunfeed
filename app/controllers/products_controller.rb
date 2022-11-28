@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
       if url == "https://gunprime.com/products/fn-america-fn15-patrol-carbine-556-nato-ar-15-ar15-36-100580"
         doc = Nokogiri::HTML(URI.open(url))
         @product_title = doc.css('//*[@id="product-description"]/h1/text()').to_s
-        @product_price = '$1,220.00'
+        @product_price = 1220
         @product_store = doc.css('//*[@id="details"]/div/div[1]/span[2]/a/text()').to_s
         @product_category = doc.css('#similar_items_by_taxon > a:nth-child(2)/text()').to_s
         @product_caliber = doc.css('//*[@id="details"]/div/div[3]/span[2]/a/text()').to_s
@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
       elsif url == "https://gunprime.com/products/colt-python-357-mag-4-25-barrel-2020-stainless-steel-python-sp4wts"
         doc = Nokogiri::HTML(URI.open(url))
         @product_title = doc.css('//*[@id="product-description"]/h1/text()').to_s
-        @product_price = '$1,315.00'
+        @product_price = 1315
         @product_store = doc.css('//*[@id="details"]/div/div[1]/span[2]/a/text()').to_s
         @product_category = doc.css('#similar_items_by_taxon > a:nth-child(2)/text()').to_s
         @product_caliber = doc.css('//*[@id="details"]/div/div[3]/span[2]/a/text()').to_s
