@@ -60,7 +60,7 @@
                       <!-- Actual search box -->
                       <div id="search-data-list" class="form-group has-search pe-xs-0 pe-sm-3 d-xs-block d-sm-none d-md-block ">
                         <span class="fa fa-search form-control-feedback"></span>
-                        <input type="text" class="form-control" id="search" placeholder="Search keyword" name="q" onkeyup="search(category_id = 1)">
+                        <input type="text" class="form-control" id="search" placeholder="Search keyword" name="q"  onkeyup="search(category_id = 1)">
                       </div>
 
                       <section class="compaire-price my-5 search-dropdown2" id="html-show">
@@ -370,7 +370,9 @@
 
 
 <script>
+
     function search() {
+
         $(document).ready(function(){
             $.ajax({
                 type: "GET",
@@ -381,12 +383,9 @@
                     q: $('#search').val()
                 },
                 success:function(data){
-                    // console.log(data)
-
                     const productWrapper = document.querySelector('.p-1');
                     let productCounter = " "
                     data.forEach((product)=>{
-                        console.log(product)
                         productCounter += `
                         <div class="product-basic-info-card">
                                     <div class="product-basic-info-card__image-container">
@@ -425,7 +424,7 @@
                                     </div>
                                   </div>
                         `
-                        // console.log(product.title);
+
                         productWrapper.innerHTML = productCounter
                     })
 
@@ -463,15 +462,13 @@
     let targettedArea = document.querySelector('.horizontal-scrollable');
     searchInput.addEventListener('keyup', (event) => {
 
-        // alert(event.target.key)
 
         // (i) Enable Backspace
         const targetedKey = event.key
         if (targetedKey === 'Backspace') {
-            // document.body.innerHTML = "<h1>No content</h1>
-            targettedArea.style.display = "none"
-            location.reload();
 
+            targettedArea.style.display = "none"
+            window.location.reload()
         } else {
             targettedArea.style.display = 'block'
         }
