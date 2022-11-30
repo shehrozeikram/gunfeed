@@ -8,7 +8,15 @@ class ProductsController < ApplicationController
 
   def search_products
     if params[:q].present?
-      @products = Product.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%").page params[:page]
+      @products = Product.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%").page
+      render json:  @products
+    end
+  end
+
+  def search_category_products
+    if params[:q].present?
+      products = Product.where(category_id: params[:category_id])
+      @products = products.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%").page
       render json:  @products
     end
   end
@@ -67,6 +75,7 @@ class ProductsController < ApplicationController
     if user_signed_in?
       @product = current_user.products.new(product_params)
       @product.category_id = params[:product][:category_id]
+      @product.store_id = params[:product][:store_id]
       if @product.save
         redirect_to products_path
       else

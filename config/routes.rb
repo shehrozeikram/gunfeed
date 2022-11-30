@@ -12,12 +12,18 @@ Rails.application.routes.draw do
   get "/search_products" , to: "products#search_products"
   get "/fetch_data_from_url" , to: "products#fetch_data_from_url"
 
+
   resources :customer_reviews
   get 'deals/index'
   get 'blogs/index'
-  get 'stores/index'
+
+  resources :stores
+  get "/xml_feed" , to: "stores#xml_feed"
+  get "/fetch_xml_feed_products" , to: "stores#fetch_xml_feed_products"
+
 
   # Header routes
+  get "/search_category_products" , to: "products#search_category_products"
   get "/today" , to: "products#today"
   get "/category/:id" , to: "products#category", as: :category
 
