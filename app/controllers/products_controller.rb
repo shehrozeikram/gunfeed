@@ -75,7 +75,7 @@ class ProductsController < ApplicationController
     if user_signed_in?
       @product = current_user.products.new(product_params)
       @product.category_id = params[:product][:category_id]
-      @product.store_id = params[:product][:store_id]
+      # @product.store_id = params[:product][:store_id]
       if @product.save
         redirect_to products_path
       else
