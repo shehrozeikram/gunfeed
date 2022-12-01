@@ -106,5 +106,26 @@
   </div>
 </section>
 <%= render partial: 'partials/footer' %>
+<script>
+
+  // Once it reload, it never get reload again + it will not effect the UI
+    (function () {
+        const reloadFunc = () => {
+            {
+                if (window.localStorage) {
+                    if (!localStorage.getItem('firstLoad')) {
+                        localStorage['firstLoad'] = true;
+                        setTimeout(() => {
+                            window.location.reload();
+                        },100);
+                    } else
+                        localStorage.removeItem('firstLoad');
+                }
+            }
+        };
+
+        reloadFunc();
+    })();
+</script>
 </body>
 </html>
