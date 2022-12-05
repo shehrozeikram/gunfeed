@@ -30,6 +30,11 @@ gem 'nokogiri', '~> 1.13', '>= 1.13.8'
 
 gem 'carrierwave', '~> 2.0'
 
+# Rest client
+gem 'rest-client'
+# For Jobs
+gem "rufus-scheduler"
+
 # Use pgsql as the database for Active Record
 gem "pg", "~> 1.1"
 
