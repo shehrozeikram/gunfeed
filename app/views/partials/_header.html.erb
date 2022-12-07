@@ -326,9 +326,11 @@
             <a href="#" class="icon-fa-link" data-toggle="dropdown"
                title="Welcome, guest ">
               <i class="fa fa-user"></i>
-              <span>Welcome, guest
+              <% if current_user %>
+              <span><%= current_user.username %>
                 <span class="caret"></span>
               </span>
+                <% end %>
             </a>
             <% if user_signed_in? %>
 
@@ -426,25 +428,6 @@
                         // console.log(product.title);
                         productWrapper.innerHTML = productCounter
                     })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

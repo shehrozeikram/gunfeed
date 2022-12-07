@@ -55,8 +55,8 @@
             <%= render "devise/shared/error_messages", resource: resource %>
             <div class="mb-3">
               <a href="#">   <label for="username" class="form-label">Username:*</label></a>
-<!--              <input type="text"  maxlength="128" size="25" class="form-text required form-control">-->
-              <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", maxlength: "128", size: "25", class: "form-text required form-control" %>
+              <%= f.text_field :username, autofocus: true, autocomplete: "username", maxlength: "128", size: "25", class: "form-text required form-control" %>
+
             </div>
             <div class="mb-3">
               <a href="#"><label for="email" class="form-label">E-mail Address:*</label></a>
