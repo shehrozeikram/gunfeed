@@ -185,22 +185,7 @@
                         <div class="form-group" id="edit-store-wrapper">
                           <a href="#"> <label for="edit-store" title="Product store."
                                               data-toggle="tooltip">Store: </label></a>
-                          <select name="store"
-                                  class="form-select js-stores-select form-control select2-hidden-accessible"
-                                  data-ajax-path="/ajax-search-store-by-term"
-                                  data-trigger-event="initialize-select2-for-stores-select"
-                                  data-allow-clear="1" id="edit-store" tabindex="-1"
-                                  aria-hidden="true">
-<!--                            <option value="Cooose an option" selected="selected">Cooose an option</option>-->
-                            <option value="<%= @product.store %>" selected="selected"><%= @product.store %></option>
-                            <option value="Gunprime">Gunprime</option>
-                            <option value="Gundeals">Gundeals</option>
-                            <option value="Black Label Tactical">Black Label Tactical</option>
-                            <option value="Cabela's Hunting Apparel">Cabela's Hunting Apparel</option>
-                            <option value="Cabela's Brand">Cabela's Brand</option>
-                            <option value="ABC Rifle Company">ABC Rifle Company</option>
-                          </select>
-
+                          <%= form.select(:store_id, Store.all.map{|s| [s.title, s.id]}, {prompt: true, selected: :store_id}, {class: "form-select required js-product-calibers-change form-control select2-hidden-accessible"}) %>
                         </div>
                       </div>
                       <div class="col-xs-12 col-md-2">
@@ -216,7 +201,6 @@
                             <span class="form-required"
                                   title="This field is required.">*</span>
                           </label></a>
-                          <%#= select_tag(:category_id, options_for_select(@categories), :prompt => "Zgjidhni kategorine:") %>
                           <%= form.select(:category_id, Category.all.map{|c| [c.name, c.id]}, {prompt: true, selected: :category_id}, {class: "form-select required js-product-calibers-change form-control select2-hidden-accessible"}) %>
                         </div>
                       </div>
