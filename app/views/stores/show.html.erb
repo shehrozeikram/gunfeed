@@ -15,8 +15,8 @@
       <div class="col my-3 sub-card">
         <div class="card h-100">
           <div class="card-body d-flex justify-content-between">
+            <span class="tile__updated "> <span class="tile__updated-time"> <%= product.updated_at %> </span> </span>
             <% unless product.sponsored != true %>
-              <span class="tile__updated "> <span class="tile__updated-time"> 12 hours ago </span> </span>
               <span class="tile__sponsored"><a href="#">Sponsored</a></span>
             <% end %>
             <a href="#" class="card-link "><span></span></a>
