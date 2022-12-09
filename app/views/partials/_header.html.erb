@@ -339,7 +339,7 @@
                 <li role="separator" class="divider"></li>
                 <li>
                   <%= link_to('Logout', destroy_user_session_path, :method => 'get') %>
-<!--                  <a href="<%#= destroy_user_session_path :method => 'delete' %>" title="Logout">Logout</a>-->
+                  <%= link_to('My account', my_accounts_views_path) %>
                 </li>
               </ul>
               <% else %>

@@ -61,7 +61,7 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+    @products = Product.where("verified":"true")
     @categories = Category.all
   end
 
@@ -76,6 +76,7 @@ class ProductsController < ApplicationController
       @product = current_user.products.new(product_params)
       @product.category_id = params[:product][:category_id]
       @product.store_id = params[:product][:store_id]
+      @product.verified = "true"
       if @product.save
         redirect_to products_path
       else

@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
+
+  # MyAccount routes
+  get 'my_accounts/views'
+  get 'my_accounts/edit'
+  get 'my_accounts/my_messages'
+  get 'my_accounts/blocked_deal_settings'
+  get 'my_accounts/user_deals'
+  get 'my_accounts/user_comments'
+  get 'my_accounts/user_votes'
+  get 'my_accounts/my_reviews'
+
   resources :reviews
-  # get 'reviews/new'
+
   get 'comments/new'
   resources :comments
   devise_for :admin_users, ActiveAdmin::Devise.config
