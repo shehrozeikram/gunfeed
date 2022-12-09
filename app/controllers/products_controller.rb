@@ -91,6 +91,8 @@ class ProductsController < ApplicationController
     @comment = Comment.new
     @categories = Category.all
     @product = Product.find(params[:id])
+    @products = Product.where(:upc => @product.upc)
+
   end
 
   def update
