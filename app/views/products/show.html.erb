@@ -488,7 +488,7 @@
                   <td class="js-price-column price-compare-table__price-column">
                     <div class="price-tag price-tag--one-line">$<%= product.price %></div>
                   </td>
-                  <td class="price-compare-table__shipping-column" data-header="Shipping rate: ">As per Demand</td>
+                  <td class="price-compare-table__shipping-column" data-header="Shipping rate: "><%= product.shipping_cost %></td>
                   <td class="price-compare-table__show-more-column"></td>
                 </tr>
                   <% end %>
