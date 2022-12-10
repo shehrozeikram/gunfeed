@@ -335,7 +335,6 @@
             <% if user_signed_in? %>
 
               <ul class="dropdown-menu" role="menu">
-
                 <li role="separator" class="divider"></li>
                 <li>
                   <%= link_to('Logout', destroy_user_session_path, :method => 'get') %>
@@ -343,6 +342,12 @@
                 </li>
               </ul>
               <% else %>
+              <a href="#" class="icon-fa-link" data-toggle="dropdown"
+                 title="Welcome, guest ">
+              <span>Welcome, guest
+                <span class="caret"></span>
+              </span>
+              </a>
             <ul class="dropdown-menu" role="menu">
 
               <li role="separator" class="divider"></li>

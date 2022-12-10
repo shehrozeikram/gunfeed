@@ -1,8 +1,8 @@
 class MyAccountsController < ApplicationController
-  def views
-  end
+  before_action :categories
+  before_action :user
 
-  def edit
+  def views
   end
 
   def my_messages
@@ -22,4 +22,13 @@ class MyAccountsController < ApplicationController
 
   def my_reviews
   end
+
+  def categories
+    @categories = Category.all
+  end
+
+  def user
+    @user = current_user
+  end
+
 end

@@ -98,6 +98,8 @@
                   <div class="d-flex justify-content-between">
                     <%= f.submit "Update" %>
                   </div>
+                  <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
                 </div>
                 <% end %>
             </div>
@@ -107,3 +109,4 @@
     </div>
   </div>
 </section>
+

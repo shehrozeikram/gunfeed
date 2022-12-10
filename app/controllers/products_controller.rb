@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new]
+  before_action :categories
 
   require 'open-uri'
   require 'nokogiri'
@@ -62,12 +63,9 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.where("verified":"true")
-    @categories = Category.all
   end
 
   def new
-    # @categories = Category.all.to_a.map{ |c| [c.name, c.id]}
-    @categories = Category.all
     @product = Product.new
   end
 
@@ -89,7 +87,6 @@ class ProductsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @categories = Category.all
     @product = Product.find(params[:id])
     @products = Product.where(:upc => @product.upc)
 
@@ -108,12 +105,11 @@ class ProductsController < ApplicationController
   # footer actions
 
   def today
-    @categories = Category.all
+
     @products = Product.where(created_at: Date.today.all_day)
   end
 
   def category
-    @categories = Category.all
     @category =  Category.find(params[:id])
     @products = Product.where(category_id: params[:id])
   end
@@ -168,6 +164,10 @@ class ProductsController < ApplicationController
   end
 
   def how_order_gun_online
+  end
+
+  def categories
+    @categories = Category.all
   end
 
   protected

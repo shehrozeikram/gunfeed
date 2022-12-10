@@ -57,7 +57,7 @@
              tabindex="0">
           <div class="">
             <div class="card__title">
-              <h1>BirminghamPistol</h1>
+              <h1><%= @user.username %></h1>
             </div>
             <div class="card__content">
               <div class="profile">
@@ -65,7 +65,7 @@
                 <h3>History</h3>
                 <dl class="user-member">
                   <dt>Member for</dt>
-                  <dd>7 years 41 weeks</dd>
+                  <dd><%= time_ago_in_words(@user.created_at) %> </dd>
                 </dl>
               </div>
             </div>
