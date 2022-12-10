@@ -1,0 +1,33 @@
+<ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="view-tab" data-bs-toggle="tab" data-bs-target="#view-tab-pane"
+            type="button" role="tab" aria-controls="view-tab-pane" aria-selected="true"><a   href="<%= my_accounts_views_path %>">View</a></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="edit-tab" data-bs-toggle="tab" data-bs-target="#edit-tab-pane" type="button"
+            role="tab" aria-controls="edit-tab-pane" aria-selected="false"><a href="<%= edit_user_registration_path %>">Edit</a></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="setting-tab" data-bs-toggle="tab" data-bs-target="#setting-tab-pane"
+            type="button" role="tab" aria-controls="setting-tab-pane" aria-selected="true"><a href="<%= my_accounts_blocked_deal_settings_path %>">Blocked Deal
+      Settings</a></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="userdeal-tab" data-bs-toggle="tab" data-bs-target="#userdeal-tab-pane"
+            type="button" role="tab" aria-controls="userdeal-tab-pane" aria-selected="false"><a href="<%= my_accounts_user_deals_path %>">User's deals
+      (3)</a></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="usercomment-tab" data-bs-toggle="tab" data-bs-target="#usercomment-tab-pane"
+            type="button" role="tab" aria-controls="usercomment-tab-pane" aria-selected="false"><a href="<%= my_accounts_user_comments_path %>">User's comments
+      (<%= current_user.comments.all.count %>)</a></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="uservote-tab" data-bs-toggle="tab" data-bs-target="#uservote-tab-pane"
+            type="button" role="tab" aria-controls="uservote-tab-pane" aria-selected="true"><a href="<%= my_accounts_user_votes_path %>">User's votes</a></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="myreview-tab" data-bs-toggle="tab" data-bs-target="#myreview-tab-pane"
+            type="button" role="tab" aria-controls="myreview-tab-pane" aria-selected="false"><a href="<%= my_accounts_my_reviews_path %>">My Reviews</a></button>
+  </li>
+</ul>
