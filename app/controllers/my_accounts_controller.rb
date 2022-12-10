@@ -15,6 +15,7 @@ class MyAccountsController < ApplicationController
   end
 
   def user_comments
+    @comments = current_user.comments
   end
 
   def user_votes

@@ -1244,7 +1244,7 @@
 
               <div class="submitted">
                 <div class="submitted-info"> By <a href="/users/surfncnow2"
-                                                   title="View user profile."><%= comment.user.user_name %></a>, <a href="#comment-1177471"
+                                                   title="View user profile."><%= comment.user.username %></a>, <a href="#comment-1177471"
                                                                                                  class="comment__hyperlink"><%= comment.created_at %></a></div>
                 <div class="submitted_report"> <a class="js-report-comment"
                                                   href="/ajax-report-comment/1177471">Report</a></div>
@@ -1287,8 +1287,6 @@
               <h2>Post new comment</h2>
               <div class="content">
                 <%= form_with model: @comment , url: '/comments' ,id:"comment-form-1",class:"js-ajax-comment-form", html: { multipart: true } do |form| %>
-<!--                <form action="/ajax/comment/reply/1135586" accept-charset="UTF-8" method="post"-->
-<!--                      id="comment-form" class="js-ajax-comment-form">-->
                   <div>
                     <div style="display:none">
                       <div class="form-group"> <label>Your name: </label> <a
@@ -1340,7 +1338,6 @@
                       deal</label></div><input type="submit" name="op" id="edit-submit"
                                                value="Save" class="form-submit btn btn-default btn-primary">
                   </div>
-<!--                </form>-->
               <% end %>
                   </div>
             </div>
