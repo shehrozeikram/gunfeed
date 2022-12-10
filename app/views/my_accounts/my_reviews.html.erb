@@ -63,7 +63,9 @@
               <div class="customerreview-card customerreview-card--pending">
                 <div class="row">
                   <div class="col-xs-12 col-md-6">
-                    <div class="customerreview-card--bold-text">By <a href="/users/birminghampistol"><%= @user.username %></a> <%= time_ago_in_words(@user.created_at) %> ago </div>
+                    <% @reviews.each do |review|%>
+                    <div class="customerreview-card--bold-text">By <a href="/users/birminghampistol"><%= @user.username %></a> <%= time_ago_in_words(review.created_at) %> ago </div>
+                    <% end %>
                     <div>
                       <span class="customerreview-card--bold-text">Purchased on:</span> November 2022
                     </div>

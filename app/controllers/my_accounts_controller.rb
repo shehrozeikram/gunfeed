@@ -21,6 +21,7 @@ class MyAccountsController < ApplicationController
   end
 
   def my_reviews
+    @reviews = current_user.reviews
   end
 
   def categories
