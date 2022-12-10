@@ -46,14 +46,18 @@
             <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="product__detail ">
                 <i class="fa fa-user"></i>
+                <% unless !@product.user%>
                 <span> Posted by
                                     <a href="#"><%= @product.user.username %></a>
                                 </span>
+                  <% end %>
               </div>
               <div class="product__detail">
+                <% unless !@product.user %>
                 <i class="fa fa-calendar"></i>Updated by
                 <a href="#"><%= @product.user.username %></a> <%= @product.updated_at %>
-              </div>
+                <% end %>
+                  </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="product__detail">
