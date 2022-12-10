@@ -79,7 +79,9 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-xs-12"> good</div>
+                  <% @user.reviews.each do |user| %>
+                  <div class="col-xs-12"><%= user.body %> </div>
+                  <% end %>
                 </div>
                 <div class="row customerreview-card__administration-controls">
                   <div class="col-xs-12 col-md-8 customerreview-card__administration-controls__status-message">
