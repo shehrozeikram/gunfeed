@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'my_accounts/user_comments'
   get 'my_accounts/user_votes'
   get 'my_accounts/my_reviews'
+  get 'my_accounts/my_watchlist'
 
   resources :reviews
 
@@ -23,6 +24,8 @@ Rails.application.routes.draw do
   get "/search_products" , to: "products#search_products"
   get "/fetch_data_from_url" , to: "products#fetch_data_from_url"
 
+  # watchlist routes
+  get "/add_to_watchlist/:id" , to: "watchlist#add_to_watchlist", as: :add_to_watchlist
 
   resources :customer_reviews
   get 'deals/index'

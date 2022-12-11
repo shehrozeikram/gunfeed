@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :deals
   has_many :reviews
   has_many :comments
+  has_many :watchlists
 end

@@ -25,6 +25,10 @@ class MyAccountsController < ApplicationController
     @reviews = current_user.reviews
   end
 
+  def my_watchlist
+    @watchlist = Watchlist.where(user_id:current_user.id)
+  end
+
   def categories
     @categories = Category.all
   end

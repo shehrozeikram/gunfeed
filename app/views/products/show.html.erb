@@ -160,7 +160,7 @@
                     data-ajax-path="ajax-status-change-comments-watchlist-subscribe"
                     data-original-icon=" gun-icon-Shape-1" data-inverse-icon=" gun-icon-Shape-1"
                     data-original-text="Add to watchlist" data-inverse-text="In watchlist"
-                    data-status-value="1" data-values="{&quot;nid&quot;:&quot;1076271&quot;}">
+                    data-status-value="1" data-values="{&quot;nid&quot;:&quot;1076271&quot;}" onclick="add_to_watchlist()">
                     <i class="fa fa- gun-icon-Shape-1 fa-fw watchlist-icon"></i>
                     <span>Add to watchlist</span>
                   </a>
@@ -1518,6 +1518,25 @@
   </div>
 </section>
 <%= render partial: 'partials/footer' %>
+
+<script>
+    function add_to_watchlist() {
+        $(document).ready(function(){
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",
+                url: "/add_to_watchlist/:id",
+                data:{
+                    watchlist: 'true',
+                    product_id: '<%= @product.id %>'
+                },
+                success:function(data){
+                        console.log(data)
+                }
+            });
+        });
+    };
+</script>
 
 <script>
     var div1 = document.getElementById('Div1'),

@@ -3,8 +3,10 @@ class Product < ApplicationRecord
 
   belongs_to :user
   belongs_to :category
+  belongs_to :store
 
   has_many :reviews
   has_many :comments
-  belongs_to :store
+  has_many :watchlists
+
 end

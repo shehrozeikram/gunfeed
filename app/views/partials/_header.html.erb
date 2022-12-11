@@ -62,7 +62,6 @@
                         <span class="fa fa-search form-control-feedback"></span>
                         <input type="text" class="form-control" id="search" placeholder="Search keyword" name="q" onkeyup="search()">
                       </div>
-
                       <section class="compaire-price my-5 search-dropdown2" id="html-show">
                         <div class="container">
                           <div class="row">
@@ -71,26 +70,11 @@
                               <div class="horizontal-scrollable h-50 card">
                                 <div class=" p-1">
                                   <h6 class="">SUGGESTED PRODUCTS</h6>
-
                                 </div>
-
-
                               </div>
-
                             </div>
                           </div>
                         </div>
-<!--                        <script>-->
-<!--                            function showHtmlDiv() {-->
-<!--                                var htmlShow = document.getElementById("html-show");-->
-<!--                                if (htmlShow.style.innerHTML === "") {-->
-<!--                                    htmlShow.style.display = "none";-->
-<!--                                } else {-->
-<!--                                    htmlShow.style.display = "block";-->
-
-<!--                                }-->
-<!--                            }-->
-<!--                        </script>-->
                       </section>
 
                       <div class="social-menu social-menu--header">
@@ -339,6 +323,7 @@
                 <li>
                   <%= link_to('Logout', destroy_user_session_path, :method => 'get') %>
                   <%= link_to('My account', my_accounts_views_path) %>
+                  <%= link_to('My watchlist', my_accounts_my_watchlist_path) %>
                 </li>
               </ul>
               <% else %>
