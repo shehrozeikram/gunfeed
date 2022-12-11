@@ -22,7 +22,12 @@
 <!-- signup section start -->
 <section class="mb-4">
   <div class="container mt-5 form-deelgun">
-    <%= render partial: 'partials/my_account_header_navbar' %>
+    <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="view-tab" data-bs-toggle="tab" data-bs-target="#view-tab-pane"
+                type="button" role="tab" aria-controls="view-tab-pane" aria-selected="true"><a   href="<%= my_accounts_my_watchlist_path %>">Watchlist</a></button>
+      </li>
+    </ul>
     <div class="form-pages bg-white p-4">
 
       <div class="tab-content" id="myTabContent">
