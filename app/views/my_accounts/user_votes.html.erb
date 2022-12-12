@@ -13,7 +13,32 @@
 <!-- signup section start -->
 <section class="mb-4">
   <div class="container mt-5 form-deelgun">
-    <%= render partial: 'partials/my_account_header_navbar' %>
+    <ul class="nav nav-tabs " id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a href="<%= my_accounts_views_path %>" class="nav-link ">View</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="<%= edit_user_registration_path %>" class=" nav-link">Edit</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="<%= my_accounts_blocked_deal_settings_path %>" class="nav-link" >Blocked Deal
+          Settings</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="<%= my_accounts_user_deals_path %>" class=" nav-link" >User's deals
+          (3)</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="<%= my_accounts_user_comments_path %>" class="nav-link" >User's comments
+          (<%= current_user.comments.all.count %>)</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="<%= my_accounts_user_votes_path %>" class="nav-link active">User's votes</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="<%= my_accounts_my_reviews_path %>" class="nav-link ">My Reviews</a>
+      </li>
+    </ul>
     <div class="form-pages bg-white p-4">
 
       <div class="tab-content" id="myTabContent">

@@ -4634,4 +4634,27 @@ table.table.price-compare-table tbody {
 }
 // =====================store card style end here======================
 
+/* Style the buttons */
+.adimin-link {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 18px;
+}
 
+/* Style the active class, and buttons on mouse-over */
+.tabActive{
+  background-color:transparent;
+  color: #39679a;
+}
+
+.adimin-link:hover{
+  background-color: #eee;
+  color: #5b99de;
+}
+.adimin-link:focus{
+  background-color: #ffffff;
+  color: #555;
+}
