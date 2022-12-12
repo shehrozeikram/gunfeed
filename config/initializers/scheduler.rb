@@ -11,8 +11,9 @@ unless scheduler.down?
       json_feed =  json_feed.gsub("null", "0")
       json_feed = eval(json_feed)
       products = json_feed[:rss][:channel][:item] rescue  json_feed[:channel][:item]
+      Product.where(store_id: store.id).update_all(active: false)
       products.each do |pr|
-        product = Product.where(user_id: 46, category_id: 8, store_id: store.id, upc:  pr[:upc]).first_or_initialize
+        product = Product.where(user_id: 45, category_id: 8, store_id: store.id, upc:  pr[:upc]).first_or_initialize
         product.description =  pr[:description]
         product.link = pr[:link]
         product.price = pr[:price]
@@ -21,6 +22,7 @@ unless scheduler.down?
         product.shipping_weight = pr[:shipping_weight]
         product.mpn = pr[:mpn]
         product.shipping_cost = pr[:shipping_cost]
+        product.active = true
         product.save!
       end
     rescue => error
