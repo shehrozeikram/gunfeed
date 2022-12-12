@@ -6,27 +6,25 @@ unless scheduler.down?
     begin
       require 'rest-client'
       Store.where.not(store_xml_feed_url: nil).each do|store|
-      xml = RestClient.get store.store_xml_feed_url
-      json_feed =  Hash.from_xml(xml).to_json
-      json_feed =  json_feed.gsub("null", "0")
-      json_feed = eval(json_feed)
-      products = json_feed[:rss][:channel][:item] rescue  json_feed[:channel][:item]
-      Product.where(store_id: store.id).update_all(active: false)
-      products.each do |pr|
-        product = Product.where(user_id: 45, category_id: 8, store_id: store.id, upc:  pr[:upc]).first_or_initialize
-        product.description =  pr[:description]
-        product.link = pr[:link]
-        product.price = pr[:price]
-        product.condition = pr[:condition]
-        product.image_link = pr[:image_link]
-        product.shipping_weight = pr[:shipping_weight]
-        product.mpn = pr[:mpn]
-        product.shipping_cost = pr[:shipping_cost]
-        product.active = true
-        product.save!
+        xml = RestClient.get store.store_xml_feed_url
+        json_feed =  Hash.from_xml(xml).to_json
+        json_feed =  json_feed.gsub("null", "0")
+        json_feed = eval(json_feed)
+        products = json_feed[:rss][:channel][:item] rescue  json_feed[:channel][:item]
+        products.each do |pr|
+          product = Product.where(user_id: 10, category_id: 5, store_id: store.id, upc:  pr[:upc]).first_or_initialize
+          product.description =  pr[:description]
+          product.link = pr[:link]
+          product.price = pr[:price]
+          product.condition = pr[:condition]
+          product.image_link = pr[:image_link]
+          product.shipping_weight = pr[:shipping_weight]
+          product.mpn = pr[:mpn]
+          product.shipping_cost = pr[:shipping_cost]
+          product.save!
+        end
+      rescue => error
       end
-    rescue => error
-    end
     end
   end
 end
