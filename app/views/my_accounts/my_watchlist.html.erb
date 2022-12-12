@@ -1,12 +1,3 @@
-
-
-<%# @watchlist.each do |watchlist| %>
-<!--  <h3><%#= watchlist.product.title%></h3>-->
-<!--  <h3><%#= watchlist.product.brand%></h3>-->
-<!--  <h3><%#= watchlist.product.mpn%></h3>-->
-<!--  <h3><%#= watchlist.product.upc%></h3>-->
-<%# end %>
-
 <!DOCTYPE html>
 <html lang="en">
 <%= render partial: 'partials/title' %>
@@ -24,8 +15,7 @@
   <div class="container mt-5 form-deelgun">
     <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="view-tab" data-bs-toggle="tab" data-bs-target="#view-tab-pane"
-                type="button" role="tab" aria-controls="view-tab-pane" aria-selected="true"><a   href="<%= my_accounts_my_watchlist_path %>">Watchlist</a></button>
+        <a href="<%= my_accounts_my_watchlist_path %>" class="nav-link active">Watchlist</a>
       </li>
     </ul>
     <div class="form-pages bg-white p-4">
