@@ -89,7 +89,7 @@ class ProductsController < ApplicationController
   def show
     @comment = Comment.new
     @product = Product.find(params[:id])
-    @products = Product.where(:upc => @product.upc)
+    @products = Product.where(:upc => @product.upc, :active => true)
 
   end
 

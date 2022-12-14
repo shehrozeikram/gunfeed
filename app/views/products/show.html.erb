@@ -483,16 +483,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% @products.drop(1).each do |product| %>
+                <% @products.each do |product| %>
                 <tr data-id="9698262896" class="" itemprop="offers" itemscope=""
                     itemtype="http://schema.org/Offer">
                   <td class="js-link-column price-compare-table__store-column">
                     <a target="_blank" href="#"><%= product.store.title %> </a>
                   </td>
                   <td class="js-price-column price-compare-table__price-column">
-                    <div class="price-tag price-tag--one-line">$<%= product.price %></div>
+                    <div class="">$<%= product.price %></div>
                   </td>
-                  <td class="price-compare-table__shipping-column" data-header="Shipping rate: "><%= product.shipping_cost %></td>
+                  <td class="price-compare-table__shipping-column" data-header="Shipping rate: ">$<%= product.shipping_cost %></td>
                   <td class="price-compare-table__show-more-column"></td>
                 </tr>
                   <% end %>
