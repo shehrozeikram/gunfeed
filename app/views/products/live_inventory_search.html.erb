@@ -253,6 +253,7 @@
             <td></td>
             <td class="price-compare-table__show-more-column"></td>
           </tr>
+          <% unless !@stock.present?%>
           <% @stock.each do |stock| %>
             <tr class="is-oos ">
               <td><a href="#"><%= stock.store.title %></a> <i class="fa fa-scissors"></i> </td>
@@ -260,6 +261,7 @@
               <td> $<%= stock.shipping_cost %></td>
             </tr>
           <% end %>
+            <% end %>
           </tbody>
         </table>
       </div>
