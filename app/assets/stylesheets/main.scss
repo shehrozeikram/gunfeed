@@ -1,3 +1,8 @@
+// new button code in root file
+h1,h2,h3,h3,h4,h5,h6{
+  color: #3b3f47!important;
+}
+
 
 /* ---------------create new button start style----------------- */
 .custom-button {
@@ -44,13 +49,14 @@ form input[type=submit], form input[type=button], form button{
 
 /* body style start */
 .body-style {
-  font-family: helvetica neue,Helvetica,Arial,sans-serif;
+  // font-family: helvetica neue,Helvetica,Arial,sans-serif;
   font-size: 16px;
   line-height: 1.428571429;
 }
 body{
   color: #3b3f47!important;
   background-color: #e4e6e8!important;
+  font-family: var(--bs-body-font-family)!important;
 }
 
 .container, .container-lg, .container-md, .container-sm, .container-xl {
@@ -2968,47 +2974,6 @@ input:checked + .btn-slider:before {
   min-width: 200px;
   flex-grow: 1;
 }
-.product-basic-info-card__specification {
-  flex-shrink: 0;
-}
-.product-basic-info-card__specification .definition-list.collapse {
-  display: block;
-  height: 135px;
-  overflow: hidden;
-}
-.product-basic-info-card__specification .definition-list {
-  min-width: 150px;
-  max-width: 450px;
-}
-.product-basic-info-card__specification .definition-list {
-  border: none;
-  margin-bottom: 0;
-}
-.product-basic-info-card__main-content dl {
-  margin: 15px 0;
-  font-size: 16px;
-}
-.product-basic-info-card__specification .definition-list>div {
-  border: none;
-  padding: 2px;
-}
-.product-basic-info-card__main-content dl div {
-  display: flex;
-}
-.product-basic-info-card__specification .definition-list dd {
-  font-weight: 400;
-}
-.definition-list dd {
-  margin-right: 5px;
-}
-.product-basic-info-card__specification .definition-list dd::after {
-  content: ":";
-}
-.btn-link {
-  color: #2e66a5!important;
-  font-weight: 400;
-  border-radius: 0;
-}
 
 /* -------------------------compaire pirce table no1 start------------------------------- */
 .set-table-pointer{
@@ -3284,6 +3249,8 @@ input:checked + .btn-slider:before {
 }
 .tile-slider__direction i {
   font-size: 32px;
+  margin-top: 65px;
+  color: #3b3f47;
 }
 .tile-slider__direction--next {
   right: -16px;
@@ -3799,77 +3766,7 @@ input:checked + .btn-slider:before {
   transform: translateX(0);
 }
 
-
-/* ----------------compaire price style start here--------------- */
-.product-basic-info-card.has-divider {
-  margin-bottom: 30px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid #e4e6e8;
-}
-
-.product-basic-info-card {
-  display: flex;
-  align-items: flex-start;
-}
-.product-basic-info-card__title {
-  display: none;
-}
-.product-basic-info-card__title {
-  width: 100%;
-  margin: 0;
-}
-.product-basic-info-card__main-content__title h1 {
-  font-weight: 700;
-  margin: 0;
-  font-size: 1.5rem;
-}
-.product-basic-info-card__image {
-  position: relative;
-  overflow: hidden;
-  width: 280px;
-  height: 180px;
-  border: 1px solid #cacfd4;
-  flex-shrink: 0;
-}
-.product-basic-info-card__image img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  max-height: 100%;
-  transform: translate(-50%,-50%);
-}
-.product-basic-info-card-actions--expanded {
-  padding-left: 0;
-  list-style: none;
-}
-.product-basic-info-card-actions {
-  white-space: nowrap;
-  margin-top: 10px;
-}
-.product-basic-info-card-actions--expanded li:not(.product-actions__cta):not(:last-child) {
-  margin-bottom: 5px;
-}
-.product-basic-info-card-actions li {
-  margin-right: 5px;
-  display: inline-block;
-}
-.product-basic-info-card-actions li a, .product-basic-info-card-actions li button {
-  color: #2e66a5;
-  background-color: #fff;
-  border-color: #2e66a5;
-  width: auto;
-}
-.btn-product-icon {
-  display: flex;
-  align-items: center;
-}
-.btn-product-icon {
-  position: relative;
-  // box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
-  text-align: left;
-  border-radius: 3px;
-  height: 100%;
-}
+// compaire price code here
 .product-basic-info-card__main-content {
   margin-left: 20px;
   margin-right: 5px;
@@ -3883,7 +3780,7 @@ input:checked + .btn-slider:before {
 }
 .product-basic-info-card__specification .definition-list.collapse {
   display: block;
-  height: 135px;
+  height: 135px!important;
   overflow: hidden;
 }
 .product-basic-info-card__specification .definition-list {
@@ -4658,3 +4555,36 @@ table.table.price-compare-table tbody {
   background-color: #ffffff;
   color: #555;
 }
+
+
+// ==========================out of stock code start here===========================
+.tile__image-container .label-sg-outline {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.label-sg-outline.is-oos, .label-sg-outline.is-exp {
+  color: #d41d00;
+  border: 2px solid #d41d00;
+}
+.label-sg-outline {
+  display: inline-block;
+  padding: 4px 10px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  border-radius: 5px;
+  background-color: #fff;
+  font-family: helveticaneue-bold,helvetica neue bold,helvetica neue,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+}
+.out-of-stack {
+  opacity: .3;
+}
+.mpn-resize h6{
+  font-size: 13px;
+}
+// ==========================out of stock code end here===========================

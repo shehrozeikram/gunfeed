@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   root to: "products#index"
   get "/search_products" , to: "products#search_products"
   get "/fetch_data_from_url" , to: "products#fetch_data_from_url"
+  get "/search/:id" , to: "products#live_inventory_search", as: :live_inventory_search
 
   # watchlist routes
   get "/add_to_watchlist/:id" , to: "watchlist#add_to_watchlist", as: :add_to_watchlist

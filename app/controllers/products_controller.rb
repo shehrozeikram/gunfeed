@@ -89,7 +89,7 @@ class ProductsController < ApplicationController
   def show
     @comment = Comment.new
     @product = Product.find(params[:id])
-    @products = Product.where(:upc => @product.upc, :active => true)
+    @products = Product.where(:upc => @product.upc, :active => true).where.not(:stock => nil )
 
   end
 
@@ -169,6 +169,13 @@ class ProductsController < ApplicationController
 
   def categories
     @categories = Category.all
+  end
+
+  def live_inventory_search
+    @product = Product.find(params[:id])
+    @products = Product.where(:upc => @product.upc, :active => true).where.not(:stock => nil )
+    @stock = Product.where(:upc => @product.upc, :stock => nil)
+    @similar_products = Product.where(:category_id => @product.category_id)
   end
 
   protected
