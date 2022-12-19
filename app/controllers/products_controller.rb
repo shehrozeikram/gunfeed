@@ -174,7 +174,7 @@ class ProductsController < ApplicationController
   def live_inventory_search
     @product = Product.find(params[:id])
     @products = Product.where(:upc => @product.upc, :active => true).where.not(:stock => nil  ).where.not(:stock => 'out of stock')
-    @stock = Product.where(:upc => @product.upc, :stock => nil).or( Product.where(:upc => @product.upc, :stock => 'out of stock'))
+    @stock = Product.where(:upc => @product.upc, :active => true).or( Product.where(:upc => @product.upc, :stock => 'nil'))
     @similar_products = Product.where(:category_id => @product.category_id)
   end
 
