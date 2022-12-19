@@ -52,26 +52,26 @@
               </div>
               <div class="product-basic-info-card__main-content">
                 <div class="product-basic-info-card_main-content_title">
-                  <h2 itemprop="name">Springfield SA-35 9mm 706397943967</h2>
+                  <h2 itemprop="name"><%= @product.title %></h2>
                 </div>
                 <div class="product-basic-info-card__specification">
                   <dl class="definition-list collapse" id="specifications">
                     <div>
                       <dd>UPC</dd>
                       <dt>
-                        <span itemprop="gtin12">806703912295</span>
+                        <span itemprop="gtin12"><%= @product.upc %></span>
                       </dt>
                     </div>
                     <div>
                       <dd>MPN</dd>
                       <dt>
-                        <a itemprop="sku" href="/search/apachesolr_search/91229">91229</a>
+                        <a itemprop="sku" href="/search/apachesolr_search/91229"><%= @product.mpn %></a>
                       </dt>
                     </div>
                     <div>
                       <dd>Brand</dd>
                       <dt>
-                        <a href="/catalog/brands/117/cz" itemprop="brand">CZ</a>
+                        <a href="/catalog/brands/117/cz" itemprop="brand"><%= @product.brand %></a>
                       </dt>
                     </div>
                     <div>
@@ -81,7 +81,7 @@
                     </div>
                     <div>
                       <dd>Caliber</dd>
-                      <dt>9mm</dt>
+                      <dt><%= @product.caliber %></dt>
                     </div>
                     <div>
                       <dd>Capacity</dd>
