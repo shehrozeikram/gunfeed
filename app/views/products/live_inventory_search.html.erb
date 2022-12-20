@@ -149,68 +149,70 @@
           </div>
         </div>
       </div>
-
       <div class="product-details-tiles-section__slider ">
         <h5>
           <strong>Similar Products</strong>
         </h5>
         <div class="d-flex product-scroller">
           <% @similar_products.limit(20).each do |similar_product| %>
-          <div class="" id="scroll-section1">
-            <div class="product-details-tile">
-              <div class="price-tag-container">
-                <div class="price-tag price-tag--one-line">from $<%= similar_product.price %></div>
-              </div>
-              <div class="product-details-tile__image-container">
-                <a class="js-ga-event" data-ga-action="Similar Products Click" data-ga-category="Search Page"
-                   data-ga-label="P-01 Compact [806703917214]" href="/search/apachesolr_search/806703917214">
-                  <img class="product-details-tile_image-container_image"
-                       src="<%= similar_product.image %>"
-                       alt="CZ P-01 Compact" />
-                </a>
-              </div>
-              <div class="product-details-tile__info">
-                <div class="product-details-tile__title">
-                  <a class="product-details-tile_titlelink js-ga-event dot-indicator dot-indicator_left dot-indicator--in-stock"
-                     data-ga-action="Similar Products Click" data-ga-category="Search Page"
-                     data-ga-label="P-01 Compact [806703917214]" href="/search/apachesolr_search/806703917214"
-                     title="CZ P-01 Compact">
-                    <%= similar_product.title %>
+            <div class="" id="scroll-section1">
+              <div class="product-details-tile">
+                <div class="price-tag-container">
+                  <div class="price-tag price-tag--one-line">from $<%= similar_product.price %></div>
+                </div>
+                <div class="product-details-tile__image-container">
+                  <a class="js-ga-event" data-ga-action="Similar Products Click" data-ga-category="Search Page"
+                     data-ga-label="P-01 Compact [806703917214]" href="/search/apachesolr_search/806703917214">
+                    <img class="product-details-tile_image-container_image"
+                         src="<%= similar_product.image %>"
+                         alt="CZ P-01 Compact" />
                   </a>
                 </div>
-                <div class="product-details-tile__info-container">
-                  <div class="product-details-tile_info_specs">
-                    <span>MPN: </span> <span title="91721"><%= similar_product.mpn %></span>
+                <div class="product-details-tile__info">
+
+                  <div class="product-details-tile__info-container">
+                    <div class="product-details-tile__info">
+                      <div class="product-details-tile__title">
+                        <a class="product-details-tile__title__link js-ga-event dot-indicator dot-indicator__left dot-indicator--in-stock" data-ga-action="Similar Products Click" data-ga-category="Search Page" data-ga-label="MK-II [840225706741]" href="/search/apachesolr_search/840225706741" title="B&amp;T MK-II"><%= similar_product.title %></a>
+                      </div>
+                      <div class="product-details-tile__info-container">
+                        <div class="product-details-tile__info__specs">
+                          <span>MPN: </span>
+                          <span title="BT-510001"><%= similar_product.mpn %></span>
+                        </div>
+                        <div class="product-details-tile__info__specs">
+                          <span>Brand: </span>
+                          <span title="B&amp;T"><%= similar_product.brand %></span>
+                        </div>
+                        <div class="product-details-tile__info__specs">
+                          <span>Caliber: </span>
+                          <span title="9mm"><%= similar_product.caliber %></span>
+                        </div>
+                        <div class="product-details-tile__info__specs">
+                          <span>Capacity: </span>
+                          <span title="-">-</span>
+                        </div>
+                      </div>
+                      <div>
+                        <a class="product-details-tile__info__full-specs-link js-fullSpecsLink" data-toggle="modal" data-target="#modalFullSpecs" data-id="136896" href="#">Full Specification</a>
+                      </div>
+                    </div>
                   </div>
-                  <div class="product-details-tile_info_specs">
-                    <span>Brand: </span> <span title="CZ"><%= similar_product.brand %></span>
-                  </div>
-                  <div class="product-details-tile_info_specs">
-                    <span>Caliber: </span> <span title="9mm"><%= similar_product.caliber%></span>
-                  </div>
-                  <div class="product-details-tile_info_specs">
-                    <span>Capacity: </span> <span title="14 Rnd">14 Rnd</span>
-                  </div>
-                </div>
-                <div>
-                  <a class="product-details-tile_info_full-specs-link js-fullSpecsLink" data-toggle="modal"
-                     data-target="#modalFullSpecs" data-id="133336" href="#">Full Specification</a>
                 </div>
               </div>
-            </div>
 
-          </div>
-            <% end %>
+            </div>
+          <% end %>
           <div class="" id="scroll-section2">
           </div>
-          <a href="#scroll-section2" class="scroll-previous tile-slider_direction tile-slider_direction--previous"
-             style="display: inline-block;">
+          <button href="#scroll-section2" class="scroll-previous tile-slider_direction tile-slider_direction--previous"
+                  style="display: inline-block;">
             <i class="fa fa-chevron-left"></i>
-          </a>
-          <a href="#scroll-section1" class="scroll-next tile-slider_direction tile-slider_direction--next"
-             style="display: inline-block;">
+          </button>
+          <button href="#scroll-section1" class="scroll-next tile-slider_direction tile-slider_direction--next"
+                  style="display: inline-block;">
             <i class="fa fa-chevron-right"></i>
-          </a>
+          </button>
         </div>
       </div>
       <div class="pt-3">
