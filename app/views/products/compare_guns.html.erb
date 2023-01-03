@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<%= render partial: 'partials/title' %>
+<body class="body-style">
+<%= render partial: 'partials/header' %>
+<section>
+  <div class="container">
+    <div class="add-section add-banner-section">
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="card p-3">
+          <div class="card__title">
+            <h1 class="listing-title listing-title--block"> Compare Guns</h1>
+            <p class="subtitle"> Compare gun price, size, weight, capacity and other specifications.</p>
+          </div>
+          <div class="card__content">
+
+            <div class="compare">
+              <form class="compare__form js-compare-form" data-action-prototype="/compare/__product1__/vs/__product2__" data-container-selector="#product-compare-content">
+                <div class="compare__select-product">
+                  <select class="js-compare-products-select select2-hidden-accessible" title="Select gun to compare" name="__product1__" data-placeholder="Select gun to compare" data-ajax-path="/ajax-search-product-from-catalog" data-trigger-event="initialize-select2-for-compare-products" tabindex="-1" aria-hidden="true">
+                    <option value="011356577207" selected="">Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720</option>
+                  </select>
+                  <span class="select2 select2-container select2-container--light" dir="ltr" style="width: 455px;">
+                      <span class="selection">
+                        <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" title="Select gun to compare" tabindex="0" aria-labelledby="select2-__product1__-4z-container">
+                          <span class="select2-selection__rendered" id="select2-__product1__-4z-container" title="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720"><%= @product.title %></span>
+                          <span class="select2-selection__arrow" role="presentation">
+                            <b role="presentation"></b>
+                          </span>
+                        </span>
+                      </span>
+                      <span class="dropdown-wrapper" aria-hidden="true"></span>
+                    </span>
+                </div>
+                <div class="compare__select-label">vs</div>
+                <div class="compare__select-product">
+                  <select class="js-compare-products-select select2-hidden-accessible" title="Select gun to compare" name="__product2__" data-placeholder="Select gun to compare" data-ajax-path="/ajax-search-product-from-catalog" data-trigger-event="initialize-select2-for-compare-products" tabindex="-1" aria-hidden="true">
+                    <option value="011356574848" selected="">Savage Arms Savage AXIS II Overwatch 308/7.62x51mm 57484</option>
+                  </select>
+                  <span class="select2 select2-container select2-container--light" dir="ltr" style="width: 430px;">
+                      <span class="selection">
+                        <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" title="Select gun to compare" tabindex="0" aria-labelledby="select2-__product2__-wu-container">
+                          <span class="select2-selection__rendered" id="select2-__product2__-wu-container" title="Savage Arms Savage AXIS II Overwatch 308/7.62x51mm 57484"><%= @compared.title %></span>
+                          <span class="select2-selection__arrow" role="presentation">
+                            <b role="presentation"></b>
+                          </span>
+                        </span>
+                      </span>
+                      <span class="dropdown-wrapper" aria-hidden="true"></span>
+                    </span>
+                </div>
+              </form>
+              <div id="product-compare-content">
+                <table class="table text-center compare__table">
+                  <tbody>
+                  <tr>
+                    <td>
+                      <div class="compare__image">
+                        <img src="<%= @product.image %>" alt="">
+                      </div>
+                    </td>
+                    <th class="label">Image</th>
+                    <td>
+                      <div class="compare__image">
+                        <img src="<%= @compared.image %>" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__upc ">
+                        <a href="#"><%= @product.upc %></a>
+                      </div>
+                    </td>
+                    <th class="label label--upc">UPC</th>
+                    <td>
+                      <div class="compare__upc ">
+                        <a href="#"><%= @compared.upc %></a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__mpn ">
+                        <a href="#"><%= @product.mpn %></a>
+                      </div>
+                    </td>
+                    <th class="label label--mpn">MPN</th>
+                    <td>
+                      <div class="compare__mpn ">
+                        <a href="#"><%= @compared.mpn %></a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__brand "> <%= @product.brand %></div>
+                    </td>
+                    <th class="label label--brand">Brand</th>
+                    <td>
+                      <div class="compare__brand "> <%= @compared.brand %></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__model "> 110 UltraLite Gray Left Hand</div>
+                    </td>
+                    <th class="label label--model">Model</th>
+                    <td>
+                      <div class="compare__model "> Savage AXIS II Overwatch</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__caliber "> .28 Nosler</div>
+                    </td>
+                    <th class="label label--caliber">Caliber</th>
+                    <td>
+                      <div class="compare__caliber "> 308/7.62x51mm</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__capacity "> 2 + 1</div>
+                    </td>
+                    <th class="label label--capacity">Capacity</th>
+                    <td>
+                      <div class="compare__capacity "> 4+1</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__features is-empty"> -</div>
+                    </td>
+                    <th class="label label--features">Features</th>
+                    <td>
+                      <div class="compare__features "> AccuTrigger, One Piece Picatinny Rail;Detachable Box Magazine</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__type "> Rifle: Bolt Action</div>
+                    </td>
+                    <th class="label label--type">Type</th>
+                    <td>
+                      <div class="compare__type "> Rifle: Bolt Action</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__action "> Bolt Action</div>
+                    </td>
+                    <th class="label label--action">Action</th>
+                    <td>
+                      <div class="compare__action "> Bolt Action</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__finish "> Melonite Blued Finish</div>
+                    </td>
+                    <th class="label label--finish">Finish</th>
+                    <td>
+                      <div class="compare__finish "> Gunsmoke Gray PVD Coating</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__stock is-empty"> -</div>
+                    </td>
+                    <th class="label label--stock">Stock</th>
+                    <td>
+                      <div class="compare__stock "> Synthetic Mossy Oak Overwatch Camo</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__sight "> No Sights</div>
+                    </td>
+                    <th class="label label--sight">Sight</th>
+                    <td>
+                      <div class="compare__sight "> No Sights</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__safety is-empty"> -</div>
+                    </td>
+                    <th class="label label--safety">Safety</th>
+                    <td>
+                      <div class="compare__safety "> 2 Position Safety</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__receiver "> Skeletonized Stainless Steel</div>
+                    </td>
+                    <th class="label label--receiver">Receiver</th>
+                    <td>
+                      <div class="compare__receiver "> Stainless Steel with Gunsmoke Gray PVD Coating</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__butt_plate is-empty"> -</div>
+                    </td>
+                    <th class="label label--butt_plate">Butt Plate</th>
+                    <td>
+                      <div class="compare__butt_plate "> Recoil Pad</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__barrel_length "> 24 in</div>
+                    </td>
+                    <th class="label label--barrel_length">Barrel Length</th>
+                    <td>
+                      <div class="compare__barrel_length "> 20</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__overall_length "> 49.3000</div>
+                    </td>
+                    <th class="label label--overall_length">Overall Length</th>
+                    <td>
+                      <div class="compare__overall_length "> 40.5</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__weight "> 9.5000</div>
+                    </td>
+                    <th class="label label--weight">Weight</th>
+                    <td>
+                      <div class="compare__weight "> 6.5 lbs</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__number_of_mags is-empty"> -</div>
+                    </td>
+                    <th class="label label--number_of_mags">Number Of Mags</th>
+                    <td>
+                      <div class="compare__number_of_mags "> 1</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__msrp is-empty"> -</div>
+                    </td>
+                    <th class="label label--msrp">Msrp</th>
+                    <td>
+                      <div class="compare__msrp "> 529</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__description "><%= @product.title %></div>
+                    </td>
+                    <th class="label label--description">Description</th>
+                    <td>
+                      <div class="compare__description "><%= @compared.title %></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="compare__deals ">
+                      <% @products.each do |product| %>
+                      <div class="compare__deal ">
+                        <div class="compare__deal-store">
+                          <a itemprop="url" target="_blank" href="https://gun.deals/merchant-deals/10143805301" class="js-ga-event" data-ga-action="External Click" data-ga-category="Family Firearms" data-ga-label="gun.deals merchant table">
+                            <span itemprop="offeredBy" itemtype="http://schema.org/Organization"><%= product.store.title %></span>
+                          </a>
+                        </div>
+                        <div class="compare__deal-price">
+                              <span>
+                                <span itemprop="price">$<%= product.price %></span>
+                              </span>
+                        </div>
+                        <div class="compare__deal-additional">
+                          <div>
+                                <span class="" data-toggle="tooltip" data-title="Shipping info: Calculated in Cart">
+                                  <i class="fa fa-truck"></i>
+                                </span>
+                          </div>
+                        </div>
+                        <div class="compare__deal-cta">
+                          <a href="https://gun.deals/merchant-deals/10143805301" class="js-ga-event" data-ga-action="External Click" data-ga-category="Family Firearms" data-ga-label="Gun Compare page - Buy link" target="_blank">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>Buy</span>
+                          </a>
+                        </div>
+                      </div>
+                      <% end %>
+                      <div class="compare__deals-see-more">
+                        <a href="#">Show all</a>
+                      </div>
+                    </td>
+                    <th class="label label--deals">Lowest Prices Online</th>
+                    <td class="compare__deals ">
+                      <% @compared_products.each do |compare| %>
+                      <div class="compare__deal compare__deal--oos">
+                        <div class="compare__deal-store">
+                          <a itemprop="url" target="_blank" href="#" class="js-ga-event" data-ga-action="External Click" data-ga-category="Machine Gun America" data-ga-label="gun.deals merchant table">
+                            <span itemprop="offeredBy" itemtype="#"><%= compare.store.title %></span>
+                          </a>
+                        </div>
+                        <div class="compare__deal-price">
+                              <span>
+                                <span itemprop="price">$<%= @compared.price %></span>
+                              </span>
+                        </div>
+                        <div class="compare__deal-additional">
+                          <div>
+                                <span class="is-empty" data-toggle="tooltip" data-title="Shipping info: No available information">
+                                  <i class="fa fa-truck"></i>
+                                </span>
+                          </div>
+                        </div>
+                        <div class="compare__deal-cta">
+                          <a href="https://gun.deals/merchant-deals/9161738736" class="js-ga-event" data-ga-action="External Click" data-ga-category="Machine Gun America" data-ga-label="Gun Compare page - Buy link" target="_blank">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>Buy</span>
+                          </a>
+                        </div>
+                      </div>
+                      <% end %>
+                      <div class="compare__deals-see-more">
+                        <a href="#">Show all</a>
+                      </div>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card p-3 my-3">
+          <div class="card__title">
+            <h2>Compare with other guns</h2>
+          </div>
+          <div class="card__content">
+            <div class="compare__suggestions">
+              <div class="card compare__suggestion p-3 mb-3">
+                <div class="card__content">
+                  <div class="compare__suggestion-body">
+                    <div>
+                      <div class="compare__suggestion-image">
+                        <img src="https://gun.deals/sites/default/files/guns_catalog/011356577207_6196903023fef.jpg" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                      </div>
+                      <span>Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720</span>
+                    </div>
+                    <div>vs</div>
+                    <div>
+                      <div class="compare__suggestion-image">
+                        <img src="https://gun.deals/sites/default/files/guns_catalog/011356579157_61969078e7760.jpg" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
+                      </div>
+                      <span>Savage Arms 110 Ultralite .28 Nosler 57915</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card__footer">
+                  <a href="#">Compare</a>
+                </div>
+              </div>
+              <div class="card compare__suggestion p-3 mb-3">
+                <div class="card__content">
+                  <div class="compare__suggestion-body">
+                    <div>
+                      <div class="compare__suggestion-image">
+                        <img src="https://gun.deals/sites/default/files/guns_catalog/011356577207_6196903023fef.jpg" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                      </div>
+                      <span>Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720</span>
+                    </div>
+                    <div>vs</div>
+                    <div>
+                      <div class="compare__suggestion-image">
+                        <img src="https://gun.deals/sites/default/files/guns_catalog/023614742128_60c7333dcc385.jpg" alt="Browning X-Bolt .28 Nosler 035515288">
+                      </div>
+                      <span>Browning X-Bolt .28 Nosler 035515288</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card__footer">
+                  <a href="#">Compare</a>
+                </div>
+              </div>
+              <div class="card compare__suggestion p-3 mb-3">
+                <div class="card__content">
+                  <div class="compare__suggestion-body">
+                    <div>
+                      <div class="compare__suggestion-image">
+                        <img src="https://gun.deals/sites/default/files/guns_catalog/011356577207_6196903023fef.jpg" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                      </div>
+                      <span>Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720</span>
+                    </div>
+                    <div>vs</div>
+                    <div>
+                      <div class="compare__suggestion-image">
+                        <img src="https://gun.deals/sites/default/files/guns_catalog/023614853626_620400cdeadc6.jpg" alt="Browning X-Bolt Speed SR .28 Nosler 035559288">
+                      </div>
+                      <span>Browning X-Bolt Speed SR .28 Nosler 035559288</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card__footer">
+                  <a href="#">Compare</a>
+                </div>
+              </div>
+              <div class="card compare__suggestion p-3 mb-3">
+                <div class="card__content">
+                  <div class="compare__suggestion-body">
+                    <div>
+                      <div class="compare__suggestion-image">
+                        <img src="https://gun.deals/sites/default/files/guns_catalog/011356574848_5e302ed1ad43e.jpg" alt="Savage Arms Savage AXIS II Overwatch 308/7.62x51mm 57484">
+                      </div>
+                      <span>Savage Arms Savage AXIS II Overwatch 308/7.62x51mm 57484</span>
+                    </div>
+                    <div>vs</div>
+                    <div>
+                      <div class="compare__suggestion-image">
+                        <img src="https://gun.deals/sites/default/files/guns_catalog/000010412047_61968a46758e3.jpg" alt="B&amp;T APC308 308/7.62x51mm BT-36077">
+                      </div>
+                      <span>B&amp;T APC308 308/7.62x51mm BT-36077</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card__footer">
+                  <a href="#">Compare</a>
+                </div>
+              </div>
+              <div class="card compare__suggestion p-3 mb-3">
+                <div class="card__content">
+                  <div class="compare__suggestion-body">
+                    <div>
+                      <div class="compare__suggestion-image">
+                        <img src="https://gun.deals/sites/default/files/guns_catalog/011356574848_5e302ed1ad43e.jpg" alt="Savage Arms Savage AXIS II Overwatch 308/7.62x51mm 57484">
+                      </div>
+                      <span>Savage Arms Savage AXIS II Overwatch 308/7.62x51mm 57484</span>
+                    </div>
+                    <div>vs</div>
+                    <div>
+                      <div class="compare__suggestion-image">
+                        <img src="https://gun.deals/sites/default/files/guns_catalog/000516446285_60717feb73ab7.jpg" alt="Palmetto State Armory Gen2 PA10 308/7.62x51mm 516446285">
+                      </div>
+                      <span>Palmetto State Armory Gen2 PA10 308/7.62x51mm 516446285</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card__footer">
+                  <a href="#">Compare</a>
+                </div>
+              </div>
+              <div class="card compare__suggestion p-3 mb-3">
+                <div class="card__content">
+                  <div class="compare__suggestion-body">
+                    <div>
+                      <div class="compare__suggestion-image">
+                        <img src="https://gun.deals/sites/default/files/guns_catalog/011356574848_5e302ed1ad43e.jpg" alt="Savage Arms Savage AXIS II Overwatch 308/7.62x51mm 57484">
+                      </div>
+                      <span>Savage Arms Savage AXIS II Overwatch 308/7.62x51mm 57484</span>
+                    </div>
+                    <div>vs</div>
+                    <div>
+                      <div class="compare__suggestion-image">
+                        <img src="https://gun.deals/sites/default/files/guns_catalog/000516446318_60717feb667ce.jpg" alt="Palmetto State Armory Gen2 PA10 308/7.62x51mm 516446318">
+                      </div>
+                      <span>Palmetto State Armory Gen2 PA10 308/7.62x51mm 516446318</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card__footer">
+                  <a href="#">Compare</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- card section two start here  -->
+<%= render partial: 'partials/middle_adds' %>
+<section class="mb-4">
+  <div class="container">
+    <div class="row">
+      <%= render partial: 'partials/bottom_cards' %>
+    </div>
+  </div>
+</section>
+<%= render partial: 'partials/footer' %>
+</body>
+</html>

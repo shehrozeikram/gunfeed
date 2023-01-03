@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <%= render partial: 'partials/title' %>
@@ -46,14 +45,14 @@
                 <span> Posted by
                                     <a href="#"><%= @product.user.username %></a>
                                 </span>
-                  <% end %>
+                <% end %>
               </div>
               <div class="product__detail">
                 <% unless !@product.user %>
-                <i class="fa fa-calendar"></i>Updated by
-                <a href="#"><%= @product.user.username %></a> <%= @product.updated_at %>
+                  <i class="fa fa-calendar"></i>Updated by
+                  <a href="#"><%= @product.user.username %></a> <%= @product.updated_at %>
                 <% end %>
-                  </div>
+              </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="product__detail">
@@ -137,9 +136,10 @@
                     <i class="fa fa-shopping-cart"></i> Buy at Gunfeed.com
                   </a>
                 </li>
-                <li>
+                <li class="notify-me-modal">
                   <a
-                    class="btn btn-product-icon btn-product-icon-config btn-block text-black js-tooltip js-modal-caller  "
+
+                    class="btn btn-product-icon btn-product-icon-config btn-block text-black js-tooltip js-modal-caller   "
                     data-original-icon="fa-bell-o fa-fw" data-inverse-icon="fa-bell-o fa-fw"
                     data-original-text="Notify me" data-inverse-text="Following product (UPC)"
                     data-status="0" data-toggle="modal" data-target="#modalUpcSubscribe"
@@ -150,6 +150,12 @@
                     <span>Notify me</span>
                   </a>
                 </li>
+                <li class="list-item-price">
+                  <a href="<%= compare_guns_path %>" class="btn-compare-price">
+                    <i class="fa fa-exchange"></i>
+                    <span>Compare with another gun</span>
+                  </a>
+                </li>
                 <li>
                   <a
                     class="btn btn-product-icon btn-block text-left text-black js-ajax-toggle-link js-ajax-toggle-watchlist"
@@ -157,7 +163,7 @@
                     data-original-icon=" gun-icon-Shape-1" data-inverse-icon=" gun-icon-Shape-1"
                     data-original-text="Add to watchlist" data-inverse-text="In watchlist"
                     data-status-value="1" data-values="{&quot;nid&quot;:&quot;1076271&quot;}" onclick="add_to_watchlist()">
-                    <i class="fa fa- gun-icon-Shape-1 fa-fw watchlist-icon"></i>
+                    <i class="fa fa-heart-o"></i>
                     <span>Add to watchlist</span>
                   </a>
                 </li>
@@ -185,9 +191,9 @@
                     <span>Subscribe to comments</span>
                   </a>
                 </li>
-                <li>
+                <li class="compare-price-modal-list">
                   <a href="<%= live_inventory_search_path() %>"
-                     class="btn btn-product-icon btn-block compare-price" target="_blank">
+                     class="" target="_blank">
                     <i class="fa fa-balance-scale"></i>
                     <span>Compare prices for this model</span>
                   </a>
@@ -195,74 +201,74 @@
               </ul>
               <div class="product-actions-bottom-wrapper">
                 <ul class="product-actions product-actions--expanded product-actions--bottom">
-                  <li>
-                    <div class="btn-group btn-group-sm btn-block">
-                      <a type="button" class="btn btn-product-icon btn-block text-black"
-                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-fw fa-ban"></i>Block similar deals
-                        <span class="caret"></span>
-                      </a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li>
-                          <button class="btn-blank js-ajax-toggle-link" data-ajax-type="get"
-                                  data-original-text="Block caliber (45 ACP)"
-                                  data-inverse-text="Unblock caliber (45 ACP)"
-                                  data-status-value="1"
-                                  data-ajax-path="slickguns-ajax-deals-blocking"
-                                  data-values="{&quot;uid&quot;:&quot;104841&quot;,&quot;type&quot;:&quot;subcategory&quot;,&quot;nid&quot;:&quot;1076271&quot;}">
-                            <span>Block caliber (45 ACP)</span>
-                          </button>
-                        </li>
-                        <li>
-                          <button class="btn-blank js-ajax-toggle-link" data-ajax-type="get"
-                                  data-original-text="Block store (GrabAGun.com)"
-                                  data-inverse-text="Unblock store (GrabAGun.com)"
-                                  data-status-value="1"
-                                  data-ajax-path="slickguns-ajax-deals-blocking"
-                                  data-values="{&quot;uid&quot;:&quot;104841&quot;,&quot;type&quot;:&quot;store&quot;,&quot;nid&quot;:&quot;1076271&quot;}">
-                            <span>Block store (GrabAGun.com)</span>
-                          </button>
-                        </li>
-                        <li>
-                          <button class="btn-blank js-ajax-toggle-link" data-ajax-type="get"
-                                  data-original-text="Block this deal (from this vendor)"
-                                  data-inverse-text="Unblock this deal (from this vendor)"
-                                  data-status-value="1"
-                                  data-ajax-path="slickguns-ajax-deals-blocking"
-                                  data-values="{&quot;uid&quot;:&quot;104841&quot;,&quot;type&quot;:&quot;single_deal&quot;,&quot;nid&quot;:&quot;1076271&quot;}">
-                            <span>Block this deal (from this vendor)</span>
-                          </button>
-                        </li>
-                        <li>
-                          <button class="btn-blank js-ajax-toggle-link" data-ajax-type="get"
-                                  data-original-text="Block this product (from all vendors)"
-                                  data-inverse-text="Unblock this product (from all vendors)"
-                                  data-status-value="1"
-                                  data-ajax-path="slickguns-ajax-deals-blocking"
-                                  data-values="{&quot;uid&quot;:&quot;104841&quot;,&quot;type&quot;:&quot;upc&quot;,&quot;nid&quot;:&quot;8053800943246&quot;}">
-                            <span>Block this product (from all vendors)</span>
-                          </button>
-                        </li>
-                        <li>
-                          <button class="btn-blank js-ajax-toggle-link" data-ajax-type="get"
-                                  data-original-text="Block brand (Charles Daly /kbi Inc)"
-                                  data-inverse-text="Unblock brand (Charles Daly /kbi Inc)"
-                                  data-status-value="1"
-                                  data-ajax-path="slickguns-ajax-deals-blocking"
-                                  data-values="{&quot;uid&quot;:&quot;104841&quot;,&quot;type&quot;:&quot;brand&quot;,&quot;nid&quot;:&quot;1076271&quot;}">
-                            <span>Block brand (Charles Daly /kbi Inc)</span>
-                          </button>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-cog"></i> Moderate blocked settings
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li>
+                  <!--                  <li>-->
+                  <!--                    <div class="btn-group btn-group-sm btn-block">-->
+                  <!--                      <a type="button" class="btn btn-product-icon btn-block text-black"-->
+                  <!--                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                  <!--                        <i class="fa fa-fw fa-ban"></i>Block similar deals-->
+                  <!--                        <span class="caret"></span>-->
+                  <!--                      </a>-->
+                  <!--                      <ul class="dropdown-menu" role="menu">-->
+                  <!--                        <li>-->
+                  <!--                          <button class="btn-blank js-ajax-toggle-link" data-ajax-type="get"-->
+                  <!--                                  data-original-text="Block caliber (45 ACP)"-->
+                  <!--                                  data-inverse-text="Unblock caliber (45 ACP)"-->
+                  <!--                                  data-status-value="1"-->
+                  <!--                                  data-ajax-path="slickguns-ajax-deals-blocking"-->
+                  <!--                                  data-values="{&quot;uid&quot;:&quot;104841&quot;,&quot;type&quot;:&quot;subcategory&quot;,&quot;nid&quot;:&quot;1076271&quot;}">-->
+                  <!--                            <span>Block caliber (45 ACP)</span>-->
+                  <!--                          </button>-->
+                  <!--                        </li>-->
+                  <!--                        <li>-->
+                  <!--                          <button class="btn-blank js-ajax-toggle-link" data-ajax-type="get"-->
+                  <!--                                  data-original-text="Block store (GrabAGun.com)"-->
+                  <!--                                  data-inverse-text="Unblock store (GrabAGun.com)"-->
+                  <!--                                  data-status-value="1"-->
+                  <!--                                  data-ajax-path="slickguns-ajax-deals-blocking"-->
+                  <!--                                  data-values="{&quot;uid&quot;:&quot;104841&quot;,&quot;type&quot;:&quot;store&quot;,&quot;nid&quot;:&quot;1076271&quot;}">-->
+                  <!--                            <span>Block store (GrabAGun.com)</span>-->
+                  <!--                          </button>-->
+                  <!--                        </li>-->
+                  <!--                        <li>-->
+                  <!--                          <button class="btn-blank js-ajax-toggle-link" data-ajax-type="get"-->
+                  <!--                                  data-original-text="Block this deal (from this vendor)"-->
+                  <!--                                  data-inverse-text="Unblock this deal (from this vendor)"-->
+                  <!--                                  data-status-value="1"-->
+                  <!--                                  data-ajax-path="slickguns-ajax-deals-blocking"-->
+                  <!--                                  data-values="{&quot;uid&quot;:&quot;104841&quot;,&quot;type&quot;:&quot;single_deal&quot;,&quot;nid&quot;:&quot;1076271&quot;}">-->
+                  <!--                            <span>Block this deal (from this vendor)</span>-->
+                  <!--                          </button>-->
+                  <!--                        </li>-->
+                  <!--                        <li>-->
+                  <!--                          <button class="btn-blank js-ajax-toggle-link" data-ajax-type="get"-->
+                  <!--                                  data-original-text="Block this product (from all vendors)"-->
+                  <!--                                  data-inverse-text="Unblock this product (from all vendors)"-->
+                  <!--                                  data-status-value="1"-->
+                  <!--                                  data-ajax-path="slickguns-ajax-deals-blocking"-->
+                  <!--                                  data-values="{&quot;uid&quot;:&quot;104841&quot;,&quot;type&quot;:&quot;upc&quot;,&quot;nid&quot;:&quot;8053800943246&quot;}">-->
+                  <!--                            <span>Block this product (from all vendors)</span>-->
+                  <!--                          </button>-->
+                  <!--                        </li>-->
+                  <!--                        <li>-->
+                  <!--                          <button class="btn-blank js-ajax-toggle-link" data-ajax-type="get"-->
+                  <!--                                  data-original-text="Block brand (Charles Daly /kbi Inc)"-->
+                  <!--                                  data-inverse-text="Unblock brand (Charles Daly /kbi Inc)"-->
+                  <!--                                  data-status-value="1"-->
+                  <!--                                  data-ajax-path="slickguns-ajax-deals-blocking"-->
+                  <!--                                  data-values="{&quot;uid&quot;:&quot;104841&quot;,&quot;type&quot;:&quot;brand&quot;,&quot;nid&quot;:&quot;1076271&quot;}">-->
+                  <!--                            <span>Block brand (Charles Daly /kbi Inc)</span>-->
+                  <!--                          </button>-->
+                  <!--                        </li>-->
+                  <!--                        <li class="divider"></li>-->
+                  <!--                        <li>-->
+                  <!--                          <a href="#">-->
+                  <!--                            <i class="fa fa-cog"></i> Moderate blocked settings-->
+                  <!--                          </a>-->
+                  <!--                        </li>-->
+                  <!--                      </ul>-->
+                  <!--                    </div>-->
+                  <!--                  </li>-->
+                  <li class="report-product">
                     <a data-toggle="modal" data-target="#modalReportProblem"
                        data-reset-content-on-close="1"
                        data-content-path="/report-a-problem?nid=1076271&amp;title=Charles%20Daly%201911%20Field%20Grade%20.45%20ACP%205%26quot%3B%20Barrel%208-Rounds%20Wood%20Grips%20-%20%24473.99%20%28%247.99%20S%2FH%20on%20Firearms%29"
@@ -465,21 +471,21 @@
             <div></div>
           </div>
         </div>
-          <div class="table-section__content">
-            <div class="price-compare-table__wrapper" itemprop="offers" itemscope=""
-                 itemtype="http://schema.org/AggregateOffer">
-              <span itemprop="offerCount" content="2"></span>
-              <table id="price-compare-table" class="table price-compare-table">
-                <thead>
-                <tr>
-                  <th class="price-compare-table__store-hd">Store</th>
-                  <th class="js-price price-compare-table__price-hd">Price</th>
-                  <th>Shipping rate</th>
-                  <th class="price-compare-table__show-hd">Show more</th>
-                </tr>
-                </thead>
-                <tbody>
-                <% @products.each do |product| %>
+        <div class="table-section__content">
+          <div class="price-compare-table__wrapper" itemprop="offers" itemscope=""
+               itemtype="http://schema.org/AggregateOffer">
+            <span itemprop="offerCount" content="2"></span>
+            <table id="price-compare-table" class="table price-compare-table">
+              <thead>
+              <tr>
+                <th class="price-compare-table__store-hd">Store</th>
+                <th class="js-price price-compare-table__price-hd">Price</th>
+                <th>Shipping rate</th>
+                <th class="price-compare-table__show-hd">Show more</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @products.each do |product| %>
                 <tr data-id="9698262896" class="" itemprop="offers" itemscope=""
                     itemtype="http://schema.org/Offer">
                   <td class="js-link-column price-compare-table__store-column">
@@ -491,13 +497,13 @@
                   <td class="price-compare-table__shipping-column" data-header="Shipping rate: ">$<%= product.shipping_cost %></td>
                   <td class="price-compare-table__show-more-column"></td>
                 </tr>
-                  <% end %>
+              <% end %>
 
-                </tbody>
-              </table>
-            </div>
-            <div></div>
+              </tbody>
+            </table>
           </div>
+          <div></div>
+        </div>
 
       </div>
     </div>
@@ -1181,7 +1187,7 @@
           <div class="card__content">
             <div id="comment-form-content"></div>
 
-          <form action="/ajax/comment/reply/1135586" accept-charset="UTF-8" method="post"
+            <form action="/ajax/comment/reply/1135586" accept-charset="UTF-8" method="post"
                   id="comment-form-1" class="js-ajax-comment-form" style="display: none;">
               <div>
                 <div style="display:none">
@@ -1234,50 +1240,50 @@
               </div>
             </form> <a id="comment-1177471"></a>
             <% unless !@product.comments.present? %>
-            <%= @product.comments.each do |comment| %>
-            <div class="comment comment-published clear-block" data-cid="1177471">
+              <%= @product.comments.each do |comment| %>
+                <div class="comment comment-published clear-block" data-cid="1177471">
 
-              <div class="submitted">
-                <div class="submitted-info"> By <a href="/users/surfncnow2"
-                                                   title="View user profile."><%= comment.user.username %></a>, <a href="#comment-1177471"
-                                                                                                 class="comment__hyperlink"><%= comment.created_at %></a></div>
-                <div class="submitted_report"> <a class="js-report-comment"
-                                                  href="/ajax-report-comment/1177471">Report</a></div>
-              </div>
-              <div class="content">
-                <div class="comment-content js-comment-content">
-                  <p><%= comment.body %></p>
-                </div>
-                <div class="rate-widget-2 rate-widget clear-block rate-average rate-widget-thumbs_up_down_count rate-b1af0c4050c20a8627157b8bdac33c9b rate-processed rate-custom-processed"
-                     id="rate-comment-1177471-2-1">
-                  <div class="votes-up-down-widget">
-<!--                    <div class="thumb-up">-->
-<!--                      <div class="" title="50%"><a class="rate-button rate-thumbs-up-down-btn-up"-->
-<!--                                                   id="rate-button-7" rel="nofollow"-->
-<!--                                                   href="/product/winchester-silvertip-9mm-115-grain-hollow-point-1000-rounds-550?rate=2e52b9d46be73c06cd3ade9843aa6ed7"></a>-->
-<!--                      </div>-->
-<!--                      <div class="percent">0 votes</div>-->
-<!--                    </div>-->
-<!--                    <div class="thumb-down">-->
-<!--                      <div title="50%"><a class="rate-button rate-thumbs-up-down-btn-down"-->
-<!--                                          id="rate-button-8" rel="nofollow"-->
-<!--                                          href="/product/winchester-silvertip-9mm-115-grain-hollow-point-1000-rounds-550?rate=620fdff013c3b5da5192570982d203f1"></a>-->
-<!--                      </div>-->
-<!--                      <div class="percent">0 votes</div>-->
-<!--                    </div>-->
-<!--                    <div class="voting-results-link"><a-->
-<!--                      href="/voting-results?nid=1177471&amp;content-type=comment">View-->
-<!--                      score</a></div>-->
+                  <div class="submitted">
+                    <div class="submitted-info"> By <a href="/users/surfncnow2"
+                                                       title="View user profile."><%= comment.user.username %></a>, <a href="#comment-1177471"
+                                                                                                                       class="comment__hyperlink"><%= comment.created_at %></a></div>
+                    <div class="submitted_report"> <a class="js-report-comment"
+                                                      href="/ajax-report-comment/1177471">Report</a></div>
                   </div>
-                </div>
-              </div>
-              <ul class="links">
-<!--                <li class="comment_reply first last"><a href="/comment/reply/1135586/1177471">reply</a>-->
-                </li>
-              </ul>
-            </div><a id="comment-1176661"></a>
-            <% end %>
+                  <div class="content">
+                    <div class="comment-content js-comment-content">
+                      <p><%= comment.body %></p>
+                    </div>
+                    <div class="rate-widget-2 rate-widget clear-block rate-average rate-widget-thumbs_up_down_count rate-b1af0c4050c20a8627157b8bdac33c9b rate-processed rate-custom-processed"
+                         id="rate-comment-1177471-2-1">
+                      <div class="votes-up-down-widget">
+                        <!--                    <div class="thumb-up">-->
+                        <!--                      <div class="" title="50%"><a class="rate-button rate-thumbs-up-down-btn-up"-->
+                        <!--                                                   id="rate-button-7" rel="nofollow"-->
+                        <!--                                                   href="/product/winchester-silvertip-9mm-115-grain-hollow-point-1000-rounds-550?rate=2e52b9d46be73c06cd3ade9843aa6ed7"></a>-->
+                        <!--                      </div>-->
+                        <!--                      <div class="percent">0 votes</div>-->
+                        <!--                    </div>-->
+                        <!--                    <div class="thumb-down">-->
+                        <!--                      <div title="50%"><a class="rate-button rate-thumbs-up-down-btn-down"-->
+                        <!--                                          id="rate-button-8" rel="nofollow"-->
+                        <!--                                          href="/product/winchester-silvertip-9mm-115-grain-hollow-point-1000-rounds-550?rate=620fdff013c3b5da5192570982d203f1"></a>-->
+                        <!--                      </div>-->
+                        <!--                      <div class="percent">0 votes</div>-->
+                        <!--                    </div>-->
+                        <!--                    <div class="voting-results-link"><a-->
+                        <!--                      href="/voting-results?nid=1177471&amp;content-type=comment">View-->
+                        <!--                      score</a></div>-->
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="links">
+                    <!--                <li class="comment_reply first last"><a href="/comment/reply/1135586/1177471">reply</a>-->
+                    </li>
+                  </ul>
+                </div><a id="comment-1176661"></a>
               <% end %>
+            <% end %>
             <div class="box">
               <h2>Post new comment</h2>
               <div class="content">
@@ -1333,8 +1339,8 @@
                       deal</label></div><input type="submit" name="op" id="edit-submit"
                                                value="Save" class="form-submit btn btn-default btn-primary">
                   </div>
-              <% end %>
-                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -1512,6 +1518,33 @@
     </div>
   </div>
 </section>
+<div class="model-overlay-app">
+  <div class="app-model">
+    <div class="model-header">
+      <h3>Add UPC Alert</h3>
+      <span class="remove-model-app">
+          <i class="fa fa-remove"></i>
+       </span>
+    </div>
+    <div class="model-content-app">
+      <form>
+        <div class="form-group">
+          <label for="upc" class="label-app">UPC: *</label>
+          <input class="form-control" id="upc" placeholder="Enter UPC"/>
+        </div>
+        <div class="form-group">
+          <label for="price-limit" class="label-app">Limit price: * $</label>
+          <input class="form-control" id="price-limit" placeholder="Limit Price"/>
+        </div>
+        <div class="form-group">
+          <label for="app-email" class="label-app">E-mail: *</label>
+          <input class="form-control" id="app-email" placeholder="Email"/>
+        </div>
+        <button class="btn-app-subscribe">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</div>
 <%= render partial: 'partials/footer' %>
 
 <script>
@@ -1526,7 +1559,7 @@
                     product_id: '<%= @product.id %>'
                 },
                 success:function(data){
-                        console.log(data)
+                    console.log(data)
                 }
             });
         });
@@ -1548,5 +1581,44 @@
     }
     document.getElementById('Button1').addEventListener('click', switchVisible);
 </script>
+
+<script>
+    //. CREATE MODEL FOR NOTIFY ME
+    (function(){
+
+        //. (i) Declare UI Selectors
+        const model_overlay = document.querySelector('.model-overlay-app');
+        const model_app = document.querySelector('.app-model');
+        const removeModelCTRL = document.querySelector('.remove-model-app');
+
+        model_overlay.setAttribute('style', `opacity: 0; visibility: hidden;`);
+
+        //... Start Model Controller
+        const modelDisplayUI = {
+            displayUIModel: `visibility: visible; transition: all .4s ease-in-out;  opacity: 1`
+        };
+        const removeModel = {
+            removeUIModel: `visibility: hidden; transition: all .4s ease-in-out;  opacity: 0`
+        };
+        //... End Model Controller
+
+        //. (iii) Add Event Listener on Click
+        document.querySelector('.notify-me-modal').addEventListener('click', (event) => {
+
+            //. (iv) Display the Model Overlay and Content after Click
+            model_overlay.setAttribute('style', modelDisplayUI.displayUIModel);
+
+            event.preventDefault();
+            return true;
+        });
+
+        removeModelCTRL.addEventListener('click', (event) => {
+            model_overlay.setAttribute('style', removeModel.removeUIModel)
+            event.preventDefault();
+            return true;
+        });
+    })();
+</script>
+
 </body>
 </html>

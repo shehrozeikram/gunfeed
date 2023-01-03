@@ -4591,7 +4591,7 @@ table.table.price-compare-table tbody {
 // ==========================out of stock code end here===========================
 
 button {
- color:#3b3f47;
+  color:#3b3f47;
   background:#e4e6e8;
   border-color:#E4E6E8;
 }
@@ -4634,4 +4634,121 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next{
 }
 button.scroll-next.tile-slider_direction.tile-slider_direction--next:active{
   outline: none;
+}
+
+
+.list-item-price {
+  background-color: #2e66a5;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 8px 5px;
+}
+
+.list-item-price a {
+  color: #fff;
+}
+
+.list-item-price a i {
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+.list-item-price:hover a {
+  color: #fff;
+}
+
+.compare-price-modal-list {
+  background-color: #fff;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 10px 5px;
+  border: 1px solid #cacfd4;
+  text-align: center;
+
+}
+.compare-price-modal-list a {
+  color: #000;
+}
+
+.compare-price-modal-list:hover a {
+  color: #000;
+}
+
+.report-product {
+  margin-top: 100px;
+}
+
+
+
+/***************************** App Models */
+.model-overlay-app {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-model {
+  width: 60%;
+  background-color: #fff;
+  //padding: 2rem;
+  border-radius: 5px;
+
+}
+
+@media only screen and (max-width: 769px) {
+  .app-model {
+    width: 95% !important;
+  }
+}
+
+.model-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.model-header h3 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-left: 20px;
+}
+
+.model-header .remove-model-app {
+  margin-right: 20px;
+  cursor: pointer;
+}
+.model-header .remove-model-app i {
+  font-size: 20px;
+  color: #777;
+}
+
+.label-app {
+  border-bottom: 1px dotted;
+}
+.model-content-app {
+  padding: 20px;
+}
+.btn-app-subscribe {
+  background-color: #1b3c61;
+  padding: .8rem 2rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+.btn-app-subscribe:hover {
+  background-color: #1b3c61 !important;
+  background-image: none !important;
 }
