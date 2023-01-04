@@ -22,7 +22,7 @@
           <span class="card-link price-tag price-tag--one-line"><span>$<%= product.price %></span></span>
         </div>
         <div class="tile__image-container">
-        <a href="<%= product_path(product) %>"><image src = "<%= product.image %>" /></a>
+          <a href="<%= product_path(product) %>"><image class="tile__image card-img" src = "<%= product.image %>" /></a>
         </div>
         <div class="card-body tile__title">
           <p class="card-text truncate "><a href="<%= product_path(product) %>"><%= product.title %></a></p>
