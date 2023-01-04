@@ -322,6 +322,15 @@ img.img-logo-2 {
   margin-top: 130px!important;
 }
 /* card style start */
+.tile__image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 1px;
+  transform: translate(-50%,-66%);
+  position: absolute;
+}
+
 .tile__sponsored {
   box-shadow: 0 0 0 1px #cacfd4;
   position: absolute;
@@ -392,32 +401,35 @@ img.img-logo-2 {
   font-size: 14px;
 }
 .tile__likes::after {
-  bottom: 3px;
-  left: 3px;
+  bottom: 2px;
+  left: -8px;
+  width: 70px;
   background-color: #b6e2ce;
-  box-shadow: inset -3px 0 0 0 #fff;
+  box-shadow: inset  0px 0 0 0 #fff;
 }
 .tile__rate-action::after {
   position: absolute;
-  width: 100%;
+  // width: 100%;
   height: 2px;
   content: "";
 }
 .tile__dislikes::after {
-  bottom: 3px;
-  left: 2px;
+  bottom: 2px;
+  left: -16px;
+  width: 70px;
   background-color: #eebec0;
-  box-shadow: inset -4px 0 0 0 #fff;
+  box-shadow: inset  0px 0 0 0 #fff;
 }
 .tile__comments::after {
-  right: 3px;
-  bottom: 3px;
+  bottom: 2px;
+  left: -32px;
+  width: 70px;
   content: "";
   background-color: #ddd;
-  box-shadow: inset 2px 0 0 0 #fff;
+  box-shadow: inset 0px 0 0 0 #fff;
 }
 .tile__actions-container{
-  padding: 6px 9px!important;
+  padding: 1px 9px!important;
 }
 .tile__actions-container .icon-fa-link {
   color: #3b3f47;
@@ -425,7 +437,7 @@ img.img-logo-2 {
 }
 // 1 nov 2022 changes here
 .tile__title {
-  height: 110px;
+  height: 90px;
 }
 .tile-image{
   padding: 0px 12px ;
@@ -433,7 +445,7 @@ img.img-logo-2 {
 .tile__title {
   position: relative;
   overflow: hidden;
-  padding: 15px 10px!important;
+  padding: 0px 10px!important;
   color: #3b3f47;
   font-size: 15px;
   font-weight: 700;
@@ -1916,9 +1928,10 @@ table {
   vertical-align: top;
 }
 /* logo hide from table */
-.price-tag.price-tag--one-line::before {
-  display: none;
-}
+// .price-tag.price-tag--one-line::before {
+//   display: none;
+// }
+
 .price-tag span {
   position: relative;
   z-index: 1;
@@ -2578,7 +2591,10 @@ html.enter {
   height: 180px;
   padding: 3px;
 }
-
+.card-img{
+  width: 100%;
+  height: 25vh;
+}
 // -------------------media query-------------------------
 @media screen and (min-device-width: 481px) and (max-device-width: 768px){
   .header__bottom {
@@ -3581,7 +3597,7 @@ table.table.price-compare-table tbody {
   height: 39px;
   padding: 0 10px;
   color: #3b3f47;
-  background-color: #f2f4f6;
+  // background-color: #f2f4f6;
   font-size: 14px;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -4421,7 +4437,7 @@ table.table.price-compare-table tbody {
   height: 39px;
   padding: 0 10px;
   color: #3b3f47;
-  background-color: #f2f4f6;
+  // background-color: #f2f4f6;
   font-size: 14px;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -4683,7 +4699,7 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active{
 
 
 /***************************** App Models */
-.model-overlay-app {
+.model-overlay-app, .model-overlay-product {
   position: fixed;
   top: 0;
   left: 0;
@@ -4691,17 +4707,17 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active{
   height: 100vh;
   background-color: rgba(0,0,0,0.4);
   z-index: 2000;
-
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.app-model {
+.app-model, .app-model-product {
   width: 60%;
   background-color: #fff;
   //padding: 2rem;
   border-radius: 5px;
+  z-index: 2000;
 
 }
 
@@ -4725,11 +4741,11 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active{
   margin-left: 20px;
 }
 
-.model-header .remove-model-app {
+.remove-model-app , .remove-report-model{
   margin-right: 20px;
   cursor: pointer;
 }
-.model-header .remove-model-app i {
+.remove-model-app i, .remove-report-model {
   font-size: 20px;
   color: #777;
 }
@@ -4751,4 +4767,157 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active{
 .btn-app-subscribe:hover {
   background-color: #1b3c61 !important;
   background-image: none !important;
+}
+
+
+
+// Search Products Card
+.search-products-card {
+  width: 100% !important;
+  position: absolute;
+  top: 2px;
+  left: 70%;
+  height: 400px !important;
+
+
+}
+
+.eading-suggested {
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.product-flex {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 5px 0;
+  //flex-direction: column;
+  padding: 5px;
+  color: #333 !important;
+}
+
+.product-flex:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.product-flex img {
+  height: 50px;
+  width: 100px;
+  object-fit: contain;
+  border: 1px solid #eee;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.product-basic-info-card {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+}
+.heading-suggested {
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 10px;
+}
+
+.detail-search {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.search-products-card {
+
+  display: none !important;
+}
+
+.product-detail-search {
+  width: 250px;
+}
+.product-title-search {
+  text-transform: uppercase;
+
+}
+.product-title-search i {
+  color: #18d718;
+  font-size: 7px;
+  margin-right: 2px;
+}
+
+.btn-report-product:hover {
+  background-color: #1b3c61 !important;
+  background: #1b3c61 !important;
+  background-image: none;
+}
+
+.remove-price {
+  font-size: 10px;
+  color: #777;
+  margin-left: 3px;
+  display: none !important;
+}
+.fa-remove-price {
+  font-size: 10px;
+  color: #777;
+  margin-left: 3px;
+  display: none !important;
+}
+
+.list-bg {
+  background-color: #eee;
+}
+
+.truc-title-search {
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  width: 50px !important;
+}
+
+.comment-color {
+  color: red !important;
+}
+
+/* Card design and text hover*/
+
+/* logo hide from table */
+// .price-tag.price-tag--one-line::before {
+//   display: none;
+// }
+.pill__value a:hover{
+  color: #5b99de;
+  text-decoration: underline;
+}
+
+.product__detail a:hover{
+  color: #5b99de;
+  text-decoration: underline
+}
+.tile__comments:hover::after {
+  background-color: #aaa;
+}
+.tile__dislikes:hover::after {
+  background-color: #d96d72;
+}
+.tile__likes:hover::after {
+  background-color: #6dc59d;
+}
+.price-tag::before {
+  top: 3px;
+  left: -7px;
+  width: 14px;
+  height: 14px;
+  transform: rotate(45deg);
+  border-radius: 0 0 0 4px;
+  background-color: #d41d00;
+
+}
+.card-footer.tile__actions-container {
+  border-top: none;
+}
+.col.my-3.sub-card{
+  padding-left: 0px;
 }

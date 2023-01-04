@@ -1,47 +1,3 @@
-<!--<style>-->
-
-<!--    #search-title {-->
-<!--        display: -webkit-box;-->
-<!--        -webkit-line-clamp: 3;-->
-<!--        -webkit-box-orient: vertical;-->
-<!--        max-width: 150px;-->
-<!--        overflow: hidden;-->
-<!--        text-overflow: ellipsis;-->
-<!--        height:auto;-->
-<!--        font-size: 15px !important;-->
-<!--        text-align: left;-->
-<!--        font-weight: bold; !important;-->
-<!--        margin-left: -10px !important;-->
-<!--        margin-bottom: 5px !important;-->
-<!--    }-->
-<!--    .horizontal-scrollable {-->
-<!--        display: none;-->
-<!--        height: 400px !important;-->
-<!--        overflow-y: scroll;-->
-<!--        scroll-behavior: smooth;-->
-<!--        margin-right: 40px !important;-->
-<!--        margin-top: 2px !important;-->
-<!--    }-->
-<!--    .product-basic-info-card {-->
-<!--        font-size: 10px !important;-->
-<!--        line-height: .5;-->
-<!--    }-->
-<!--    .product-basic-info-card__image {-->
-<!--        height: 70px !important;-->
-<!--        width: 100px !important;-->
-<!--    }-->
-<!--    .product-basic-info-card__specification .definition-list.collapse {-->
-<!--        height: 82px !important;-->
-<!--        border-bottom: 1px solid #eee !important;-->
-<!--        margin-top: -4px !important;-->
-<!--    }-->
-<!--    .product-basic-info-card img {-->
-<!--        height: 70px !important;-->
-<!--        object-fit: cover;-->
-<!--    }-->
-<!--</style>-->
-<head><link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script></head>
 <div class="nav-two-header" id="Div02">
   <section class="bg-white">
     <div class="container">
@@ -62,17 +18,17 @@
                       <!-- Actual search box -->
                       <div id="search-data-list" class="form-group has-search pe-xs-0 pe-sm-3 d-xs-block d-sm-none d-md-block ">
                         <span class="fa fa-search form-control-feedback"></span>
-                     <%=select("post", "person_id", Product.all.collect {|p| [ p.title, p.id ] }, { include_blank: true }, class:"js-states form-control search-box select2-hidden-accessible") %>
-<!--                     <input type="search"  class="form-control" id="search-box" placeholder="Search keyword" name="q" onkeyup="search()">-->
-
-
-                     </input>
+                        <input type="text" class="form-control" id="search" placeholder="Search keyword" name="q" onkeyup="search()">
                       </div>
                       <section class="compaire-price my-5 search-dropdown2" id="html-show">
                         <div class="container">
                           <div class="row">
 
-
+                            <div class="col-lg-10 ">
+                              <div class="horizontal-scrollable h-60 card search-products-card">
+                                <div class="p-1"></div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </section>
@@ -221,13 +177,13 @@
             </a>
             <ul class="dropdown-menu" role="menu">
               <% unless !@categories.present? %>
-              <% @categories.each do |category| %>
-                <li class="leaf first">
-                  <a href="<%= category_path(category) %>" title="<%= category.name %>"
-                     class="icon-handguns"><%= category.name %></a>
-                </li>
+                <% @categories.each do |category| %>
+                  <li class="leaf first">
+                    <a href="<%= category_path(category) %>" title="<%= category.name %>"
+                       class="icon-handguns"><%= category.name %></a>
+                  </li>
+                <% end %>
               <% end %>
-               <% end %>
             </ul>
           </li>
           <li class="expanded dropdown">
@@ -235,9 +191,9 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-<!--              <li class="leaf first">-->
-<!--                <a href="#" title="Vulcan">Vulcan</a>-->
-<!--              </li>-->
+              <!--              <li class="leaf first">-->
+              <!--                <a href="#" title="Vulcan">Vulcan</a>-->
+              <!--              </li>-->
               <li class="leaf">
                 <a href="<%= revolvers_path %>" title="Revolver">Revolver</a>
               </li>
@@ -247,9 +203,9 @@
               <li class="leaf">
                 <a href="<%=c_and_r_path %>" title="C&amp;R">C&amp;R</a>
               </li>
-<!--              <li class="leaf">-->
-<!--                <a href="#" title="1911">1911</a>-->
-<!--              </li>-->
+              <!--              <li class="leaf">-->
+              <!--                <a href="#" title="1911">1911</a>-->
+              <!--              </li>-->
               <li class="leaf">
                 <a href="<%=ar_deals_path %>" title="AR Deals">AR Deals</a>
               </li>
@@ -259,18 +215,18 @@
               <li class="leaf">
                 <a href="<%= stores_path %>" title="Stores page">Stores</a>
               </li>
-<!--              <li class="leaf">-->
-<!--                <a href="#" title="">Rebates</a>-->
-<!--              </li>-->
-<!--              <li class="leaf">-->
-<!--                <a href="#" title="">Recent Comments</a>-->
-<!--              </li>-->
+              <!--              <li class="leaf">-->
+              <!--                <a href="#" title="">Rebates</a>-->
+              <!--              </li>-->
+              <!--              <li class="leaf">-->
+              <!--                <a href="#" title="">Recent Comments</a>-->
+              <!--              </li>-->
               <li class="leaf">
                 <a href="<%= top_articles_path %>" title="">Top Articles</a>
               </li>
-<!--              <li class="leaf">-->
-<!--                <a href="#" title="">Compare Guns</a>-->
-<!--              </li>-->
+              <!--              <li class="leaf">-->
+              <!--                <a href="#" title="">Compare Guns</a>-->
+              <!--              </li>-->
               <li class="leaf">
                 <a href="<%= used_guns_path %>" title="Used Guns">Used Guns</a>
               </li>
@@ -285,11 +241,11 @@
                 <a href="<%= nine_mm_ammo_path %>" title="9mm Ammo"
                    class="icon-ammo">9mm Ammo</a>
               </li>
-<!--              <li class="leaf last">-->
-<!--                <a href="#"-->
-<!--                   title="223 Rem - 5.56 NATO Ammo" class="icon-ammo">223/5.56-->
-<!--                  Ammo</a>-->
-<!--              </li>-->
+              <!--              <li class="leaf last">-->
+              <!--                <a href="#"-->
+              <!--                   title="223 Rem - 5.56 NATO Ammo" class="icon-ammo">223/5.56-->
+              <!--                  Ammo</a>-->
+              <!--              </li>-->
             </ul>
           </li>
           <li class="leaf last">
@@ -314,7 +270,7 @@
               <span><%= current_user.username %>
                 <span class="caret"></span>
               </span>
-                <% end %>
+              <% end %>
             </a>
             <% if user_signed_in? %>
 
@@ -326,28 +282,28 @@
                   <%= link_to('My watchlist', my_accounts_my_watchlist_path) %>
                 </li>
               </ul>
-              <% else %>
+            <% else %>
               <a href="#" class="icon-fa-link" data-toggle="dropdown"
                  title="Welcome, guest ">
               <span>Welcome, guest
                 <span class="caret"></span>
               </span>
               </a>
-            <ul class="dropdown-menu" role="menu">
+              <ul class="dropdown-menu" role="menu">
 
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="<%= user_session_path %>" title="Login">Login</a>
-              </li>
-              <li>
-                <a href="<%= new_user_registration_path %>" title="Register">Register</a>
-              </li>
-              <li>
-                <a href="<%= edit_user_password_path %>" title="Reset Password">Reset
-                  Password</a>
-              </li>
-            </ul>
-              <% end %>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <a href="<%= user_session_path %>" title="Login">Login</a>
+                </li>
+                <li>
+                  <a href="<%= new_user_registration_path %>" title="Register">Register</a>
+                </li>
+                <li>
+                  <a href="<%= edit_user_password_path %>" title="Reset Password">Reset
+                    Password</a>
+                </li>
+              </ul>
+            <% end %>
           </li>
         </ul>
       </div>
@@ -360,11 +316,6 @@
 
 
 <script>
-
-    // $(document).ready(function() {
-    //     $('.search-box').select2();
-    // });
-
 
     function search() {
         $(document).ready(function(){
@@ -379,49 +330,71 @@
                     // console.log(data)
 
                     const productWrapper = document.querySelector('.p-1');
+
+
                     let productCounter = " "
                     data.forEach((product)=>{
                         console.log(product)
+                        // alert(product)
+
+
                         productCounter += `
+
                         <div class="product-basic-info-card">
                                     <div class="product-basic-info-card__image-container">
-                                      <div class="product-basic-info-card__image" style="width:150px; height:140px">
-                                        <img src="https://gun.deals/sites/default/files/guns_catalog/806703912295_5d0bfc01df80d.jpg" alt="CZ CZ P-01 Omega Convertible 9mm 91229" itemprop="image" class="img-fluid">
-                                      </div>
+                                       <a class="product-flex" href="/products/${product.id}">
+                                         <img src="https://gun.deals/sites/default/files/guns_catalog/806703912295_5d0bfc01df80d.jpg" alt="CZ CZ P-01 Omega Convertible 9mm 91229" itemprop="image" class="img-fluid">
+                                          <div class="product-detail-search">
+                                             <strong class="product-title-search">
+                                               <i class="fa fa-circle" aria-hidden="true"></i>
+                                               <span class="truc-title-search">${product.title}</span>
+                                              </strong>
+                                             <div class="detail-search">
+                                                <span>Brand: ${product.brand}</span>
+                                                <span>MPN: ${product.mpn}</span>
+                                                <span>Caliber: ${product.caliber}</span>
+                                                <span>From: $${product.amount}</span>
+                                             </div>
+                                          </div>
+                                       </a>
                                     </div>
-                                    <div class="product-basic-info-card__main-content">
-                                      <div class="product-basic-info-card__main-content__title">
-                                        <h5 id="search-title" class="card-text truncate" itemprop="name">${product.title}</h5>
-                                      </div>
-                                      <div class="product-basic-info-card__specification search-dropdown-list">
-                                        <dl class="definition-list collapse" id="specifications">
-                                          <div>
-                                            <dd>Brand</dd>
-                                            <dt>
-                                              <span>${product.brand}</span>
-                                            </dt>
-                                          </div>
-                                          <div>
-                                            <dd>MPN</dd>
-                                            <dt>
-                                              <span itemprop="gtin12">${product.mpn}</span>
-                                            </dt>
-                                          </div>
-                                          <div>
-                                            <dd>Caliber</dd>
-                                            <dt>${product.caliber}</dt>
-                                          </div>
-                                          <div>
-                                            <dd>From</dd>
-                                            <dt>${product.price}</dt>
-                                          </div>
-                                        </dl>
-                                      </div>
-                                    </div>
-                                  </div>
-                        `
+<!--                                    <div class="product-basic-info-card__main-content">-->
+<!--                                      <div class="product-basic-info-card__main-content__title">-->
+<!--                                        <h5 id="search-title" class="card-text truncate" itemprop="name">${product.title}</h5>-->
+<!--                                      </div>-->
+<!--                                      <div class="product-basic-info-card__specification search-dropdown-list">-->
+<!--                                        <dl class="definition-list collapse" id="specifications">-->
+<!--                                          <div>-->
+<!--                                            <dd>Brand</dd>-->
+<!--                                            <dt>-->
+<!--                                              <span>${product.brand}</span>-->
+<!--                                            </dt>-->
+<!--                                          </div>-->
+<!--                                          <div>-->
+<!--                                            <dd>MPN</dd>-->
+<!--                                            <dt>-->
+<!--                                              <span itemprop="gtin12">${product.mpn}</span>-->
+<!--                                            </dt>-->
+<!--                                          </div>-->
+<!--                                          <div>-->
+<!--                                            <dd>Caliber</dd>-->
+<!--                                            <dt>${product.caliber}</dt>-->
+<!--                                          </div>-->
+<!--                                          <div>-->
+<!--                                            <dd>From</dd>-->
+<!--                                            <dt>${product.price}</dt>-->
+<!--                                          </div>-->
+<!--                                        </dl>-->
+<!--                                      </div>-->
+<!--                                    </div>-->
+<!--                                  </div>-->
+<!-- -->                        `
                         // console.log(product.title);
-                        productWrapper.innerHTML = productCounter
+                        productWrapper.innerHTML = `<div>
+                          <p class="heading-suggested">SUGGESTED PRODUCTS</p>
+                    ${productCounter} </div>`;
+                        document.querySelector('.search-products-card')
+                            .setAttribute('style', 'display: block !important;')
                     })
 
 
@@ -429,7 +402,7 @@
                 }
             });
         });
-        };
+    };
 
 
     // Truckate TExt
@@ -444,7 +417,7 @@
         // (i) Enable Backspace
         const targetedKey = event.key
         if (targetedKey === 'Backspace') {
-          // document.body.innerHTML = "<h1>No content</h1>
+            // document.body.innerHTML = "<h1>No content</h1>
             targettedArea.style.display = "none"
 
         } else {
@@ -454,13 +427,19 @@
         event.preventDefault();
         return true;
     })
-
 </script>
-<head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet"/>
 
-</head>
-<script>$('select').select2({   width: '100%',multiple: true});
+
+<script>
+    //.. HIDE SEARCH BOX AFTER CLICKING ON THE WINDOW
+    const searchBox = document.querySelector('.search-products-card');
+    document.body.addEventListener('click', (event) => {
+        if (searchBox !== event.target) {
+            searchBox.style.display = 'none'
+            // alert('You hide')
+        };
+        return true;
+    });
+
+
 </script>
