@@ -9,8 +9,7 @@ class ProductsController < ApplicationController
 
   def search_products
     if params[:q].present?
-      product = Product.where("verified":"true")
-      @products = product.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%").page
+      @products = Product.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%").page
       render json:  @products
     end
   end
