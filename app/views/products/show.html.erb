@@ -156,7 +156,7 @@
                     <span>Compare with another gun</span>
                   </a>
                 </li>
-                <li>
+                <li class="add-wish-list">
                   <a
                     class="btn btn-product-icon btn-block text-left text-black js-ajax-toggle-link js-ajax-toggle-watchlist"
                     data-ajax-path="ajax-status-change-comments-watchlist-subscribe"
@@ -165,6 +165,7 @@
                     data-status-value="1" data-values="{&quot;nid&quot;:&quot;1076271&quot;}" onclick="add_to_watchlist()">
                     <i class="fa fa-heart-o"></i>
                     <span>Add to watchlist</span>
+                    <i class="fa fa-remove fa-remove-wish"></i>
                   </a>
                 </li>
                 <li class="subscribe-price">
@@ -1714,7 +1715,6 @@
     subscribeCommentBtn.addEventListener('click', (event) => {
 
         subscribeCommentBtn.classList.add('list-bg');
-
         removeComment.setAttribute('style', 'display: inline-block !important;');
         chatIcon.setAttribute('style', 'color: red;')
 
@@ -1749,7 +1749,50 @@
             priceSubscribe.classList.remove('list-bg')
 
         }
-    })
+    });
+
+    //.. Add to wish list
+    const addToWishList = document.querySelector('.add-wish-list');
+    const faHeart = document.querySelector('.fa-heart-o');
+    const faRemove = document.querySelector('.fa-remove-wish ')
+
+    addToWishList.addEventListener('click', (event) => {
+
+        faRemove.setAttribute('style', 'display: inline-block!important;');
+        addToWishList.classList.add('list-bg')
+        faHeart.setAttribute('style', 'color: red;');
+
+
+        //.. Price Subscribe
+        priceSubscribe.classList.add('list-bg')
+        dollarIcon.setAttribute('style', 'color: red;');
+        removeSubPrice.setAttribute('style', 'display: inline-block !important;');
+
+        //.. Comment Subscribe
+        subscribeCommentBtn.classList.add('list-bg');
+
+        removeComment.setAttribute('style', 'display: inline-block !important;');
+        chatIcon.setAttribute('style', 'color: red;');
+
+
+
+        event.preventDefault();
+        return true;
+    });
+
+
+    document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('fa-remove-wish')) {
+
+            faRemove.setAttribute('style', 'display: none!important;');
+            faHeart.setAttribute('style', 'color: #777 !important;');
+            addToWishList.classList.remove('list-bg')
+            dollarIcon.setAttribute('style', 'color: #333;');
+            removeSubPrice.setAttribute('style', 'display: none !important;');
+            priceSubscribe.classList.remove('list-bg');
+
+        }
+    });
 </script>
 
 </body>
