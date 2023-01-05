@@ -139,7 +139,7 @@
                 <li class="notify-me-modal">
                   <a
 
-                    class="btn btn-product-icon btn-product-icon-config btn-block text-black js-tooltip js-modal-caller   "
+                    class="btn btn-product-icon btn-product-icon-config"
                     data-original-icon="fa-bell-o fa-fw" data-inverse-icon="fa-bell-o fa-fw"
                     data-original-text="Notify me" data-inverse-text="Following product (UPC)"
                     data-status="0" data-toggle="modal" data-target="#modalUpcSubscribe"
@@ -151,7 +151,7 @@
                   </a>
                 </li>
                 <li class="list-item-price">
-                  <a href="<%= compare_guns_path %>" class="btn-compare-price">
+                  <a href="#" class="btn-compare-price">
                     <i class="fa fa-exchange"></i>
                     <span>Compare with another gun</span>
                   </a>
@@ -167,7 +167,7 @@
                     <span>Add to watchlist</span>
                   </a>
                 </li>
-                <li>
+                <li class="subscribe-price">
                   <a
                     class="btn btn-product-icon btn-block text-left text-black js-ajax-toggle-link js-ajax-toggle-watchlist-chained"
                     data-ajax-path="ajax-toggle-status-change-subscribe"
@@ -177,9 +177,12 @@
                     data-values="{&quot;nid&quot;:&quot;1076271&quot;}">
                     <i class="fa fa-dollar fa-fw"></i>
                     <span>Subscribe to price drop</span>
+                    <span><i class="fa fa-remove fa-remove-price"></i> </span>
                   </a>
+
+
                 </li>
-                <li>
+                <li class="subscribe-comments">
                   <a
                     class="btn btn-product-icon btn-block text-black js-ajax-toggle-link js-ajax-toggle-watchlist-chained"
                     data-ajax-path="ajax-toggle-comments-subscribe"
@@ -189,6 +192,8 @@
                     data-values="{&quot;nid&quot;:&quot;1076271&quot;,&quot;uid&quot;:&quot;104841&quot;}">
                     <i class="fa fa-comments-o fa-fw"></i>
                     <span>Subscribe to comments</span>
+                    <i class="fa fa-remove remove-price"></i>
+
                   </a>
                 </li>
                 <li class="compare-price-modal-list">
@@ -1518,6 +1523,8 @@
     </div>
   </div>
 </section>
+
+<!-- Model Notify start -->
 <div class="model-overlay-app">
   <div class="app-model">
     <div class="model-header">
@@ -1545,6 +1552,61 @@
     </div>
   </div>
 </div>
+<!-- Model Notify End -->
+
+<!-- Model Report Product Start -->
+<div class="model-overlay-product">
+  <div class="app-model-product app-model">
+    <div class="model-header">
+      <h3>Report a problem</h3>
+      <span class="remove-report-model">
+          <i class="fa fa-remove"></i>
+       </span>
+    </div>
+    <form class="model-content-app" method="post">
+      <p>
+        <strong>Problem with:</strong>
+        <span>Palmetto State Armory New Years Sale</span>
+      </p>
+      <p class="mt-2">
+        <strong>Type of problem: *</strong>
+      </p>
+      <div class="form-check mt-3">
+        <input class="form-check-input" type="radio" name="reportRadio" id="expired" checked>
+        <label class="form-check-label" for="expired">
+          Expired
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="reportRadio" id="outStock">
+        <label class="form-check-label" for="outStock">
+          Out of Stock
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="reportRadio" id="copuon">
+        <label class="form-check-label" for="copuon">
+          Coupon Doesn't Work
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="reportRadio" id="priceIssue">
+        <label class="form-check-label" for="priceIssue">
+          Price is Wrong
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="report-message">Problem Detail:</label>
+        <textarea class="form-control" placeholder="Problem Detail" rows="5"></textarea>
+      </div>
+      <button class="btn btn-primary btn-report-product">Report a problem</button>
+    </form>
+  </div>
+</div>
+</div>
+<!-- Model Report Product End -->
 <%= render partial: 'partials/footer' %>
 
 <script>
@@ -1589,9 +1651,13 @@
         //. (i) Declare UI Selectors
         const model_overlay = document.querySelector('.model-overlay-app');
         const model_app = document.querySelector('.app-model');
+        const reportModel_overlay = document.querySelector('.model-overlay-product');
+        const reportModel_app = document.querySelector('.app-model-product')
         const removeModelCTRL = document.querySelector('.remove-model-app');
+        const removeModelReport = document.querySelector('.remove-report-model');
 
         model_overlay.setAttribute('style', `opacity: 0; visibility: hidden;`);
+        reportModel_overlay.setAttribute('style', `opacity: 0; visibility: hidden;`);
 
         //... Start Model Controller
         const modelDisplayUI = {
@@ -1602,7 +1668,7 @@
         };
         //... End Model Controller
 
-        //. (iii) Add Event Listener on Click
+        //. (M-I) Add Event Listener on Click ( Model Notify Me)
         document.querySelector('.notify-me-modal').addEventListener('click', (event) => {
 
             //. (iv) Display the Model Overlay and Content after Click
@@ -1612,14 +1678,79 @@
             return true;
         });
 
+
+
         removeModelCTRL.addEventListener('click', (event) => {
-            model_overlay.setAttribute('style', removeModel.removeUIModel)
+            model_overlay.setAttribute('style', removeModel.removeUIModel);
+            reportModel_overlay.setAttribute('style', removeModel.removeUIModel);
+            event.preventDefault();
+            return true;
+        });
+        removeModelReport.addEventListener('click', (event) => {
+            model_overlay.setAttribute('style', removeModel.removeUIModel);
+            reportModel_overlay.setAttribute('style', removeModel.removeUIModel);
+            event.preventDefault();
+            return true;
+        });
+
+        //. Report Model
+        document.querySelector('.report-product').addEventListener('click', (event) => {
+            reportModel_overlay.setAttribute('style', modelDisplayUI.displayUIModel);
+
             event.preventDefault();
             return true;
         });
     })();
+
+
+    // Subscribe Comment
+    const subscribeCommentBtn = document.querySelector('.subscribe-comments');
+    const priceSubscribe = document.querySelector('.subscribe-price');
+
+    const chatIcon = document.querySelector('.fa-comments-o');
+    const removeComment = document.querySelector('.remove-price');
+    const removeCommentButton = document.querySelector('.fa-remove')
+
+    subscribeCommentBtn.addEventListener('click', (event) => {
+
+        subscribeCommentBtn.classList.add('list-bg');
+
+        removeComment.setAttribute('style', 'display: inline-block !important;');
+        chatIcon.setAttribute('style', 'color: red;')
+
+        event.preventDefault();
+        return true;
+    });
+
+    document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('fa-remove')) {
+            chatIcon.setAttribute('style', 'color: #333;');
+            removeComment.setAttribute('style', 'display:none;');
+            subscribeCommentBtn.classList.remove('list-bg');
+        }
+    });
+
+    //. Subscribe to Price
+    const dollarIcon = document.querySelector('.fa-dollar');
+    const removeSubPrice = document.querySelector('.fa-remove-price');
+    priceSubscribe.addEventListener('click', (event) => {
+
+        priceSubscribe.classList.add('list-bg')
+        dollarIcon.setAttribute('style', 'color: red;');
+        removeSubPrice.setAttribute('style', 'display: inline-block !important;');
+        event.preventDefault();
+        return true;
+    });
+
+    document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('fa-remove-price')) {
+            dollarIcon.setAttribute('style', 'color: #333;');
+            removeSubPrice.setAttribute('style', 'display: none !important;');
+            priceSubscribe.classList.remove('list-bg')
+
+        }
+    })
 </script>
 
 </body>
 </html>
-
