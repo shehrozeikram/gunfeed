@@ -2,7 +2,7 @@ require 'rufus-scheduler'
 
 scheduler = Rufus::Scheduler.new(:lockfile => ".rufus-scheduler.lock")
 unless scheduler.down?
-  scheduler.every "3h", :overlap => false do
+  scheduler.every "10m", :overlap => false do
     begin
       require 'rest-client'
       Store.where.not(store_xml_feed_url: nil).each do|store|
@@ -25,7 +25,6 @@ unless scheduler.down?
           product.shipping_cost = pr[:shipping_cost]
           product.active = true
           product.save!
-          'abc'
         end
       rescue => error
       end
