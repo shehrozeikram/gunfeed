@@ -13,7 +13,7 @@ unless scheduler.down?
         products = json_feed[:rss][:channel][:item] rescue  json_feed[:channel][:item]
         Product.where(store_id: store.id).update_all(active: false)
         products.each do |pr|
-          product = Product.where(user_id: 10, category_id: 2, store_id: store.id, upc:  pr[:upc]).first_or_initialize
+          product = Product.where(user_id: 1, category_id: 1, store_id: store.id, upc:  pr[:upc]).first_or_initialize
           product.title = pr[:title]
            product.description =  pr[:description]
           product.link = pr[:link]
