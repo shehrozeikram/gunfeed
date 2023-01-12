@@ -185,7 +185,7 @@
                         <div class="form-group" id="edit-store-wrapper">
                           <a href="#"> <label for="edit-store" title="Product store."
                                               data-toggle="tooltip">Store: </label></a>
-                          <%= form.select(:store_id, Store.all.map{|s| [s.title, s.id]}, {prompt: true, selected: :store_id}, {class: "form-select required js-product-calibers-change form-control select2-hidden-accessible"}) %>
+                          <%= form.select(:store_id, Store.all.map{|s| [s.title, s.id]}, {prompt: true, selected: :store_id}, {class: "form-select required js-product-calibers-change form-control"}) %>
                         </div>
                       </div>
                       <div class="col-xs-12 col-md-2">
@@ -201,14 +201,14 @@
                             <span class="form-required"
                                   title="This field is required.">*</span>
                           </label></a>
-                          <%= form.select(:category_id, Category.all.map{|c| [c.name, c.id]}, {prompt: true, selected: :category_id}, {class: "form-select required js-product-calibers-change form-control select2-hidden-accessible"}) %>
+                          <%= form.select(:category_id, Category.all.map{|c| [c.name, c.id]}, {prompt: true, selected: :category_id}, {class: "form-select required js-product-calibers-change form-control "}) %>
                         </div>
                       </div>
                       <div class="col-xs-12 col-md-2">
                         <div class="form-group" id="edit-caliber-wrapper">
                           <label for="edit-caliber">Caliber: </label>
                           <select name="caliber"
-                                  class="form-select js-product-calibers form-control select2-hidden-accessible"
+                                  class="form-select js-product-calibers form-control "
                                   id="edit-caliber" tabindex="-1" aria-hidden="true" aria-placeholder="choose an option">
                             <option value="<%= @product.caliber %>"><%= @product.caliber %></option>
                             <option value="None">None</option>
@@ -224,7 +224,7 @@
                         <div class="form-group" id="edit-brand-wrapper">
                           <label for="edit-brand">Brand: </label>
                           <select name="brand"
-                                  class="form-select js-brand-select form-control select2-hidden-accessible"
+                                  class="form-select js-brand-select form-control "
                                   data-ajax-path="/ajax-search-brand-by-term"
                                   data-trigger-event="initialize-select2-for-brand-select"
                                   data-allow-clear="1" id="edit-brand" tabindex="-1"
