@@ -19,6 +19,9 @@
       <div class="row mb-5">
         <div class="col-md-4">
           <div class="product-image-single">
+            <% if @product.verified == "true" %>
+              <image class="img-responsive" src = "<%= @product.image %>" />
+            <% end %>
             <image class="img-responsive" src = "<%= @product.image_link %>" />
             <div class="button-products">
               <a class="btn btn-product-single" href="#">
