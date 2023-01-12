@@ -334,15 +334,13 @@
 
                     let productCounter = " "
                     data.forEach((product)=>{
-                        console.log(product)
-                        // alert(product)
-
+                        console.log(product.title)
 
                         productCounter += `
 
                         <div class="product-basic-info-card">
                                     <div class="product-basic-info-card__image-container">
-                                       <a class="product-flex" href="/products/${product.id}">
+                                       <a class="product-flex" href="/search/${product.id}">
                                          <img src="https://gun.deals/sites/default/files/guns_catalog/806703912295_5d0bfc01df80d.jpg" alt="CZ CZ P-01 Omega Convertible 9mm 91229" itemprop="image" class="img-fluid">
                                           <div class="product-detail-search">
                                              <strong class="product-title-search">
@@ -351,7 +349,7 @@
                                               </strong>
                                              <div class="detail-search">
                                                 <span>Brand: ${product.brand}</span>
-                                                <span>MPN: ${product.mpn}</span>
+                                                <span>UPC: ${product.upc}</span>
                                                 <span>Caliber: ${product.caliber}</span>
                                                 <span>From: ${product.amount}</span>
                                              </div>
