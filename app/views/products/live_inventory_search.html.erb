@@ -19,7 +19,7 @@
       <div class="row mb-5">
         <div class="col-md-4">
           <div class="product-image-single">
-            <image class="img-responsive" src = "<%= @product.image %>" />
+            <image class="img-responsive" src = "<%= @product.image_link %>" />
             <div class="button-products">
               <a class="btn btn-product-single" href="#">
                 <i class="fa fa-bell-o fa-fw"></i>
@@ -59,139 +59,6 @@
           </div>
         </div>
       </div>
-      <!--      <div class="row">-->
-      <!--        <div class="col-lg-12">-->
-      <!--          <div class="">-->
-      <!--            <div class="product-basic-info-card has-divider">-->
-      <!--              <div class="product-basic-info-card__title">-->
-      <!--                <h2 itemprop="name">Springfield SA-35 9mm 706397943967 Updated</h2>-->
-      <!--              </div>-->
-      <!--              <div class="product-basic-info-card__image-container ">-->
-      <!--                <div class="product-basic-info-card__image">-->
-      <!--                  <image src = "<%#= @product.image %>" />-->
-      <!--                </div>-->
-      <!--                <ul class="product-basic-info-card-actions product-basic-info-card-actions--expanded">-->
-      <!--                  <li>-->
-      <!--                    <a-->
-      <!--                      class="btn btn-product-icon btn-product-icon-config btn-block js-tooltip js-modal-caller "-->
-      <!--                      data-original-icon="fa-bell-o fa-fw" data-inverse-icon="fa-bell-o fa-fw"-->
-      <!--                      data-original-text="Notify me" data-inverse-text="Following product (UPC)"-->
-      <!--                      data-status="0" data-toggle="modal" data-target="#modalUpcSubscribe"-->
-      <!--                      data-placement="bottom"-->
-      <!--                      data-title="Notifies when price drops below limit price you set. Tracks all products with same product UPC, sitewide."-->
-      <!--                      data-original-title="" title="">-->
-      <!--                      <i class="fa fa-bell-o fa-fw"></i>-->
-      <!--                      <span>Notify me</span>-->
-      <!--                    </a>-->
-      <!--                  </li>-->
-      <!--                  <li class="product-basic-info-card-actions__compare">-->
-      <!--                    <a href="/compare/806703912295/vs/736676037506"-->
-      <!--                       class="btn btn-product-icon btn-block" target="_blank">-->
-      <!--                      <i class="fa fa-exchange"></i>-->
-      <!--                      <span>Compare guns</span>-->
-      <!--                    </a>-->
-      <!--                  </li>-->
-      <!--                </ul>-->
-      <!--              </div>-->
-      <!--              <div class="product-basic-info-card__main-content">-->
-      <!--                <div class="product-basic-info-card_main-content_title">-->
-      <!--                  <h2 itemprop="name"><%#= @product.title %></h2>-->
-      <!--                </div>-->
-      <!--                <div class="product-basic-info-card__specification">-->
-      <!--                  <dl class="definition-list collapse" id="specifications">-->
-      <!--                    <div>-->
-      <!--                      <dd>UPC</dd>-->
-      <!--                      <dt>-->
-      <!--                        <span itemprop="gtin12"><%#= @product.upc %></span>-->
-      <!--                      </dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>MPN</dd>-->
-      <!--                      <dt>-->
-      <!--                        <a itemprop="sku" href="/search/apachesolr_search/91229"><%#= @product.mpn %></a>-->
-      <!--                      </dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Brand</dd>-->
-      <!--                      <dt>-->
-      <!--                        <a href="/catalog/brands/117/cz" itemprop="brand"><%#= @product.brand %></a>-->
-      <!--                      </dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Model</dd>-->
-      <!--                      <dt>-->
-      <!--                        SA-35</dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Caliber</dd>-->
-      <!--                      <dt><%#= @product.caliber %></dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Capacity</dd>-->
-      <!--                      <dt>14+1</dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Features</dd>-->
-      <!--                      <dt>Swappable Safety / Decocker, All Steel Construction;Omega System Trigger-->
-      <!--                      </dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Type</dd>-->
-      <!--                      <dt>Pistol: Semi-Auto</dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Action</dd>-->
-      <!--                      <dt>Double Action</dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Finish</dd>-->
-      <!--                      <dt>Black Polycoat</dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Stock</dd>-->
-      <!--                      <dt>Black Rubber Grips</dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Sight</dd>-->
-      <!--                      <dt>Fixed</dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Safety</dd>-->
-      <!--                      <dt>Decocking Lever, Firing Pin Block</dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Barrel Length</dd>-->
-      <!--                      <dt>3.75</dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Overall Length</dd>-->
-      <!--                      <dt>7.2</dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Weight</dd>-->
-      <!--                      <dt>28.1 oz</dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Number Of Mags</dd>-->
-      <!--                      <dt>2</dt>-->
-      <!--                    </div>-->
-      <!--                    <div>-->
-      <!--                      <dd>Msrp</dd>-->
-      <!--                      <dt>627</dt>-->
-      <!--                    </div>-->
-      <!--                  </dl>-->
-      <!--                  <div>-->
-      <!--                    <a href="#"-->
-      <!--                       class=" btn-sm "-->
-      <!--                       data-toggle="collapse" data-target="#specifications"> Show full specs-->
-      <!--                    </a>-->
-      <!--                  </div>-->
-      <!--                </div>-->
-      <!--              </div>-->
-      <!--            </div>-->
-      <!--          </div>-->
-      <!--        </div>-->
-      <!--      </div>-->
       <div class="product-details-tiles-section__slider ">
         <h5>
           <strong>Similar Products</strong>
@@ -207,7 +74,7 @@
                   <a class="js-ga-event" data-ga-action="Similar Products Click" data-ga-category="Search Page"
                      data-ga-label="P-01 Compact [806703917214]" href="/search/apachesolr_search/806703917214">
                     <img class="product-details-tile_image-container_image"
-                         src="<%= similar_product.image %>"
+                         src="<%= similar_product.image_link %>"
                          alt="CZ P-01 Compact" />
                   </a>
                 </div>
