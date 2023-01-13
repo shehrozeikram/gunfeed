@@ -18,3 +18,13 @@
 /*@import 'bootstrap/scss/bootstrap';*/
 
 
+.search-products-card {
+  left: 86% !important;
+}
+
+@media  only screen and (max-width: 769px) {
+  .search-products-card {
+    position: absolute;
+    left: 160% !important;
+  }
+}

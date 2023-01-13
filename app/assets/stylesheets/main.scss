@@ -5521,8 +5521,6 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active {
   top: 2px;
   left: 12% !important;
   height: 400px !important;
-
-
 }
 
 .eading-suggested {
@@ -5645,6 +5643,118 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active {
 }
 
 
+.btn-report-product:hover {
+  background-color: #1b3c61 !important;
+  background: #1b3c61 !important;
+  background-image: none;
+}
+
+.remove-price {
+  font-size: 10px;
+  color: #777;
+  margin-left: 3px;
+  display: none !important;
+}
+
+.fa-remove-price {
+  font-size: 10px;
+  color: #777;
+  margin-left: 30px;
+  display: none !important;
+}
+.remove-price {
+
+  margin-left: 30px;
+}
+
+
+.compare-price-link  {
+  margin-left: -11px;
+}
+.list-bg {
+  background-color: #eee;
+}
+
+.truc-title-search {
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  width: 150px !important;
+}
+
+.comment-color {
+  color: red !important;
+}
+
+
+
+
+th.label {
+  color: #333 !important;
+}
+.card-gun-compare {
+  height: 300px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.card-footer-compare {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #eee;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.vs-diff {
+  display: block;
+  margin-bottom: 100px;
+}
+
+@media  only screen and (max-width: 769px) {
+  .vs-diff {
+    margin-bottom: 10px !important;
+
+  }
+  .image-diff {
+    font-weight: normal !important;
+  }
+}
+
+.accordion-header {
+  background-color: #fff!important;
+}
+
+.accordion-button{
+  background-image: none !important;
+  background: #fff !important;
+}
+
+.search-select-input {
+  width: 100% !important;
+}
+
+.accordion-header {
+  color: #333 !important;
+}
+
+.select-detail {
+  background-color: #eee;
+  padding: .4px;
+}
+.accordion-collapse {
+  position: relative;
+}
+.search-select-icon {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  color: #777;
+}
 
 /********************************
 ************************************** Attaullah code Start
@@ -5746,18 +5856,10 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active {
 .fa-remove-price {
   font-size: 10px;
   color: #777;
-  margin-left: 30px;
+  margin-left: 3px;
   display: none !important;
 }
-.remove-price {
 
-  margin-left: 30px;
-}
-
-
-.compare-price-link  {
-  margin-left: -11px;
-}
 .list-bg {
   background-color: #eee;
 }
@@ -5766,7 +5868,7 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active {
   overflow: hidden !important;
   white-space: nowrap !important;
   text-overflow: ellipsis !important;
-  width: 150px !important;
+  width: 50px !important;
 }
 
 .comment-color {
@@ -6091,7 +6193,51 @@ ul {
     margin-left: 44%;
     margin-top: -1rem;
   }
+  // Compare prices for this model page =>
+  .compaire-price {
+    margin-top: -9rem;
+  }
+
+  // .price-compare-table tbody tr:nth-of-type(2n)
+  .price-compare-table tbody tr:nth-of-type(even) {
+    display: none;
+  }
+  .price-compare-table tbody tr:last-child{
+    display: none;
+  }
+  .price-compare-table thead tr th:nth-child(3) {
+    display: none;
+  }
+  .price-compare-table tbody tr td:nth-child(3) {
+    display: none;
+  }
+  .price-compare-table tbody tr td a{
+    font-size: 10px;
+  }
+
+  .card--filters-sidebar.card--sidebar-xs.card--sidebar-sm{
+    width: 23rem;
+  }
+  .tile__image-container .label-sg-outline {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 102%;
+    transform: translate(-50%, -50%);
+  }
+  .product_card {
+    width: 100% !important;
+    margin-left: -4rem;
+    margin-top: 35rem !important;
+  }
+  .sub-card:nth-child(2) {
+    display: none;
+  }
 }
+
+
+
+
 
 /* Media Query for low resolution  Tablets, Ipads */
 @media (min-width: 481px) and (max-width: 767px) {
@@ -6186,7 +6332,7 @@ ul {
     text-align: center;
   }
 
-  // 3235 and 3083 line code comment
+  // 3235 and 3083 line code comment in css
   .footer-branding__logo-column::before {
     position: absolute;
     top: 0;
@@ -6233,6 +6379,30 @@ ul {
     margin-top: -1rem;
   }
 
+
+  // Compare prices for this model
+
+  .product-basic-info-card__main-content {
+    margin-left: 19rem;
+    margin-top: -14rem;
+  }
+  .card--filters-sidebar.card--sidebar-xs.card--sidebar-sm{
+    width: 19rem;
+  }
+  .product_card {
+    width: 70%!important;
+    margin-left: 0px;
+    margin-left: 7rem;
+    padding: 0 0 21px 0;
+  }
+  .tile__image-container .label-sg-outline {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 102%;
+    transform: translate(-50%, -50%);
+  }
+
 }
 
 
@@ -6260,6 +6430,46 @@ ul {
   }
 }
 
+.js-ga-event{
+  color: black !important;
+}
+
+
+// .price-compare-table tbody tr:nth-of-type(2n)
+.price-compare-table tbody tr:nth-of-type(even) {
+  display: none;
+}
+.price-compare-table tbody tr:last-child{
+  display: none;
+}
+.price-compare-table thead tr th:nth-child(3) {
+  display: none;
+}
+.price-compare-table tbody tr td:nth-child(3) {
+  display: none;
+}
+.price-compare-table tbody tr td a{
+  font-size: 10px;
+}
+
+.card--filters-sidebar.card--sidebar-xs.card--sidebar-sm{
+  width: 23rem;
+}
+.tile__image-container .label-sg-outline {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 102%;
+  transform: translate(-50%, -50%);
+}
+.product_card {
+  width: 100% !important;
+  margin-left: -4rem;
+  margin-top: 35rem !important;
+}
+.sub-card:nth-child(2) {
+  display: none;
+}
 
 /********************************
 ************************************** Attaullah code ends
