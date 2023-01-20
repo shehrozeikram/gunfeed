@@ -18,13 +18,19 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
+
+  # search ajax routes
+  get "/search_products" , to: "products#search_products"
+  get "/fetch_data_from_url" , to: "products#fetch_data_from_url"
+  get "/search_compare_guns" , to: "products#search_compare_guns"
+  get "/select_gun/:id" , to: "products#select_gun", as: :select_gun
+
   # main routes
   resources :products
   root to: "products#index"
-  get "/search_products" , to: "products#search_products"
-  get "/fetch_data_from_url" , to: "products#fetch_data_from_url"
   get "/search/:id" , to: "products#live_inventory_search", as: :live_inventory_search
   get "/compare/:id" , to: "products#compare_guns", as: :compare_guns
+  post "/node/create_coupon" , to: "products#create_coupon"
 
   # watchlist routes
   get "/add_to_watchlist/:id" , to: "watchlist#add_to_watchlist", as: :add_to_watchlist
@@ -36,6 +42,9 @@ Rails.application.routes.draw do
   resources :stores
   get "/xml_feed" , to: "stores#xml_feed"
   get "/fetch_xml_feed_products" , to: "stores#fetch_xml_feed_products"
+  get "/stores_comments" , to: "stores#stores_comments"
+  get "/cheapest_deals" , to: "stores#cheapest_deals"
+  get "/rare_deals" , to: "stores#rare_deals"
 
 
   # Header routes
@@ -44,7 +53,7 @@ Rails.application.routes.draw do
   get "/category/:id" , to: "products#category", as: :category
 
   # Quicklink routes
-  # get "/vulcan" , to: "products#vulcan"
+  get "/vulcan" , to: "products#vulcan"
   get "/stores" , to: "stores#index"
   get "/blogs" , to: "blogs#index"
   get "/revolvers" , to: "deals#revolvers"

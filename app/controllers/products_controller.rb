@@ -14,6 +14,20 @@ class ProductsController < ApplicationController
     end
   end
 
+  def search_compare_guns
+    if params[:q].present?
+      @products = Product.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%").page
+      render json:  @products
+    end
+  end
+
+  def select_gun
+    if params[:id].present?
+      @product = Product.find(params[:id])
+      render json:  @product
+    end
+  end
+
   def search_category_products
     if params[:q].present?
       products = Product.where(category_id: params[:category_id])
@@ -116,8 +130,8 @@ class ProductsController < ApplicationController
 
   # Quicklink Routes
   def vulcan
-    @categories = Category.all
-    @products = Product.where(created_at: Date.today.all_day)
+    # @categories = Category.all
+    # @products = Product.where(created_at: Date.today.all_day)
   end
 
 
@@ -164,6 +178,10 @@ class ProductsController < ApplicationController
   end
 
   def how_order_gun_online
+  end
+
+  def create_coupon
+
   end
 
   def categories
