@@ -366,6 +366,10 @@ img.img-logo-2 {
   text-decoration: none;
 }
 
+.top-header-space {
+  margin-top: 130px !important;
+}
+
 .tile__sponsored {
   box-shadow: 0 0 0 1px #cacfd4;
   position: absolute;
@@ -1886,8 +1890,9 @@ ul {
 }
 
 .product-actions__cta a {
-  background: #2e66a5;
+  background: #3b3f47;
   border-radius: 4px;
+  //box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
   color: #fff !important;
   line-height: 36px;
   text-align: center;
@@ -1897,7 +1902,6 @@ ul {
 
 .product-actions__cta a:hover {
   color: #fff;
-  background: #2d5c91;
 }
 
 .changing-compare-price-list .compare-price {
@@ -2837,7 +2841,7 @@ html.enter {
 
 /* ---------------------------stock handgun style start here------------------------------- */
 .set-width-left-card {
-  width: 30%;
+  width: 20%;
 }
 
 .set-width-right-card {
@@ -3048,7 +3052,7 @@ html.enter {
   }
 
   .top-header-space {
-    margin-top: 30px;
+    margin-top: 30px !important;
   }
 
   .add-banner-section {
@@ -3076,9 +3080,9 @@ html.enter {
     width: 100%;
   }
 
-  // .footer-branding__logo-column::before {
-  //   display: none;
-  // }
+  .footer-branding__logo-column::before {
+    display: none;
+  }
 
   .customerreview-deal-page__leave-a-review-container {
     position: static
@@ -3200,7 +3204,7 @@ input:checked+.btn-slider:before {
   }
 
   .top-header-space {
-    margin-top: 30px;
+    margin-top: 30px !important;
   }
 
   .add-banner-section {
@@ -3228,9 +3232,9 @@ input:checked+.btn-slider:before {
     width: 100%;
   }
 
-  // .footer-branding__logo-column::before {
-  //   display: none;
-  // }
+  .footer-branding__logo-column::before {
+    display: none;
+  }
 
   .customerreview-deal-page__leave-a-review-container {
     position: static
@@ -3259,7 +3263,9 @@ input:checked+.btn-slider:before {
     margin-left: 200px;
   }
 
-
+  .tile__image-container {
+    height: auto
+  }
 }
 
 
@@ -3459,7 +3465,7 @@ input:checked+.btn-slider:before {
   position: relative;
   // box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
   text-align: left;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
   border-radius: 3px;
   height: 100%;
 }
@@ -4173,6 +4179,18 @@ table.table.price-compare-table tbody {
 .tile--store {
   height: 90px;
   padding-top: 10px;
+}
+
+.tile__actions-container {
+  display: flex;
+  width: 100%;
+  height: 39px;
+  padding: 0 10px;
+  color: #3b3f47;
+  // background-color: #f2f4f6;
+  font-size: 14px;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 .tile__actions-container .card-links {
@@ -5501,10 +5519,8 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active {
   width: 100% !important;
   position: absolute;
   top: 2px;
-  left: 70%;
+  left: 12% !important;
   height: 400px !important;
-
-
 }
 
 .eading-suggested {
@@ -5553,6 +5569,10 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active {
   display: flex;
   flex-direction: column;
   width: 100%;
+  font-size: 8px !important;
+}
+.detail-search span {
+  font-size: 12px !important;
 }
 
 .search-products-card {
@@ -5566,7 +5586,8 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active {
 
 .product-title-search {
   text-transform: uppercase;
-
+  display: flex !important;
+  align-items: center !important;
 }
 
 .product-title-search i {
@@ -5575,12 +5596,224 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active {
   margin-right: 2px;
 }
 
-// ================== Attaullah code start====================
-/* logo hide from table */
-// .price-tag.price-tag--one-line::before {
-//   display: none;
-// }
+.product-flex-detail {
+  display: flex !important;
+  background-color: red !important;
+}
 
+.product-image-single img{
+  //height: 250px;
+  //width: 250px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.button-products .btn-product-single {
+  border: 1px solid #5f5fe7;
+}
+.button-products .btn-product-single:hover {
+  border: 1px solid #5f5fe7 !important;
+  color: #2e66a3 !important;
+}
+
+//.button-products .btn-product-single:last-child {
+//  margin-left: 5px;
+//  width: 40%;
+//}
+
+.product-detail-single {
+  font-size: 20px;
+}
+.single-detail a {
+  font-weight: bold;
+}
+
+.see-full-spec {
+  font-size: 12px;
+  font-weight: normal !important;
+  margin-top: 40px;
+}
+
+
+.fa-remove-wish {
+  margin-left: 85px;
+  color: #777;
+  display: none !important;
+}
+
+
+.btn-report-product:hover {
+  background-color: #1b3c61 !important;
+  background: #1b3c61 !important;
+  background-image: none;
+}
+
+.remove-price {
+  font-size: 10px;
+  color: #777;
+  margin-left: 3px;
+  display: none !important;
+}
+
+.fa-remove-price {
+  font-size: 10px;
+  color: #777;
+  margin-left: 30px;
+  display: none !important;
+}
+.remove-price {
+
+  margin-left: 30px;
+}
+
+
+.compare-price-link  {
+  margin-left: -11px;
+}
+.list-bg {
+  background-color: #eee;
+}
+
+.truc-title-search {
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  width: 150px !important;
+}
+
+.comment-color {
+  color: red !important;
+}
+
+
+
+
+th.label {
+  color: #333 !important;
+}
+.card-gun-compare {
+  height: 300px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.card-footer-compare {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #eee;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.vs-diff {
+  display: block;
+  margin-bottom: 100px;
+}
+
+@media  only screen and (max-width: 769px) {
+  .vs-diff {
+    margin-bottom: 10px !important;
+
+  }
+  .image-diff {
+    font-weight: normal !important;
+  }
+}
+
+.accordion-header {
+  background-color: #fff!important;
+}
+
+.accordion-button{
+  background-image: none !important;
+  background: #fff !important;
+}
+
+.search-select-input {
+  width: 100% !important;
+}
+
+.accordion-header {
+  color: #333 !important;
+}
+
+.select-detail {
+  background-color: #eee;
+  padding: .4px;
+}
+.accordion-collapse {
+  position: relative;
+}
+.search-select-icon {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  color: #777;
+}
+
+
+// Compare Gun Search Box
+.select-detail-items {
+  height: 250px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+.search-group {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  color: #fff;
+  //justify-content: space-between;
+  margin: 5px 0;
+}
+
+.search-group:hover {
+  background-color: #2e66a5 !important;
+}
+.search-group:hover h4 a {
+  color: #fff !important;
+}
+
+
+.search-group img {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.search-group h4 {
+  font-size: 16px;
+  color: #fff !important;
+  font-weight: normal;
+  margin-left: 20px;
+}
+
+.search-group h4 a {
+  text-decoration: none;
+  color: #333 !important;
+}
+
+
+//// Hide Search
+//.hide--search {
+//  display: none !important;
+//}
+//.show--search {
+//  display: block !important;
+//}
+
+
+
+/********************************
+************************************** Attaullah code Start
+***********************************************************/
 .container,
 .container-lg,
 .container-md,
@@ -6104,11 +6337,6 @@ ul {
     margin:0 !important;
     width: 100% !important;
   }
-  div#Compare_image{
-    width: 100% !important;
-    height: 100% !important;
-  }
-
 }
 
 
@@ -6319,10 +6547,6 @@ ul {
     margin:0 !important;
     width: 100% !important;
   }
-  div#Compare_image{
-    width: 100% !important;
-    height: 100% !important;
-  }
 }
 
 
@@ -6412,11 +6636,11 @@ h1 {
 
 }
 
-// select.form-select {
-//   display: flex;
-//   margin-left: 72px;
-//   margin-top: -37px;
-// }
+select.form-select {
+  display: flex;
+  margin-left: 72px;
+  margin-top: -37px;
+}
 
 .card_content {
   display: flex;
@@ -6702,42 +6926,10 @@ button#dropdownMenuButton1 {
   text-decoration: underline;
   color: inherit;
 }
-Button.accordion-button.collapsed{
-  background-image: linear-gradient(180deg, #ffffff, #ffffff) !important;
-  color: #000000 !important;
-}
-.accordion-button:not(.collapsed){
-  color: rgb(0, 0, 0) !important;
-}
-form button:not(.disabled):hover {
-  background-color: #ffffff;
-  background-image: linear-gradient(180deg, #ffffff, #ffffff) !important;
-}
-button.accordion-button {
-  background-image: linear-gradient(180deg, #ffffff, #ffffff);
-}
+
 // End compare-gun page
 
-// start create__coupon form
-.create_coupon {
-  background: white;
-  padding: 10px;
-}
-#couponCode,
-#discount,
-#couponLink,
-#expirationDate{
-  width: 100%;
-}
-// end create__coupon form
 
-// Rimfire Deals
-// main.scss page  comment line 6406
-#select_option {
-  display: flex;
-  margin-left: 72px;
-  margin-top: -37px;
-}
-
-
-//  Attaullah code ends
+/********************************
+************************************** Attaullah code ends
+***********************************************************/
