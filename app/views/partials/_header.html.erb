@@ -334,8 +334,8 @@
 
                     let productCounter = " "
                     data.forEach((product)=>{
-                        console.log(product.title)
-
+                        // console.log(product.title)
+                        console.log(product)
                         productCounter += `
 
                         <div class="product-basic-info-card">
@@ -389,7 +389,7 @@
 <!-- -->                        `
                         // console.log(product.title);
                         productWrapper.innerHTML = `<div>
-                          <p class="heading-suggested">SUGGESTED PRODUCTS</p>
+                          <p class="heading-suggested">SUGGESTED PRODUCTS (${data.length})</p>
                     ${productCounter} </div>`;
                         document.querySelector('.search-products-card')
                             .setAttribute('style', 'display: block !important;')

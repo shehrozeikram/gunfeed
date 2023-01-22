@@ -19,12 +19,23 @@
 
 
 .search-products-card {
-  left: 86% !important;
+  left: -29% !important;
+  width: 286px !important;
+  height: 800px !important;
+}
+.truc-title-search {
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  width: 106px !important;
 }
 
 @media  only screen and (max-width: 769px) {
   .search-products-card {
     position: absolute;
-    left: 160% !important;
+    left: 182% !important;
+    width: 250px !important;
+
+
   }
 }
