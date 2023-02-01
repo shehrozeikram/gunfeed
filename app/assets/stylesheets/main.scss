@@ -5610,14 +5610,18 @@ button.scroll-next.tile-slider_direction.tile-slider_direction--next:active {
   object-fit: cover;
   border-radius: 5px;
   margin-bottom: 10px;
+  border: 1px solid #cacfd4;
+}
+.product-details-tile__info-container span {
+  font-size: 12px !important;
 }
 
 .button-products .btn-product-single {
-  border: 1px solid #5f5fe7;
+  border-color: #2e66a5 !important;
 }
 .button-products .btn-product-single:hover {
-  border: 1px solid #5f5fe7 !important;
-  color: #2e66a3 !important;
+  //border: 1px solid #5f5fe7 !important;
+  color: #76c0ff !important;
 }
 
 //.button-products .btn-product-single:last-child {
@@ -5736,6 +5740,11 @@ th.label {
 .accordion-button{
   background-image: none !important;
   background: #fff !important;
+  font-size: 16px !important;
+  font-family: helvetica neue,Helvetica,Arial,sans-serif !important;
+  font-weight: normal !important;
+  color: #555 !important;
+  line-height: 1.428571429 !important;
 }
 
 .search-select-input {

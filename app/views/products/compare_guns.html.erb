@@ -21,9 +21,10 @@
           <div class="card__content">
             <div class="compare">
               <form>
+
                 <div class="row">
                   <div class="col-md-6">
-                    <div class="accordion" id="accordionExample">
+                    <div class="accordion accordion-search" id="accordionExample">
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
                           <button class="accordion-button collapsed target-replace" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -32,7 +33,7 @@
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                           <input type="text" id="mySelect2" class="form-control search-select-input" name="q" onkeyup="compare_guns_search()"  >
-                          <!--                          <i class="fa fa-search search-select-icon"></i>-->
+                          <i class="fa fa-search search-select-icon"></i>
                           <div class="select-detail search-detail-1">Please Enter 1 or more character</div>
                         </div>
 
@@ -44,7 +45,7 @@
                     <div class="form-group">
                       <div class="accordion" id="accordionExample">
 
-                        <div class="accordion-item">
+                        <div class="accordion-item accordion-item-right">
                           <h2 class="accordion-header" id="headingThree">
                             <button class="accordion-button collapsed target-replace-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                               My Second Gun
@@ -52,7 +53,7 @@
                           </h2>
                           <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <input type="text" id="compare_guns_searchSide" class="form-control search-select-input search-right-term" name="q" onkeyup="compare_guns_search_side()" >
-                            <!--                            <i class="fa fa-search search-select-icon"></i>-->
+                            <i class="fa fa-search search-select-icon"></i>
                             <div class="select-detail-side-1">Please Enter 1 or more character</div>
                           </div>
 
@@ -62,7 +63,7 @@
                   </div>
                 </div>
               </form>
-              <div id="product-compare-content">
+              <div id="product-compare-content" class="compare-gun-table">
                 <table class="table text-center compare__table">
                   <tbody>
 
@@ -646,8 +647,8 @@
 
                                         //.. FILTER GUN PRODCUTS
                                         document.querySelector('#mySelect2').addEventListener('keyup', filterGunProduct)
-                                    },1000)
-                                }, 1000)
+                                    },100)
+                                }, 100)
                             }, 100);
                         };
 
@@ -772,8 +773,8 @@
                                         document.querySelector('#compare_guns_searchSide').addEventListener('keyup', rightSearchFilter );
 
 
-                                    },1000)
-                                }, 1000)
+                                    },100)
+                                }, 100)
                             }, 100);
                         }
                     })
@@ -875,7 +876,7 @@
                             document.querySelector("#brand").textContent = data.brand;
                             document.querySelector("#caliber").textContent = data.caliber;
                             document.querySelector("#price").textContent = data.price;
-                        }, 3000)
+                        }, 100)
                     })
 
                     if(data.verified === true) {
@@ -934,7 +935,7 @@
                             document.querySelector("#brand-1").textContent = data.brand;
                             document.querySelector("#caliber-1").textContent = data.caliber;
                             document.querySelector("#price-1").textContent = data.price;
-                        }, 3000)
+                        }, 100)
                     })
 
                     if(data.verified === true) {
@@ -944,14 +945,14 @@
                             document.querySelector("#verified").textContent = "Loading...";
                             setTimeout(() => {
                                 document.querySelector("#verified").textContent = "YES";
-                            }, 3000)
+                            }, 100)
                         }, 100)
                     } else {
                         setTimeout(() => {
                             document.querySelector("#verified").textContent = "Loading...";
                             setTimeout(() => {
                                 document.querySelector("#verified").textContent = "NO";
-                            }, 3000)
+                            }, 100)
                         }, 100)
                     }
 
