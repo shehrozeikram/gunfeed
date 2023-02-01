@@ -5768,7 +5768,7 @@ th.label {
   scroll-behavior: smooth;
 }
 .search-group {
-  display: flex;
+  display: flex !important;
   align-items: center;
   padding: 1rem;
   background-color: #fff;
@@ -5804,14 +5804,59 @@ th.label {
   color: #333 !important;
 }
 
+.btn-search-left {
+  border-radius: 5px !important;
+  padding: 20px 20px;
+  border: 1px solid #eee;
+  background-color: #fff !important;
+  background-image: none !important;
+  background: #fff !important;
+  color: #000 !important;
+  text-align: left;
+}
 
-//// Hide Search
-//.hide--search {
-//  display: none !important;
-//}
-//.show--search {
-//  display: block !important;
-//}
+.search-input-left {
+  border-top: none !important;
+  border-radius: 2px !important;
+}
+.search-guns-left {
+  background-color: red !important;
+  z-index: 2000 !important;
+  scale: 2;
+}
+
+.accordion-item{
+  z-index: 4000 !important;
+  position: absolute;
+  width: 415px !important;
+}
+
+.accordion-item-right {
+  margin-left: 38px !important;
+}
+
+.select-detail-side-1 {
+  z-index: 4000 !important;
+  position: absolute;
+  width: 100%;
+  background-color: #fff !important;
+  border: 1px solid #eee !important;
+}
+
+.search-detail-1 {
+  background-color: #fff !important;
+  border: 1px solid #eee !important;
+}
+
+.compare-gun-table {
+  //background-color: red !important;
+  margin-top: 50px !important;
+}
+
+.search-select-input {
+  width: 100% !important;
+  padding: 7px 2.5rem !important;
+}
 
 
 
@@ -6933,6 +6978,241 @@ button#dropdownMenuButton1 {
 
 // End compare-gun page
 
+//start side mobile menu
+.has-search .form-control{
+  padding-left: 0.575rem;
+}
+#search-form-control {
+  position: absolute;
+  right: 80%;
+}
+
+
+.navbar__menu{
+  text-align-last: center;
+}
+.fa-link:before,
+.fa-star:before,
+.fa-calendar:before,
+.fa-home:before{
+  margin-right: 10px;
+}
+li.menu-item {
+  padding-left: 5px;
+  border-bottom: 1px solid #4a4f58;
+  border-right: 1px solid4a4f58;
+  width: 100%;
+}
+.border_item{
+  padding-left: 5px;
+  border-bottom: 1px solid #4a4f58;
+  border-left: 1px solid #4a4f58;
+  width: 100%;
+}
+.border_left{
+  padding-left: 5px;
+  border-right: 1px solid #4a4f58;
+  width: 100%;
+}
+.border_right{
+  padding-left: 5px;
+  border-left: 1px solid #4a4f58;
+  width: 100%;
+
+}
+.primary_menu{
+  justify-content: center;
+}
+.search_list{
+  position: relative;
+  top: 1rem;
+  left: 2%;
+}
+
+.primary-menu__account {
+  font-size: .9em;
+}
+
+.primary-menu--sidebar {
+  background: #fff;
+  padding-top: 6.6666666667px;
+  padding-bottom: 6.6666666667px;
+}
+.primary-menu__label-line-wrapper{
+  padding: 0 10px;
+  flex-grow: 1;
+}
+.primary-menu__label-line{
+  position: relative;
+  top: 50%;
+  height: 2px;
+  transform: translateY(-50%);
+  background-color: #f2f4f6;
+}
+.primary-menu__menu-label {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.icon-fa-link .fa:not(:only-child) {
+  margin-right: 5px;
+}
+span.primary-menu__dropdown-list-icon.fa.fa-key,
+span.primary-menu__dropdown-list-icon.fa.fa-sign-in {
+  position: absolute;
+  right: 39px;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  color: #606770;
+}
+ul#multiCollapseExample2 {
+  position: relative;
+  left: 2%;
+  top: 1rem;
+}
+.bottom_line{
+  position: relative;
+  width: 85%;
+}
+
+.primary-menu .has-submenu+.primary-menu__dropdown-list .primary-menu__dropdown-list-item button {
+  padding: 2px 20px 2px 30px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.primary-menu__dropdown-list-item button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  text-transform: uppercase;
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none !important;
+}
+.icon-fa-link .fa {
+  position: relative;
+  margin: 0;
+  // right: 10%;
+}
+.primary-menu__dropdown-list-icon.fa.fa-newspaper-o {
+  position: relative;
+  right: 11%;
+}
+.primary-menu_text{
+  font-weight: 400;
+  color: #505050 !important;
+  font-size: 15.4px;
+}
+.primary-menu__category-links-mobile ul .leaf a {
+  display: block;
+  text-transform: uppercase;
+}
+
+.primary-menu--sidebar a {
+  padding: 3px 10px 2px 0px;
+}
+.sidebar a {
+  color: #3b3f47;
+}
+.primary-menu__category-links-mobile ul .leaf {
+  position: relative;
+  padding: 3px 0;
+}
+
+img.img-small{
+  position: absolute;
+  right: 30px;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  color: #606770;
+}
+//  quick links
+
+.primary-menu__quick-links-mobile ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding-left: 0;
+}
+.primary-menu__quick-links-mobile ul .leaf:nth-child(odd) {
+  padding: 0 10px 0 20px;
+}
+.primary-menu__quick-links-mobile ul .leaf:nth-child(even) {
+  padding: 0 20px 0 10px;
+}
+.primary-menu__quick-links-mobile ul .leaf {
+  flex: 0 1 50%;
+}
+.primary-menu__quick-links-mobile ul .leaf a {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px 0;
+  text-align: center;
+  border-radius: 15px;
+  background: #d3d6dd;
+  font-size: .8em;
+  color: #65718d;
+}
+
+// social menu
+.social-menu--sidebar {
+  margin-top: 20px;
+  font-size: 24px;
+}
+.social-menu--sidebar ul {
+  text-align: center;
+}
+.social-menu--sidebar a {
+  color: rgba(255,255,255,.8);
+}
+.fa.social__icon{
+  font: normal normal normal 35px/1 FontAwesome;
+  padding: 10px;
+}
+span{
+  font-family: helvetica neue,Helvetica,Arial,sans-serif;
+}
+
+// footer
+.sidebar__footer {
+  border-top: 1px solid #cacfd4;
+}
+.primary-menu__bottom-links {
+  display: flex;
+  background: #fff;
+}
+.primary-menu__bottom-link:nth-of-type(1) {
+  border-right: 1px solid #cacfd4;
+}
+
+.primary-menu__bottom-link {
+  padding: 0 10px;
+  text-align: left;
+  font-size: .8em;
+  flex-basis: 50%;
+}
+.sidebar a {
+  color: #3b3f47;
+}
+
+.primary-menu__bottom-link a {
+  display: flex;
+  padding: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #333;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// end side mobile menu
 
 /********************************
 ************************************** Attaullah code ends

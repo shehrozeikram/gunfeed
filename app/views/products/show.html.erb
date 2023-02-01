@@ -139,7 +139,7 @@
                 <li class="notify-me-modal">
                   <a
 
-                    class="btn btn-product-icon btn-product-icon-config"
+                    class="btn btn-product-icon btn-product-icon-config btn-block text-dark"
                     data-original-icon="fa-bell-o fa-fw" data-inverse-icon="fa-bell-o fa-fw"
                     data-original-text="Notify me" data-inverse-text="Following product (UPC)"
                     data-status="0" data-toggle="modal" data-target="#modalUpcSubscribe"
@@ -147,13 +147,13 @@
                     data-title="Notifies when price drops below limit price you set. Tracks all products with same product UPC, sitewide."
                     data-original-title="" title="">
                     <i class="fa fa-bell-o fa-fw"></i>
-                    <span>Notify me</span>
+                    <span style="margin-left:3px;" >Notify me</span>
                   </a>
                 </li>
                 <li class="list-item-price">
                   <a href="<%= compare_guns_path %>" class="btn-compare-price">
-                    <i class="fa fa-exchange"></i>
-                    <span>Compare with another gun</span>
+                    <i class="fa fa-exchange" style="margin-left:10px"></i>
+                    <span style="margin-left:3px;" >Compare with another gun</span>
                   </a>
                 </li>
                 <li class="add-wish-list">
@@ -164,7 +164,7 @@
                     data-original-text="Add to watchlist" data-inverse-text="In watchlist"
                     data-status-value="1" data-values="{&quot;nid&quot;:&quot;1076271&quot;}" onclick="add_to_watchlist()">
                     <i class="fa fa-heart-o"></i>
-                    <span>Add to watchlist</span>
+                    <span style="margin-left:7px;" >Add to watchlist</span>
                     <i class="fa fa-remove fa-remove-wish"></i>
                   </a>
                 </li>
@@ -176,9 +176,9 @@
                     data-original-text="Subscribe to price drop"
                     data-inverse-text="Subscribed to price drop" data-status-value="1"
                     data-values="{&quot;nid&quot;:&quot;1076271&quot;}">
-                    <i class="fa fa-dollar fa-fw"></i>
-                    <span>Subscribe to price drop</span>
-                    <span><i class="fa fa-remove fa-remove-price"></i> </span>
+                    <i class="fa fa-dollar fa-fw" style="margin-left:-2px" ></i>
+                    <span style="margin-left:3px;" >Subscribe to price drop</span>
+                    <span><i class="fa fa-remove fa-remove-price"  ></i> </span>
                   </a>
 
 
@@ -191,8 +191,8 @@
                     data-original-text="Subscribe to comments"
                     data-inverse-text="Subscribed to comments" data-status-value="1"
                     data-values="{&quot;nid&quot;:&quot;1076271&quot;,&quot;uid&quot;:&quot;104841&quot;}">
-                    <i class="fa fa-comments-o fa-fw"></i>
-                    <span>Subscribe to comments</span>
+                    <i class="fa fa-comments-o fa-fw" style="margin-left:-2px" ></i>
+                    <span style="margin-left:3px;" >Subscribe to comments</span>
                     <i class="fa fa-remove remove-price"></i>
 
                   </a>
@@ -200,8 +200,8 @@
                 <li class="compare-price-modal-list">
                   <a class="compare-price-link" href="<%= live_inventory_search_path() %>"
                      target="_blank">
-                    <i class="fa fa-balance-scale"></i>
-                    <span>Compare prices for this model</span>
+                    <i class="fa fa-balance-scale" style="margin-left:-10px" ></i>
+                    <span style="margin-left:3px;" >Compare prices for this model</span>
                   </a>
                 </li>
               </ul>
