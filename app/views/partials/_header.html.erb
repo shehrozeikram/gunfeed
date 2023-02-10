@@ -84,7 +84,7 @@
                         <div id="search-data-list"
                              class="form-group has-search pe-xs-0 pe-sm-3">
                           <span class="fa fa-search form-control-feedback"></span>
-                          <input type="text" class="form-control d-none d-sm-block"
+                          <input type="text" class="form-control d-none d-sm-block search-func"
                                  id="search" placeholder="Search keyword" name="q"
                                  onkeyup="search()">
                           <div id="suggestions" class=""></div>
@@ -515,6 +515,21 @@
 
 
 <script>
+    document.querySelector('#search').addEventListener('keypress', (event) => {
+        if (event.keyCode === 13 || event.which === 13) {
+            const product = document.querySelectorAll('.product-flex');
+            console.log(product[0]);
+            window.location.replace(product[0].href)
+            const targetedValue = event.target.value
+            console.log(targetedValue);
+            product.forEach((product) => {
+                console.log(product.url)
+                console.log(product[0])
+            });
+        }
+    });
+
+
 
     function search() {
         $(document).ready(function () {
@@ -529,6 +544,9 @@
                     const productWrapper = document.querySelector('#suggestions-search');
                     // const productWrapper = document.querySelector('.p-1');
                     // productWrapper.setAttribute('style', 'display: block !important;')
+
+
+
 
                     console.log({dataSearchGun: data});
                     if(data.length > 0) {
@@ -566,15 +584,17 @@
                         document.querySelector('.search-products-card')
                             .setAttribute('style', 'display: block !important;')
                     })
-
-
-
                 }
             });
         });
     };
 
-    //.. Off-Canvas-MENU-SEARCH
+    // Enter Search Funtionality
+    // const searchEnter = document.querySelector('.search-func');
+    // searchEnter.addEventListener('keypress', (event) => {
+    //     console.log('pressed')
+    // })
+    // //.. Off-Canvas-MENU-SEARCH
 
     function searchGunAPI() {
         $(document).ready(function () {
@@ -604,10 +624,10 @@
                     data.forEach(product => {
                         productWrapper.style.display = 'block'
                         productCounter += `
-                         <a href="/search/${product.id}" class="product-item-canvas">
+                         <a href="${product.id}" class="product-item-canvas">
                             <img src="${product.image.url}" class="canvas-img"/>
                             <div class="product-canvas-detail">
-                               <span> <i class="fa fa-circle"></i><strong> ${product.title} </strong> </span>
+                               <span> <strong> ${product.title} </strong> </span>
                                <span>Brand: ${product.brand}</span>
                                <span>UPC: ${product.upc}</span>
                                <span>Caliber: ${product.caliber}</span>
