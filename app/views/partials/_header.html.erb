@@ -1,42 +1,52 @@
+
 <div class="nav-two-header" id="Div02">
   <section class="bg-white">
     <div class="container">
       <div id="header" class="header region-header py-0 bg-white">
         <div class="container-fluid">
-          <div class="row " >
+          <div class="row d-none d-sm-block d-xs-block d-sm-none d-md-block">
             <div class="col-lg-12 mt-4 px-0">
               <div class=" d-flex justify-content-between">
                 <div class="logo d-none d-sm-block">
-                  <%= image_tag('logo.jpeg', class: "img-logo" , alt: "logo" )%>
+                  <%= image_tag('logo.jpeg', class: "img-logo logo d-none d-sm-block" , alt: "logo" )%>
                 </div>
                 <div class="logo d-sm-none d-xs-block">
-                  <%= image_tag('secondLogo.jpeg', class: "img-logo-2" , alt: "logo" )%>
+                  <%= image_tag('secondLogo.jpeg', class: "img-logo-2 logo d-none d-sm-block" , alt: "logo" )%>
                 </div>
                 <div class="main-nav-bar ">
                   <div class="top-header navbar-nav ms-auto">
                     <div class="inner-header">
                       <!-- Actual search box -->
-                      <div id="search-data-list" class="form-group has-search pe-xs-0 pe-sm-3 d-xs-block d-sm-none d-md-block ">
-                        <span class="fa fa-search form-control-feedback"></span>
-                        <input type="text" class="form-control" id="search" placeholder="Search keyword" name="q" onkeyup="search()" autocomplete="off" >
-                      </div>
-                      <section class="compaire-price my-5 search-dropdown2" id="html-show">
-                        <div class="container">
-                          <div class="row">
+                      <div class="form-group logo d-none d-sm-block">
 
-                            <div class="col-lg-10 ">
-                              <div class="horizontal-scrollable h-60 card search-products-card">
-                                <div class="p-1"></div>
-                              </div>
-                            </div>
-                          </div>
+                        <div id="search-data-list logo d-none d-sm-block"
+                             class="form-group has-search pe-xs-0 pe-sm-3 d-xs-block d-sm-none d-md-block ">
+                          <span class="fa fa-search form-control-feedback"></span>
+                          <input type="text" class="form-control d-none d-sm-block"
+                                 id="search" placeholder="Search keyword" name="q"
+                                 onkeyup="search()">
+                          <div id="suggestions-search" class=""></div>
                         </div>
-                      </section>
+
+                      </div>
+                      <!--                      <section class="compaire-price my-5 search-dropdown2" id="html-show">-->
+                      <!--                        <div class="container">-->
+                      <!--                          <div class="row">-->
+                      <!--                            <div class="col-lg-10 ">-->
+                      <!--                              <div-->
+                      <!--                                class="horizontal-scrollable h-60 card search-products-card">-->
+                      <!--                                <div class="p-1"></div>-->
+                      <!--                              </div>-->
+                      <!--                            </div>-->
+                      <!--                          </div>-->
+                      <!--                        </div>-->
+                      <!--                      </section>-->
 
                       <div class="social-menu social-menu--header">
                         <ul class=" list-inline d-flex mt-1">
                           <li class="d-none d-sm-block">
-                            <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"
+                                           aria-hidden="true"></i></a>
                           </li>
                           <li class="d-none d-sm-block">
                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -61,101 +71,294 @@
               </div>
             </div>
           </div>
+          <!---for mobile--->
+          <div class="row d-md-none d-lg-block d-lg-none d-xl-block d-xl-none d-xxl-block d-xxl-none">
+            <div class="col-lg-12 mt-4 px-0">
+              <div class=" d-flex justify-content-between">
+                <div class="main-nav-bar ">
+                  <div class="top-header navbar-nav ms-auto">
+                    <div class="inner-header">
+                      <!-- Actual search box -->
+                      <div class="form-group">
+
+                        <div id="search-data-list"
+                             class="form-group has-search pe-xs-0 pe-sm-3">
+                          <span class="fa fa-search form-control-feedback"></span>
+                          <input type="text" class="form-control d-none d-sm-block"
+                                 id="search" placeholder="Search keyword" name="q"
+                                 onkeyup="search()">
+                          <div id="suggestions" class=""></div>
+                        </div>
+
+                      </div>
+                      <div class="logo d-none d-sm-block">
+                        <%= image_tag('logo.jpeg', class: "img-logo" , alt: "logo" )%>
+                      </div>
+                      <div class="logo d-sm-none d-xs-block">
+                        <%= image_tag('secondLogo.jpeg', class: "img-logo-2" , alt: "logo" )%>
+                      </div>
+                      <section class="compaire-price my-5 search-dropdown2" id="html-show">
+                        <div class="container">
+                          <div class="row">
+
+                            <div class="col-lg-10 ">
+                              <div
+                                class="horizontal-scrollable h-60 card search-products-card">
+                                <div class="p-1"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+                      <div class="social-menu social-menu--header">
+                        <ul class=" list-inline d-flex mt-1">
+                          <li class="d-none d-sm-block">
+                            <a href="#"><i class="fa fa-youtube-play"
+                                           aria-hidden="true"></i></a>
+                          </li>
+                          <li class="d-none d-sm-block">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                          </li>
+                          <li class="d-none d-sm-block">
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                          </li>
+                          <li class="d-sm-none d-md-block d-md-none d-lg-block d-lg-none d-xl-block d-xl-none d-xxl-block d-xxl-none">
+                            <a href="#"><i class="fa fa-mobile"></i></a>
+                          </li>
+                          <li class="d-md-none d-lg-block d-lg-none d-xl-block d-xl-none d-xxl-block d-xxl-none">
+                            <a href="#"><i class="fa fa-bell"></i></a>
+                          </li>
+                          <li class="d-none d-sm-block d-md-none">
+                            <a href="#"><i class="fa fa-search"></i></a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </div>
-</section>
+
 <section class="pb-1 new-nav-bg-color">
   <div class="container">
     <div class="d-md-none d-sm-block d-xs-block">
-
       <nav class="navbar navbar-dark pt-1 pb-0">
         <div class="text-left">
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Gun Feed</h5>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a href="/" title="All deals" class="nav-link active">All Deals</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" title="Gun Deals Posted Today" class="nav-link">Today</a>
-                </li>
-                <li class="nav-item ">
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDarkNavbar"
+               aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-body p-0">
+              <div class="bg_____color mb-1">
+                <!-- search bar menu card -->
+                <div id="search-data-list"
+                     class="form-group has-search search_list pe-xs-0 pe-sm-3">
+                                    <span class="fa fa-search form-control-feedback"
+                                          id="search-form-control"></span>
+                  <input type="text" class="form-control " id="searchAPI"
+                         placeholder="Search keyword" name="q" onkeyup="searchGunAPI()">
 
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Categories
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-white">
-                    <li><a class="dropdown-item" href="#">Handguns</a></li>
-                    <li><a class="dropdown-item" href="#">Rifles</a></li>
-                    <li><a class="dropdown-item" href="#">Shotguns</a></li>
-                    <li><a class="dropdown-item" href="#">Parts</a></li>
-                    <li><a class="dropdown-item" href="#">Ammo</a></li>
-                    <li><a class="dropdown-item" href="#">Optics & Sights</a></li>
-                    <li><a class="dropdown-item" href="#">Accessories</a></li>
-                    <li><a class="dropdown-item" href="#">NFA</a></li>
-                    <li><a class="dropdown-item" href="#">Knives</a></li>
-                    <li><a class="dropdown-item" href="#">Archery</a></li>
-                    <li><a class="dropdown-item" href="#">Reloading</a></li>
-                    <li><a class="dropdown-item" href="#">Services</a></li>
-                    <li><a class="dropdown-item" href="#">CA Legal</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item ">
+                  <div class="data-search-canvas" id="data-search-canvas">
+                    <div class="search-item"></div>
+                  </div>
+                </div>
 
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Quick links
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-white">
-                    <li><a class="dropdown-item" href="#">Vulcan</a></li>
-                    <li><a class="dropdown-item" href="#">Revolver</a></li>
-                    <li><a class="dropdown-item" href="#">Rimfire</a></li>
-                    <li><a class="dropdown-item" href="#">C&R</a></li>
-                    <li><a class="dropdown-item" href="#">1911</a></li>
-                    <li><a class="dropdown-item" href="#">AR Deals</a></li>
-                    <li><a class="dropdown-item" href="#">AK Deals</a></li>
-                    <li><a class="dropdown-item" href="#">Stores</a></li>
-                    <li><a class="dropdown-item" href="#">Rebates</a></li>
-                    <li><a class="dropdown-item" href="#">Recent Comments</a></li>
-                    <li><a class="dropdown-item" href="#">Top Articles</a></li>
-                    <li><a class="dropdown-item" href="#">Compare Guns</a></li>
-                    <li><a class="dropdown-item" href="#">Used Guns</a></li>
-                    <li><a class="dropdown-item" href="#">Blog</a></li>
-                    <li><a class="dropdown-item" href="#">22 LR Ammo</a></li>
-                    <li><a class="dropdown-item" href="#">9mm Ammo</a></li>
-                    <li><a class="dropdown-item" href="#">223/5.56 Ammo</a></li>
+                <div class="mt-4">
+                  <ul class="navbar-nav flex-grow-1 pe-3 navbar__menu">
+                    <div class="d-flex justify-content-between bg_____color ">
+                      <li class="nav-item menu-item">
+                        <a href="/" title="All deals" class="fa fa-home nav-link active">All Deals</a>
+                      </li>
+                      <li class="nav-item border_item">
+                        <a href="#" title="Gun Deals d-flex  Posted Today"
+                           class="fa fa-star nav-link">Popular</a>
+                      </li>
+                    </div>
+                    <div class="d-flex justify-content-between bg_____color ">
+                      <li class="nav-item border_left">
+                        <a href="/" title="All deals"
+                           class="fa fa-calendar nav-link active">Date</a>
+                      </li>
+                      <li class="nav-item border_right">
+                        <a href="#" title="Gun Deals Posted Today"
+                           class="fa fa-link nav-link">Today</a>
+                      </li>
+                    </div>
                   </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="#" title="Gun Deals Posted Today" class="nav-link">Popular</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" title="Gun Deals Posted Today" class="nav-link"><i class="fa fa-pencil"></i> <span>Post a Deal</span></a>
-                </li>
-                <li class="nav-item ">
+                </div>
+              </div>
 
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-user"></i>
-                    <span>Welcome, guest
-                    </span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-white">
-                    <li><a class="dropdown-item" href="#">Subscribe to newsletter</a></li>
-                    <li><a class="dropdown-item" href="<%= user_session_path %>">Login</a></li>
-                    <li><a class="dropdown-item" href="<%= new_user_registration_path %>">Register</a></li>
-                    <li><a class="dropdown-item" href="<%= edit_user_password_path %>">Reset Password</a></li>
+              <div class="primary-menu primary-menu--sidebar primary-menu__account">
+                <div class="has-submenu dropdown primary-menu__label-container is-active">
+                  <div class="d-flex">
+                    <div class="primary-menu__label-line-wrapper">
+                      <div class="primary-menu__label-line"></div>
+                    </div>
+                    <button data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2"
+                            class="icon-fa-link primary-menu__menu-label" aria-expanded="false">
+                      <i class="fa fa-user"></i>
+                      <span class="primary-menu_text">Welcome, guest <span
+                        class="caret"></span></span>
+                    </button>
+                    <div class="primary-menu__label-line-wrapper">
+                      <div class="primary-menu__label-line"></div>
+                    </div>
+                  </div>
+                  <ul id="multiCollapseExample2" class="primary-menu__dropdown-list">
+                    <li class="primary-menu__dropdown-list-item">
+                      <button class="icon-fa-link js-newsletter-subscribe-caller"
+                              data-toggle="modal" data-target="#modalGuestSubscribe">
+                        <span class="primary-menu_text">Subscribe to newsletter</span>
+                        <span
+                          class="primary-menu__dropdown-list-icon fa fa-newspaper-o"></span>
+                      </button>
+                    </li>
+                    <hr class="bottom_line">
+                    <li class="primary-menu__dropdown-list-item">
+                      <a href="#" title="Register">
+                        <span class="primary-menu_text">Register</span>
+                        <span class="primary-menu__dropdown-list-icon fa fa-sign-in">
+                                                </span>
+                      </a>
+                    </li>
+                    <li class="primary-menu__dropdown-list-item">
+                      <a href="#" title="Reset Password">
+                        <span class="primary-menu_text">Reset Password</span>
+                        <span class="primary-menu__dropdown-list-icon fa fa-key"></span>
+                      </a>
+                    </li>
                   </ul>
-                </li>
-              </ul>
+                </div>
+                <div class="primary-menu primary-menu--sidebar primary-menu__category-links-mobile">
+                  <div class="primary-menu__label-container d-flex">
+                    <div class="primary-menu__label-line-wrapper">
+                      <div class="primary-menu__label-line"></div>
+                    </div>
+                    <div class="primary-menu__menu-label">Categories</div>
+                    <div class="primary-menu__label-line-wrapper">
+                      <div class="primary-menu__label-line"></div>
+                    </div>
+                  </div>
+                  <ul role="menu">
+                    <li class="leaf first"><a href="#" title="Ammo"
+                                              class="icon-ammo primary-menu_text">Ammo
+                      <img src="https://t3.ftcdn.net/jpg/00/89/02/84/240_F_89028440_TFERxXqdNQTlMbe7UwuDq6ZclCk3Mwff.jpg"
+                           alt="Ammo" title="Ammo" class="img-small">
+                    </a>
+                    </li>
+                    <li class="leaf"><a href="#" title="Handguns"
+                                        class="icon-handguns primary-menu_text">Handguns
+                      <img src="https://cdn-icons-png.flaticon.com/512/1/1973.png "
+                           alt="Handguns" title="Handguns" class="img-small">
+                    </a>
+                    </li>
+                    <li class="leaf"><a href="#" title="Rifles" class="icon-rifles primary-menu_text">Rifles</a></li>
+                    <li class="leaf"><a href="#" title="Shotguns" class="icon-shotguns primary-menu_text">Shotguns</a></li>
+                    <li class="leaf"><a href="#" title="Parts" class="icon-gun-parts primary-menu_text">Parts</a></li>
+                    <li class="leaf"><a href="#" title="Knives" class="icon-knives primary-menu_text">Knives</a></li>
+                    <li class="leaf"><a href="#" title="" class="icon-optics-sights primary-menu_text">Optics &amp; Sights</a></li>
+                    <li class="leaf"><a href="#" title="Accessories" class="icon-accessories primary-menu_text">Accessories</a></li>
+                    <li class="leaf"><a href="#" title="" class="icon-nfa primary-menu_text">NFA</a></li>
+                    <li class="leaf"><a href="#" title="Reloading" class="icon-reloading primary-menu_text">Reloading</a></li>
+                    <li class="leaf"><a href="#" title="Archery" class="icon-archery primary-menu_text">Archery</a></li>
+                    <li class="leaf"><a href="#" title="California Legal Firearms" class="icon-ca-legal primary-menu_text">CA Legal</a></li>
+                    <li class="leaf last"><a href="/category/services" title="" class="icon-services primary-menu_text">Services</a></li>
+                  </ul>
+                </div>
+                <div class="primary-menu primary-menu--sidebar primary-menu__quick-links-mobile">
+                  <div class="primary-menu__label-container d-flex">
+                    <div class="primary-menu__label-line-wrapper">
+                      <div class="primary-menu__label-line"></div>
+                    </div>
+                    <div class="primary-menu__menu-label primary-menu_text">Quick links</div>
+                    <div class="primary-menu__label-line-wrapper">
+                      <div class="primary-menu__label-line"></div>
+                    </div>
+                  </div>
+                  <ul role="menu">
+                    <li class="leaf first"><a href="/category/ammo?caliber=3" title="22LR Ammo" class="icon-ammo primary-menu_text">22LR Ammo</a></li>
+                    <li class="leaf"><a href="#" title="blog" class="primary-menu_text">Blog</a></li>
+                    <li class="leaf"><a href="#" title="9mm Ammo" class="icon-ammo primary-menu_text">9mm Ammo</a></li>
+                    <li class="leaf"><a href="#" title="223 Rem - 5.56 Ammo" class="icon-ammo primary-menu_text">223 Rem - 5.56 Ammo</a></li>
+                    <li class="leaf"><a href="#" title="Used Guns primary-menu_text">Used Guns</a></li>
+                    <li class="leaf"><a href="#" title="AK Deals primary-menu_text">AK Deals</a></li>
+                    <li class="leaf"><a href="#" title="AR Deals primary-menu_text">AR Deals</a></li>
+                    <li class="leaf"><a href="#" title="Popular primary-menu_text">Popular</a></li>
+                    <li class="leaf"><a href="#" title="1911 primary-menu_text">1911</a></li>
+                    <li class="leaf"><a href="#" title="C&amp;R primary-menu_text">C&amp;R</a></li>
+                    <li class="leaf"><a href="#" title="Rimfire primary-menu_text">Rimfire</a> </li>
+                    <li class="leaf"><a href="#" title="Revolver primary-menu_text">Revolver</a></li>
+                    <li class="leaf"><a href="#" title="50% Off primary-menu_text">Vulcan</a></li>
+                    <li class="leaf"><a href="#" title="Stores page primary-menu_text">Stores</a></li>
+                    <li class="leaf"><a href="#" title="" class="primary-menu_text">Rebates</a></li>
+                    <li class="leaf"><a href="#" title="" class="primary-menu_text">RecentComments</a></li>
+                    <li class="leaf"><a href="#" title="" class="primary-menu_text">CompareGuns</a></li>
+                    <li class="leaf"><a href="#" title="" class="primary-menu_text">TopArticles</a></li>
+                    <li class="leaf last"><a href="#" title="" class="primary-menu_text">UsedGuns</a></li>
+                  </ul>
+                </div>
+
+                <div class="primary-menu primary-menu--sidebar primary-menu__other-apps">
+                  <div class="primary-menu__label-container d-flex">
+                    <div class="primary-menu__label-line-wrapper">
+                      <div class="primary-menu__label-line"></div>
+                    </div>
+                    <div class="primary-menu__menu-label primary-menu_text">Other Apps</div>
+                    <div class="primary-menu__label-line-wrapper">
+                      <div class="primary-menu__label-line"></div>
+                    </div>
+                  </div>
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <span class="primary-menu_text">Barcode Scanner</span>
+                        <span class="gun-icon-Search"></span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="primary-menu_text">WikiArms Ammo Engine</span>
+                        <span class="primary-menu__wikiarms-icon"></span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="primary-menu_text">Gun Deals Application</span>
+                        <span class="primary-menu__gundeals-icon"></span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="social-menu social-menu--sidebar bg_____color">
+                  <ul class="">
+                    <li> <a href="#" class="icon-fa-link"target="_blank"><i class="fa fa-youtube-play social__icon"></i></a></li>
+                    <li> <a href="#" class="icon-fa-link" target="_blank"><i class="fa fa-facebook social__icon"></i></a></li>
+                    <li> <a href="#" class="icon-fa-link" target="_blank"><i class="fa fa-twitter social__icon"></i></a></li>
+                    <li> <a href="/rss.xml" class="icon-fa-link" target="_blank"><i class="fa fa-rss social__icon"></i></a></li>
+                    <!-----<li> <a href="/site-news" class="icon-fa-link js-news-icon news__icon "><i class="fa fa-bell"></i></a></li>--->
+                  </ul>
+                </div>
+
+                <div class="sidebar__footer">
+                  <div class="primary-menu primary-menu__bottom-links">
+                    <div class="primary-menu__bottom-link"> <a href="#"> <span>post a deal</span> <i class="fa fa-pencil"></i> </a>
+                    </div>
+                    <div class="primary-menu__bottom-link"> <a href="#"> <span>login</span> <span
+                      class="primary-menu__icon gun-icon-menu_ic_login"></span> </a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
@@ -180,7 +383,9 @@
                 <% @categories.each do |category| %>
                   <li class="leaf first">
                     <a href="<%= category_path(category) %>" title="<%= category.name %>"
-                       class="icon-handguns"><%= category.name %></a>
+                       class="icon-handguns">
+                      <%= category.name %>
+                    </a>
                   </li>
                 <% end %>
               <% end %>
@@ -234,12 +439,11 @@
                 <a href="<%= blogs_index_path %>" title="">Blog</a>
               </li>
               <li class="leaf">
-                <a href="<%= twentytwo_lr_ammo_path %>" title="22 LR Ammo"
-                   class="icon-ammo">22 LR Ammo</a>
+                <a href="<%= twentytwo_lr_ammo_path %>" title="22 LR Ammo" class="icon-ammo">22 LR
+                  Ammo</a>
               </li>
               <li class="leaf">
-                <a href="<%= nine_mm_ammo_path %>" title="9mm Ammo"
-                   class="icon-ammo">9mm Ammo</a>
+                <a href="<%= nine_mm_ammo_path %>" title="9mm Ammo" class="icon-ammo">9mm Ammo</a>
               </li>
               <!--              <li class="leaf last">-->
               <!--                <a href="#"-->
@@ -253,8 +457,7 @@
           </li>
         </ul>
       </div>
-      <div
-        class="secondary-menu secondary-menu--header header__submenu-container menu-header">
+      <div class="secondary-menu secondary-menu--header header__submenu-container menu-header">
         <ul>
           <li class="hidden-xs hidden-sm">
             <a href="<%= new_product_path %>" class="icon-fa-link" title="Post a Deal">
@@ -263,13 +466,13 @@
             </a>
           </li>
           <li class="dropdown">
-            <a href="#" class="icon-fa-link" data-toggle="dropdown"
-               title="Welcome, guest ">
+            <a href="#" class="icon-fa-link" data-toggle="dropdown" title="Welcome, guest ">
               <i class="fa fa-user"></i>
               <% if current_user %>
-              <span><%= current_user.username %>
-                <span class="caret"></span>
-              </span>
+                                <span>
+                                    <%= current_user.username %>
+                                  <span class="caret"></span>
+                                </span>
               <% end %>
             </a>
             <% if user_signed_in? %>
@@ -277,17 +480,16 @@
               <ul class="dropdown-menu" role="menu">
                 <li role="separator" class="divider"></li>
                 <li>
-                  <%= link_to('Logout', destroy_user_session_path, :method => 'get') %>
+                  <%= link_to('Logout', destroy_user_session_path, :method=> 'get') %>
                   <%= link_to('My account', my_accounts_views_path) %>
                   <%= link_to('My watchlist', my_accounts_my_watchlist_path) %>
                 </li>
               </ul>
             <% else %>
-              <a href="#" class="icon-fa-link" data-toggle="dropdown"
-                 title="Welcome, guest ">
-              <span>Welcome, guest
-                <span class="caret"></span>
-              </span>
+              <a href="#" class="icon-fa-link" data-toggle="dropdown" title="Welcome, guest ">
+                                    <span>Welcome, guest
+                                        <span class="caret"></span>
+                                    </span>
               </a>
               <ul class="dropdown-menu" role="menu">
 
@@ -309,35 +511,35 @@
       </div>
     </div>
   </div>
-  </div>
 </section>
-
-
 
 
 <script>
 
     function search() {
-        $(document).ready(function(){
+        $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 contentType: "application/json",
                 url: "/search_products",
-                data:{
+                data: {
                     q: $('#search').val()
                 },
-                success:function(data){
-                    // console.log(data)
+                success: function (data) {
+                    const productWrapper = document.querySelector('#suggestions-search');
+                    // const productWrapper = document.querySelector('.p-1');
+                    // productWrapper.setAttribute('style', 'display: block !important;')
 
-                    const productWrapper = document.querySelector('.p-1');
-
-
+                    console.log({dataSearchGun: data});
+                    if(data.length > 0) {
+                        console.log('Enable Scroll Data', data)
+                        productWrapper.classList.add('suggestions-search')
+                        productWrapper.setAttribute('style', 'display: block !important;')
+                    }
                     let productCounter = " "
-                    data.forEach((product)=>{
-                        // console.log(product.title)
-                        console.log(product)
+                    data.forEach((product) => {
+                        console.log(product.title)
                         productCounter += `
-
                         <div class="product-basic-info-card">
                                     <div class="product-basic-info-card__image-container">
                                        <a class="product-flex" href="/search/${product.id}">
@@ -356,40 +558,10 @@
                                           </div>
                                        </a>
                                     </div>
-<!--                                    <div class="product-basic-info-card__main-content">-->
-<!--                                      <div class="product-basic-info-card__main-content__title">-->
-<!--                                        <h5 id="search-title" class="card-text truncate" itemprop="name">${product.title}</h5>-->
-<!--                                      </div>-->
-<!--                                      <div class="product-basic-info-card__specification search-dropdown-list">-->
-<!--                                        <dl class="definition-list collapse" id="specifications">-->
-<!--                                          <div>-->
-<!--                                            <dd>Brand</dd>-->
-<!--                                            <dt>-->
-<!--                                              <span>${product.brand}</span>-->
-<!--                                            </dt>-->
-<!--                                          </div>-->
-<!--                                          <div>-->
-<!--                                            <dd>MPN</dd>-->
-<!--                                            <dt>-->
-<!--                                              <span itemprop="gtin12">${product.mpn}</span>-->
-<!--                                            </dt>-->
-<!--                                          </div>-->
-<!--                                          <div>-->
-<!--                                            <dd>Caliber</dd>-->
-<!--                                            <dt>${product.caliber}</dt>-->
-<!--                                          </div>-->
-<!--                                          <div>-->
-<!--                                            <dd>From</dd>-->
-<!--                                            <dt>${product.price}</dt>-->
-<!--                                          </div>-->
-<!--                                        </dl>-->
-<!--                                      </div>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!-- -->                        `
+                                               `
                         // console.log(product.title);
-                        productWrapper.innerHTML = `<div>
-                          <p class="heading-suggested">SUGGESTED PRODUCTS (${data.length})</p>
+                        productWrapper.innerHTML = `<div class="sugguest-products-search">
+                          <p class="heading-suggested">SUGGESTED PRODUCTS</p>
                     ${productCounter} </div>`;
                         document.querySelector('.search-products-card')
                             .setAttribute('style', 'display: block !important;')
@@ -402,12 +574,62 @@
         });
     };
 
+    //.. Off-Canvas-MENU-SEARCH
+
+    function searchGunAPI() {
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",
+                url: "/search_products",
+                data: {
+                    q: $('#searchAPI').val()
+                },
+                success: function (data) {
+                    // document.querySelector('.data-search-canvas').setAttribute('style', '  visibility: visible !important;')
+                    const productWrapper = document.querySelector('.data-search-canvas');
+                    if (data.length >= 3) {
+                        productWrapper.classList.add('data-search-scroll')
+                    };
+
+
+
+
+                    productWrapper.setAttribute('style', 'visibility: visible !important; ')
+                    let productCounter = " "
+
+                    console.log({apiCanvasData: data});
+
+                    //.. LOOP Throught Items
+                    data.forEach(product => {
+                        productWrapper.style.display = 'block'
+                        productCounter += `
+                         <a href="/search/${product.id}" class="product-item-canvas">
+                            <img src="${product.image.url}" class="canvas-img"/>
+                            <div class="product-canvas-detail">
+                               <span> <i class="fa fa-circle"></i><strong> ${product.title} </strong> </span>
+                               <span>Brand: ${product.brand}</span>
+                               <span>UPC: ${product.upc}</span>
+                               <span>Caliber: ${product.caliber}</span>
+                               <span>From: ${product.price}</span>
+                            </div>
+                        </a>
+                       `;
+                        productWrapper.innerHTML = productCounter;
+                    });
+
+
+
+                }
+            });
+        });
+    };
 
     // Truckate TExt
     const textTitle = document.querySelectorAll('#search-title');
     console.log(textTitle.length)
     const searchInput = document.querySelector('#search');
-    let targettedArea = document.querySelector('.horizontal-scrollable');
+    let targettedArea = document.querySelector('#suggestions-search');
     searchInput.addEventListener('keyup', (event) => {
 
         // alert(event.target.key)
@@ -424,13 +646,13 @@
 
         event.preventDefault();
         return true;
-    })
+    });
 </script>
 
 
 <script>
     //.. HIDE SEARCH BOX AFTER CLICKING ON THE WINDOW
-    const searchBox = document.querySelector('.search-products-card');
+    const searchBox = document.querySelector('#suggestions-search');
     document.body.addEventListener('click', (event) => {
         if (searchBox !== event.target) {
             searchBox.style.display = 'none'
@@ -438,6 +660,32 @@
         };
         return true;
     });
+
+
+
+
+
+    document.querySelector('#searchAPI').addEventListener('keyup', (event) => {
+        const targetedKey = event.key;
+        const dataSearchBox = document.querySelector('.data-search-canvas');
+        if (targetedKey === "Backspace") {
+            document.querySelector('.data-search-canvas').setAttribute('style', '  visibility: hidden !important;')
+        }
+        event.preventDefault();
+        return true;
+    })
+
+    document.querySelector('#search').addEventListener('keyup', (event) => {
+        const targetedKey = event.key;
+        const dataSearchBox = document.querySelector('.data-search-canvas');
+        if (targetedKey === "Backspace") {
+            document.querySelector('#suggestions-search').setAttribute('style', '  visibility: hidden !important;')
+        }
+        event.preventDefault();
+        return true;
+    })
+    // Filter GUN PRODUCTS LEFT
+
 
 
 </script>
