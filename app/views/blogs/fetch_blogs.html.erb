@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<%= render partial: 'partials/title' %>
+
+<body class="body-style">
+<%= render partial: 'partials/header' %>
+<section>
+  <div class="container">
+    <div class="add-section add-banner-section">
+    </div>
+  </div>
+</section>
+<!-- =================blog section start here===================== -->
+<section>
+  <div class="container">
+    <div class="row row-cols-5 top-header-space card-devider">
+      <% if @blogs.present? %>
+        <% @blogs.each do |blog| %>
+          <div class="col my-3 sub-card">
+            <div class="card h-100">
+              <div class="card-body d-flex justify-content-between">
+
+                <span><small>Blog</small></span>
+
+              </div>
+              <div class="tile__image-container-blog">
+<!--                <a href=""><%#= image_tag(blog.video)  %></a>-->
+                <a href="<%= blog_path(blog) %>"><image src = "<%= blog.attachments %>" /></a>
+              </div>
+              <div class="card-text ">
+                <p class=""><a href="<%= blog_path(blog) %>">
+                  <%= blog.title %>
+                </a></p>
+              </div>
+              <div>
+                <div class="tile__para">
+                  <p><%= blog.description %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+
+    </div>
+  </div>
+</section>
+<!-- =================blog section end here===================== -->
+
+<!-- card section two start here  -->
+<%= render partial: 'partials/middle_adds' %>
+<section class="mb-4">
+  <div class="container">
+    <div class="row">
+      <%= render partial: 'partials/bottom_cards' %>
+    </div>
+  </div>
+</section>
+<%= render partial: 'partials/footer' %>
+</body>
+
+</html>

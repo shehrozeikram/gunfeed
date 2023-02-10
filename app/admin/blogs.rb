@@ -5,17 +5,14 @@ ActiveAdmin.register Blog do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :title, :description, :image, :video
-
-  form(html: {multipart: true}) do |f|
-    f.inputs do
-      f.input :title
-      f.input :description
-      # f.input :user_id, as: :select,  collection:  User.all.collect{|cat| [cat.first_name, cat.id]}
-      f.input :image, as: :file, input_html: { multiple: true }
-      f.input :video, as: :file, input_html: { multiple: true }
-    end
-    f.actions
-  end
-
+  permit_params :title, :description, :attachments, :video
+  #
+  # or
+  #
+  # permit_params do
+  #   permitted = [:title, :description, :attachments, :video]
+  #   permitted << :other if params[:action] == 'create' && current_user.admin?
+  #   permitted
+  # end
+  
 end

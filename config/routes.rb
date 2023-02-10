@@ -46,6 +46,8 @@ Rails.application.routes.draw do
   get "/cheapest_deals" , to: "stores#cheapest_deals"
   get "/rare_deals" , to: "stores#rare_deals"
 
+  resources :blogs
+  get "/fetch_blogs" , to: "blogs#fetch_blogs"
 
   # Header routes
   get "/search_category_products" , to: "products#search_category_products"
