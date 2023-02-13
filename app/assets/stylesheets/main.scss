@@ -11388,6 +11388,7 @@ html.enter {
     width: 100%;
   }
 
+
   .footer-branding__logo-column::before {
     display: none;
   }
@@ -15010,7 +15011,7 @@ ul {
   .product_card {
     width: 100% !important;
     margin-left: -4rem;
-    margin-top: 35rem !important;
+    margin-top: 37rem !important;
   }
 
   .sub-card:nth-child(2) {
@@ -15060,9 +15061,9 @@ ul {
     width: 100% !important;
   }
 
-  div#offcanvasDarkNavbar {
-    margin-top: 28%;
-  }
+  // div#offcanvasDarkNavbar {
+  //   margin-top: 28%;
+  // }
 
   div#offcanvasDarkNavbar {
     width: 85%;
@@ -16186,4 +16187,56 @@ button.accordion-button.target-replace-1,
 button.accordion-button.target-replace{
   width: 113%;
   border: 1px solid;
+}
+
+
+
+
+.card_title h1{
+  font-size: 36px;
+}
+
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.updated-by {
+  padding: 10px 0;
+  margin-bottom: 23px;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+  section.new-nav-bg-color {
+    height: 28px;
+  }
+  div#header {
+    margin-top: -18px;
+  }
+  button.navbar-toggler {
+    margin-top: -3px;
+  }
+  .social-menu.social-menu--header {
+    position: absolute;
+    right: 13px;
+  }
+  span.fa.fa-bars{
+    color: white;
+  }
+  div#offcanvasDarkNavbar {
+    margin-top: 19%;
+  }
+  .offcanvas-backdrop {
+    top: 75px !important;
+  }
+
 }

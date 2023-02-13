@@ -8,5 +8,6 @@ class Product < ApplicationRecord
   has_many :reviews
   has_many :comments
   has_many :watchlists
+  has_many :blogs
 
 end

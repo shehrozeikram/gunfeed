@@ -6,6 +6,8 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.find(params[:id])
+    @products = Product.where(upc: @blog.product.upc, active: true).where.not(stock: nil )
+    @products.all.where.not(stock: 'out of stock')
     @categories = Category.all
   end
 

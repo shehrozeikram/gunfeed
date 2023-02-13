@@ -1,5 +1,168 @@
-<h1> Show Page </h1>
+<!DOCTYPE html>
+<html lang="en">
+<%= render partial: 'partials/title' %>
 
-<%= @blog.title %>
-<%= @blog.description %>
-<%= @blog.video %>
+<body class="body-style">
+<%= render partial: 'partials/header' %>
+<section>
+  <div class="container">
+    <div class="add-section add-banner-section">
+    </div>
+  </div>
+</section>
+
+<!-- =================card section start here===================== -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card" style="padding: 20px;">
+        <div class="card_title">
+          <h1><%= @blog.title %></h1>
+          <div class="updated-by">
+            Updated 1 month ago
+          </div>
+        </div>
+        <div class="card_content">
+          <p>Good morning everyone, this is John with gun.
+            deals, and today we're going to be taking a
+            look at the Smith Wesson Shield Plus. This
+            one here is the Optics Ready version.</p>
+        </div>
+        <div class="video-responsive">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+        </div>
+        <p><br></p>
+        <p>Full disclosure on the Smith and Wesson Shield Plus Optics Ready is
+          that I picked this up locally with my own money from a local gun store.
+          I believe I paid about 470-480 dollars for it before taxes. Overall,
+          for a gun with this feature set, in this form factor, in this genre,
+          Optics Ready, that sort of stuff, that is a very good deal.
+        </p>
+        <section class="compaire-price-table2 mb-4">
+          <div class="container p-0">
+            <div class="card p-3">
+              <div class="">
+                <div class="d-flex justify-content-between">
+                  <h2>Live Inventory Search Results</h2>
+                </div>
+                <div class="dealer-comparison-info"> <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                  <span>Want to
+                                      see your products here? Click this</span> <a
+                  href="/content/shopping-comparison">link</a>.
+                </div>
+                <div class="table-section__content">
+                  <table class="table price-compare-table  wikiarms-table-2">
+                    <thead class="bg-dark text-white">
+                    <tr>
+                      <th>Product</th>
+                      <th>Price</th>
+                      <th>Store</th>
+                      <th>MPN</th>
+                      <th>UPC</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% @products.each do |product| %>
+                    <tr>
+                      <td><a href="#"><%= product.title %></a>
+                      </td>
+                      <td class=""><span> $<%= product.price %></span></td>
+                      <td> <%= product.store.title  %> </td>
+                      <td><a href="#"><%= product.mpn  %></a></td>
+                      <td><a href="#"><%= product.upc %></a></td>
+                    </tr>
+
+                    <% end %>
+                    </tbody>
+                  </table>
+                  <div class="wikiarms-section__see-more mb-4">
+                    <a target="_blank" href="#">See more results</a>
+                    <span>for
+                                          <b><%= @blog.title %></b> on LIVE INVENTORY SEARCH
+                                      </span>
+                  </div>
+                </div>
+
+                <div class="table-section__footer">
+                  <img class="powered-by-img"
+                       src="/assets/out-of-stoc-9d46ce3a06afd30e77427026a01579ce7e9328d7236857530ef39419a53048aa.jpg">
+                  <!-- <img class="" style="height: 24px ; width:24px;" src="wikiarms-logo.png"
+                        alt="Wikiarms.com"> -->
+                  <span> Powered by
+                                      <a target="_blank" href="#">Live Inventory Search</a>
+                                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <p>
+          <%= @blog.description %>
+        </p>
+        <p><img src="/assets/blogs_show.webp" alt=""></p>
+        <p><%= @blog.description %>
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- =================card section start here===================== -->
+
+<!-- =================blog section start here===================== -->
+<section style="margin-top: 10%;">
+  <div class="container">
+    <div class="row row-cols-5 top-header-space card-devider">
+      <% if @blogs.present? %>
+        <% @blogs.each do |blog| %>
+          <div class="col my-3 sub-card">
+            <div class="card h-100">
+              <div class="card-body d-flex justify-content-between">
+
+                <span><small>Blog</small></span>
+
+              </div>
+              <div class="tile__image-container-blog">
+                <a href=""><%= image_tag(blog.image)  %></a>
+              </div>
+              <div class="card-text ">
+                <p class=""><a href="#">
+                  <%= blog.title %>
+                </a></p>
+              </div>
+              <div>
+                <div class="tile__para">
+                  <p><%= blog.description %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+
+    </div>
+  </div>
+</section>
+<!-- =================blog section end here===================== -->
+
+<!-- card section two start here  -->
+<%= render partial: 'partials/middle_adds' %>
+<section class="mb-4">
+  <div class="container">
+    <div class="row">
+      <%= render partial: 'partials/bottom_cards' %>
+    </div>
+  </div>
+</section>
+<%= render partial: 'partials/footer' %>
+</body>
+
+</html>
