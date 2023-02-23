@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<%= render partial: 'partials/title' %>
+
+<body class="body-style">
+<%= render partial: 'partials/header' %>
+<section>
+  <div class="container">
+    <div class="add-section add-banner-section">
+    </div>
+  </div>
+</section>
+
+<div class="rebates">
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card p-2">
+        <div class="card__title">
+          <h3 class="h3">Rebates</h3>
+        </div>
+        <div class="col-lg-12">
+          <form>
+            <div class="form-group">
+              <label for="Brand">Brand:</label>
+              <select name="" id="" class="form-control">
+                <option>Choose</option>
+                <option>Gun</option>
+                <option>Gun</option>
+                <option>Gun</option>
+                <option>Gun</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="submit" name="op" id="edit-submit" value="Filter" class="form-submit btn btn-default btn-primary">
+              <input type="submit" name="op" id="edit-submit" value="Reset" class="form-submit btn btn-default btn-primary">
+            </div>
+          </form>
+
+          <div class="rebates-container">
+            <table style="width:100%;" class="table table-striped sticky-enabled sticky-table">
+              <thead class="tableHeader-processed">
+              <tr>
+                <th>
+                  <a href="#" title="" class="active">Rebate</a>
+                </th>
+                <th>
+                  <a href="#" title="" class="active">Brand</a>
+                </th>
+                <th>
+                  <a href="#" title="" class="active">Start date</a>
+                </th>
+                <th>
+                  <a href="#" title="" class="active">End date</a>
+                </th>
+
+                <th class="active">
+                  <a href="#" title="" class="active">Created</a>
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+
+              <% @rebates.each do |rebate| %>
+              <tr>
+                <td>
+                  <a href="#" target="_blank"><%= rebate.body %></a>
+                </td>
+                <td><%= rebate.product.brand %></td>
+                <td><%= rebate.created_at %></td>
+                <td><%= rebate.updated_at %></td>
+                <td class="active"><%= rebate.created_at %></td>
+              </tr>
+            <% end %>
+
+              </tbody>
+            </table>
+
+            <div class="item-list">
+              <ul class="pager">
+                <li class="pager-current first">1</li>
+                <li class="pager-item"><a href="#" title="Go to page 2" class="active">2</a></li>
+                <li class="pager-item"><a href="#" title="Go to page 3" class="active">3</a></li>
+                <li class="pager-next"><a href="#" title="Go to next page" class="active">next ›</a></li><li class="pager-last last"><a href="#" title="Go to last page" class="active">last »</a></li></ul></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- card section two start here  -->
+<%= render partial: 'partials/middle_adds' %>
+<section class="mb-4">
+  <div class="container">
+    <div class="row">
+      <%= render partial: 'partials/bottom_cards' %>
+    </div>
+  </div>
+</section>
+<%= render partial: 'partials/footer' %>
+</body>
+
+</html>

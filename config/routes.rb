@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'rebates/index'
+  get 'rebates/new'
+  get 'news_letter/index'
+  get 'news_letter/new'
 
   # MyAccount routes
   get 'my_accounts/views'
@@ -30,14 +34,25 @@ Rails.application.routes.draw do
   root to: "products#index"
   get "/search/:id" , to: "products#live_inventory_search", as: :live_inventory_search
   get "/compare/:id" , to: "products#compare_guns", as: :compare_guns
-  post "/node/create_coupon" , to: "products#create_coupon"
+
+  #footer cards routes
+  get "/comments-page" , to: "products#recent_comments"
+  get "/comments" , to: "products#comments"
+
+  resources :coupons
+  get "/coupons" , to: "products#coupons"
 
   # watchlist routes
   get "/add_to_watchlist/:id" , to: "watchlist#add_to_watchlist", as: :add_to_watchlist
 
   resources :customer_reviews
   get 'deals/index'
-  get 'blogs/index'
+
+  resources :news_letter
+  get 'subscribe_to_newsletter' , to: "news_letter#subscribe_to_newsletter", as: :subscribe_to_newsletter
+
+  resources :rebates
+  get "/rebates" , to: "products#rebates"
 
   resources :stores
   get "/xml_feed" , to: "stores#xml_feed"

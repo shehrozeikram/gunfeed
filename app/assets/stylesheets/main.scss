@@ -7575,23 +7575,23 @@ button#dropdownMenuButton1 {
   border-radius: 0.25em;
 }
 
-.compare__image {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  overflow: hidden;
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-left: 88px;
-}
+// .compare__image {
+//   position: relative;
+//   display: -webkit-box;
+//   display: -ms-flexbox;
+//   display: flex;
+//   overflow: hidden;
+//   width: 300px;
+//   height: 300px;
+//   margin: 0 auto;
+//   -webkit-box-pack: center;
+//   -ms-flex-pack: center;
+//   justify-content: center;
+//   -webkit-box-align: center;
+//   -ms-flex-align: center;
+//   align-items: center;
+//   margin-left: 88px;
+// }
 
 .compare__table tbody tr td,
 .compare__table tbody tr th {
@@ -7934,7 +7934,7 @@ span{
   justify-content: space-between;
 }
 .accordion-item-right {
-  margin-left: 90px !important;
+  margin-left: 90px;
 }
 button.accordion-button.collapsed {
   width: 113%;
@@ -15117,6 +15117,26 @@ ul {
   #title_blog p{
     padding-left: 1rem !important;
   }
+  // compare gun
+
+  .accordion-item-right {
+    margin-left: 59% !important;
+  }
+  .accordion-item {
+    z-index: 4000 !important;
+    position: absolute;
+    width: 38% !important;
+  }
+  .compare__table tbody tr th.label {
+    width: 19% !important;
+  }
+  button.accordion-button.collapsed.target-replace-1 {
+    white-space: nowrap;
+    padding-left: 6px;
+  }
+  .compare__image {
+    height: 152px !important;
+  }
 }
 
 
@@ -15342,6 +15362,23 @@ ul {
   #prouduct {
     margin:0 !important;
     width: 100% !important;
+  }
+  // compare gun
+
+  .accordion-item-right {
+    margin-left: 59% !important;
+  }
+  .accordion-item {
+    z-index: 4000 !important;
+    position: absolute;
+    width: 38% !important;
+  }
+  .compare__table tbody tr th.label {
+    width: 19% !important;
+  }
+  button.accordion-button.collapsed.target-replace-1 {
+    white-space: nowrap;
+    padding-left: 6px;
   }
 }
 
@@ -15658,7 +15695,7 @@ button#dropdownMenuButton1 {
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
-  width: 300px;
+  width: 70%;
   height: 300px;
   margin: 0 auto;
   -webkit-box-pack: center;
@@ -15667,7 +15704,7 @@ button#dropdownMenuButton1 {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-left: 88px;
+  // margin-left: 88px;
 }
 
 .compare__table tbody tr td,
@@ -16011,7 +16048,7 @@ span{
   justify-content: space-between;
 }
 .accordion-item-right {
-  margin-left: 90px !important;
+  margin-left: 90px ;
 }
 button.accordion-button.collapsed {
   width: 113%;

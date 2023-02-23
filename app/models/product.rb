@@ -9,5 +9,6 @@ class Product < ApplicationRecord
   has_many :comments
   has_many :watchlists
   has_many :blogs
+  has_many :rebates
 
 end

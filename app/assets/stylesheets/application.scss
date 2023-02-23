@@ -39,3 +39,121 @@
 
   }
 }
+
+.card-coupon {
+  //box-shadow: inset 0 0 0 1px #cacfd4, 0 1px 3px 0 rgb(0 0 0 / 15%);
+  background: #fff;
+  position: relative;
+  margin-bottom: 20px;
+  transition: background-color .4s,color .2s;
+  border-radius: 2px !important;
+  padding: 1rem;
+}
+
+.form-date {
+  display: block !important;
+}
+.form-sel {
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  background-color:#fff;
+  border-radius: 4px;
+  outline: none;
+  color:#777;
+}
+.form-select-store {
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  background-color:#fff;
+  border-radius: 4px;
+  outline: none;
+  display: block;
+  width: 100%;
+  color: #777;
+}
+.form-sel:not(first-child) {
+  margin: 0 3px;
+}
+
+.tab-content-border {
+  border: dashed;
+  border-color:#eee;
+}
+
+.newsletter__subscribe {
+  width: 85%;
+  margin: 0 auto;
+
+}
+.btn-newsletter {
+  border-radius: 5px !important;
+  padding: 12px 10px !important;
+  border: none !important;
+  outline: none !important;
+}
+.btn-newsletter:hover {
+  background: #2e66a5 !important;
+  background-image: none !important;
+}
+.card-coupon {
+  //box-shadow: inset 0 0 0 1px #cacfd4, 0 1px 3px 0 rgb(0 0 0 / 15%);
+  background: #fff;
+  position: relative;
+  margin-bottom: 20px;
+  transition: background-color .4s,color .2s;
+  border-radius: 2px !important;
+  padding: 1rem;
+}
+
+.form-date {
+  display: block !important;
+}
+.form-sel {
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  background-color:#fff;
+  border-radius: 4px;
+  outline: none;
+  color:#777;
+}
+
+.form-select-store {
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  background-color:#fff;
+  border-radius: 4px;
+  outline: none;
+  display: block;
+  width: 100%;
+  color: #777;
+}
+.form-sel:not(first-child) {
+  margin: 0 3px;
+}
+
+.tab-content-border {
+  border: dashed;
+  border-color:#eee;
+}
+.tab-content-border_tertiary {
+  padding: 1rem;
+  border: none !important;
+}
+
+.rebates, .comments__quick {
+  width: 90%;
+  margin: 2rem auto;
+
+}
+.item-list {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.item-list .pager {
+  display: flex;
+}
+.item-list .pager li {
+  margin: 0 10px;
+}
