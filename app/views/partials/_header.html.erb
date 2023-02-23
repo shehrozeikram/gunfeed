@@ -29,6 +29,18 @@
                         </div>
 
                       </div>
+                      <!--                      <section class="compaire-price my-5 search-dropdown2" id="html-show">-->
+                      <!--                        <div class="container">-->
+                      <!--                          <div class="row">-->
+                      <!--                            <div class="col-lg-10 ">-->
+                      <!--                              <div-->
+                      <!--                                class="horizontal-scrollable h-60 card search-products-card">-->
+                      <!--                                <div class="p-1"></div>-->
+                      <!--                              </div>-->
+                      <!--                            </div>-->
+                      <!--                          </div>-->
+                      <!--                        </div>-->
+                      <!--                      </section>-->
 
                       <div class="social-menu social-menu--header">
                         <ul class=" list-inline d-flex mt-1">
@@ -72,7 +84,7 @@
                         <div id="search-data-list"
                              class="form-group has-search pe-xs-0 pe-sm-3">
                           <span class="fa fa-search form-control-feedback"></span>
-                          <input type="text" class="form-control d-none d-sm-block search-func"
+                          <input type="text" class="form-control d-none d-sm-block"
                                  id="search" placeholder="Search keyword" name="q"
                                  onkeyup="search()">
                           <div id="suggestions" class=""></div>
@@ -141,7 +153,7 @@
         <div class="text-left">
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                   data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-            <span class="navbar-toggler-icon"></span>
+            <span class="fa fa-bars"></span>
           </button>
           <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDarkNavbar"
                aria-labelledby="offcanvasDarkNavbarLabel">
@@ -164,10 +176,10 @@
                   <ul class="navbar-nav flex-grow-1 pe-3 navbar__menu">
                     <div class="d-flex justify-content-between bg_____color ">
                       <li class="nav-item menu-item">
-                        <a href="/" title="All deals" class="fa fa-home nav-link active">All Deals</a>
+                        <a href="<%= root_path %>" title="All deals" class="fa fa-home nav-link active">All Deals</a>
                       </li>
                       <li class="nav-item border_item">
-                        <a href="#" title="Gun Deals d-flex  Posted Today"
+                        <a href="<%=popular_path %>" title="Gun Deals d-flex  Posted Today"
                            class="fa fa-star nav-link">Popular</a>
                       </li>
                     </div>
@@ -177,7 +189,7 @@
                            class="fa fa-calendar nav-link active">Date</a>
                       </li>
                       <li class="nav-item border_right">
-                        <a href="#" title="Gun Deals Posted Today"
+                        <a href="<%= today_path %>" title="Gun Deals Posted Today"
                            class="fa fa-link nav-link">Today</a>
                       </li>
                     </div>
@@ -237,29 +249,14 @@
                     </div>
                   </div>
                   <ul role="menu">
-                    <li class="leaf first"><a href="#" title="Ammo"
-                                              class="icon-ammo primary-menu_text">Ammo
-                      <img src="https://t3.ftcdn.net/jpg/00/89/02/84/240_F_89028440_TFERxXqdNQTlMbe7UwuDq6ZclCk3Mwff.jpg"
-                           alt="Ammo" title="Ammo" class="img-small">
+                    <% unless !@categories.present? %>
+                      <% @categories.each do |category| %>
+                    <li class="leaf first"><a href="<%= category_path(category) %>" title="<%= category.name %>"
+                                              class="icon-ammo primary-menu_text"><%= category.name %>
                     </a>
                     </li>
-                    <li class="leaf"><a href="#" title="Handguns"
-                                        class="icon-handguns primary-menu_text">Handguns
-                      <img src="https://cdn-icons-png.flaticon.com/512/1/1973.png "
-                           alt="Handguns" title="Handguns" class="img-small">
-                    </a>
-                    </li>
-                    <li class="leaf"><a href="#" title="Rifles" class="icon-rifles primary-menu_text">Rifles</a></li>
-                    <li class="leaf"><a href="#" title="Shotguns" class="icon-shotguns primary-menu_text">Shotguns</a></li>
-                    <li class="leaf"><a href="#" title="Parts" class="icon-gun-parts primary-menu_text">Parts</a></li>
-                    <li class="leaf"><a href="#" title="Knives" class="icon-knives primary-menu_text">Knives</a></li>
-                    <li class="leaf"><a href="#" title="" class="icon-optics-sights primary-menu_text">Optics &amp; Sights</a></li>
-                    <li class="leaf"><a href="#" title="Accessories" class="icon-accessories primary-menu_text">Accessories</a></li>
-                    <li class="leaf"><a href="#" title="" class="icon-nfa primary-menu_text">NFA</a></li>
-                    <li class="leaf"><a href="#" title="Reloading" class="icon-reloading primary-menu_text">Reloading</a></li>
-                    <li class="leaf"><a href="#" title="Archery" class="icon-archery primary-menu_text">Archery</a></li>
-                    <li class="leaf"><a href="#" title="California Legal Firearms" class="icon-ca-legal primary-menu_text">CA Legal</a></li>
-                    <li class="leaf last"><a href="/category/services" title="" class="icon-services primary-menu_text">Services</a></li>
+                      <% end %>
+                    <% end %>
                   </ul>
                 </div>
                 <div class="primary-menu primary-menu--sidebar primary-menu__quick-links-mobile">
@@ -273,25 +270,24 @@
                     </div>
                   </div>
                   <ul role="menu">
-                    <li class="leaf first"><a href="/category/ammo?caliber=3" title="22LR Ammo" class="icon-ammo primary-menu_text">22LR Ammo</a></li>
-                    <li class="leaf"><a href="#" title="blog" class="primary-menu_text">Blog</a></li>
-                    <li class="leaf"><a href="#" title="9mm Ammo" class="icon-ammo primary-menu_text">9mm Ammo</a></li>
-                    <li class="leaf"><a href="#" title="223 Rem - 5.56 Ammo" class="icon-ammo primary-menu_text">223 Rem - 5.56 Ammo</a></li>
-                    <li class="leaf"><a href="#" title="Used Guns primary-menu_text">Used Guns</a></li>
-                    <li class="leaf"><a href="#" title="AK Deals primary-menu_text">AK Deals</a></li>
-                    <li class="leaf"><a href="#" title="AR Deals primary-menu_text">AR Deals</a></li>
-                    <li class="leaf"><a href="#" title="Popular primary-menu_text">Popular</a></li>
-                    <li class="leaf"><a href="#" title="1911 primary-menu_text">1911</a></li>
-                    <li class="leaf"><a href="#" title="C&amp;R primary-menu_text">C&amp;R</a></li>
-                    <li class="leaf"><a href="#" title="Rimfire primary-menu_text">Rimfire</a> </li>
-                    <li class="leaf"><a href="#" title="Revolver primary-menu_text">Revolver</a></li>
+                    <li class="leaf first"><a href="<%= twentytwo_lr_ammo_path %>" title="22LR Ammo" class="icon-ammo primary-menu_text">22LR Ammo</a></li>
+                    <li class="leaf"><a href="<%= fetch_blogs_path %>" title="blog" class="primary-menu_text">Blog</a></li>
+                    <li class="leaf"><a href="<%= nine_mm_ammo_path %>" title="9mm Ammo" class="icon-ammo primary-menu_text">9mm Ammo</a></li>
+                    <li class="leaf"><a href="" title="223 Rem - 5.56 Ammo" class="icon-ammo primary-menu_text">223 Rem - 5.56 Ammo</a></li>
+                    <li class="leaf"><a href="<%=ak_deals_path %>" title="AK Deals primary-menu_text">AK Deals</a></li>
+                    <li class="leaf"><a href="<%=ar_deals_path %>" title="AR Deals primary-menu_text">AR Deals</a></li>
+                    <li class="leaf"><a href="<%= popular_path %>" title="Popular primary-menu_text">Popular</a></li>
+                    <li class="leaf"><a href="<%=  %>" title="1911 primary-menu_text">1911</a></li>
+                    <li class="leaf"><a href="<%=c_and_r_path %>" title="C&amp;R primary-menu_text">C&amp;R</a></li>
+                    <li class="leaf"><a href="<%= rimfire_path %>" title="Rimfire primary-menu_text">Rimfire</a> </li>
+                    <li class="leaf"><a href="<%= revolvers_path %>" title="Revolver primary-menu_text">Revolver</a></li>
                     <li class="leaf"><a href="#" title="50% Off primary-menu_text">Vulcan</a></li>
-                    <li class="leaf"><a href="#" title="Stores page primary-menu_text">Stores</a></li>
+                    <li class="leaf"><a href="<%=stores_path %>" title="Stores page primary-menu_text">Stores</a></li>
                     <li class="leaf"><a href="#" title="" class="primary-menu_text">Rebates</a></li>
-                    <li class="leaf"><a href="#" title="" class="primary-menu_text">RecentComments</a></li>
-                    <li class="leaf"><a href="#" title="" class="primary-menu_text">CompareGuns</a></li>
-                    <li class="leaf"><a href="#" title="" class="primary-menu_text">TopArticles</a></li>
-                    <li class="leaf last"><a href="#" title="" class="primary-menu_text">UsedGuns</a></li>
+                    <li class="leaf"><a href="/comments-page" title="" class="primary-menu_text">RecentComments</a></li>
+                    <li class="leaf"><a href="<%= rebates_path %>" title="" class="primary-menu_text">Rebates</a></li>
+                    <li class="leaf"><a href="<%= top_articles_path %>" title="" class="primary-menu_text">TopArticles</a></li>
+                    <li class="leaf last"><a href="<%= used_guns_path %>" title="" class="primary-menu_text">UsedGuns</a></li>
                   </ul>
                 </div>
 
@@ -427,17 +423,18 @@
                 <a href="<%= fetch_blogs_path %>" title="">Blog</a>
               </li>
               <li class="leaf">
+                <a href="/comments-page" title="">Comments</a>
+              </li>
+              <li class="leaf">
+                <a href="<%= rebates_path %>" title="">Rebates</a>
+              </li>
+              <li class="leaf">
                 <a href="<%= twentytwo_lr_ammo_path %>" title="22 LR Ammo" class="icon-ammo">22 LR
                   Ammo</a>
               </li>
               <li class="leaf">
                 <a href="<%= nine_mm_ammo_path %>" title="9mm Ammo" class="icon-ammo">9mm Ammo</a>
               </li>
-              <!--              <li class="leaf last">-->
-              <!--                <a href="#"-->
-              <!--                   title="223 Rem - 5.56 NATO Ammo" class="icon-ammo">223/5.56-->
-              <!--                  Ammo</a>-->
-              <!--              </li>-->
             </ul>
           </li>
           <li class="leaf last">
@@ -472,6 +469,13 @@
                   <%= link_to('My account', my_accounts_views_path) %>
                   <%= link_to('My watchlist', my_accounts_my_watchlist_path) %>
                 </li>
+                <li>
+                  <% if current_user.subscribed == false %>
+                  <p onclick="subscribe_to_newsletter()">Subscribe to newsletter</p>
+                    <% else %>
+                    <p onclick="subscribe_to_newsletter()">UnSubscribe newsletter</p>
+                    <% end %>
+                </li>
               </ul>
             <% else %>
               <a href="#" class="icon-fa-link" data-toggle="dropdown" title="Welcome, guest ">
@@ -502,6 +506,7 @@
 </section>
 
 
+
 <script>
     document.querySelector('#search').addEventListener('keypress', (event) => {
         if (event.keyCode === 13 || event.which === 13) {
@@ -519,6 +524,26 @@
 
 
 
+    function subscribe_to_newsletter() {
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",
+                url: "/subscribe_to_newsletter",
+                data: {
+                    id: 1
+                },
+                success: function (data) {
+
+                    console.log({dataSearchGun: data});
+                    if(data.length > 0) {
+                       console.log(data)
+                    }
+                }
+            });
+        });
+    };
+
     function search() {
         $(document).ready(function () {
             $.ajax({
@@ -530,11 +555,6 @@
                 },
                 success: function (data) {
                     const productWrapper = document.querySelector('#suggestions-search');
-                    // const productWrapper = document.querySelector('.p-1');
-                    // productWrapper.setAttribute('style', 'display: block !important;')
-
-
-
 
                     console.log({dataSearchGun: data});
                     if(data.length > 0) {
@@ -694,6 +714,13 @@
     })
     // Filter GUN PRODUCTS LEFT
 
+    const header = document.querySelector(".header__bottom");
+    const btns = document.querySelectorAll(".leaf");
+    btns.forEach(function(navItem){
+        navItem.addEventListener('click', (function(event) {
+            event.target.classList.add('active')
 
+        }))
+    })
 
 </script>

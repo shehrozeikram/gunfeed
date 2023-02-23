@@ -1,11 +1,23 @@
 class ProductsController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new]
-  before_action :categories
+  before_action :authenticate_user!, only: [:new, :recent_comments]
+  before_action :categories, :coupons, :rebates, :comments
 
   require 'open-uri'
   require 'nokogiri'
   require 'date'
+
+  def coupons
+    @coupons = Coupon.all
+  end
+
+  def comments
+    @comments = Comment.all
+  end
+
+  def rebates
+    @rebates = Rebate.all
+  end
 
   def search_products
     if params[:q].present?
@@ -188,6 +200,7 @@ class ProductsController < ApplicationController
     @categories = Category.all
   end
 
+
   def live_inventory_search
     @product = Product.find(params[:id])
     @products = Product.where(upc: @product.upc, active: true).where.not(stock: nil ).where.not(stock: 'out of stock')
@@ -202,7 +215,12 @@ class ProductsController < ApplicationController
     @compared_products = Product.where(id: 2, active: true).where.not(stock: nil ).where.not(stock: 'out of stock')
   end
 
+  def recent_comments
+    @comments = current_user.comments.all
+  end
+
   protected
+
   def product_params
     params.permit(
       :product_url,

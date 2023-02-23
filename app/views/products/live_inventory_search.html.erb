@@ -118,11 +118,11 @@
           <% end %>
           <div class="" id="scroll-section2">
           </div>
-          <button href="#scroll-section2" class="scroll-previous tile-slider_direction tile-slider_direction--previous"
+          <button id="slider_btn-1" href="#scroll-section2" class="scroll-previous tile-slider_direction tile-slider_direction--previous"
                   style="display: inline-block;">
             <i class="fa fa-chevron-left"></i>
           </button>
-          <button href="#scroll-section1" class="scroll-next tile-slider_direction tile-slider_direction--next"
+          <button id="slider_btn-2" href="#scroll-section1" class="scroll-next tile-slider_direction tile-slider_direction--next"
                   style="display: inline-block;">
             <i class="fa fa-chevron-right"></i>
           </button>
@@ -608,6 +608,36 @@
             next = next.nextElementSibling
         }
     })
+</script>
+
+<script>
+
+    (function() {
+        document.querySelector('#slider_btn-2')
+            .addEventListener('click', (event) => {
+                const slider = document.querySelector('.product-scroller');
+                slider.setAttribute('style', 'scroll-behavior: smooth;')
+                slider.scrollLeft = slider.scrollWidth;
+                event.preventDefault();
+                return true;
+            });
+
+        document.querySelector('#slider_btn-1')
+            .addEventListener('click', (event) => {
+                const slider = document.querySelector('.product-scroller');
+                slider.setAttribute('style', 'scroll-behavior: smooth;')
+                slider.scrollLeft = 0;
+                event.preventDefault();
+                return true;
+            });
+    })();
+
+
+
+
+
+
+
 </script>
 </body>
 

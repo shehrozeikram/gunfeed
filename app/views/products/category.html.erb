@@ -2,7 +2,7 @@
 <html lang="en">
 <%= render partial: 'partials/title' %>
 <div class="body-style">
-  <%= render partial: 'partials/headers/category_header', locals: {cat_id: params[:id]} %>
+  <%= render partial: 'partials/header', locals: {cat_id: params[:id]} %>
   <section>
     <div class="container">
       <div class="add-section add-banner-section">
@@ -82,8 +82,8 @@
                     </div>
                     <div class="card-body d-flex justify-content-between card-footer tile__actions-container">
 
-                      <a href="#" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span><%= product.store %></span></a>
-                      <a href="#" class="card-link icon-fa-link"><i class="fa fa-balance-scale"></i><span></span></a>
+                      <a href="#" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span><%= product.store.title %></span></a>
+<!--                      <a href="#" class="card-link icon-fa-link"><i class="fa fa-balance-scale"></i><span></span></a>-->
                     </div>
                   </div>
                 </div>
