@@ -1,6 +1,7 @@
 class CouponsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new]
+  before_action :categories, :rebates, :comments
 
   def index
     @coupons = Coupon.all
@@ -32,6 +33,18 @@ class CouponsController < ApplicationController
 
   def edit
 
+  end
+
+  def categories
+    @categories = Category.all
+  end
+
+  def rebates
+    @rebates = Rebate.all
+  end
+
+  def comments
+    @comments = Comment.all
   end
 
   private
