@@ -2,7 +2,7 @@
   <div class="card p-4 js-collapsible-card card--block-871" id="card-block-871" data-collapsible-card="xs sm">
     <div class="card__title">
       <h2 class="js-card-title">
-        <a href="#">Recent coupons (<%= @coupons.all.count %>)</a>
+        <a href="#">Recent coupons (<%= @coupons.all.count unless @coupons.present?%>)</a>
       </h2>
     </div>
     <div class="card__content">
@@ -48,7 +48,7 @@
   <div class="card p-4 js-collapsible-card card--block-906" id="card-block-906" data-collapsible-card="xs sm">
     <div class="card__title">
       <h2 class="js-card-title">
-        <a href="#">Active rebates (<%= @rebates.all.count %>)</a>
+        <a href="#">Active rebates (<%= @rebates.all.count unless @rebates.present?%>)</a>
       </h2>
     </div>
     <div class="card__content">
