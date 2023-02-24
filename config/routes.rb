@@ -40,7 +40,6 @@ Rails.application.routes.draw do
   get "/comments" , to: "products#comments"
 
   resources :coupons
-  # get "/coupons" , to: "products#coupons"
 
   # watchlist routes
   get "/add_to_watchlist/:id" , to: "watchlist#add_to_watchlist", as: :add_to_watchlist
