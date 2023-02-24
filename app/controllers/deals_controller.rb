@@ -1,5 +1,5 @@
 class DealsController < ApplicationController
-
+  before_action  :coupons, :rebates, :comments
   before_action :find_categories
 
   def revolvers
@@ -89,5 +89,16 @@ class DealsController < ApplicationController
     @categories = Category.all
   end
 
+  def coupons
+    @coupons = Coupon.all
+  end
+
+  def comments
+    @comments = Comment.all
+  end
+
+  def rebates
+    @rebates = Rebate.all
+  end
 
 end
