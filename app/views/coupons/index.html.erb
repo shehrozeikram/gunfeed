@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<%= render partial: 'partials/title' %>
+<body class="body-style">
+<%= render partial: 'partials/header' %>
+
+<section>
+  <div class="container mb-5 mt-5">
+    <div class="col-xs-12">
+      <div class="row row-flex-sm row-flex-md row-flex-lg">
+        <div class="col-md-12 col-lg-9 mb-3 mb-lg-0">
+          <div class="card card--listing-header">
+            <div class="card__title">
+              <h1 class="listing-title listing-title--block"> Latest Coupons<div
+                class="subtitle subtitle--listing"> Showcasing total of <span
+                class="pager-total-items" id="pager-total-items">250</span> coupons</div>
+              </h1>
+            </div>
+            <div class="card__actions"></div>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-3 mb-3 mb-lg-0 text-center">
+          <div class="card card--vertical-center-content">
+            <div class="card__content"> <a class="btn btn-primary btn-block" href="/stores">View stores</a>
+              <a class="btn btn-primary btn-block" href="/node/add/coupon/" target="_blank"><i
+                class="fa fa-scissors"></i> Add a Coupon</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <span class="popular-mark">Search Coupons by Store</span>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <div class="form-group">
+            <input type="text" placeholder="Enter the name of the store" id="search-stores"
+                   class="form-control js-search-store">
+          </div>
+        </div>
+      </div>
+
+      <div id="coupons-content">
+        <div class="card p-4">
+          <div class="card__content">
+            <div class="coupons">
+              <% @coupons.each do |coupon| %>
+              <div class="coupon">
+                <div class="coupon__title">
+                  <a href="#" target="_blank" class="js-ga-event" data-ga-action="External Click"
+                     data-ga-category="Aero Precision"
+                     data-ga-label="Coupon link - Coupons block"><%= coupon.discount %></a>
+                </div>
+                <div class="coupon__code coupon__code--coupon d-flex justify-content-start">
+                  <span><%= coupon.coupon_code %></span>
+                  <div class="js-copy-text coupon__copy">
+                    <div class="coupon__input-wrapper">
+                      <input class="coupon__input" type="text" value="AeroCS_22" readonly="">
+                    </div>
+                    <a href="#"> <i class="fa fa-scissors ps-2 text-dark"></i></a>
+                  </div>
+                </div>
+                <div class="coupon__pills">
+                                <span class="pill"><span class="pill__title">Expiration date</span><span
+                                  class="pill__value"><%= coupon.expiration_date %></span></span>
+                  <span class="pill">
+                                    <span class="pill__title">Store</span>
+                                    <span class="pill__value"><a href="#"><%= coupon.store.title %></a></span>
+                                </span>
+                  <span class="pill js-report-problem pill--value_only" data-toggle="modal"
+                        data-target="#modalReportProblem" data-reset-content-on-close="1"
+                        data-content-path="/report-a-problem?nid=1140271&amp;title=10%25%20Off%20%28one%20time%20use%29">
+                                    <span class="pill__value">Report</span>
+                                </span>
+                </div>
+              </div>
+            <% end %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- card section two start here  -->
+<%= render partial: 'partials/middle_adds' %>
+<section class="mb-4">
+  <div class="container">
+    <div class="row">
+      <%= render partial: 'partials/bottom_cards' %>
+    </div>
+  </div>
+</section>
+<%= render partial: 'partials/footer' %>
+</body>
+</html>
