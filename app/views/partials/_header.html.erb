@@ -251,10 +251,10 @@
                   <ul role="menu">
                     <% unless !@categories.present? %>
                       <% @categories.each do |category| %>
-                    <li class="leaf first"><a href="<%= category_path(category) %>" title="<%= category.name %>"
-                                              class="icon-ammo primary-menu_text"><%= category.name %>
-                    </a>
-                    </li>
+                        <li class="leaf first"><a href="<%= category_path(category) %>" title="<%= category.name %>"
+                                                  class="icon-ammo primary-menu_text"><%= category.name %>
+                        </a>
+                        </li>
                       <% end %>
                     <% end %>
                   </ul>
@@ -271,7 +271,7 @@
                   </div>
                   <ul role="menu">
                     <li class="leaf first"><a href="<%= twentytwo_lr_ammo_path %>" title="22LR Ammo" class="icon-ammo primary-menu_text">22LR Ammo</a></li>
-                    <li class="leaf"><a href="<%= fetch_blogs_path %>" title="blog" class="primary-menu_text">Blog</a></li>
+                    <!--                    <li class="leaf"><a href="<%#= fetch_blogs_path %>" title="blog" class="primary-menu_text">Blog</a></li>-->
                     <li class="leaf"><a href="<%= nine_mm_ammo_path %>" title="9mm Ammo" class="icon-ammo primary-menu_text">9mm Ammo</a></li>
                     <li class="leaf"><a href="" title="223 Rem - 5.56 Ammo" class="icon-ammo primary-menu_text">223 Rem - 5.56 Ammo</a></li>
                     <li class="leaf"><a href="<%=ak_deals_path %>" title="AK Deals primary-menu_text">AK Deals</a></li>
@@ -284,8 +284,8 @@
                     <li class="leaf"><a href="#" title="50% Off primary-menu_text">Vulcan</a></li>
                     <li class="leaf"><a href="<%=stores_path %>" title="Stores page primary-menu_text">Stores</a></li>
                     <li class="leaf"><a href="#" title="" class="primary-menu_text">Rebates</a></li>
-                    <li class="leaf"><a href="/comments-page" title="" class="primary-menu_text">RecentComments</a></li>
-                    <li class="leaf"><a href="<%= rebates_path %>" title="" class="primary-menu_text">Rebates</a></li>
+                    <li class="leaf"><a href="<%= comments_path %>" title="" class="primary-menu_text">RecentComments</a></li>
+                    <!--                    <li class="leaf"><a href="<%#= compare_guns_path %>" title="" class="primary-menu_text">CompareGuns</a></li>-->
                     <li class="leaf"><a href="<%= top_articles_path %>" title="" class="primary-menu_text">TopArticles</a></li>
                     <li class="leaf last"><a href="<%= used_guns_path %>" title="" class="primary-menu_text">UsedGuns</a></li>
                   </ul>
@@ -353,13 +353,12 @@
 
         <ul role="menu">
           <li class="leaf first active-trail">
-            <a href="<%= root_path %>" title="All deals" class="active">All Deals</a>
-          </li>
+            <a href="<%= root_path %>" title="All deals" class="<%= isActive_path?(root_path) %>">All Deals</a>li>
           <li class="leaf">
-            <a href="<%=today_path %>" title="Gun Deals Posted Today">Today</a>
+            <a href="<%=today_path %>" title="Gun Deals Posted Today" class="<%= isActive_path?(today_path) %>">Today</a>
           </li>
           <li class="expanded dropdown">
-            <a class="nolink" data-toggle="dropdown" title="Categories">Categories
+            <a class="nolink" data-toggle="dropdown" title="Categories" class="active__class">Categories
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
@@ -420,13 +419,7 @@
                 <a href="<%= used_guns_path %>" title="Used Guns">Used Guns</a>
               </li>
               <li class="leaf">
-                <a href="<%= fetch_blogs_path %>" title="">Blog</a>
-              </li>
-              <li class="leaf">
-                <a href="/comments-page" title="">Comments</a>
-              </li>
-              <li class="leaf">
-                <a href="<%= rebates_path %>" title="">Rebates</a>
+                <!--                <a href="<%#= fetch_blogs_path %>" title="">Blog</a>-->
               </li>
               <li class="leaf">
                 <a href="<%= twentytwo_lr_ammo_path %>" title="22 LR Ammo" class="icon-ammo">22 LR
@@ -435,17 +428,22 @@
               <li class="leaf">
                 <a href="<%= nine_mm_ammo_path %>" title="9mm Ammo" class="icon-ammo">9mm Ammo</a>
               </li>
+              <!--              <li class="leaf last">-->
+              <!--                <a href="#"-->
+              <!--                   title="223 Rem - 5.56 NATO Ammo" class="icon-ammo">223/5.56-->
+              <!--                  Ammo</a>-->
+              <!--              </li>-->
             </ul>
           </li>
           <li class="leaf last">
-            <a href="<%= popular_path %>" title="Popular">Popular</a>
+            <a href="<%= popular_path %>" title="Popular" class="<%= isActive_path?(popular_path) %>">Popular</a>
           </li>
         </ul>
       </div>
       <div class="secondary-menu secondary-menu--header header__submenu-container menu-header">
         <ul>
           <li class="hidden-xs hidden-sm">
-            <a href="<%= new_product_path %>" class="icon-fa-link" title="Post a Deal">
+            <a href="<%= new_product_path %>" class="<%= isActive_path?(new_product_path) %>" title="Post a Deal">
               <i class="fa fa-pencil"></i>
               <span>Post a Deal</span>
             </a>
@@ -468,13 +466,6 @@
                   <%= link_to('Logout', destroy_user_session_path, :method=> 'get') %>
                   <%= link_to('My account', my_accounts_views_path) %>
                   <%= link_to('My watchlist', my_accounts_my_watchlist_path) %>
-                </li>
-                <li>
-                  <% if current_user.subscribed == false %>
-                  <p onclick="subscribe_to_newsletter()">Subscribe to newsletter</p>
-                    <% else %>
-                    <p onclick="subscribe_to_newsletter()">UnSubscribe newsletter</p>
-                    <% end %>
                 </li>
               </ul>
             <% else %>
@@ -505,8 +496,6 @@
   </div>
 </section>
 
-
-
 <script>
     document.querySelector('#search').addEventListener('keypress', (event) => {
         if (event.keyCode === 13 || event.which === 13) {
@@ -523,26 +512,6 @@
     });
 
 
-
-    function subscribe_to_newsletter() {
-        $(document).ready(function () {
-            $.ajax({
-                type: "GET",
-                contentType: "application/json",
-                url: "/subscribe_to_newsletter",
-                data: {
-                    id: 1
-                },
-                success: function (data) {
-
-                    console.log({dataSearchGun: data});
-                    if(data.length > 0) {
-                       console.log(data)
-                    }
-                }
-            });
-        });
-    };
 
     function search() {
         $(document).ready(function () {
