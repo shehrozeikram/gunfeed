@@ -19,7 +19,6 @@ class NewsLetterController < ApplicationController
         render :'news_letter/new', status: :unprocessable_entity
       end
     end
-
   end
 
   # def subscribe_to_newsletter
