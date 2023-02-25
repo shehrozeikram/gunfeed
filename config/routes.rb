@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
   #footer cards routes
   get "/comments-page" , to: "products#recent_comments"
-  get "/comments" , to: "products#comments"
+  # get "/comments" , to: "products#comments"
 
   resources :coupons
 
