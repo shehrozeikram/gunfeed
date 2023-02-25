@@ -1,5 +1,4 @@
 class MyAccountsController < ApplicationController
-  before_action :categories
   before_action :user
 
   def views
@@ -27,10 +26,6 @@ class MyAccountsController < ApplicationController
 
   def my_watchlist
     @watchlist = Watchlist.where(user_id:current_user.id)
-  end
-
-  def categories
-    @categories = Category.all
   end
 
   def user

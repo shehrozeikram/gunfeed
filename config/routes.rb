@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'rebates/index'
-  get 'rebates/new'
-  get 'news_letter/index'
-  get 'news_letter/new'
 
   # MyAccount routes
   get 'my_accounts/views'
@@ -48,7 +44,7 @@ Rails.application.routes.draw do
   get 'deals/index'
 
   resources :news_letter
-  get 'subscribe_to_newsletter' , to: "news_letter#subscribe_to_newsletter", as: :subscribe_to_newsletter
+  # get 'subscribe_to_newsletter' , to: "news_letter#subscribe_to_newsletter", as: :subscribe_to_newsletter
 
   resources :rebates
   get "/rebates" , to: "products#rebates"
@@ -97,7 +93,7 @@ Rails.application.routes.draw do
   get "/about_us" , to: "products#about_us"
   get "/contact_us" , to: "products#contact_us"
   get "/FAQ" , to: "products#FAQ"
-  get "/newsletter" , to: "products#newsletter"
+  # get "/newsletter" , to: "products#newsletter"
   get "/moderator" , to: "products#moderator"
   get "/banners" , to: "products#banners"
   get "/giveaways" , to: "products#giveaways"

@@ -1,23 +1,12 @@
 class ProductsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :recent_comments]
-  before_action :categories, :coupons, :rebates, :comments
+
 
   require 'open-uri'
   require 'nokogiri'
   require 'date'
 
-  def coupons
-    @coupons = Coupon.all
-  end
-
-  def comments
-    @comments = Comment.all
-  end
-
-  def rebates
-    @rebates = Rebate.all
-  end
 
   def search_products
     if params[:q].present?
@@ -196,9 +185,7 @@ class ProductsController < ApplicationController
 
   end
 
-  def categories
-    @categories = Category.all
-  end
+
 
 
   def live_inventory_search
