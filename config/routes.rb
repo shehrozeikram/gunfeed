@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :reviews
 
   get 'comments/new'
-  resources :comments
+  # resources :comments
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
