@@ -24,11 +24,11 @@
             <% end %>
             <image class="img-responsive" src = "<%= @product.image_link %>" />
             <div class="button-products">
-              <a class="btn btn-product-single" href="#">
+              <a class="btn btn-product-single" href="<%= notify_me_path %>">
                 <i class="fa fa-bell-o fa-fw"></i>
                 <span>Notify Me</span>
               </a>
-              <a class="btn btn-product-single" href="#">
+              <a class="btn btn-product-single" href="<%= compare_guns_path %>">
                 <i class="fa fa-exchange"></i>
                 <span>Compare Guns</span>
               </a>

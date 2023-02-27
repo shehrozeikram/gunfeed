@@ -137,15 +137,7 @@
                   </a>
                 </li>
                 <li class="notify-me-modal">
-                  <a
-
-                    class="btn btn-product-icon btn-product-icon-config btn-block text-dark"
-                    data-original-icon="fa-bell-o fa-fw" data-inverse-icon="fa-bell-o fa-fw"
-                    data-original-text="Notify me" data-inverse-text="Following product (UPC)"
-                    data-status="0" data-toggle="modal" data-target="#modalUpcSubscribe"
-                    data-placement="bottom"
-                    data-title="Notifies when price drops below limit price you set. Tracks all products with same product UPC, sitewide."
-                    data-original-title="" title="">
+                  <a href="<%= notify_me_path %>" class="btn btn-product-icon btn-product-icon-config btn-block text-dark" >
                     <i class="fa fa-bell-o fa-fw"></i>
                     <span style="margin-left:3px;" >Notify me</span>
                   </a>
@@ -1196,23 +1188,6 @@
                     <div class="rate-widget-2 rate-widget clear-block rate-average rate-widget-thumbs_up_down_count rate-b1af0c4050c20a8627157b8bdac33c9b rate-processed rate-custom-processed"
                          id="rate-comment-1177471-2-1">
                       <div class="votes-up-down-widget">
-                        <!--                    <div class="thumb-up">-->
-                        <!--                      <div class="" title="50%"><a class="rate-button rate-thumbs-up-down-btn-up"-->
-                        <!--                                                   id="rate-button-7" rel="nofollow"-->
-                        <!--                                                   href="/product/winchester-silvertip-9mm-115-grain-hollow-point-1000-rounds-550?rate=2e52b9d46be73c06cd3ade9843aa6ed7"></a>-->
-                        <!--                      </div>-->
-                        <!--                      <div class="percent">0 votes</div>-->
-                        <!--                    </div>-->
-                        <!--                    <div class="thumb-down">-->
-                        <!--                      <div title="50%"><a class="rate-button rate-thumbs-up-down-btn-down"-->
-                        <!--                                          id="rate-button-8" rel="nofollow"-->
-                        <!--                                          href="/product/winchester-silvertip-9mm-115-grain-hollow-point-1000-rounds-550?rate=620fdff013c3b5da5192570982d203f1"></a>-->
-                        <!--                      </div>-->
-                        <!--                      <div class="percent">0 votes</div>-->
-                        <!--                    </div>-->
-                        <!--                    <div class="voting-results-link"><a-->
-                        <!--                      href="/voting-results?nid=1177471&amp;content-type=comment">View-->
-                        <!--                      score</a></div>-->
                       </div>
                     </div>
                   </div>
@@ -1468,21 +1443,9 @@
        </span>
     </div>
     <div class="model-content-app">
-      <form>
-        <div class="form-group">
-          <label for="upc" class="label-app">UPC: *</label>
-          <input class="form-control" id="upc" placeholder="Enter UPC"/>
-        </div>
-        <div class="form-group">
-          <label for="price-limit" class="label-app">Limit price: * $</label>
-          <input class="form-control" id="price-limit" placeholder="Limit Price"/>
-        </div>
-        <div class="form-group">
-          <label for="app-email" class="label-app">E-mail: *</label>
-          <input class="form-control" id="app-email" placeholder="Email"/>
-        </div>
-        <button class="btn-app-subscribe">Subscribe</button>
-      </form>
+
+      <%= render partial: 'partials/notify_me' %>
+
     </div>
   </div>
 </div>

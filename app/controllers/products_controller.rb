@@ -206,7 +206,23 @@ class ProductsController < ApplicationController
     @comments = current_user.comments.all
   end
 
+  def notify_me
+    if params[:email].present?
+    @notify_me = NotifyMe.new(notify_params)
+      if @notify_me.save
+        redirect_to products_path(@product)
+      else
+        render :'products/index', status: :unprocessable_entity
+      end
+    end
+    end
+
+
   protected
+
+  def notify_params
+    params.permit(:upc, :limite_price, :email)
+  end
 
   def product_params
     params.permit(

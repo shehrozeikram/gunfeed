@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   resources :news_letter
 
 
+
   resources :rebates
   get "/rebates" , to: "products#rebates"
 
@@ -106,4 +107,7 @@ Rails.application.routes.draw do
   get "/refund_policy" , to: "products#refund_policy"
   get "/how_order_gun_online" , to: "products#how_order_gun_online"
   # get "products/show_page" , to: "products#show_page"
+
+  # other routes
+  post "/notify_me" , to: "products#notify_me"
 end
