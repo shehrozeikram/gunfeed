@@ -13,6 +13,7 @@ class NewsLetterController < ApplicationController
     if params[:email].present?
     @news_letter = NewsLetter.new(newsletter_params)
       @news_letter.subscribed = true
+
       if @news_letter.save
         redirect_to products_path
       else
