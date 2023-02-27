@@ -448,7 +448,7 @@
               <span>Post a Deal</span>
             </a>
           </li>
-          <li class="dropdown">
+          <li class="dropdown header-dropdown">
             <a href="#" class="icon-fa-link" data-toggle="dropdown" title="Welcome, guest ">
               <i class="fa fa-user"></i>
               <% if current_user %>
@@ -466,6 +466,10 @@
                   <%= link_to('Logout', destroy_user_session_path, :method=> 'get') %>
                   <%= link_to('My account', my_accounts_views_path) %>
                   <%= link_to('My watchlist', my_accounts_my_watchlist_path) %>
+
+                </li>
+                <li>
+                  <a href="#" class="sub__string" title="Subscribe to newsletter" onclick="subscribe_to_newsletter()">Subscribe to newsletter </a>
                 </li>
               </ul>
             <% else %>
@@ -517,6 +521,34 @@
         }
     });
 
+    function subscribe_to_newsletter() {
+
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",
+                url: "/subscribe_to_newsletter",
+                data: {
+                    id: <%= current_user.id if current_user.present? %>
+                },
+                success: function (data) {
+                    // alert ('hi bilal')
+                    console.log('done');
+                    if(data.subscribed == true) {
+                        const subString = document.querySelector('.sub__string');
+                        console.log(subString.textContent)
+                        setTimeout(() => {
+                            subString.textContent = "Subscribed to Newsletter"
+                            setTimeout(() => {
+                                subString.textContent = "Subscribe to Newsletter"
+                            },7000)
+                        })
+                    }
+
+                }
+            });
+        });
+    };
 
 
     function search() {

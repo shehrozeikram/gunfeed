@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get "/fetch_data_from_url" , to: "products#fetch_data_from_url"
   get "/search_compare_guns" , to: "products#search_compare_guns"
   get "/select_gun/:id" , to: "products#select_gun", as: :select_gun
+  get 'subscribe_to_newsletter' , to: "news_letter#subscribe_to_newsletter", as: :subscribe_to_newsletter
 
   # main routes
   resources :products
@@ -33,7 +34,6 @@ Rails.application.routes.draw do
 
   #footer cards routes
   get "/comments-page" , to: "products#recent_comments"
-  # get "/comments" , to: "products#comments"
 
   resources :coupons
 
@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   get 'deals/index'
 
   resources :news_letter
-  # get 'subscribe_to_newsletter' , to: "news_letter#subscribe_to_newsletter", as: :subscribe_to_newsletter
+
 
   resources :rebates
   get "/rebates" , to: "products#rebates"

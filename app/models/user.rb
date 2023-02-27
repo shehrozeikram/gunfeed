@@ -13,4 +13,5 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :comments
   has_many :watchlists
+  has_many :news_letters
 end

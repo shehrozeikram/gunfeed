@@ -21,21 +21,16 @@ class NewsLetterController < ApplicationController
     end
   end
 
-  # def subscribe_to_newsletter
-  #   if params[:id].present?
-  #     @user = User.find(params[:id])
-  #     # @news_letter = @user.subscribed
-  #     if @user.subscribed == false
-  #       @user.subscribed = true
-  #       @user.save
-  #     else
-  #       @user.subscribed = false
-  #       @user.save
-  #     end
-  #
-  #   end
-
-  # end
+  def subscribe_to_newsletter
+    if params[:id].present?
+      @user = User.find(params[:id])
+      @user.subscribed == true
+      @user.save
+      render json:  @user
+    else
+      render json: @user.errors.full_messages
+      end
+  end
 
   private
 
