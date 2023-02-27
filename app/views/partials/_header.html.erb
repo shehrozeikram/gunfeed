@@ -523,13 +523,16 @@
 
     function subscribe_to_newsletter() {
 
+
         $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 contentType: "application/json",
                 url: "/subscribe_to_newsletter",
                 data: {
-                    id: <%= current_user.id  %>
+                    <% if user_signed_in? %>
+                    id: <%= current_user.id %>
+                    <% end %>
                 },
                 success: function (data) {
                     if(data.subscribed == true) {
