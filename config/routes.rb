@@ -111,4 +111,5 @@ Rails.application.routes.draw do
   # other routes
   post "/notify_me" , to: "products#notify_me"
   post "/report_product" , to: "products#report_product"
+  post "/recently_viewed", to: "products#recently_viewed"
 end

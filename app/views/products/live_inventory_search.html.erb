@@ -484,17 +484,18 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-4 filter-card-container">
+            <% @recently_viewed_products.each do |recent_product| %>
             <div class="col my-3 sub-card filter-card">
               <div class="card h-100">
                 <div class="card-body d-flex justify-content-between">
                   <a href="#" class="card-link "><span></span></a>
-                  <span class="card-link price-tag price-tag--one-line"><span>$123.0</span></span>
+                  <span class="card-link price-tag price-tag--one-line"><span>$<%= recent_product.product.price %></span></span>
                 </div>
                 <div class="tile__image-container">
-                  <a href="/products/17942"><img src="/uploads/product/image/17942/gun.webp"></a>
+                  <a href=""><image src = "<%= recent_product.product.image %>"  /></a>
                 </div>
                 <div class="card-body tile__title">
-                  <p class="card-text truncate "><a href="/products/17942">Heritage Rough Rider 22LR 6 Rnd Gold - $164.99 (Free S/H on Firearms)</a></p>
+                  <p class="card-text truncate "><a href="/products/17942"><%= recent_product.product.title %></a></p>
                 </div>
                 <div class="card-body d-flex justify-content-between tile__actions-container">
                   <a href="#" class="card-link tile__rate-action tile__likes icon-fa-link"><i class="fa fa-thumbs-up"></i> <span>2</span></a>
@@ -502,11 +503,12 @@
                   <a href="#" class="card-link tile__rate-action tile__comments icon-fa-link"><i class="fa fa-comments"></i> <span>0</span></a>
                 </div>
                 <div class="card-body d-flex justify-content-between card-footer tile__actions-container">
-                  <a href="#" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span>Gunprime.</span></a>
+                  <a href="#" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span><%= recent_product.product.store.title %></span></a>
                   <a href="#" class="card-link icon-fa-link"><i class="fa fa-balance-scale"></i><span></span></a>
                 </div>
               </div>
             </div>
+              <% end %>
           </div>
         </div>
       </div>

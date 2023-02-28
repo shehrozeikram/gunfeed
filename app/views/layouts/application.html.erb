@@ -24,4 +24,65 @@
   <% end %>
     <%= yield %>
   </body>
+
+<script>
+
+  // notify me modal
+    (function(){
+
+        //. (i) Declare UI Selectors
+        const model_overlay = document.querySelector('.model-overlay-app');
+        const model_app = document.querySelector('.app-model');
+        const reportModel_overlay = document.querySelector('.model-overlay-product');
+        const reportModel_app = document.querySelector('.app-model-product')
+        const removeModelCTRL = document.querySelector('.remove-model-app');
+        const removeModelReport = document.querySelector('.remove-report-model');
+
+        model_overlay.setAttribute('style', `opacity: 0; visibility: hidden;`);
+        reportModel_overlay.setAttribute('style', `opacity: 0; visibility: hidden;`);
+
+        //... Start Model Controller
+        const modelDisplayUI = {
+            displayUIModel: `visibility: visible; transition: all .4s ease-in-out;  opacity: 1`
+        };
+        const removeModel = {
+            removeUIModel: `visibility: hidden; transition: all .4s ease-in-out;  opacity: 0`
+        };
+        //... End Model Controller
+
+        //. (M-I) Add Event Listener on Click ( Model Notify Me)
+        document.querySelector('.notify-me-modal').addEventListener('click', (event) => {
+
+            //. (iv) Display the Model Overlay and Content after Click
+            model_overlay.setAttribute('style', modelDisplayUI.displayUIModel);
+
+            event.preventDefault();
+            return true;
+        });
+
+
+
+        removeModelCTRL.addEventListener('click', (event) => {
+            model_overlay.setAttribute('style', removeModel.removeUIModel);
+            reportModel_overlay.setAttribute('style', removeModel.removeUIModel);
+            event.preventDefault();
+            return true;
+        });
+        removeModelReport.addEventListener('click', (event) => {
+            model_overlay.setAttribute('style', removeModel.removeUIModel);
+            reportModel_overlay.setAttribute('style', removeModel.removeUIModel);
+            event.preventDefault();
+            return true;
+        });
+
+        //. Report Model
+        document.querySelector('.report-product').addEventListener('click', (event) => {
+            reportModel_overlay.setAttribute('style', modelDisplayUI.displayUIModel);
+
+            event.preventDefault();
+            return true;
+        });
+    })();
+</script>
+
 </html>

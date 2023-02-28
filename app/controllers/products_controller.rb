@@ -104,7 +104,10 @@ class ProductsController < ApplicationController
     @comment = Comment.new
     @product = Product.find(params[:id])
     @products = Product.where(:upc => @product.upc, :active => true).where.not(:stock => nil )
-
+    @recently_viewed = current_user.recently_vieweds.new(recent_params)
+    @recently_viewed.product_id = @product.id
+    @recently_viewed.save
+    @recently_viewed_products = current_user.recently_vieweds.last(5)
   end
 
   def update
@@ -193,6 +196,7 @@ class ProductsController < ApplicationController
     @products = Product.where(upc: @product.upc, active: true).where.not(stock: nil ).where.not(stock: 'out of stock')
     @stock = Product.where(upc: @product.upc, stock: nil, active: true).or(Product.where( active: true, stock: "out of stock"))
     @similar_products = Product.where(:category_id => @product.category_id)
+    @recently_viewed_products = current_user.recently_vieweds.last(5)
   end
 
   def compare_guns
@@ -224,9 +228,18 @@ class ProductsController < ApplicationController
       else
         render :'products/index', status: :unprocessable_entity
       end
-    end
+  end
+
+
+  def recently_viewed
+    @recently_viewed_products = current_user.recently_vieweds.order('updated_at DESC')
+  end
 
   protected
+
+  def recent_params
+    params.permit(:user_id, :product_id)
+  end
 
   def report_params
     params.permit(:problem_with, :problem_details)
