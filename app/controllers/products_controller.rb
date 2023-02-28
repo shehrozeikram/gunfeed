@@ -1,7 +1,19 @@
 class ProductsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :recent_comments]
-  before_action :categories
+  before_action :categories, :coupons, :rebates, :comments
+
+  def coupons
+    @coupons = Coupon.all
+  end
+
+  def comments
+    @comments = Comment.all
+  end
+
+  def rebates
+    @rebates = Rebate.all
+  end
 
   require 'open-uri'
   require 'nokogiri'
