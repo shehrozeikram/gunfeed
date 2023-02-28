@@ -1270,6 +1270,7 @@
   <div class="container">
     <h3 class="recent-products__heading">Recently viewed deals</h3>
     <div class="row row-cols-5 card-devider">
+      <% if current_user.present? %>
       <% @recently_viewed_products.each do |recent_product| %>
       <div class="col my-3 sub-card">
         <div class="card h-100">
@@ -1301,7 +1302,7 @@
         </div>
       </div>
       <% end %>
-
+      <% end %>
     </div>
 
   </div>

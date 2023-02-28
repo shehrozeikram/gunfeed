@@ -484,6 +484,7 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-4 filter-card-container">
+            <% if current_user.present? %>
             <% @recently_viewed_products.each do |recent_product| %>
             <div class="col my-3 sub-card filter-card">
               <div class="card h-100">
@@ -508,6 +509,7 @@
                 </div>
               </div>
             </div>
+              <% end %>
               <% end %>
           </div>
         </div>

@@ -104,10 +104,12 @@ class ProductsController < ApplicationController
     @comment = Comment.new
     @product = Product.find(params[:id])
     @products = Product.where(:upc => @product.upc, :active => true).where.not(:stock => nil )
+    if current_user.present?
     @recently_viewed = current_user.recently_vieweds.new(recent_params)
     @recently_viewed.product_id = @product.id
     @recently_viewed.save
     @recently_viewed_products = current_user.recently_vieweds.last(5)
+    end
   end
 
   def update
@@ -196,8 +198,10 @@ class ProductsController < ApplicationController
     @products = Product.where(upc: @product.upc, active: true).where.not(stock: nil ).where.not(stock: 'out of stock')
     @stock = Product.where(upc: @product.upc, stock: nil, active: true).or(Product.where( active: true, stock: "out of stock"))
     @similar_products = Product.where(:category_id => @product.category_id)
-    @recently_viewed_products = current_user.recently_vieweds.last(5)
-  end
+    if current_user.present?
+    @recently_viewed_products = current_user.recently_vieweds.last(5) unless current_user.present?
+    end
+    end
 
   def compare_guns
     @product = Product.find(params[:id])
