@@ -1,4 +1,8 @@
 class BlogsController < ApplicationController
+  before_action :categories
+  def categories
+    @categories = Category.all
+  end
   def fetch_blogs
     @blogs = Blog.all
     @categories = Category.all

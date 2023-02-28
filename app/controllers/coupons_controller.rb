@@ -1,6 +1,10 @@
 class CouponsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new]
+  before_action :categories
+  def categories
+    @categories = Category.all
+  end
 
   def index
     @coupons = Coupon.all

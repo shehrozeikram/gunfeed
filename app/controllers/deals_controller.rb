@@ -1,5 +1,8 @@
 class DealsController < ApplicationController
-
+  before_action :categories
+  def categories
+    @categories = Category.all
+  end
   def revolvers
     @deals = Deal.where(deal_type: 'revolver')
   end

@@ -2,6 +2,10 @@ class NewsLetterController < ApplicationController
   # before_action :authenticate_user!, only: [:new]
 
   skip_before_action :verify_authenticity_token
+  before_action :categories
+  def categories
+    @categories = Category.all
+  end
   def index
   end
 

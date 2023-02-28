@@ -1,4 +1,8 @@
 class ReviewsController < ApplicationController
+  before_action :categories
+  def categories
+    @categories = Category.all
+  end
   def new
     @categories = Category.all
     @review = Review.new

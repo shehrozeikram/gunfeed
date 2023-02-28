@@ -1,4 +1,8 @@
 class StoresController < ApplicationController
+  before_action :categories
+  def categories
+    @categories = Category.all
+  end
   def index
     @categories = Category.all
     @stores = Store.all

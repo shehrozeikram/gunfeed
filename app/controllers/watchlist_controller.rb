@@ -1,4 +1,8 @@
 class WatchlistController < ApplicationController
+  before_action :categories
+  def categories
+    @categories = Category.all
+  end
 
   def add_to_watchlist
     if params[:watchlist].present?

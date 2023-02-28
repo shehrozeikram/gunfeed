@@ -1,13 +1,15 @@
 class ProductsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :recent_comments]
-
+  before_action :categories
 
   require 'open-uri'
   require 'nokogiri'
   require 'date'
 
-
+  def categories
+    @categories = Category.all
+  end
   def search_products
     if params[:q].present?
       @products = Product.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%").page

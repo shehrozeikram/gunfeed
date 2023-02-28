@@ -1,6 +1,9 @@
 class MyAccountsController < ApplicationController
   before_action :user
-
+  before_action :categories
+  def categories
+    @categories = Category.all
+  end
   def views
   end
 

@@ -1,10 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :categories, :coupons, :rebates, :comments
+  before_action  :coupons, :rebates, :comments
 
-  def categories
-    @categories = Category.all
-  end
   def coupons
     @coupons = Coupon.all
   end
