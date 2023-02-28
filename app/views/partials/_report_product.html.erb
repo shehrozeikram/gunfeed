@@ -1,0 +1,51 @@
+<div class="model-overlay-product">
+  <div class="app-model-product app-model">
+    <div class="model-header">
+      <h3>Report a problem</h3>
+      <span class="remove-report-model">
+          <i class="fa fa-remove"></i>
+       </span>
+    </div>
+    <%= form_with url: report_product_path , class:"model-content-app" do |form| %>
+      <p>
+        <strong>Problem with:</strong>
+        <input type="hidden" class=form-control" name="problem_with"  rows="5"  placeholder= "Problem Detail" value="<%= @product.title %>">
+        <span><%= @product.title %></span>
+      </p>
+      <p class="mt-2">
+        <strong>Type of problem: *</strong>
+      </p>
+      <div class="form-check mt-3">
+        <input class="form-check-input" type="radio" name="reportRadio" id="expired" checked>
+        <label class="form-check-label" for="expired">
+          Expired
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="reportRadio" id="outStock">
+        <label class="form-check-label" for="outStock">
+          Out of Stock
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="reportRadio" id="copuon">
+        <label class="form-check-label" for="copuon">
+          Coupon Doesn't Work
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="reportRadio" id="priceIssue">
+        <label class="form-check-label" for="priceIssue">
+          Price is Wrong
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="report-message">Problem Detail:</label>
+        <%= form.text_area :problem_details, class:"form-control", rows:"5", placeholder: "Problem Detail" %>
+      </div>
+      <button class="btn btn-primary btn-report-product">Report a problem</button>
+    <% end %>
+  </div>
+</div>

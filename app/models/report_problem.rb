@@ -1,0 +1,2 @@
+class ReportProblem < ApplicationRecord
+end

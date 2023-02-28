@@ -217,8 +217,20 @@ class ProductsController < ApplicationController
     end
     end
 
+  def report_product
+      @report = ReportProblem.new(report_params)
+      if @report.save
+        redirect_to products_path(@product)
+      else
+        render :'products/index', status: :unprocessable_entity
+      end
+    end
 
   protected
+
+  def report_params
+    params.permit(:problem_with, :problem_details)
+  end
 
   def notify_params
     params.permit(:upc, :limite_price, :email)
