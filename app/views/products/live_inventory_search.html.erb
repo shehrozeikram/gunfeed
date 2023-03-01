@@ -78,6 +78,7 @@
           </div>
         </div>
       </div>
+      <% if @similar_products.present? %>
       <div class="product-details-tiles-section__slider ">
         <h5>
           <strong>Similar Products</strong>
@@ -90,12 +91,21 @@
                   <div class="price-tag price-tag--one-line">from $<%= similar_product.price %></div>
                 </div>
                 <div class="product-details-tile__image-container">
+                  <% if similar_product. image == 'nil' %>
                   <a class="js-ga-event" data-ga-action="Similar Products Click" data-ga-category="Search Page"
-                     data-ga-label="P-01 Compact [806703917214]" href="/search/apachesolr_search/806703917214">
+                     data-ga-label="P-01 Compact [806703917214]" href="<%= product_path(similar_product) %>">
                     <img class="product-details-tile_image-container_image"
                          src="<%= similar_product.image_link %>"
                          alt="CZ P-01 Compact" />
                   </a>
+                    <% else %>
+                    <a class="js-ga-event" data-ga-action="Similar Products Click" data-ga-category="Search Page"
+                       data-ga-label="P-01 Compact [806703917214]" href="<%= product_path(similar_product) %>">
+                      <img class="product-details-tile_image-container_image"
+                           src="<%= similar_product.image %>"
+                           alt="CZ P-01 Compact" />
+                    </a>
+                    <% end %>
                 </div>
                 <div class="product-details-tile__info">
 
@@ -144,6 +154,67 @@
           </button>
         </div>
       </div>
+      <% else %>
+        <section>
+          <div class="container">
+            <div id="async-similar-products-section" class="product-details-tiles-section card">
+              <section class="table-section">
+                <div class="table-section__header">
+                  <div>
+                    <h2>Similar Products</h2>
+                  </div>
+                </div>
+                <div class="table-section__content">
+                  <div class="product-details-tiles-section--no-deals">
+                    <p>
+                      <i class="fa fa-exclamation-triangle"></i> No products found.
+                    </p>
+                  </div>
+                  <div class="product-details-tiles-section__slider js-tile-slider js-tile-slider-async is-hidden d-none"
+                       style="overflow-x: hidden;">
+                    <div class="product-details-tiles-section__slider-tiles-container js-similar-products-section"
+                         data-suggestion-term="8053800943246" data-term-to-exclude="8053800943246"
+                         data-ga-action="Similar Products Click" data-ga-category="Product Page"
+                         data-tile-template="
+                                <div class=&quot;product-details-tile&quot;>
+                                    <div class=&quot;price-tag-container&quot;></div>
+                                    <div class=&quot;product-details-tile__image-container&quot;>
+                                        <a>
+                                            <img >
+                                            </a>
+                                        </div>
+                                        <div class=&quot;product-details-tile__info&quot;>
+                                            <div class=&quot;product-details-tile__title&quot;>
+                                                <a>
+                                                </a>
+                                            </div>
+                                            <div class=&quot;product-details-tile__info-container&quot;></div>
+                                            <div>
+
+                                            </div>
+                                        </div>
+                                    </div>" data-info-row-template="
+                                    <div class=&quot;product-details-tile__info__specs&quot;>
+
+
+                                    </div>" data-price-tag-template="
+
+                                    </div>" data-page-token="">
+                      <div class="tiles-slider-section-container"></div>
+                    </div>
+                    <button class="scroll-previous tile-slider__direction tile-slider__direction--previous">
+                      <i class="fa fa-chevron-left"></i>
+                    </button>
+                    <button class="scroll-next tile-slider__direction tile-slider__direction--next">
+                      <i class="fa fa-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
+      <% end %>
       <div class="pt-3">
         <div class="d-flex justify-content-between">
           <div>
