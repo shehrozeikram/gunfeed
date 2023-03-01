@@ -1426,6 +1426,48 @@
 <%= render partial: 'partials/footer' %>
 
 <script>
+    let items = document.querySelectorAll('.carousel .carousel-item')
+
+    items.forEach((el) => {
+        const minPerSlide = 4
+        let next = el.nextElementSibling
+        for (var i=1; i<minPerSlide; i++) {
+            if (!next) {
+                // wrap carousel by using first child
+                next = items[0]
+            }
+            let cloneChild = next.cloneNode(true)
+            el.appendChild(cloneChild.children[0])
+            next = next.nextElementSibling
+        }
+    })
+</script>
+
+<script>
+
+    (function() {
+        document.querySelector('#slider_btn-2')
+            .addEventListener('click', (event) => {
+                const slider = document.querySelector('.product-scroller');
+                slider.setAttribute('style', 'scroll-behavior: smooth;')
+                slider.scrollLeft = slider.scrollWidth;
+                event.preventDefault();
+                return true;
+            });
+
+        document.querySelector('#slider_btn-1')
+            .addEventListener('click', (event) => {
+                const slider = document.querySelector('.product-scroller');
+                slider.setAttribute('style', 'scroll-behavior: smooth;')
+                slider.scrollLeft = 0;
+                event.preventDefault();
+                return true;
+            });
+    })();
+
+</script>
+
+<script>
     function add_to_watchlist() {
         $(document).ready(function(){
             $.ajax({
@@ -1552,6 +1594,8 @@
 
         }
     });
+
+
 </script>
 
 </body>
