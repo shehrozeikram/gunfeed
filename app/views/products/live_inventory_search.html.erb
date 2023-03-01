@@ -295,7 +295,7 @@
      <div class="card__title">
        <h2> User Posted Deals</h2>
        <% if current_user.present? %>
-       <p>(<span class="pager-total-items" id="pager-total-items"><%= current_user.products.all.count %></span> deals found)</p>
+       <p>(<span class="pager-total-items" id="pager-total-items"><%= @user_products.all.count %></span> deals found)</p>
      <% else %>
          <p>(<span class="pager-total-items" id="pager-total-items">0</span> deals found)</p>
      <% end %>
