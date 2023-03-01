@@ -213,7 +213,7 @@ class ProductsController < ApplicationController
     @stock = Product.where(upc: @product.upc, stock: nil, active: true).or(Product.where( active: true, stock: "out of stock"))
     @similar_products = Product.where(:category_id => @product.category_id)
     if current_user.present?
-    @user_products = current_user.products.last(10)
+    @user_products = current_user.products.where(verified: "true")
     end
     end
 
