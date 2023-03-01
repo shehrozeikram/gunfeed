@@ -139,8 +139,11 @@ class ProductsController < ApplicationController
   # footer actions
 
   def today
-
     @products = Product.where(created_at: Date.today.all_day)
+  end
+
+  def popular
+    @products = Product.where(is_popular: true )
   end
 
   def category
@@ -246,11 +249,6 @@ class ProductsController < ApplicationController
       else
         render :'products/index', status: :unprocessable_entity
       end
-  end
-
-
-  def recently_viewed
-    @recently_viewed_products = current_user.recently_vieweds.order('updated_at DESC')
   end
 
   protected

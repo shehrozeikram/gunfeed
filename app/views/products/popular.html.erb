@@ -18,7 +18,7 @@
           <div class="col-lg-9">
             <h1 class="listing-title "> Popular Products
               <span class="subtitle subtitle--listing"> (
-                                    <span class="pager-total-items" id="pager-total-items"><%= @deals.all.count %></span> deals total)
+                                    <span class="pager-total-items" id="pager-total-items"><%= @products.all.count %></span> deals total)
                                 </span>
             </h1>
           </div>
@@ -79,19 +79,19 @@
           </div>
           <div class="set-width-right-card">
             <div class="row row-cols-4">
-              <% @deals.each do |deal| %>
+              <% @products.each do |product| %>
                 <div class="col mb-3 ">
                   <div class="card h-100 ">
                     <div class="card-body d-flex justify-content-between ">
-                      <% unless deal.sponsored != true %>
+                      <% unless product.sponsored != true %>
                         <span class="tile__sponsored "><a href="# ">Sponsored</a></span>
                       <% end %>
                       <a href="# " class="card-link "><span></span></a>
-                      <span class="card-link price-tag price-tag--one-line "><span>$<%= deal.price %></span></span>
+                      <span class="card-link price-tag price-tag--one-line "><span>$<%= product.price %></span></span>
                     </div>
-                    <a href="<%=popular_show_path(deal)%>"><image src = "<%= deal.image %>" /></a>
+                    <a href="<%=product_path(product)%>"><image src = "<%= product.image %>" /></a>
                     <div class="card-body tile__title ">
-                      <p class="card-text "><a href="<%=popular_show_path(deal)%>"><%= deal.title %></a>
+                      <p class="card-text "><a href="<%=product_path(product)%>"><%= product.title %></a>
                       </p>
                     </div>
 
@@ -104,11 +104,11 @@
                         class="fa fa-comments"></i> <span>0</span></a>
                     </div>
                     <div class="card-footer card-body">
-                      <p>UPC: <span><a href="#"><%= deal.upc %></a></span></p>
-                      <p>MPN: <span><a href="#"><%= deal.mpn %></a></span></p>
+                      <p>UPC: <span><a href="#"><%= product.upc %></a></span></p>
+                      <p>MPN: <span><a href="#"><%= product.mpn %></a></span></p>
 
                       <div class=" d-flex justify-content-between  tile__actions-container">
-                        <a href="#" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span><%= deal.store %></span></a>
+                        <a href="#" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span><%= product.store.title %></span></a>
                         <a href="#" class="card-link icon-fa-link"><i class="fa fa-balance-scale"></i><span></span></a>
                       </div>
                     </div>

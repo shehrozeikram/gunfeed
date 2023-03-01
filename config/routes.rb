@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   root to: "products#index"
   get "/search/:id" , to: "products#live_inventory_search", as: :live_inventory_search
   get "/compare/:id" , to: "products#compare_guns", as: :compare_guns
+  get "/popular" , to: "products#popular"
 
   #footer cards routes
   get "/comments-page" , to: "products#recent_comments"
@@ -87,8 +88,6 @@ Rails.application.routes.draw do
   get "/used_gun/:id" , to: "deals#used_gun_show", as: :used_gun_show
   get "/top_articles" , to: "deals#top_articles"
   get "/top_article/:id" , to: "deals#top_article_show", as: :top_article_show
-  get "/popular" , to: "deals#popular"
-  get "/popular/:id" , to: "deals#popular_show", as: :popular_show
 
   # footer routes
   get "/about_us" , to: "products#about_us"
