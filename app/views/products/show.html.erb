@@ -285,27 +285,33 @@
                 <ul class="product-rating js-product-rating">
                   <li class="js-rating-container">
                     <a
+                      href="/likes/<%= @product.id %>"
                       class="icon-fa-link js-rate-action product-rating__like product-rating__like1076271"
                       data-action="like" data-content-id="1076271"
                       data-sibling=".product-rating__dislike1076271">
                       <i class="fa fa-thumbs-up"></i>
-                      <span>8</span>
+                      <span><%= @product.likes.count %> </span>
                     </a>
                   </li>
                   <li class="js-rating-container">
                     <a
+                      href="/unlikes/<%= @product.id %>"
                       class="icon-fa-link js-popover-thumb-down popover-thumb-down product-rating__dislike product-rating__dislike1076271 js-popover"
                       data-action="dislike" data-content-id="1076271" data-content=""
                       data-placement="bottom" data-title="Dislike confirmation"
                       data-sibling=".product-rating__like1076271">
                       <i class="fa fa-thumbs-down"></i>
-                      <span>1</span>
+                      <span><%= @product.unlikes.count %></span>
                     </a>
                   </li>
                   <li>
                     <a href="#comments" class="icon-fa-link" title="2">
                       <i class="fa fa-comments"></i>
-                      <span>2</span>
+                      <% if @product.comments.present? %>
+                      <span><%= @product.comments.all.count %></span>
+                      <% else %>
+                        <span>0</span>
+                      <% end %>
                     </a>
                   </li>
                 </ul>

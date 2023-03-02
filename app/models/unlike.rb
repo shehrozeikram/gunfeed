@@ -1,0 +1,2 @@
+class Unlike < ApplicationRecord
+end

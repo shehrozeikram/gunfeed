@@ -46,7 +46,9 @@ Rails.application.routes.draw do
 
   resources :news_letter
 
-
+  # resources :likes
+  get "/likes/:product_id" , to: "likes#create"
+  get "/unlikes/:product_id" , to: "unlikes#create"
 
   resources :rebates
   get "/rebates" , to: "products#rebates"
