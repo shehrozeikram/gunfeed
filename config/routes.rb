@@ -13,8 +13,7 @@ Rails.application.routes.draw do
 
   resources :reviews
 
-  get 'comments/new'
-  # resources :comments
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
@@ -37,6 +36,8 @@ Rails.application.routes.draw do
   get "/comments-page" , to: "products#recent_comments"
 
   resources :coupons
+
+  resources :comments
 
   # watchlist routes
   get "/add_to_watchlist/:id" , to: "watchlist#add_to_watchlist", as: :add_to_watchlist
