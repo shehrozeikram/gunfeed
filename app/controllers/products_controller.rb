@@ -119,7 +119,7 @@ class ProductsController < ApplicationController
   def show
     @comment = Comment.new
     @product = Product.find(params[:id])
-    @products = Product.where(:upc => @product.upc, :active => true).where.not(:stock => nil )
+    @products = Product.where(upc: @product.upc ).where.not(stock: nil).where.not(id: @product.id).where.not(stock: 0).limit(50)
     @similar_products = Product.where(category_id: @product.category_id).where.not(id: @product.id ).limit(20)
     @product_2 = Product.where(category_id: @product.category_id ).where.not(id: @product.id).last
 
@@ -218,8 +218,8 @@ class ProductsController < ApplicationController
   def live_inventory_search
     @product = Product.find(params[:id])
     @product_2 = Product.where(category_id: @product.category_id ).where.not(id: @product.id).last
-    @products = Product.where(upc: @product.upc, active: true).where.not(stock: nil ).where.not(stock: 'out of stock')
-    @stock = Product.where(upc: @product.upc, stock: nil, active: true).or(Product.where( active: true, stock: "out of stock"))
+    @products = Product.where(upc: @product.upc ).where.not(stock: nil).where.not(id: @product.id).where.not(stock: 0).limit(50)
+    @stock = Product.where(upc: @product.upc, stock: nil).or(Product.where(stock: 0)).limit(50)
     @similar_products = Product.where(category_id: @product.category_id).where.not(id: @product.id ).limit(20)
     if current_user.present?
     @user_products = current_user.products.where(verified: "true")
