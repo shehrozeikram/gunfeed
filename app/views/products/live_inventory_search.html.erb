@@ -93,18 +93,18 @@
                   <div class="price-tag price-tag--one-line">from $<%= similar_product.price %></div>
                 </div>
                 <div class="product-details-tile__image-container">
-                  <% if similar_product. image == 'nil' %>
+                  <% if similar_product.image_link == nil %>
                   <a class="js-ga-event" data-ga-action="Similar Products Click" data-ga-category="Search Page"
                      data-ga-label="P-01 Compact [806703917214]" href="<%= product_path(similar_product) %>">
                     <img class="product-details-tile_image-container_image"
-                         src="<%= similar_product.image_link %>"
+                         src="<%= similar_product.image %>"
                          alt="CZ P-01 Compact" />
                   </a>
                     <% else %>
                     <a class="js-ga-event" data-ga-action="Similar Products Click" data-ga-category="Search Page"
                        data-ga-label="P-01 Compact [806703917214]" href="<%= product_path(similar_product) %>">
                       <img class="product-details-tile_image-container_image"
-                           src="<%= similar_product.image %>"
+                           src="<%= similar_product.image_link %>"
                            alt="CZ P-01 Compact" />
                     </a>
                     <% end %>
