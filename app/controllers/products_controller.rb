@@ -92,7 +92,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.where("verified":"true")
-    @similar_products = Product.where(category_id: @products.last.category_id).where.not(id: @products.last.id )
+    @similar_products = Product.where(category_id: @products.last.category_id).where.not(id: @products.last.id ).limit(20)
     @product_2 = Product.where(category_id: @products.last.category_id ).where.not(id: @products.last.id).last
   end
 
@@ -120,7 +120,7 @@ class ProductsController < ApplicationController
     @comment = Comment.new
     @product = Product.find(params[:id])
     @products = Product.where(:upc => @product.upc, :active => true).where.not(:stock => nil )
-    @similar_products = Product.where(category_id: @product.category_id).where.not(id: @product.id )
+    @similar_products = Product.where(category_id: @product.category_id).where.not(id: @product.id ).limit(20)
     @product_2 = Product.where(category_id: @product.category_id ).where.not(id: @product.id).last
 
     if current_user.present?
@@ -220,7 +220,7 @@ class ProductsController < ApplicationController
     @product_2 = Product.where(category_id: @product.category_id ).where.not(id: @product.id).last
     @products = Product.where(upc: @product.upc, active: true).where.not(stock: nil ).where.not(stock: 'out of stock')
     @stock = Product.where(upc: @product.upc, stock: nil, active: true).or(Product.where( active: true, stock: "out of stock"))
-    @similar_products = Product.where(category_id: @product.category_id).where.not(id: @product.id )
+    @similar_products = Product.where(category_id: @product.category_id).where.not(id: @product.id ).limit(20)
     if current_user.present?
     @user_products = current_user.products.where(verified: "true")
     end
