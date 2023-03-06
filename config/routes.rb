@@ -33,19 +33,6 @@ Rails.application.routes.draw do
   # Main compare gun route
   get ':product_id-vs-:compared_product_id' => 'products#compare_guns', as: :compare_guns
 
-  # # compare Product routes
-  # get ':product_id-vs-:compared_product_id' => 'products#compare_guns3', as: :compare_guns3
-  # get ':product_id-vs-:compared_product_id' => 'products#compare_guns4', as: :compare_guns4
-  # get ':product_id-vs-:compared_product_id' => 'products#compare_guns5', as: :compare_guns5
-  #
-  # # compare Product_2 routes
-  # get ':product_id2-vs-:compared_product_id' => 'products#compare_guns6', as: :compare_guns6
-  # get ':product_id2-vs-:compared_product_id' => 'products#compare_guns7', as: :compare_guns7
-  # get ':product_id2-vs-:compared_product_id' => 'products#compare_guns8', as: :compare_guns8
-
-
-
-
   # get "/compare/:id" , to: "products#compare_guns", as: :compare_guns
   get "/popular" , to: "products#popular"
 
