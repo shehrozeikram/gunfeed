@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
   end
   def search_products
     if params[:q].present?
-      @products = Product.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%").or(Product.where("LOWER(upc) LIKE LOWER(?)", "%#{params[:q]}%")).or(Product.where("LOWER(mpn) LIKE LOWER(?)", "%#{params[:q]}%"))
+      @products = Product.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%").limit(20).or(Product.where("LOWER(upc) LIKE LOWER(?)", "%#{params[:q]}%").limit(20)).or(Product.where("LOWER(mpn) LIKE LOWER(?)", "%#{params[:q]}%").limit(20))
       render json:  @products
     end
   end
