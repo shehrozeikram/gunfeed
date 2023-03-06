@@ -142,12 +142,14 @@
                     <span style="margin-left:3px;" >Notify me</span>
                   </a>
                 </li>
+                <% if @product.category.products.length > 6 %>
                 <li class="list-item-price">
-                  <a href="<%= compare_guns_path %>" class="btn-compare-price">
+                  <a href="<%= compare_guns_path(@product.id , @product_2.id) %>" class="btn-compare-price">
                     <i class="fa fa-exchange" style="margin-left:10px"></i>
                     <span style="margin-left:3px;" >Compare with another gun</span>
                   </a>
                 </li>
+                <% end %>
                 <li class="add-wish-list">
                   <a
                     class="btn btn-product-icon btn-block text-left text-black js-ajax-toggle-link js-ajax-toggle-watchlist"
@@ -283,6 +285,7 @@
             <div class="row">
               <div class="col-xs-12 col-sm-4 col-md-3">
                 <ul class="product-rating js-product-rating">
+
                   <li class="js-rating-container">
                     <a
                       href="/likes/<%= @product.id %>"
@@ -1012,7 +1015,7 @@
                      class="form-submit btn btn-default btn-primary">
             </div>
           </form>
-          <a id="comment-1165241"></a>
+
           <div class="comment comment-published clear-block" data-cid="1165241">
             <div class="submitted">
               <div class="submitted-info"> By
@@ -1284,10 +1287,10 @@
                     </div>
                   </div>
                   <ul class="links">
-                    <!--                <li class="comment_reply first last"><a href="/comment/reply/1135586/1177471">reply</a>-->
                     </li>
                   </ul>
-                </div><a id="comment-1176661"></a>
+                </div>
+<!--                <a id="comment-1176661"></a>-->
               <% end %>
             <% end %>
             <div class="box">

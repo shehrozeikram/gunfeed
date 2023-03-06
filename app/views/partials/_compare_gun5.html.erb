@@ -1,0 +1,544 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="card p-3">
+          <div class="card__title">
+            <h1 class="listing-title listing-title--block"> Compare Guns</h1>
+            <p class="subtitle"> Compare gun price, size, weight, capacity and other specifications.</p>
+          </div>
+          <div class="card__content">
+            <div class="compare">
+              <form>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="accordion accordion-search" id="accordionExample">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                          <button class="accordion-button collapsed target-replace" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+
+                            <%= truncate(@product.title, length: 50) %>
+                          </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                          <input type="text" id="mySelect2" class="form-control search-select-input" name="q" onkeyup="compare_guns_search()"  >
+                          <i class="fa fa-search search-select-icon"></i>
+                          <div class="select-detail search-detail-1">Please Enter 1 or more character</div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="accordion" id="accordionExample">
+
+                        <div class="accordion-item accordion-item-right">
+                          <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed target-replace-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+
+                              <%= truncate(@product_5.title, length: 50) %>
+                            </button>
+                          </h2>
+                          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <input type="text" id="compare_guns_searchSide" class="form-control search-select-input search-right-term" name="q" onkeyup="compare_guns_search_side()" >
+                            <i class="fa fa-search search-select-icon"></i>
+                            <div class="select-detail-side-1">Please Enter 1 or more character</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div id="product-compare-content" class="compare-gun-table">
+                <table class="table text-center compare__table">
+                  <tbody>
+                  <tr>
+                    <td>
+                      <div class="compare__image" id="compare-img-left">
+                        <img
+                          src="<%= @product.image %>" class="img-fluid img_equal_height"
+                          alt="">
+                      </div>
+                    </td>
+                    <th class="label">Image</th>
+                    <td>
+                      <div class="compare__image" id="compare-img-right"> <img
+                        src="<%= @product_5.image %>" class="img-fluid img_equal_height"
+                        alt=""></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__upc " id="upc"> <a href="/search/apachesolr_search/022188868272">02218886</a>
+                      </div>
+                    </td>
+                    <th class="label label--upc">UPC</th>
+                    <td>
+                      <div class="compare__upc "> <a href="/search/apachesolr_search/022188868104" id="upc-1">022188</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__mpn "> <a href="/search/apachesolr_search/10305" id="mpn">20562</a></div>
+                    </td>
+                    <th class="label label--mpn">MPN</th>
+                    <td>
+                      <div class="compare__mpn "> <a href="/search/apachesolr_search/10202" id="mpn-1">52146</a></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__brand " id="brand"> Smith &amp; Wesson</div>
+                    </td>
+                    <th class="label label--brand">Brand</th>
+                    <td>
+                      <div class="compare__brand " id="brand-1"> Model</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__brand " id="caliber"> Caliber</div>
+                    </td>
+                    <th class="label label--brand">Caliber</th>
+                    <td>
+                      <div class="compare__brand " id="caliber-1"> Caliber</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__brand " id="price"> $330</div>
+                    </td>
+                    <th class="label label--brand">Price</th>
+                    <td>
+                      <div class="compare__brand " id="price-1"> Smith &amp; Wesson</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__brand " id="condition"> Condition</div>
+                    </td>
+                    <th class="label label--brand">Condition</th>
+                    <td>
+                      <div class="compare__brand " id="condition-1"> Smith &amp; Wesson</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="compare__brand " id="verfied"> YES</div>
+                    </td>
+                    <th class="label label--brand">VERIFIED</th>
+                    <td>
+                      <div class="compare__brand " id="verfied-1"> No</div>
+                    </td>
+                  </tr>
+
+
+                  <tr>
+                    <td class="compare__deals p-0">
+                      <div class="compare__deal ">
+                        <div class="compare__deal-store">
+                          <a itemprop="url" target="_blank" href="#" class="js-ga-event" data-ga-action="External Click"
+                             data-ga-category="Palmetto State Armory" data-ga-label="gun.deals merchant table">
+                                     <span itemprop="offeredBy" itemtype="#">Palmetto State Armory
+                                     </span>
+                          </a>
+                        </div>
+                        <div class="compare__deal-price">
+                                 <span>
+                                     <span itemprop="price">$555.55</span>
+                                 </span>
+                        </div>
+                        <div class="compare__deal-additional">
+                          <div>
+                                     <span class="" data-toggle="tooltip" data-title="Shipping info: Additional">
+                                         <i class="fa fa-truck"></i>
+                                     </span>
+                          </div>
+                        </div>
+                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
+                                                           data-ga-category="Palmetto State Armory" data-ga-label="Gun Compare page - Buy link"
+                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a></div>
+                      </div>
+                      <div class="compare__deal ">
+                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
+                                                             data-ga-action="External Click" data-ga-category="Palmetto State Armory"
+                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
+                                                                                                             itemtype="#">Palmetto State Armory</span> </a>
+                        </div>
+                        <div class="compare__deal-price"> <span> <span itemprop="price">$555.55</span> </span></div>
+                        <div class="compare__deal-additional">
+                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Additional"> <i
+                            class="fa fa-truck"></i> </span></div>
+                        </div>
+                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
+                                                           data-ga-category="Palmetto State Armory" data-ga-label="Gun Compare page - Buy link"
+                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a></div>
+                      </div>
+                      <div class="compare__deal ">
+                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
+                                                             data-ga-action="External Click" data-ga-category="Palmetto State Armory"
+                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
+                                                                                                             itemtype="#">Palmetto State Armory</span> </a>
+                        </div>
+                        <div class="compare__deal-price"> <span> <span itemprop="price">$555.55</span> </span></div>
+                        <div class="compare__deal-additional">
+                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Additional"> <i
+                            class="fa fa-truck"></i> </span></div>
+                        </div>
+                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
+                                                           data-ga-category="Palmetto State Armory" data-ga-label="Gun Compare page - Buy link"
+                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a></div>
+                      </div>
+                      <div class="compare__deal ">
+                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
+                                                             data-ga-action="External Click" data-ga-category="Palmetto State Armory"
+                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
+                                                                                                             itemtype="#">Palmetto State Armory</span> </a>
+                        </div>
+                        <div class="compare__deal-price"> <span> <span itemprop="price">$555.55</span> </span></div>
+                        <div class="compare__deal-additional">
+                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Additional"> <i
+                            class="fa fa-truck"></i> </span></div>
+                        </div>
+                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
+                                                           data-ga-category="Palmetto State Armory" data-ga-label="Gun Compare page - Buy link"
+                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a></div>
+                      </div>
+                      <div class="compare__deal ">
+                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
+                                                             data-ga-action="External Click" data-ga-category="Palmetto State Armory"
+                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
+                                                                                                             itemtype="#">Palmetto State Armory</span> </a>
+                        </div>
+                        <div class="compare__deal-price"> <span> <span itemprop="price">$555.55</span> </span></div>
+                        <div class="compare__deal-additional">
+                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Additional"> <i
+                            class="fa fa-truck"></i> </span></div>
+                        </div>
+                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
+                                                           data-ga-category="Palmetto State Armory" data-ga-label="Gun Compare page - Buy link"
+                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a></div>
+                      </div>
+                      <div class="compare__deals-see-more"> <a href="#">Show
+                        all</a></div>
+                    </td>
+                    <th class="label label--deals">Lowest Prices Online</th>
+                    <td class="compare__deals p-0">
+                      <div class="compare__deal ">
+                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
+                                                             data-ga-action="External Click" data-ga-category="Smoky Mountain Guns and Ammo"
+                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
+                                                                                                             itemtype="#">Smoky Mountain Guns and Ammo</span>
+                        </a></div>
+                        <div class="compare__deal-price"> <span> <span itemprop="price">$300.30</span> </span></div>
+                        <div class="compare__deal-additional">
+                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Free S/H on Firearms"> <i
+                            class="fa fa-truck"></i>
+                                     </span></div>
+                        </div>
+                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
+                                                           data-ga-category="Smoky Mountain Guns and Ammo" data-ga-label="Gun Compare page - Buy link"
+                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a>
+                        </div>
+                      </div>
+                      <div class="compare__deal ">
+                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
+                                                             data-ga-action="External Click" data-ga-category="Smoky Mountain Guns and Ammo"
+                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
+                                                                                                             itemtype="#">Smoky Mountain Guns and Ammo</span>
+                        </a></div>
+                        <div class="compare__deal-price"> <span> <span itemprop="price">$300.30</span> </span></div>
+                        <div class="compare__deal-additional">
+                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Free S/H on Firearms"> <i
+                            class="fa fa-truck"></i>
+                                     </span></div>
+                        </div>
+                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
+                                                           data-ga-category="Smoky Mountain Guns and Ammo" data-ga-label="Gun Compare page - Buy link"
+                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a>
+                        </div>
+                      </div>
+                      <div class="compare__deal ">
+                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
+                                                             data-ga-action="External Click" data-ga-category="Smoky Mountain Guns and Ammo"
+                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
+                                                                                                             itemtype="#">Smoky Mountain Guns and Ammo</span>
+                        </a></div>
+                        <div class="compare__deal-price"> <span> <span itemprop="price">$300.30</span> </span></div>
+                        <div class="compare__deal-additional">
+                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Free S/H on Firearms"> <i
+                            class="fa fa-truck"></i>
+                                     </span></div>
+                        </div>
+                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
+                                                           data-ga-category="Smoky Mountain Guns and Ammo" data-ga-label="Gun Compare page - Buy link"
+                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a>
+                        </div>
+                      </div>
+                      <div class="compare__deal ">
+                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
+                                                             data-ga-action="External Click" data-ga-category="Smoky Mountain Guns and Ammo"
+                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
+                                                                                                             itemtype="#">Smoky Mountain Guns and Ammo</span>
+                        </a></div>
+                        <div class="compare__deal-price"> <span> <span itemprop="price">$300.30</span> </span></div>
+                        <div class="compare__deal-additional">
+                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Free S/H on Firearms"> <i
+                            class="fa fa-truck"></i>
+                                     </span></div>
+                        </div>
+                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
+                                                           data-ga-category="Smoky Mountain Guns and Ammo" data-ga-label="Gun Compare page - Buy link"
+                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a>
+                        </div>
+                      </div>
+                      <div class="compare__deal ">
+                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
+                                                             data-ga-action="External Click" data-ga-category="Smoky Mountain Guns and Ammo"
+                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
+                                                                                                             itemtype="#">Smoky Mountain Guns and Ammo</span>
+                        </a></div>
+                        <div class="compare__deal-price"> <span> <span itemprop="price">$300.30</span> </span></div>
+                        <div class="compare__deal-additional">
+                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Free S/H on Firearms"> <i
+                            class="fa fa-truck"></i>
+                                     </span></div>
+                        </div>
+                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
+                                                           data-ga-category="Smoky Mountain Guns and Ammo" data-ga-label="Gun Compare page - Buy link"
+                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a>
+                        </div>
+                      </div>
+                      <div class="compare__deals-see-more"> <a href="#">Show
+                        all</a></div>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card p-3 my-3">
+          <div class="card__title">
+            <h2>Compare with other guns</h2>
+          </div>
+          <div class="card__content">
+            <div class="compare__suggestions">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card compare__suggestion p-3 mb-3 card-gun-compare">
+                    <div class="card__content">
+                      <div class="compare__suggestion-body">
+                        <div class="row">
+                          <div class="col-md-5">
+                            <div>
+                              <div class="compare__suggestion-image">
+                                <img src="<%= @product.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                              </div>
+                              <span> <%=@product.title %> </span>
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div>vs</div>
+                          </div>
+                          <div class="col-md-5">
+                            <div>
+                              <div class="compare__suggestion-image">
+                                <img src="<%=@product_2.image %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
+                              </div>
+                              <span> <%=@product_2.title %></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer-compare">
+                      <a href="<%=compare_guns_path(product_id:@product.id , product2_id:@product_2.id) %>">Compare</a>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <div class="card compare__suggestion p-3 mb-3 card-gun-compare">
+                    <div class="card__content">
+                      <div class="compare__suggestion-body">
+                        <div class="row">
+                          <div class="col-md-5">
+                            <div>
+                              <div class="compare__suggestion-image">
+                                <img src="<%= @product.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                              </div>
+                              <span><%= @product.title %></span>
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div>vs</div>
+                          </div>
+                          <div class="col-md-5">
+                            <div>
+                              <div class="compare__suggestion-image">
+                                <img src="<%= @product_3.image %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
+                              </div>
+                              <span><%= @product_3.title %></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer-compare">
+                      <a href="<%=compare_guns_path(product_id:@product.id , product3_id:@product_3.id) %>">Compare</a>
+
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <div class="card compare__suggestion p-3 mb-3 card-gun-compare">
+                    <div class="card__content">
+                      <div class="compare__suggestion-body">
+                        <div class="row">
+                          <div class="col-md-5">
+                            <div>
+                              <div class="compare__suggestion-image">
+                                <img src="<%= @product.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                              </div>
+                              <span><%= @product.title %></span>
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div>vs</div>
+                          </div>
+                          <div class="col-md-5">
+                            <div>
+                              <div class="compare__suggestion-image">
+                                <img src="<%= @product_4.image %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
+                              </div>
+                              <span><%= @product_4.title %></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer-compare">
+                      <a href="<%=compare_guns_path(product_id:@product.id , product4_id:@product_4.id) %>">Compare</a>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <div class="card compare__suggestion p-3 mb-3 card-gun-compare">
+                    <div class="card__content">
+                      <div class="compare__suggestion-body">
+                        <div class="row">
+                          <div class="col-md-5">
+                            <div>
+                              <div class="compare__suggestion-image">
+                                <img src="<%= @product_5.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                              </div>
+                              <span><%= @product_5.title %></span>
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div>vs</div>
+                          </div>
+                          <div class="col-md-5">
+                            <div>
+                              <div class="compare__suggestion-image">
+                                <img src="<%= @product_6.image %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
+                              </div>
+                              <span><%= @product_6.title %></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer-compare">
+                      <a href="<%=compare_guns_path(product5_id:@product_5.id , product6_id:@product_6.id) %>">Compare</a>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <div class="card compare__suggestion p-3 mb-3 card-gun-compare">
+                    <div class="card__content">
+                      <div class="compare__suggestion-body">
+                        <div class="row">
+                          <div class="col-md-5">
+                            <div>
+                              <div class="compare__suggestion-image">
+                                <img src="<%= @product_5.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                              </div>
+                              <span><%= @product_5.title %></span>
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div>vs</div>
+                          </div>
+                          <div class="col-md-5">
+                            <div>
+                              <div class="compare__suggestion-image">
+                                <img src="<%= @product_7.image %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
+                              </div>
+                              <span><%= @product_7.title %></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer-compare">
+                      <a href="<%=compare_guns_path(product5_id:@product_5.id , product_id7:@product_7.id) %>">Compare</a>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <div class="card compare__suggestion p-3 mb-3 card-gun-compare">
+                    <div class="card__content">
+                      <div class="compare__suggestion-body">
+                        <div class="row">
+                          <div class="col-md-5">
+                            <div>
+                              <div class="compare__suggestion-image">
+                                <img src="<%= @product_5.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                              </div>
+                              <span><%= @product_5.title %></span>
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div>vs</div>
+                          </div>
+                          <div class="col-md-5">
+                            <div>
+                              <div class="compare__suggestion-image">
+                                <img src="<%= @product_8.image %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
+                              </div>
+                              <span><%= @product_8.title %></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer-compare">
+                      <a href="<%=compare_guns_path(product5_id:@product_5.id , product8_id:@product_8.id) %>">Compare</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

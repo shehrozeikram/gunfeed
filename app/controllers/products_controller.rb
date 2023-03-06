@@ -119,6 +119,8 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @products = Product.where(:upc => @product.upc, :active => true).where.not(:stock => nil )
     @similar_products = Product.where(category_id: @product.category_id).where.not(id: @product.id )
+    @product_2 = Product.where(category_id: @product.category_id ).where.not(id: @product.id).last
+
     if current_user.present?
     @recently_viewed = current_user.recently_vieweds.new(recent_params)
     @recently_viewed.product_id = @product.id
@@ -222,10 +224,34 @@ class ProductsController < ApplicationController
     end
 
   def compare_guns
-    @product = Product.find(params[:id])
-    @compared = Product.last
-    @products = Product.where(id: 1, active: true).where.not(stock: nil ).where.not(stock: 'out of stock')
-    @compared_products = Product.where(id: 2, active: true).where.not(stock: nil ).where.not(stock: 'out of stock')
+    if (params[:product_id] && params[:compared_product_id]).present?
+
+      @product = Product.find(params[:product_id]) rescue nil
+      product_id =  Product.where(id:@product.id).last
+      product_category_id = product_id.category_id
+
+      @product_3 = Product.where(category_id: product_category_id ).where.not(id: @product.id).first
+      @product_4 = Product.where(category_id: product_category_id ).where.not(id: @product.id).second
+      @product_5 = Product.where(category_id: product_category_id ).where.not(id: @product.id).third
+
+      # comparison method
+
+      @product_2 = Product.find(params[:compared_product_id]) rescue nil
+      product2_id =  Product.where(id:@product_2.id).last
+      product_category_id = product2_id.category_id
+
+      @product_6 = Product.where(category_id: product_category_id ).where.not(id: @product_2.id).fourth
+      @product_7 = Product.where(category_id: product_category_id ).where.not(id: @product_2.id).fifth
+      @product_8 = Product.where(category_id: product_category_id ).where.not(id: @product_2.id).last
+
+    end
+
+
+
+    # @product = Product.find(params[:id])
+    # @compared = Product.last
+    # @products = Product.where(id: 1, active: true).where.not(stock: nil ).last
+    # @compared_products = Product.where(id: 2, active: true).where.not(stock: nil ).last
   end
 
   def recent_comments
