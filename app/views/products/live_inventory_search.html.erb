@@ -260,10 +260,10 @@
               <tr class="is-oos ">
                 <td><a href="#"><%= stock.store.title %></a> <i class="fa fa-scissors"></i> </td>
                 <td class=""><span>$<%= stock.price %></span></td>
-                <% if product.shipping_cost == nil %>
+                <% if stock.shipping_cost == nil %>
                   <td>No Info</td>
                 <% else %>
-                  <td>$<%= product.shipping_cost %></td>
+                  <td>$<%= stock.shipping_cost %></td>
                 <% end %>
               </tr>
             <% end %>
