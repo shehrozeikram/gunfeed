@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
   end
   def search_products
     if params[:q].present?
-      @products = Product.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%").page
+      @products = Product.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%").or(Product.where("LOWER(upc) LIKE LOWER(?)", "%#{params[:q]}%")).or(Product.where("LOWER(mpn) LIKE LOWER(?)", "%#{params[:q]}%"))
       render json:  @products
     end
   end
@@ -92,6 +92,8 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.where("verified":"true")
+    @similar_products = Product.where(category_id: @products.last.category_id).where.not(id: @products.last.id )
+    @product_2 = Product.where(category_id: @products.last.category_id ).where.not(id: @products.last.id).last
   end
 
   def new
