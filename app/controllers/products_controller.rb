@@ -230,6 +230,11 @@ class ProductsController < ApplicationController
     if (params[:product_id] && params[:compared_product_id]).present?
 
       @product = Product.find(params[:product_id]) rescue nil
+      @compared_product = Product.find(params[:compared_product_id]) rescue nil
+
+      @products = Product.where(upc: @product.upc ).where.not(stock: nil).where.not(id: @product.id).where.not(stock: 0).limit(50)
+      @compared_products = Product.where(upc: @compared_product.upc ).where.not(stock: nil).where.not(id: @compared_product.id).where.not(stock: 0).limit(50)
+
       product_id =  Product.where(id:@product.id).last
       product_category_id = product_id.category_id
 

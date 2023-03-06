@@ -86,84 +86,87 @@
                   </tr>
                   <tr>
                     <td>
-                      <div class="compare__upc " id="upc"> <a href="/search/apachesolr_search/022188868272">02218886</a>
+                      <div class="compare__upc " id="upc"> <a href="/search/apachesolr_search/022188868272"><%= @product.upc %></a>
                       </div>
                     </td>
                     <th class="label label--upc">UPC</th>
                     <td>
-                      <div class="compare__upc "> <a href="/search/apachesolr_search/022188868104" id="upc-1">022188</a>
+                      <div class="compare__upc "> <a href="/search/apachesolr_search/022188868104" id="upc-1"><%= @product_2.upc %></a>
                       </div>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <div class="compare__mpn "> <a href="/search/apachesolr_search/10305" id="mpn">20562</a></div>
+                      <div class="compare__mpn "> <a href="/search/apachesolr_search/10305" id="mpn"><%= @product.mpn %></a></div>
                     </td>
                     <th class="label label--mpn">MPN</th>
                     <td>
-                      <div class="compare__mpn "> <a href="/search/apachesolr_search/10202" id="mpn-1">52146</a></div>
+                      <div class="compare__mpn "> <a href="/search/apachesolr_search/10202" id="mpn-1"><%= @product_2.mpn %></a></div>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <div class="compare__brand " id="brand"> Smith &amp; Wesson</div>
+                      <div class="compare__brand " id="brand"> <%= @product.brand %></div>
                     </td>
                     <th class="label label--brand">Brand</th>
                     <td>
-                      <div class="compare__brand " id="brand-1"> Model</div>
+                      <div class="compare__brand " id="brand-1"> <%= @product_2.brand %></div>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <div class="compare__brand " id="caliber"> Caliber</div>
+                      <div class="compare__brand " id="caliber"> <%= @product.caliber %></div>
                     </td>
                     <th class="label label--brand">Caliber</th>
                     <td>
-                      <div class="compare__brand " id="caliber-1"> Caliber</div>
+                      <div class="compare__brand " id="caliber-1"> <%= @product_2.caliber %></div>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <div class="compare__brand " id="price"> $330</div>
+                      <div class="compare__brand " id="price"> $ <%= @product.price %></div>
                     </td>
                     <th class="label label--brand">Price</th>
                     <td>
-                      <div class="compare__brand " id="price-1"> Smith &amp; Wesson</div>
+                      <div class="compare__brand " id="price-1"> $ <%= @product_2.price %></div>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <div class="compare__brand " id="condition"> Condition</div>
+                      <div class="compare__brand " id="condition"> <%= @product.condition %></div>
                     </td>
                     <th class="label label--brand">Condition</th>
                     <td>
-                      <div class="compare__brand " id="condition-1"> Smith &amp; Wesson</div>
+                      <div class="compare__brand " id="condition-1"> <%= @product_2.condition %></div>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <div class="compare__brand " id="verfied"> YES</div>
+                      <div class="compare__brand " id="verfied"> <%= @product.verified %></div>
                     </td>
                     <th class="label label--brand">VERIFIED</th>
                     <td>
-                      <div class="compare__brand " id="verfied-1"> No</div>
+                      <div class="compare__brand " id="verfied-1"> <%= @product_2.verified %></div>
                     </td>
                   </tr>
 
 
                   <tr>
                     <td class="compare__deals p-0">
+
+
+                      <% @products.each do |product| %>
                       <div class="compare__deal ">
                         <div class="compare__deal-store">
                           <a itemprop="url" target="_blank" href="#" class="js-ga-event" data-ga-action="External Click"
                              data-ga-category="Palmetto State Armory" data-ga-label="gun.deals merchant table">
-                                     <span itemprop="offeredBy" itemtype="#">Palmetto State Armory
+                                     <span itemprop="offeredBy" itemtype="#"><%= product.store.title %>
                                      </span>
                           </a>
                         </div>
                         <div class="compare__deal-price">
                                  <span>
-                                     <span itemprop="price">$555.55</span>
+                                     <span itemprop="price">$<%= product.price %></span>
                                  </span>
                         </div>
                         <div class="compare__deal-additional">
@@ -177,78 +180,24 @@
                                                            data-ga-category="Palmetto State Armory" data-ga-label="Gun Compare page - Buy link"
                                                            target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a></div>
                       </div>
-                      <div class="compare__deal ">
-                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
-                                                             data-ga-action="External Click" data-ga-category="Palmetto State Armory"
-                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
-                                                                                                             itemtype="#">Palmetto State Armory</span> </a>
-                        </div>
-                        <div class="compare__deal-price"> <span> <span itemprop="price">$555.55</span> </span></div>
-                        <div class="compare__deal-additional">
-                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Additional"> <i
-                            class="fa fa-truck"></i> </span></div>
-                        </div>
-                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
-                                                           data-ga-category="Palmetto State Armory" data-ga-label="Gun Compare page - Buy link"
-                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a></div>
-                      </div>
-                      <div class="compare__deal ">
-                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
-                                                             data-ga-action="External Click" data-ga-category="Palmetto State Armory"
-                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
-                                                                                                             itemtype="#">Palmetto State Armory</span> </a>
-                        </div>
-                        <div class="compare__deal-price"> <span> <span itemprop="price">$555.55</span> </span></div>
-                        <div class="compare__deal-additional">
-                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Additional"> <i
-                            class="fa fa-truck"></i> </span></div>
-                        </div>
-                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
-                                                           data-ga-category="Palmetto State Armory" data-ga-label="Gun Compare page - Buy link"
-                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a></div>
-                      </div>
-                      <div class="compare__deal ">
-                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
-                                                             data-ga-action="External Click" data-ga-category="Palmetto State Armory"
-                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
-                                                                                                             itemtype="#">Palmetto State Armory</span> </a>
-                        </div>
-                        <div class="compare__deal-price"> <span> <span itemprop="price">$555.55</span> </span></div>
-                        <div class="compare__deal-additional">
-                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Additional"> <i
-                            class="fa fa-truck"></i> </span></div>
-                        </div>
-                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
-                                                           data-ga-category="Palmetto State Armory" data-ga-label="Gun Compare page - Buy link"
-                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a></div>
-                      </div>
-                      <div class="compare__deal ">
-                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
-                                                             data-ga-action="External Click" data-ga-category="Palmetto State Armory"
-                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
-                                                                                                             itemtype="#">Palmetto State Armory</span> </a>
-                        </div>
-                        <div class="compare__deal-price"> <span> <span itemprop="price">$555.55</span> </span></div>
-                        <div class="compare__deal-additional">
-                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Additional"> <i
-                            class="fa fa-truck"></i> </span></div>
-                        </div>
-                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
-                                                           data-ga-category="Palmetto State Armory" data-ga-label="Gun Compare page - Buy link"
-                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a></div>
-                      </div>
+                    <% end %>
+
+
+
                       <div class="compare__deals-see-more"> <a href="#">Show
                         all</a></div>
                     </td>
                     <th class="label label--deals">Lowest Prices Online</th>
                     <td class="compare__deals p-0">
+
+                      <% @compared_products.each do |product| %>
                       <div class="compare__deal ">
                         <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
                                                              data-ga-action="External Click" data-ga-category="Smoky Mountain Guns and Ammo"
                                                              data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
-                                                                                                             itemtype="#">Smoky Mountain Guns and Ammo</span>
+                                                                                                             itemtype="#"><%= product.store.title %></span>
                         </a></div>
-                        <div class="compare__deal-price"> <span> <span itemprop="price">$300.30</span> </span></div>
+                        <div class="compare__deal-price"> <span> <span itemprop="price">$<%= product.price %></span> </span></div>
                         <div class="compare__deal-additional">
                           <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Free S/H on Firearms"> <i
                             class="fa fa-truck"></i>
@@ -259,74 +208,8 @@
                                                            target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a>
                         </div>
                       </div>
-                      <div class="compare__deal ">
-                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
-                                                             data-ga-action="External Click" data-ga-category="Smoky Mountain Guns and Ammo"
-                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
-                                                                                                             itemtype="#">Smoky Mountain Guns and Ammo</span>
-                        </a></div>
-                        <div class="compare__deal-price"> <span> <span itemprop="price">$300.30</span> </span></div>
-                        <div class="compare__deal-additional">
-                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Free S/H on Firearms"> <i
-                            class="fa fa-truck"></i>
-                                     </span></div>
-                        </div>
-                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
-                                                           data-ga-category="Smoky Mountain Guns and Ammo" data-ga-label="Gun Compare page - Buy link"
-                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a>
-                        </div>
-                      </div>
-                      <div class="compare__deal ">
-                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
-                                                             data-ga-action="External Click" data-ga-category="Smoky Mountain Guns and Ammo"
-                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
-                                                                                                             itemtype="#">Smoky Mountain Guns and Ammo</span>
-                        </a></div>
-                        <div class="compare__deal-price"> <span> <span itemprop="price">$300.30</span> </span></div>
-                        <div class="compare__deal-additional">
-                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Free S/H on Firearms"> <i
-                            class="fa fa-truck"></i>
-                                     </span></div>
-                        </div>
-                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
-                                                           data-ga-category="Smoky Mountain Guns and Ammo" data-ga-label="Gun Compare page - Buy link"
-                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a>
-                        </div>
-                      </div>
-                      <div class="compare__deal ">
-                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
-                                                             data-ga-action="External Click" data-ga-category="Smoky Mountain Guns and Ammo"
-                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
-                                                                                                             itemtype="#">Smoky Mountain Guns and Ammo</span>
-                        </a></div>
-                        <div class="compare__deal-price"> <span> <span itemprop="price">$300.30</span> </span></div>
-                        <div class="compare__deal-additional">
-                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Free S/H on Firearms"> <i
-                            class="fa fa-truck"></i>
-                                     </span></div>
-                        </div>
-                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
-                                                           data-ga-category="Smoky Mountain Guns and Ammo" data-ga-label="Gun Compare page - Buy link"
-                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a>
-                        </div>
-                      </div>
-                      <div class="compare__deal ">
-                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
-                                                             data-ga-action="External Click" data-ga-category="Smoky Mountain Guns and Ammo"
-                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
-                                                                                                             itemtype="#">Smoky Mountain Guns and Ammo</span>
-                        </a></div>
-                        <div class="compare__deal-price"> <span> <span itemprop="price">$300.30</span> </span></div>
-                        <div class="compare__deal-additional">
-                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Free S/H on Firearms"> <i
-                            class="fa fa-truck"></i>
-                                     </span></div>
-                        </div>
-                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
-                                                           data-ga-category="Smoky Mountain Guns and Ammo" data-ga-label="Gun Compare page - Buy link"
-                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a>
-                        </div>
-                      </div>
+                      <% end %>
+
                       <div class="compare__deals-see-more"> <a href="#">Show
                         all</a></div>
                     </td>
