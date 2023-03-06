@@ -44,10 +44,12 @@
                 <i class="fa fa-bell-o fa-fw"></i>
                 <span>Notify Me</span>
               </a>
-              <a class="btn btn-product-single" href="<%= compare_guns_path %>">
+              <% if @product.category.products.length > 6 %>
+              <a class="btn btn-product-single" href="<%= compare_guns_path(@product.id , @product_2.id) %>">
                 <i class="fa fa-exchange"></i>
                 <span>Compare Guns</span>
               </a>
+                <% end %>
             </div>
           </div>
         </div>
