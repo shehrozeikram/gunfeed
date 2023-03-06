@@ -60,16 +60,28 @@
                   <tr>
                     <td>
                       <div class="compare__image" id="compare-img-left">
+                        <% if @product.image_link == nil %>
                         <img
                           src="<%= @product.image %>" class="img-fluid img_equal_height"
                           alt="">
+                          <% else %>
+                          <img
+                            src="<%= @product.image_link %>" class="img-fluid img_equal_height"
+                            alt="">
+                          <% end %>
                       </div>
                     </td>
                     <th class="label">Image</th>
                     <td>
-                      <div class="compare__image" id="compare-img-right"> <img
-                        src="<%= @product_2.image %>" class="img-fluid img_equal_height "
-                        alt=""></div>
+                      <div class="compare__image" id="compare-img-right">
+                        <% if @product_2.image_link == nil %>
+                        <img src="<%= @product_2.image %>" class="img-fluid img_equal_height "
+                        alt="">
+                        <% else %>
+                          <img src="<%= @product_2.image_link %>" class="img-fluid img_equal_height "
+                               alt="">
+                        <% end %>
+                          </div>
                     </td>
                   </tr>
                   <tr>
@@ -340,8 +352,11 @@
                           <div class="col-md-5">
                             <div>
                               <div class="compare__suggestion-image">
-                                <img src="<%= @product.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
-                              </div>
+                                <% if @product.image_link == nil %>
+                                  <img src="<%= @product.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% else %>
+                                  <img src="<%= @product.image_link %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% end %>                              </div>
                               <span> <%=@product.title %> </span>
                             </div>
                           </div>
@@ -351,7 +366,11 @@
                           <div class="col-md-5">
                             <div>
                               <div class="compare__suggestion-image">
-                                <img src="<%=@product_3.image %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
+                                <% if @product_3.image_link == nil %>
+                                  <img src="<%= @product_3.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% else %>
+                                  <img src="<%= @product_3.image_link %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% end %>
                               </div>
                               <span> <%=@product_3.title %></span>
                             </div>
@@ -375,7 +394,11 @@
                           <div class="col-md-5">
                             <div>
                               <div class="compare__suggestion-image">
+                                <% if @product.image_link == nil %>
                                 <img src="<%= @product.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% else %>
+                                  <img src="<%= @product.image_link %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% end %>
                               </div>
                               <span><%= @product.title %></span>
                             </div>
@@ -386,7 +409,11 @@
                           <div class="col-md-5">
                             <div>
                               <div class="compare__suggestion-image">
+                                <% if @product_4.image_link == nil %>
                                 <img src="<%= @product_4.image %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
+                                  <% else %>
+                                  <img src="<%= @product_4.image_link %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
+                              <% end %>
                               </div>
                               <span><%= @product_4.title %></span>
                             </div>
@@ -410,7 +437,11 @@
                           <div class="col-md-5">
                             <div>
                               <div class="compare__suggestion-image">
-                                <img src="<%= @product.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% if @product.image_link == nil %>
+                                  <img src="<%= @product.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% else %>
+                                  <img src="<%= @product.image_link %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% end %>
                               </div>
                               <span><%= @product.title %></span>
                             </div>
@@ -421,7 +452,11 @@
                           <div class="col-md-5">
                             <div>
                               <div class="compare__suggestion-image">
-                                <img src="<%= @product_5.image %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
+                                <% if @product_5.image_link == nil %>
+                                  <img src="<%= @product_5.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% else %>
+                                  <img src="<%= @product_5.image_link %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% end %>
                               </div>
                               <span><%= @product_5.title %></span>
                             </div>
@@ -445,7 +480,11 @@
                           <div class="col-md-5">
                             <div>
                               <div class="compare__suggestion-image">
-                                <img src="<%= @product_2.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% if @product_2.image_link == nil %>
+                                  <img src="<%= @product_2.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% else %>
+                                  <img src="<%= @product_2.image_link %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% end %>
                               </div>
                               <span><%= @product_2.title %></span>
                             </div>
@@ -456,7 +495,11 @@
                           <div class="col-md-5">
                             <div>
                               <div class="compare__suggestion-image">
-                                <img src="<%= @product_6.image %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
+                                <% if @product_6.image_link == nil %>
+                                  <img src="<%= @product_6.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% else %>
+                                  <img src="<%= @product_6.image_link %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% end %>
                               </div>
                               <span><%= @product_6.title %></span>
                             </div>
@@ -479,7 +522,11 @@
                           <div class="col-md-5">
                             <div>
                               <div class="compare__suggestion-image">
-                                <img src="<%= @product_2.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% if @product_2.image_link == nil %>
+                                  <img src="<%= @product_2.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% else %>
+                                  <img src="<%= @product_2.image_link %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% end %>
                               </div>
                               <span><%= @product_2.title %></span>
                             </div>
@@ -490,7 +537,11 @@
                           <div class="col-md-5">
                             <div>
                               <div class="compare__suggestion-image">
-                                <img src="<%= @product_7.image %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
+                                <% if @product_7.image_link == nil %>
+                                  <img src="<%= @product_7.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% else %>
+                                  <img src="<%= @product_7.image_link %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% end %>
                               </div>
                               <span><%= @product_7.title %></span>
                             </div>
@@ -513,8 +564,11 @@
                           <div class="col-md-5">
                             <div>
                               <div class="compare__suggestion-image">
-                                <img src="<%= @product_2.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
-                              </div>
+                                <% if @product_2.image_link == nil %>
+                                  <img src="<%= @product_2.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% else %>
+                                  <img src="<%= @product_2.image_link %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% end %>                              </div>
                               <span><%= @product_2.title %></span>
                             </div>
                           </div>
@@ -524,8 +578,11 @@
                           <div class="col-md-5">
                             <div>
                               <div class="compare__suggestion-image">
-                                <img src="<%= @product_8.image %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
-                              </div>
+                                <% if @product_8.image_link == nil %>
+                                  <img src="<%= @product_8.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% else %>
+                                  <img src="<%= @product_8.image_link %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                <% end %>                              </div>
                               <span><%= @product_8.title %></span>
                             </div>
                           </div>
