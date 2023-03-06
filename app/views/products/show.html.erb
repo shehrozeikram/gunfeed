@@ -437,8 +437,14 @@
                   <td class="js-price-column price-compare-table__price-column">
                     <div class="">$<%= product.price %></div>
                   </td>
-                  <td class="price-compare-table__shipping-column" data-header="Shipping rate: ">$<%= product.shipping_cost %></td>
-                  <td class="price-compare-table__show-more-column"></td>
+                  <% if product.shipping_cost == nil %>
+                    <td class="price-compare-table__shipping-column" data-header="Shipping rate: ">No Info</td>
+                    <td class="price-compare-table__show-more-column"></td>
+                  <% else %>
+                    <td class="price-compare-table__shipping-column" data-header="Shipping rate: ">$<%= product.shipping_cost %></td>
+                    <td class="price-compare-table__show-more-column"></td>
+                  <% end %>
+
                 </tr>
               <% end %>
 
