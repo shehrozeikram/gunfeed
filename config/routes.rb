@@ -33,7 +33,6 @@ Rails.application.routes.draw do
   # Main compare gun route
   get ':product_id-vs-:compared_product_id' => 'products#compare_guns', as: :compare_guns
 
-  # get "/compare/:id" , to: "products#compare_guns", as: :compare_guns
   get "/popular" , to: "products#popular"
 
   #footer cards routes

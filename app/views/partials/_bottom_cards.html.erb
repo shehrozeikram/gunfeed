@@ -64,7 +64,9 @@
             <span class="pill">
               <span class="pill__title">Brand</span>
               <span class="pill__value">
+                <% if rebate.product.present? %>
                 <a href="#"><%= rebate.product.brand %></a>
+                  <% end %>
               </span>
             </span>
                 <span class="pill">
@@ -100,7 +102,9 @@
                     <!--                          <img src="images/coupan.jpg" alt="AGUILA NON-CORR Primers Small Pistol NO. 1-1/2 1,000/BOX - $84.99">-->
                   </div>
                   <div class="recent-comment__info">
+                    <% if comment.product.present? %>
                     <a href="#"><%= comment.product.title %></a>
+                      <% end %>
                   </div>
                 </div>
                 <div class="recent-comment__content">

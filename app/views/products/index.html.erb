@@ -11,7 +11,7 @@
     <div class="col my-3 sub-card">
       <div class="card h-100">
         <div class="card-body d-flex justify-content-between">
-          <% unless product.sponsored != true %>
+          <% if product.sponsored == true %>
           <span class="tile__sponsored"><a href="#">Sponsored</a></span>
             <% end %>
           <a href="#" class="card-link "><span></span></a>

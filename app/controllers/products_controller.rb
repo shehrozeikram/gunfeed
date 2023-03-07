@@ -92,9 +92,11 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.where("verified":"true")
+    if @products.present?
     @similar_products = Product.where(category_id: @products.last.category_id).where.not(id: @products.last.id ).limit(20)
     @product_2 = Product.where(category_id: @products.last.category_id ).where.not(id: @products.last.id).last
-  end
+    end
+    end
 
   def new
     @product = Product.new
@@ -119,7 +121,7 @@ class ProductsController < ApplicationController
   def show
     @comment = Comment.new
     @product = Product.find(params[:id])
-    @products = Product.where(upc: @product.upc ).where.not(stock: nil).where.not(id: @product.id).where.not(stock: 0).limit(50)
+    @products = Product.where(upc: @product.upc ).where.not(stock: nil).where.not(id: @product.id).where.not(stock:"out of stock").limit(50)
     @similar_products = Product.where(category_id: @product.category_id).where.not(id: @product.id ).limit(20)
     @product_2 = Product.where(category_id: @product.category_id ).where.not(id: @product.id).last
 
@@ -218,8 +220,8 @@ class ProductsController < ApplicationController
   def live_inventory_search
     @product = Product.find(params[:id])
     @product_2 = Product.where(category_id: @product.category_id ).where.not(id: @product.id).last
-    @products = Product.where(upc: @product.upc ).where.not(stock: nil).where.not(id: @product.id).where.not(stock: 0).limit(50)
-    @stock = Product.where(upc: @product.upc, stock: nil).or(Product.where(stock: 0)).limit(50)
+    @products = Product.where(upc: @product.upc ).where.not(stock: nil).where.not(id: @product.id).where.not(stock: 'out of stock').limit(50)
+    @stock = Product.where(upc: @product.upc, stock: nil).or(Product.where(stock: 'out of stock')).limit(50)
     @similar_products = Product.where(category_id: @product.category_id).where.not(id: @product.id ).limit(20)
     if current_user.present?
     @user_products = current_user.products.where(verified: "true")
@@ -253,13 +255,6 @@ class ProductsController < ApplicationController
       @product_8 = Product.where(category_id: product_category_id ).where.not(id: @product_2.id).last
 
     end
-
-
-
-    # @product = Product.find(params[:id])
-    # @compared = Product.last
-    # @products = Product.where(id: 1, active: true).where.not(stock: nil ).last
-    # @compared_products = Product.where(id: 2, active: true).where.not(stock: nil ).last
   end
 
   def recent_comments
