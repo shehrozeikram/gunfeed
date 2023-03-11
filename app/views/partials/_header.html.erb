@@ -206,13 +206,21 @@
                     <button data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2"
                             class="icon-fa-link primary-menu__menu-label" aria-expanded="false">
                       <i class="fa fa-user"></i>
-                      <span class="primary-menu_text">Welcome, guest <span
-                        class="caret"></span></span>
+                      <% if current_user %>
+                         <span class="primary-menu_text"><%= current_user.username %> <span
+                           class="caret"></span></span>
+                        <% else %>
+                        <span class="primary-menu_text">Welcome, guest <span
+                          class="caret"></span></span>
+                        ِِِِِ<% end %>
+
                     </button>
                     <div class="primary-menu__label-line-wrapper">
                       <div class="primary-menu__label-line"></div>
                     </div>
                   </div>
+                  <% if user_signed_in? %>
+
                   <ul id="multiCollapseExample2" class="primary-menu__dropdown-list">
                     <li class="primary-menu__dropdown-list-item">
                       <button class="icon-fa-link js-newsletter-subscribe-caller"
@@ -224,19 +232,56 @@
                     </li>
                     <hr class="bottom_line">
                     <li class="primary-menu__dropdown-list-item">
-                      <a href="#" title="Register">
-                        <span class="primary-menu_text">Register</span>
-                        <span class="primary-menu__dropdown-list-icon fa fa-sign-in">
-                                                </span>
+
+                      <a href="<%= destroy_user_session_path %>" methods="get" title="Logout">
+                        <span class="primary-menu_text">Logout</span>
+                        <span class="primary-menu__dropdown-list-icon fa fa-sign-in"></span>
                       </a>
                     </li>
                     <li class="primary-menu__dropdown-list-item">
-                      <a href="#" title="Reset Password">
-                        <span class="primary-menu_text">Reset Password</span>
+                      <a href="<%= my_accounts_views_path %>" title="Register">
+                        <span class="primary-menu_text">My account</span>
+                        <span class="primary-menu__dropdown-list-icon fa fa-sign-in"></span>
+                      </a>
+                    </li>
+                    <li class="primary-menu__dropdown-list-item">
+                      <a href="<%= my_accounts_my_watchlist_path %>" title="My watchlist">
+                        <span class="primary-menu_text">My watchlist</span>
                         <span class="primary-menu__dropdown-list-icon fa fa-key"></span>
                       </a>
                     </li>
                   </ul>
+                  <% else %>
+                    <ul id="multiCollapseExample2" class="primary-menu__dropdown-list">
+                      <li class="primary-menu__dropdown-list-item">
+                        <a href="<%= new_news_letter_path %>" class="icon-fa-link js-newsletter-subscribe-caller"
+                                data-toggle="modal" data-target="#modalGuestSubscribe">
+                          <span class="primary-menu_text">Subscribe to newsletter</span>
+                          <span
+                            class="primary-menu__dropdown-list-icon fa fa-newspaper-o"></span>
+                        </a>
+                      </li>
+                      <hr class="bottom_line">
+                      <li class="primary-menu__dropdown-list-item">
+                        <a href="<%= user_session_path %>" title="Login">
+                          <span class="primary-menu_text">Login</span>
+                          <span class="primary-menu__dropdown-list-icon fa fa-sign-in"></span>
+                        </a>
+                      </li>
+                      <li class="primary-menu__dropdown-list-item">
+                        <a href="<%= new_user_registration_path %>" title="Register">
+                          <span class="primary-menu_text">Register</span>
+                          <span class="primary-menu__dropdown-list-icon fa fa-sign-in"></span>
+                        </a>
+                      </li>
+                      <li class="primary-menu__dropdown-list-item">
+                        <a href="<%= edit_user_password_path %>" title="Reset Password">
+                          <span class="primary-menu_text">Reset Password</span>
+                          <span class="primary-menu__dropdown-list-icon fa fa-key"></span>
+                        </a>
+                      </li>
+                    </ul>
+                  <% end %>
                 </div>
                 <div class="primary-menu primary-menu--sidebar primary-menu__category-links-mobile">
                   <div class="primary-menu__label-container d-flex">
@@ -403,12 +448,12 @@
               <li class="leaf">
                 <a href="<%= stores_path %>" title="Stores page">Stores</a>
               </li>
-                            <li class="leaf">
-                              <a href="<%= rebates_path %>" title="">Rebates</a>
-                            </li>
-                            <li class="leaf">
-                              <a href="<%= comments_page_path %>" title="">Recent Comments</a>
-                            </li>
+              <li class="leaf">
+                <a href="<%= rebates_path %>" title="">Rebates</a>
+              </li>
+              <li class="leaf">
+                <a href="<%= comments_page_path %>" title="">Recent Comments</a>
+              </li>
               <li class="leaf">
                 <a href="<%= top_articles_path %>" title="">Top Articles</a>
               </li>
@@ -428,11 +473,7 @@
               <li class="leaf">
                 <a href="<%= nine_mm_ammo_path %>" title="9mm Ammo" class="icon-ammo">9mm Ammo</a>
               </li>
-              <!--              <li class="leaf last">-->
-              <!--                <a href="#"-->
-              <!--                   title="223 Rem - 5.56 NATO Ammo" class="icon-ammo">223/5.56-->
-              <!--                  Ammo</a>-->
-              <!--              </li>-->
+
             </ul>
           </li>
           <li class="leaf last">
@@ -625,7 +666,7 @@
                     data.forEach(product => {
                         productWrapper.style.display = 'block'
                         productCounter += `
-                         <a href="${product.id}" class="product-item-canvas">
+                         <a href="/search/${product.id}" class="product-item-canvas">
                             <img src="${product.image.url}" class="canvas-img"/>
                             <div class="product-canvas-detail">
                                <span> <strong> ${product.title} </strong> </span>

@@ -232,7 +232,13 @@
           <tbody>
           <% @products.each do |product| %>
             <tr>
-              <td><a href="/stores/<%= product.store.id %>"><%= product.store.title %></a></td>
+              <td>
+                <% if product.link.present? %>
+                  <a href="<%= product.link %>"><%= product.store.title %></a>
+                  <% else %>
+                  <a href="/stores/<%= product.store.id %>"><%= product.store.title %></a>
+                <% end %>
+              </td>
               <td class="set-table-pointer"><span>$<%= product.price %></span> <i
                 class="fa fa-envelope text-primary no-border"></i></td>
               <% if product.shipping_cost == nil %>
@@ -258,7 +264,14 @@
           <% if @stock.present?%>
             <% @stock.each do |stock| %>
               <tr class="is-oos ">
-                <td><a href="/stores/<%= stock.store.id %>"><%= stock.store.title %></a> <i class="fa fa-scissors"></i> </td>
+                <td>
+                  <% if stock.link.present? %>
+                  <a href="<%= stock.link %>"><%= stock.store.title %></a>
+                    <% else %>
+                    <a href="/stores/<%= stock.store.id %>"><%= stock.store.title %></a>
+                    <% end %>
+                  <i class="fa fa-scissors"></i>
+                </td>
                 <td class=""><span>$<%= stock.price %></span></td>
                 <% if stock.shipping_cost == nil %>
                   <td>No Info</td>
