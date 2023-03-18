@@ -22,6 +22,8 @@ unless scheduler.down?
           product.image_link = pr[:image_link]
           product.shipping_weight = pr[:shipping_weight]
           product.mpn = pr[:mpn]
+          product.brand = pr[:brand]
+          product.caliber = pr[:caliber]
           product.shipping_cost = pr[:shipping_cost]
           product.active = true
           product.save!
