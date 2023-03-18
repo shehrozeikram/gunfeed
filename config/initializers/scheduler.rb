@@ -25,6 +25,7 @@ unless scheduler.down?
           product.brand = pr[:brand]
           product.caliber = pr[:caliber]
           product.shipping_cost = pr[:shipping_cost]
+          product.model = pr[:model]
           product.active = true
           product.save!
         end

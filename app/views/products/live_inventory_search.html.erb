@@ -49,7 +49,7 @@
         </div>
         <div class="col-md-8">
           <div class="product-title-single">
-            <h2 itemprop="name"><%= @product.title %> </h2>
+            <h2 itemprop="name"><strong><%= @product.title %> </strong></h2>
           </div>
           <div class="product-detail-single">
             <div class="single-detail">
@@ -63,6 +63,10 @@
             <div class="single-detail">
               <span class="product-single-desp">Brand:</span>
               <span><a href="<%@product.upc %>"><%= @product.brand %></a></span>
+            </div>
+            <div class="single-detail">
+              <span class="product-single-desp">Model:</span>
+              <span><strong><%= @product.model %></strong></span>
             </div>
             <div class="single-detail">
               <span class="product-single-desp">Caliber:</span>
