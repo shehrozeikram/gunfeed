@@ -314,11 +314,116 @@
 }
 
 #edit-amount {
- width:120px;
+  width:120px;
   padding: 7px 14px;
   margin-top: -1px;
 }
 
 #edit-amount-wrapper {
   margin-left: 10px;
+}
+
+
+
+.wrapper__price input, select {
+  width: 100% !important;
+  height: 38px !important;
+}
+
+// .wrapper__price input[type="number"] {
+//   height: 38px !important;
+// }
+
+.form-deelgun select {
+  width: 100% !important;
+}
+
+.pricing-product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (max-width:769px) {
+  .pricing-product {
+    display: flex;
+    flex-direction: column !important;
+  }
+}
+
+.pricing-product > div {
+  padding: 0 10px;
+}
+
+.pricing-product input[type="number"] {
+  margin-top: -10px !important;
+}
+
+
+
+.active__liking {
+  color: green;
+}
+
+#my-button {
+  position: relative;
+  padding: 10px 5px;
+  margin-bottom: 30px;
+}
+
+
+#my-button:hover + .tooltip__liking{
+  visibility: visible;
+}
+
+
+#my-button-dislike {
+  position: relative;
+  padding: 10px 5px;
+  margin-bottom: 30px;
+}
+
+#my-button-dislike:hover > .tooltip__liking {
+  visibility: visible;
+}
+
+
+
+.tooltip__liking {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  font-size: 12px;
+  width: 150px;
+}
+
+
+
+.loading-likes {
+  font-size: 10px;
+  visibility: hidden;
+  height: 10px;
+  width: 10px;
+}
+
+
+
+.tooltip__liking::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+  transform: rotate(180deg);
+}
+
+.model-content-app input {
+  width: 100% !important;
 }
