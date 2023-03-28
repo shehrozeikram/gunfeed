@@ -55,18 +55,22 @@
               </thead>
               <tbody>
 
+              <% if @rebates.present? %>
               <% @rebates.each do |rebate| %>
               <tr>
                 <td>
                   <a href="#" target="_blank"><%= rebate.body %></a>
                 </td>
-                <td><%= rebate.product.brand %></td>
+
+                <%# if rebate.product.brand.present?  %>
+<!--                <td><%#= rebate.product.brand  %></td>-->
+                  <%# end %>
                 <td><%= rebate.created_at %></td>
                 <td><%= rebate.updated_at %></td>
                 <td class="active"><%= rebate.created_at %></td>
               </tr>
             <% end %>
-
+              <% end %>
               </tbody>
             </table>
 
