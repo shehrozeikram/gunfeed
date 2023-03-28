@@ -666,3 +666,35 @@ td.image-cell {width: 400px !important}
 .card-coupon  input[type="text"], input[type="number"] {
   width: 100% !important;
 }
+
+@media only screen and (max-width:769px) {
+  .flex-categories {
+    display: flex !important;
+    flex-direction: column !important;;
+  }
+
+  .set-width-left-card {
+    width: 100% !important;
+  }
+
+  .card--filters {
+    width: 100% !important;
+  }
+
+  .categories__cards {
+    width: 100% !important;
+  }
+
+  .set-width-right-card {
+    width: 100% !important;
+  }
+
+  .cat__card {
+    width: 100% !important;
+  }
+
+  .card___width {
+    width: 106% !important;
+  }
+
+}

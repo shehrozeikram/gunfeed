@@ -220,7 +220,7 @@
                       <li class="primary-menu__dropdown-list-item">
                         <button class="icon-fa-link js-newsletter-subscribe-caller"
                                 data-toggle="modal" data-target="#modalGuestSubscribe">
-                          <span class="primary-menu_text">Subscribe to newsletter</span>
+                          <span class="primary-menu_text" onclick="subscribe_to_newsletter()">Subscribe to newsletter</span>
                           <span
                             class="primary-menu__dropdown-list-icon fa fa-newspaper-o">
                         </span>
@@ -385,9 +385,15 @@
                   <div class="primary-menu primary-menu__bottom-links">
                     <div class="primary-menu__bottom-link"> <a href="#"> <span>post a deal</span> <i class="fa fa-pencil"></i> </a>
                     </div>
-                    <div class="primary-menu__bottom-link"> <a href="#"> <span>login</span> <span
+                    <% if user_signed_in? %>
+                    <div class="primary-menu__bottom-link"> <a href="<%= destroy_user_session_path %>"> <span>logout</span> <span
                       class="primary-menu__icon gun-icon-menu_ic_login"></span> </a>
                     </div>
+                    <% else %>
+                      <div class="primary-menu__bottom-link"> <a href="<%= user_session_path %>"> <span>login</span> <span
+                        class="primary-menu__icon gun-icon-menu_ic_login"></span> </a>
+                      </div>
+                    <% end %>
                   </div>
                 </div>
 
