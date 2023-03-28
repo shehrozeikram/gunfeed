@@ -220,7 +220,7 @@
                       <li class="primary-menu__dropdown-list-item">
                         <button class="icon-fa-link js-newsletter-subscribe-caller"
                                 data-toggle="modal" data-target="#modalGuestSubscribe">
-                          <span class="primary-menu_text" onclick="subscribe_to_newsletter()">Subscribe to newsletter</span>
+                          <span class="primary-menu_text" id="mobile-newsletter" onclick="subscribe_to_newsletter_mobile()">Subscribe to newsletter</span>
                           <span
                             class="primary-menu__dropdown-list-icon fa fa-newspaper-o">
                         </span>
@@ -590,13 +590,44 @@
                 success: function (data) {
                     if(data.subscribed == true) {
                         const subString = document.querySelector('.sub__string');
+
                         console.log(subString.textContent)
+
                         setTimeout(() => {
-                            subString.textContent = "Subscribed to Newsletter"
+                            subString.textContent = "Newsletter Subscribed"
+                            // subString.textContent =
+                        },2000)
+
+                    }
+
+                }
+            });
+        });
+    };
+
+    function subscribe_to_newsletter_mobile() {
+
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",
+                url: "/subscribe_to_newsletter_mobile",
+                data: {
+                    <% if user_signed_in? %>
+                    id: <%= current_user.id %>
+                    <% end %>
+                },
+                success: function (data) {
+                    if(data.subscribed == true) {
+                        const subString = document.querySelector('#mobile-newsletter');
+
+                        console.log(subString.textContent)
+
                             setTimeout(() => {
-                                subString.textContent = "Subscribe to Newsletter"
-                            },7000)
-                        })
+                                subString.textContent = "Newsletter Subscribed"
+                                // subString.textContent =
+                            },1000)
+
                     }
 
                 }

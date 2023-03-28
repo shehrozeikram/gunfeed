@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <div class="card p-3">
+        <div class="card p-2">
           <div class="card__title">
             <h1 class="listing-title listing-title--block"> Compare Guns</h1>
             <p class="subtitle"> Compare gun price, size, weight, capacity and other specifications.</p>
@@ -17,7 +17,7 @@
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
                           <button class="accordion-button collapsed target-replace" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <%= truncate(@product.title, length: 50) %>
+                            <%= truncate(@product.title, length: 10) %>
 
                           </button>
                         </h2>
@@ -58,30 +58,30 @@
                 <table class="table text-center compare__table">
                   <tbody>
                   <tr>
-                    <td>
+                    <td class="image-cell">
                       <div class="compare__image" id="compare-img-left">
                         <% if @product.image_link == nil %>
-                        <img
-                          src="<%= @product.image %>" class="img-fluid img_equal_height"
-                          alt="">
-                          <% else %>
+                          <img
+                            src="<%= @product.image %>" class="img-fluid img_equal_height"
+                            alt="">
+                        <% else %>
                           <img
                             src="<%= @product.image_link %>" class="img-fluid img_equal_height"
                             alt="">
-                          <% end %>
+                        <% end %>
                       </div>
                     </td>
                     <th class="label">Image</th>
-                    <td>
+                    <td class="image-cell image-cell-right">
                       <div class="compare__image" id="compare-img-right">
                         <% if @product_2.image_link == nil %>
-                        <img src="<%= @product_2.image %>" class="img-fluid img_equal_height "
-                        alt="">
+                          <img src="<%= @product_2.image %>" class="img-fluid img_equal_height "
+                               alt="">
                         <% else %>
                           <img src="<%= @product_2.image_link %>" class="img-fluid img_equal_height "
                                alt="">
                         <% end %>
-                          </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -156,31 +156,31 @@
 
 
                       <% @products.each do |product| %>
-                      <div class="compare__deal ">
-                        <div class="compare__deal-store">
-                          <a itemprop="url" target="_blank" href="#" class="js-ga-event" data-ga-action="External Click"
-                             data-ga-category="Palmetto State Armory" data-ga-label="gun.deals merchant table">
+                        <div class="compare__deal ">
+                          <div class="compare__deal-store">
+                            <a itemprop="url" target="_blank" href="#" class="js-ga-event" data-ga-action="External Click"
+                               data-ga-category="Palmetto State Armory" data-ga-label="gun.deals merchant table">
                                      <span itemprop="offeredBy" itemtype="#"><%= product.store.title %>
                                      </span>
-                          </a>
-                        </div>
-                        <div class="compare__deal-price">
+                            </a>
+                          </div>
+                          <div class="compare__deal-price">
                                  <span>
                                      <span itemprop="price">$<%= product.price %></span>
                                  </span>
-                        </div>
-                        <div class="compare__deal-additional">
-                          <div>
+                          </div>
+                          <div class="compare__deal-additional">
+                            <div>
                                      <span class="" data-toggle="tooltip" data-title="Shipping info: Additional">
                                          <i class="fa fa-truck"></i>
                                      </span>
+                            </div>
                           </div>
+                          <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
+                                                             data-ga-category="Palmetto State Armory" data-ga-label="Gun Compare page - Buy link"
+                                                             target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a></div>
                         </div>
-                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
-                                                           data-ga-category="Palmetto State Armory" data-ga-label="Gun Compare page - Buy link"
-                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a></div>
-                      </div>
-                    <% end %>
+                      <% end %>
 
 
 
@@ -191,23 +191,23 @@
                     <td class="compare__deals p-0">
 
                       <% @compared_products.each do |product| %>
-                      <div class="compare__deal ">
-                        <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
-                                                             data-ga-action="External Click" data-ga-category="Smoky Mountain Guns and Ammo"
-                                                             data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
-                                                                                                             itemtype="#"><%= product.store.title %></span>
-                        </a></div>
-                        <div class="compare__deal-price"> <span> <span itemprop="price">$<%= product.price %></span> </span></div>
-                        <div class="compare__deal-additional">
-                          <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Free S/H on Firearms"> <i
-                            class="fa fa-truck"></i>
+                        <div class="compare__deal ">
+                          <div class="compare__deal-store"> <a itemprop="url" target="_blank" href="#" class="js-ga-event"
+                                                               data-ga-action="External Click" data-ga-category="Smoky Mountain Guns and Ammo"
+                                                               data-ga-label="gun.deals merchant table"> <span itemprop="offeredBy"
+                                                                                                               itemtype="#"><%= product.store.title %></span>
+                          </a></div>
+                          <div class="compare__deal-price"> <span> <span itemprop="price">$<%= product.price %></span> </span></div>
+                          <div class="compare__deal-additional">
+                            <div> <span class="" data-toggle="tooltip" data-title="Shipping info: Free S/H on Firearms"> <i
+                              class="fa fa-truck"></i>
                                      </span></div>
+                          </div>
+                          <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
+                                                             data-ga-category="Smoky Mountain Guns and Ammo" data-ga-label="Gun Compare page - Buy link"
+                                                             target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a>
+                          </div>
                         </div>
-                        <div class="compare__deal-cta"> <a href="#" class="js-ga-event" data-ga-action="External Click"
-                                                           data-ga-category="Smoky Mountain Guns and Ammo" data-ga-label="Gun Compare page - Buy link"
-                                                           target="_blank"> <i class="fa fa-shopping-cart"></i> <span>Buy</span> </a>
-                        </div>
-                      </div>
                       <% end %>
 
                       <div class="compare__deals-see-more"> <a href="#">Show
@@ -278,7 +278,7 @@
                             <div>
                               <div class="compare__suggestion-image">
                                 <% if @product.image_link == nil %>
-                                <img src="<%= @product.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
+                                  <img src="<%= @product.image %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
                                 <% else %>
                                   <img src="<%= @product.image_link %>" alt="Savage Arms 110 UltraLite Gray Left Hand .28 Nosler 57720">
                                 <% end %>
@@ -293,10 +293,10 @@
                             <div>
                               <div class="compare__suggestion-image">
                                 <% if @product_4.image_link == nil %>
-                                <img src="<%= @product_4.image %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
-                                  <% else %>
+                                  <img src="<%= @product_4.image %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
+                                <% else %>
                                   <img src="<%= @product_4.image_link %>" alt="Savage Arms 110 Ultralite .28 Nosler 57915">
-                              <% end %>
+                                <% end %>
                               </div>
                               <span><%= @product_4.title %></span>
                             </div>

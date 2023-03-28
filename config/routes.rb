@@ -1,5 +1,105 @@
 Rails.application.routes.draw do
 
+
+  # Api Section
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+
+      # resource :user, only: %i[show update]
+      #
+      # devise_scope :user do
+      #   resources :users, only: [] do
+      #     controller :registrations do
+      #       post :create, on: :collection
+      #     end
+      #   end
+      # end
+
+
+      resource :products do
+        get '/index', to: 'products#index'
+      end
+
+
+
+
+      # resource :reviews do
+      #   post '/create_review', to: 'reviews#create_review'
+      #   get '/show_reviews', to: 'reviews#show_reviews'
+      # end
+      #
+      # resource :shops do
+      #   get '/show_shop', to: 'shops#show_shop'
+      #   get '/fetch_shops', to: 'shops#fetch_shops'
+      #   post '/checkout', to: 'shops#checkout'
+      #   get '/fetch_related_products', to: 'shops#fetch_related_products'
+      #   get '/filter_shops', to: 'shops#filter_shops'
+      #
+      # end
+      #
+      #
+      # resource :trainers do
+      #   get '/show_trainer', to: 'trainers#show_trainer'
+      #   get '/fetch_trainers', to: 'trainers#fetch_trainers'
+      #   get '/fetch_trainer_booking', to: 'trainers#fetch_trainer_booking'
+      #   post '/create_trainer_subscription', to: 'trainers#create_trainer_subscription'
+      # end
+      #
+      #
+      # resource :training_programs do
+      #
+      #   get '/show_training_program', to: 'training_programs#show_training_program'
+      #   get '/fetch_training_programs', to: 'training_programs#fetch_training_programs'
+      #   get '/show_activity', to: 'training_programs#show_activity'
+      #   get '/fetch_activities', to: 'training_programs#fetch_activities'
+      #   post '/complete_activity', to: 'training_programs#complete_activity'
+      # end
+      #
+      # resource :payments do
+      #   post '/payment', to: 'payments#payment'
+      # end
+      #
+      # resource :resturants do
+      #   get '/show_resturant', to: 'resturants#show_resturant'
+      #   get '/fetch_resturants', to: 'resturants#fetch_resturants'
+      #
+      #
+      # end
+      #
+      # resource :resturants_dishes do
+      #   get '/show_dish', to: 'resturants_dishes#show_dish'
+      #   get '/fetch_dishes', to: 'resturants_dishes#fetch_dishes'
+      #   get '/best_seller', to: 'resturants_dishes#best_seller'
+      #   get '/filter_dishes', to: 'resturants_dishes#filter_dishes'
+      # end
+      #
+      # resource :business do
+      #   get '/show_business', to: 'businesses#show_business'
+      #   get '/fetch_business', to: 'businesses#fetch_business'
+      #   get '/filter_business', to: 'businesses#filter_business'
+      #
+      #   # subscription route
+      #   post '/create_subscription', to: 'businesses#create_subscription'
+      #   get '/fetch_subscriptions' , to: 'businesses#fetch_subscriptions'
+      #   get '/fetch_gym_subscriptions' , to: 'businesses#fetch_gym_subscriptions'
+      #   get '/fetch_health_club_subscriptions' , to: 'businesses#fetch_health_club_subscriptions'
+      #
+      # end
+      #
+      # resource :dish_orders do
+      #   post '/create_order', to: 'dish_orders#create_order'
+      #   get '/order_again', to: 'dish_orders#order_again'
+      #   put '/complete_order', to: 'dish_orders#complete_order'
+      #   get '/fetch_orders', to: 'dish_orders#fetch_orders'
+      # end
+
+
+    end
+  end
+
+
+
+
   # MyAccount routes
   get 'my_accounts/views'
   get 'my_accounts/edit'
@@ -19,11 +119,18 @@ Rails.application.routes.draw do
   devise_for :users
 
   # search ajax routes
+
   get "/search_products" , to: "products#search_products"
   get "/fetch_data_from_url" , to: "products#fetch_data_from_url"
   get "/search_compare_guns" , to: "products#search_compare_guns"
   get "/select_gun/:id" , to: "products#select_gun", as: :select_gun
   get 'subscribe_to_newsletter' , to: "news_letter#subscribe_to_newsletter", as: :subscribe_to_newsletter
+  get 'subscribe_to_newsletter_mobile' , to: "news_letter#subscribe_to_newsletter_mobile", as: :subscribe_to_newsletter_mobile
+  get "/like_product/:id" , to: "products#like_product", as: :like_product
+  get "/unlike_product/:id" , to: "products#unlike_product", as: :unlike_product
+  get "/map_price/:id" , to: "products#map_price", as: :map_price
+  get "/logout_map_price/:id" , to: "products#logout_map_price", as: :logout_map_price
+  get "/logout_email" , to: "products#logout_email"
 
   # main routes
   resources :products
