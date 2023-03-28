@@ -1,6 +1,6 @@
 class MyAccountsController < ApplicationController
-  before_action :user
-  before_action :categories, :coupons, :rebates, :comments
+  before_action :authenticate_user!, only: [:user_deals]
+  before_action :categories, :coupons, :rebates, :comments, :user
 
   def coupons
     @coupons = Coupon.all
@@ -26,6 +26,7 @@ class MyAccountsController < ApplicationController
   end
 
   def user_deals
+    @products =  current_user.products
   end
 
   def user_comments
@@ -33,6 +34,7 @@ class MyAccountsController < ApplicationController
   end
 
   def user_votes
+    @products = current_user
   end
 
   def my_reviews

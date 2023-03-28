@@ -37,6 +37,8 @@
     <div class="form-pages bg-white p-4">
 
       <div class="tab-content" id="myTabContent">
+        <% if @product.present? %>
+
         <div class="tab-pane fade show active" id="uservote-tab-pane" role="tabpanel" aria-labelledby="uservote-tab"
              tabindex="0">
           <div class="">
@@ -47,10 +49,18 @@
               <h3 title="Sum of votes this user has casted on all products.">User's votes for products</h3>
               <ul>
                 <li>
-                  <b>Up:</b> 1
+                  <% if @product.likes.present? %>
+                  <b>Up:</b> <%= @product.likes.all.count %>
+                    <% else %>
+                    <b>Up:</b> 0
+                  <% end %>
                 </li>
                 <li>
-                  <b>Down:</b> 0
+                  <% if @product.unlikes.present? %>
+                    <b>Down:</b> <%= @product.unlikes.all.count %>
+                  <% else %>
+                    <b>Down:</b> 0
+                  <% end %>
                 </li>
               </ul>
               <br>
@@ -87,6 +97,59 @@
             </div>
           </div>
         </div>
+          <% else %>
+          <div class="tab-pane fade show active" id="uservote-tab-pane" role="tabpanel" aria-labelledby="uservote-tab"
+               tabindex="0">
+            <div class="">
+              <div class="card__title">
+                <h1><%= current_user.username %></h1>
+              </div>
+              <div class="card__content">
+                <h3 title="Sum of votes this user has casted on all products.">User's votes for products</h3>
+                <ul>
+                  <li>
+                      <b>Up:</b> 0
+                  </li>
+                  <li>
+                      <b>Down:</b> 0
+                  </li>
+                </ul>
+                <br>
+                <h3 title="Sum of votes this user has casted on all comments.">User's votes for comments</h3>
+                <ul>
+                  <li>
+                    <b>Up:</b> 1
+                  </li>
+                  <li>
+                    <b>Down:</b> 0
+                  </li>
+                </ul>
+                <br>
+                <h3 title="Sum of votes user posted deals has received.">Ratings of user posted products</h3>
+                <ul>
+                  <li>
+                    <b>Up:</b> 1
+                  </li>
+                  <li>
+                    <b>Down:</b> 2
+                  </li>
+                </ul>
+                <br>
+                <h3 title="Sum of votes user posted comments has received.">Ratings of user posted comments</h3>
+                <ul>
+                  <li>
+                    <b>Up:</b> 0
+                  </li>
+                  <li>
+                    <b>Down:</b> 0
+                  </li>
+                </ul>
+                <br>
+              </div>
+            </div>
+          </div>
+
+      <% end %>
         <div class="tab-pane fade" id="myreview-tab-pane" role="tabpanel" aria-labelledby="myreview-tab"
              tabindex="0">
           <div class="">
