@@ -62,9 +62,12 @@
                   <a href="#" target="_blank"><%= rebate.body %></a>
                 </td>
 
-                <%# if rebate.product.brand.present?  %>
-<!--                <td><%#= rebate.product.brand  %></td>-->
-                  <%# end %>
+                <% if rebate.product.present?  %>
+                <td><%= rebate.product.brand  %></td>
+                  <% else %>
+                  <td> No brand </td>
+                  <% end %>
+
                 <td><%= rebate.created_at %></td>
                 <td><%= rebate.updated_at %></td>
                 <td class="active"><%= rebate.created_at %></td>
