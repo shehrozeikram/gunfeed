@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new, :recent_comments]
+  before_action :authenticate_user!, only: [:new, :recent_comments, :like_product, :unlike_product, :map_price]
   before_action :categories, :coupons, :rebates, :comments
 
   def coupons
@@ -40,6 +40,48 @@ class ProductsController < ApplicationController
     if params[:id].present?
       @product = Product.find(params[:id])
       render json:  @product
+    end
+  end
+
+  def like_product
+    if params[:product_id].present?
+      @product = Product.find(params[:product_id])
+      if already_liked?
+        @already_liked_product = @product.likes.all.count
+        render json: {already_liked_product: @already_unliked_product, error: "You can't like more than once"}
+      else
+        @like_product =  @product.likes.create(
+          user_id: current_user.id,
+          user_like: 1
+        )
+        @like_product.save
+        @like_product.total_likes =  Like.all.count
+        @like_product.save
+        render json: @like_product
+      end
+      else
+      render json: @like_product, error: 'product_id is not present'
+    end
+  end
+
+  def unlike_product
+    if params[:product_id].present?
+      @product = Product.find(params[:product_id])
+      if already_unliked?
+        @already_unliked_product = @product.unlikes.all.count
+        render json: {already_unliked_product: @already_unliked_product, error: "You can't unlike more than once"}
+      else
+        @unlike_product =  @product.unlikes.create(
+          user_id: current_user.id,
+          user_unlike: 1
+        )
+        @unlike_product.save
+        @unlike_product.total_unlikes =  Unlike.all.count
+        @unlike_product.save
+        render json: @unlike_product
+      end
+    else
+      render json: @unlike_product, error: 'product_id is not present'
     end
   end
 
@@ -92,11 +134,15 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.where("verified":"true")
+    @products.each do |pr|
+      pr.id
+      @product = Product.find(pr.id)
+    end
     if @products.present?
-    @similar_products = Product.where(category_id: @products.last.category_id).where.not(id: @products.last.id ).limit(20)
-    @product_2 = Product.where(category_id: @products.last.category_id ).where.not(id: @products.last.id).last
+      @similar_products = Product.where(category_id: @products.last.category_id).where.not(id: @products.last.id ).limit(20)
+      @product_2 = Product.where(category_id: @products.last.category_id ).where.not(id: @products.last.id).last
     end
-    end
+  end
 
   def new
     @product = Product.new
@@ -116,7 +162,7 @@ class ProductsController < ApplicationController
     else
       redirect_to new_user_registration_path
     end
-      end
+  end
 
   def show
     @comment = Comment.new
@@ -126,27 +172,17 @@ class ProductsController < ApplicationController
     @product_2 = Product.where(category_id: @product.category_id ).where.not(id: @product.id).last
 
     if current_user.present?
-    @recently_viewed = current_user.recently_vieweds.new(recent_params)
-    @recently_viewed.product_id = @product.id
-    @recently_viewed.save
-    @recently_viewed_products = current_user.recently_vieweds.last(5)
+      @recently_viewed = current_user.recently_vieweds.new(recent_params)
+      @recently_viewed.product_id = @product.id
+      @recently_viewed.save
+      @recently_viewed_products = current_user.recently_vieweds.last(5)
     end
   end
-
-  def update
-  end
-
-  def edit
-  end
-
-  def destroy
-  end
-
 
   # footer actions
 
   def today
-    @products = Product.where(created_at: Date.today.all_day)
+    @products = Product.where(created_at: Date.yesterday.all_day)
   end
 
   def popular
@@ -215,8 +251,44 @@ class ProductsController < ApplicationController
   end
 
 
+  def map_price
+    if current_user
+      @user = current_user
+      @user_email = @user.email
+      if params[:product_id].present?
+        @product = Product.find(params[:product_id])
+        end
+      # PriceMailer.with(user_email:@user_email,product: @product ).map_price.deliver_now!
+      render json: @user_email
+    else
+      render json error: 'Please login '
+    end
+  end
 
 
+  def logout_map_price
+    if params[:email].present?
+      @user_email = params[:email]
+      if params[:product_id].present?
+        @product = Product.find(params[:product_id])
+      end
+      # PriceMailer.with(user_email:@user_email,product: @product ).map_price.deliver_now!
+      render json: @user_email
+    else
+      render json error: 'Sorry for the trouble there is an internal error '
+    end
+  end
+
+  def logout_email
+    if params[:email].present?
+      @email = Email.new(email_params)
+      if @email.save
+        redirect_to products_path(@product)
+      else
+        render :'products/index', status: :unprocessable_entity
+      end
+    end
+  end
   def live_inventory_search
     @product = Product.find(params[:id])
     @product_2 = Product.where(category_id: @product.category_id ).where.not(id: @product.id).last
@@ -224,9 +296,9 @@ class ProductsController < ApplicationController
     @stock = Product.where(upc: @product.upc, stock: nil).or(Product.where(upc: @product.upc, stock: 'out of stock')).limit(50)
     @similar_products = Product.where(category_id: @product.category_id).where.not(id: @product.id ).limit(20)
     if current_user.present?
-    @user_products = current_user.products.where(verified: "true")
+      @user_products = current_user.products.where(verified: "true")
     end
-    end
+  end
 
   def compare_guns
     if (params[:product_id] && params[:compared_product_id]).present?
@@ -263,25 +335,35 @@ class ProductsController < ApplicationController
 
   def notify_me
     if params[:email].present?
-    @notify_me = NotifyMe.new(notify_params)
+      @notify_me = NotifyMe.new(notify_params)
       if @notify_me.save
         redirect_to products_path(@product)
       else
         render :'products/index', status: :unprocessable_entity
       end
     end
-    end
+  end
 
   def report_product
-      @report = ReportProblem.new(report_params)
-      if @report.save
-        redirect_to products_path(@product)
-      else
-        render :'products/index', status: :unprocessable_entity
-      end
+    @report = ReportProblem.new(report_params)
+    if @report.save
+      redirect_to products_path(@product)
+    else
+      render :'products/index', status: :unprocessable_entity
+    end
   end
 
   protected
+
+  def already_liked?
+    Like.where(user_id: current_user.id, product_id:
+      params[:product_id]).exists?
+  end
+
+  def already_unliked?
+    Unlike.where(user_id: current_user.id, product_id:
+      params[:product_id]).exists?
+  end
 
   def recent_params
     params.permit(:user_id, :product_id)
@@ -293,6 +375,10 @@ class ProductsController < ApplicationController
 
   def notify_params
     params.permit(:upc, :limite_price, :email)
+  end
+
+  def email_params
+    params.permit(:email)
   end
 
   def product_params

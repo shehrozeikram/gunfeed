@@ -1,0 +1,30 @@
+<%= form_with  do |form| %>
+  <div class="form-group">
+    <label for="app-email" class="label-app">E-mail: *</label>
+    <%= form.text_field :email, class:"form-control-email", id:"app-email", placeholder: "Email" %>
+    <%#= form.text_field :name, onclick: 'logout_map_price()', class:"form-control", id:"app-email", placeholder: "Email" %>
+  </div>
+  <button onclick="logout_map_price()" class="btn-app-subscribe">Submit</button>
+<% end %>
+
+<script>
+
+    function logout_map_price() {
+        var email_value = $("#app-email").val()
+        $(document).ready(function(){
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",
+                url: "/logout_map_price/:id",
+                data:{
+                    product_id: '<%= @product.id %>',
+                    email: email_value
+                },
+                success:function(data){
+                    console.log(data)
+
+                }
+            });
+        });
+    };
+</script>

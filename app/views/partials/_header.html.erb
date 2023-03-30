@@ -268,7 +268,7 @@
                       <li class="primary-menu__dropdown-list-item">
                         <button class="icon-fa-link js-newsletter-subscribe-caller"
                                 data-toggle="modal" data-target="#modalGuestSubscribe">
-                          <span class="primary-menu_text">Subscribe to newsletter</span>
+                         <a href="<%= new_news_letter_path %>"> <span class="primary-menu_text"  >Subscribe to newsletter</span></a>
                           <span
                             class="primary-menu__dropdown-list-icon fa fa-newspaper-o">
                         </span>
@@ -626,7 +626,7 @@
                             setTimeout(() => {
                                 subString.textContent = "Newsletter Subscribed"
                                 // subString.textContent =
-                            },1000)
+                            },2000)
 
                     }
 

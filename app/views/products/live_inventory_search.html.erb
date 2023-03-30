@@ -9,17 +9,20 @@
 <div class="model-notify-app">
   <div class="app-model">
     <div class="model-header">
-      <h3>Add UPC Alert</h3>
+      <h3>Email me link with prices</h3>
       <span class="remove-model-app">
           <i class="fa fa-remove"></i>
        </span>
     </div>
     <div class="model-content-app">
-      <%= render partial: 'partials/notify_me' %>
+      <%= render partial: 'partials/logout_map_price' %>
     </div>
   </div>
 </div>
 <!-- Model Notify End -->
+
+
+
 
 <!-- -----------------compaire price section start here-------------------- -->
 
@@ -48,7 +51,7 @@
           </div>
         </div>
         <div class="col-md-8">
-          <div class="product-title-single">
+          <div class="product-title-single mt-3">
             <h2 itemprop="name"><strong><%= @product.title %> </strong></h2>
           </div>
           <div class="product-detail-single">
@@ -243,8 +246,16 @@
                   <a href="/stores/<%= product.store.id %>"><%= product.store.title %></a>
                 <% end %>
               </td>
-              <td class="set-table-pointer"><span>$<%= product.price %></span> <i
-                class="fa fa-envelope text-primary no-border"></i></td>
+              <td><span>$ <%= product.price  %></span>
+
+                <% if current_user %>
+                  <i class="fa fa-envelope text-primary no-border" onclick="map_price()" ></i>
+
+                  <% else %>
+
+                  <i class="fa fa-envelope text-primary no-border open-map" ></i>
+                <% end %>
+              </td>
               <% if product.shipping_cost == nil %>
                 <td>No Info</td>
                 <% else %>
@@ -673,6 +684,46 @@
 </script>
 
 <script>
+    function map_price() {
+        $(document).ready(function(){
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",
+                url: "/map_price/:id",
+                data:{
+                    product_id: '<%= @product.id %>'
+                },
+                success:function(data){
+                    console.log(data)
+
+                }
+            });
+        });
+    };
+
+
+
+    function logout_email() {
+        $(document).ready(function(){
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",
+                url: "/logout_email",
+                data:{
+                    product_id: '<%= @product.id %>'
+                },
+                success:function(data){
+                    console.log(data)
+
+                }
+            });
+        });
+    };
+
+</script>
+
+
+<script>
 
     (function() {
         document.querySelector('#slider_btn-2')
@@ -721,6 +772,22 @@
         });
 
         console.log('Notify Model running at ')
+
+
+        //.. map model
+
+        document.querySelectorAll('.open-map').forEach((map) => {
+           console.log(map)
+            map.addEventListener('click',(event => {
+                const model_ovl = document.querySelector('.model-notify-app');
+                showModel();
+                event.preventDefault()
+                return true
+            }))
+        })
+
+
+
     })()
 </script>
 

@@ -14,6 +14,7 @@ class RebatesController < ApplicationController
   end
   def categories
     @categories = Category.all
+
   end
   def index
     @rebates = Rebate.all
