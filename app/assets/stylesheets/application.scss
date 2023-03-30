@@ -698,3 +698,48 @@ td.image-cell {width: 400px !important}
   }
 
 }
+
+
+
+
+// Flex Search Inventory Mobile
+@media only screen and (max-width:769px){
+  .flex-search-inventory {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .wiki__flex--search {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .dealer-comparison-info {
+    margin-right: 10px !important;
+    margin-top: -10px !important;
+    margin-bottom: 10px !important;
+  }
+}
+
+
+.footer-category {
+  margin-left: 0 !important;
+  margin-top: 15px !important;
+}
+
+.footer-category a {
+  color: #333 !important;
+}
+
+
+
+
+
+
+.product__title-search a {
+  color: #333 !important;
+  font-weight: bold !important;
+}
+
+.categories__cards img {
+  margin-top: -25px !important;
+}
