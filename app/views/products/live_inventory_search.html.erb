@@ -303,6 +303,20 @@
   </div>
 </section>
 
+<section class="pb-4 d-flex justify-content-center user-posted-deal">
+  <div class="container">
+    <div class="card card--listing-header card--listing-header-smaller card--listing-header-search">
+      <div class="card__title">
+        <h2> User Posted Deals</h2>
+        <% if current_user.present? %>
+          <p>(<span class="pager-total-items" id="pager-total-items"><%= @user_products.all.count %></span> deals found)</p>
+        <% else %>
+          <p>(<span class="pager-total-items" id="pager-total-items">0</span> deals found)</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- -----------------------compaire price table no.2 start here------------------------------------ -->
 <section class="compaire-price-table2 mb-4 pt-4">
@@ -392,21 +406,8 @@
 <!-- -----------------------compaire price table no.2 end here------------------------------------ -->
 
 <!-- ----------------out of stock section start here-------------------- -->
-<section class="pb-4 d-flex justify-content-center">
-  <div class="container">
-    <div class="card card--listing-header card--listing-header-smaller card--listing-header-search">
-      <div class="card__title">
-        <h2> User Posted Deals</h2>
-        <% if current_user.present? %>
-          <p>(<span class="pager-total-items" id="pager-total-items"><%= @user_products.all.count %></span> deals found)</p>
-        <% else %>
-          <p>(<span class="pager-total-items" id="pager-total-items">0</span> deals found)</p>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="pb-4">
+
+<section class="pb-4 sidebar__filter">
   <div class="container">
     <div class="row">
       <div class="col-md-4 sidebar-filter">

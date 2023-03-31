@@ -318,6 +318,15 @@ body { font-size: 16px !important;}
   height: 380px !important;
 }
 
+
+@media only screen and (max-width:769px) {
+  .flex-card-side-item {
+    width: 100% !important;
+    margin: 10px 0 !important;
+
+  }
+}
+
 .devider-gap-cards {
   padding: 10px 0;
 }
@@ -742,4 +751,42 @@ td.image-cell {width: 400px !important}
 
 .categories__cards img {
   margin-top: -25px !important;
+}
+
+
+@media (max-width: 480px) {
+  .price-compare-table tbody tr:nth-of-type(even) {
+    display: table-row !important;
+  }
+
+  .price-compare-table tbody tr:nth-of-type(odd) {
+    display: table-row !important;
+  }
+
+
+
+
+
+
+  .compaire-price, .compaire-price-table2,
+  .user-posted-deal,  .sidebar__filter {
+    width: 93% !important;
+    margin-top: 5px !important;
+  }
+
+  .sidebar-filter input[type="submit"] {
+    margin-left: -10px !important;
+  }
+  .sidebar-filter input[type="reset"] {
+    display: block !important;
+    width: 100% !important;
+    margin-left: -10px;
+    margin-top: 7px !important;
+  }
+}
+
+
+
+.upc__count {
+  margin: 5px 10px !important;
 }
