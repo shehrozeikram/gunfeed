@@ -790,3 +790,64 @@ td.image-cell {width: 400px !important}
 .upc__count {
   margin: 5px 10px !important;
 }
+
+
+
+// User Posted Deals
+.user__posted-deals-flex {
+  // background-color: red !important;
+  width: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.posted__select {
+  display: flex;
+  align-items: center;
+  width: 150px !important;
+}
+
+.posted__select span {
+  width: 100px !important;
+}
+
+@media only screen and (max-width:769px){
+  .flex-likes {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+  }
+
+  .upc__count {
+    width: 100% !important;
+    margin:0 auto !important;
+    padding: 0 10px !important;
+    background-color: #eee !important;
+    font-size: 14px !important;
+  }
+
+  .upc__count a {
+    font-size: 14px !important;
+
+  }
+  .gun__spy {
+    background-color: #eee !important;
+    font-size: 13px !important;
+  }
+  .gun__spy span {
+    color: #333;
+    font-size: 12px !important;
+  }
+  .gun__spy a i{
+    color: #333;
+  }
+}
+
+.gun__spy a i {
+  color: #333 !important;
+}
+
+.gun__spy span {
+  color: #333 !important;
+}
