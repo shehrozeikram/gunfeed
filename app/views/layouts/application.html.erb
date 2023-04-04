@@ -29,22 +29,22 @@
 </head>
 
 
-  <body>
+<body>
 
-  <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
-  <%= render partial: 'partials/header' %>
-    <%= yield %>
-  <%= render partial: 'partials/footer' %>
-  </body>
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+<%= render partial: 'partials/header' %>
+<%= yield %>
+<%= render partial: 'partials/footer' %>
+</body>
 
 <script>
 
-  // notify me modal
+    // notify me modal
     (function(){
 
         //. (i) Declare UI Selectors
@@ -100,6 +100,25 @@
             return true;
         });
     })();
+</script>
+
+
+<script>
+
+
+
+    document.querySelectorAll('.rep').forEach(el =>  {
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList]
+          .map(tooltipTriggerEl => new bootstrap
+            .Tooltip(tooltipTriggerEl))
+        el.addEventListener('click', (event) => {
+            event.target.setAttribute('data-bs-title', 'sdfsfasfasdfasfdasfasfasfdf')
+        })
+    })
+
+
+
 </script>
 
 </html>

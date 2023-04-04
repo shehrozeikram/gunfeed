@@ -249,18 +249,18 @@
               <td><span>$ <%= product.price  %></span>
 
                 <% if current_user %>
-                  <span class="rep">
-                    <i
-
-                      class="fa fa-envelope text-primary no-border price-map" onclick="map_price()" ></i>
+                  <span class="rep"  data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-title="check your email for price link">
+                    <i class="fa fa-envelope text-primary no-border price-map" onclick="map_price()" ></i>
                   </span>
 
                 <% else %>
 
-                  <span class="rep">
-                    <i
-
-                      class="fa fa-envelope text-primary no-border open-map" ></i>
+                  <span class="rep" data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-title="check your email for price link">
+                    <i class="fa fa-envelope text-primary no-border open-map" ></i>
                   </span>
                 <% end %>
               </td>
@@ -765,18 +765,29 @@
         console.log(event.target);
         event.target.className = shift__rl;
 
-        event.target.setAttribute('data-bs-toggle', 'tooltip');
-        event.target.setAttribute('data-bs-placement', 'bottom');
-        event.target.setAttribute('data-bs-title', 'check your email for price link');
+        // event.target.setAttribute('data-bs-toggle', 'tooltip');
+        // event.target.setAttribute('data-bs-placement', 'bottom');
+        // event.target.setAttribute('data-bs-title', 'dafdfadfk');
 
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
 
         // event.target.setAttribute(dataAttr)
-        shift__rl.setAttribute("data-bs-toggle", "tooltip")
-        shift__rl.setAttribute("data-bs-placement", "bottom")
-        shift__rl.setAttribute("data-bs-title", "check your email for price link")
-        localStorage.setItem(event.target.className);
+        // shift__rl.setAttribute("data-bs-toggle", "tooltip")
+        // shift__rl.setAttribute("data-bs-placement", "bottom")
+        // shift__rl.setAttribute("data-bs-title", "Something that needs")
+        // localStorage.setItem(event.target.className);
+
+
+
+
+        // const boxToolTip = document.querySelectorAll('.rep');
+        // boxToolTip.forEach(tooltipBox => {
+        //   tooltipBox.addEventListener('click', (event) => {
+        //      tooltipBox.setAttribute('data-bs-toggle', "tooltip---")
+        //      tooltipBox.setAttribute('data-bs-placement', "top----")
+        //      tooltipBox.setAttribute('data-bs-title', "----")
+        //   })
+        // })
 
 
 
@@ -807,6 +818,10 @@
             });
         });
     };
+
+
+
+
 
 </script>
 
@@ -874,8 +889,6 @@
         });
 
     })()
-
-
 
 
 </script>
