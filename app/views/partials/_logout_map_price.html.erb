@@ -1,10 +1,12 @@
 <%= form_with  do |form| %>
-  <div class="form-group">
-    <label for="app-email" class="label-app">E-mail: *</label>
+  <div class="form-group text-center">
+    <p class="mb-2">Please <a href="/users/sign_in">login</a> or enter your email</p>
     <%= form.text_field :email, class:"form-control-email", id:"app-email", placeholder: "Email" %>
     <%#= form.text_field :name, onclick: 'logout_map_price()', class:"form-control", id:"app-email", placeholder: "Email" %>
   </div>
-  <button onclick="logout_map_price()" class="btn-app-subscribe">Submit</button>
+  <div class="text-center">
+    <span onclick="logout_map_price()" class="btn btn-primary text-white">Send</span>
+  </div>
 <% end %>
 
 <script>
@@ -26,5 +28,21 @@
                 }
             });
         });
+
+        const removeModel = document.querySelector('.model-notify-app');
+        removeModel.setAttribute('style', 'visibility:hidden;');
+        const getActiveModal = document.querySelectorAll('.fa .fa-envelope');
+
+        // setTimeout(() => {
+        //   document.querySelector('.model-content-app').innerHTML = 'Processing...';
+        //   setTimeout(() => {
+
+        //   }, 2000);
+        // });
+        // alert(getActiveModal)
+        console.log(event.target)
     };
+
+
+
 </script>

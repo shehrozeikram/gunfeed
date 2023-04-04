@@ -844,10 +844,24 @@ td.image-cell {width: 400px !important}
   }
 }
 
-.gun__spy a i {
-  color: #333 !important;
+.gun__spy a i { color: #333 !important; }
+.gun__spy span { color: #333 !important; }
+.green-icon { color: rgb(19, 161, 19);}
+
+.tooltip {
+  max-width: 200px; /* Adjust the maximum width of the tooltip container */
+  font-size: 12px; /* Adjust the font size of the tooltip text */
+  border-radius: 4px; /* Optional: add rounded corners to the tooltip container */
 }
 
-.gun__spy span {
-  color: #333 !important;
+.tooltip-inner {
+  padding: 8px; /* Adjust the padding inside the tooltip container */
+}
+
+
+@media only screen and (max-width:769px) {
+  .sidebar-filter, .side__bar--rm {
+    display: none !important;
+  }
+
 }

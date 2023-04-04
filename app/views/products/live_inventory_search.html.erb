@@ -249,11 +249,19 @@
               <td><span>$ <%= product.price  %></span>
 
                 <% if current_user %>
-                  <i class="fa fa-envelope text-primary no-border" onclick="map_price()" ></i>
+                  <span class="rep">
+                    <i
+
+                      class="fa fa-envelope text-primary no-border price-map" onclick="map_price()" ></i>
+                  </span>
 
                 <% else %>
 
-                  <i class="fa fa-envelope text-primary no-border open-map" ></i>
+                  <span class="rep">
+                    <i
+
+                      class="fa fa-envelope text-primary no-border open-map" ></i>
+                  </span>
                 <% end %>
               </td>
               <% if product.shipping_cost == nil %>
@@ -298,6 +306,60 @@
           <% end %>
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="pb-4 mt-2">
+  <div class="container">
+    <div class="card card--listing-header card--listing-header-smaller p-3">
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-9 d-flex align-items-center">
+          <h2> User Posted Deals</h2>
+          <% if current_user.present? %>
+            <p>(<span class="pager-total-items" id="pager-total-items"><%= @user_products.all.count %></span> deals found)</p>
+          <% else %>
+            <p>(<span class="pager-total-items" id="pager-total-items">0</span> deals found)</p>
+          <% end %>
+        </div>
+        <div class="col-lg-3">
+          <div class="card--filters js-page-filters card--transparent card--filters-header">
+            <div class="card__title"></div>
+            <div class="card__content">
+              <form action="">
+                <div class="filters filters--header mt-5">
+                  <div class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--with-icons field-toggle--product-view-control hidden-xs field-toggle--square" data-toggle="tooltip" data-title="Switch product view" data-original-title="" title="">
+
+                    <div class="form-group filters__container filters__sort-container">
+                      <label for="ddlSort" class="filters__sort-label filters__label text-nowrap">Sort by</label>
+                      <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                        <option selected="">Newest date</option>
+                        <option value="1">Oldest date</option>
+                        <option value="2">Top rated</option>
+                        <option value="3">Lowest rated</option>
+                        <option value="2">Highest price</option>
+                        <option value="3">Lowest price</option>
+                      </select>
+                      <div class="field-toggle__container">
+                        <div class="create-new-border ms-2 mb-3">
+
+                          <div class="d-flex justify-content-between">
+                            <div class="first-list-toogle pe-2">
+                              <i class="fa fa-th-list" style="font-size:20px;"></i>
+                            </div>
+                            <div class="second-list-toogle">
+                              <i class="fa fa-th-list" style="font-size:20px;color:gray"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -391,21 +453,6 @@
 <!-- -----------------------compaire price table no.2 end here------------------------------------ -->
 
 <!-- ----------------out of stock section start here-------------------- -->
-
-<section class="pb-4 d-flex justify-content-center user-posted-deal">
-  <div class="container">
-    <div class="card card--listing-header card--listing-header-smaller card--listing-header-search">
-      <div class="card__title">
-        <h2> User Posted Deals</h2>
-        <% if current_user.present? %>
-          <p>(<span class="pager-total-items" id="pager-total-items"><%= @user_products.all.count %></span> deals found)</p>
-        <% else %>
-          <p>(<span class="pager-total-items" id="pager-total-items">0</span> deals found)</p>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="pb-4 sidebar__filter">
   <div class="container">
@@ -684,6 +731,8 @@
     })
 </script>
 
+
+
 <script>
     function map_price() {
         $(document).ready(function(){
@@ -700,6 +749,44 @@
                 }
             });
         });
+
+        console.log(event.target)
+
+        const dataAttr = `
+         data-bs-toggle="tooltip"
+         data-bs-placement="bottom"
+         data-bs-title="check your email for price link"
+        `
+
+        console.log(event.target.className)
+        const shift__rl = "fa fa-check-circle green-icon"
+
+
+        console.log(event.target);
+        event.target.className = shift__rl;
+
+        event.target.setAttribute('data-bs-toggle', 'tooltip');
+        event.target.setAttribute('data-bs-placement', 'bottom');
+        event.target.setAttribute('data-bs-title', 'check your email for price link');
+
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+        // event.target.setAttribute(dataAttr)
+        shift__rl.setAttribute("data-bs-toggle", "tooltip")
+        shift__rl.setAttribute("data-bs-placement", "bottom")
+        shift__rl.setAttribute("data-bs-title", "check your email for price link")
+        localStorage.setItem(event.target.className);
+
+
+
+        // const rep = document.querySelector('.rep');
+        // // console.log(rep)
+        // rep.innerHTML = `
+        // <div class="spinner-border" role="status">
+        //      <span class="sr-only">Loading...</span>
+        // </div>
+        // `;
     };
 
 
@@ -776,7 +863,6 @@
 
 
         //.. map model
-
         document.querySelectorAll('.open-map').forEach((map) => {
             console.log(map)
             map.addEventListener('click',(event => {
@@ -784,12 +870,14 @@
                 showModel();
                 event.preventDefault()
                 return true
-            }))
-        })
-
-
+            }));
+        });
 
     })()
+
+
+
+
 </script>
 
 </body>
