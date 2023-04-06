@@ -468,7 +468,11 @@ class ProductsController < ApplicationController
       :c_and_r,
       :ak,
       :used,
-      :deal_type
+      :deal_type,
+      :expires,
+      :expired,
+      :out_of_stock,
+      :bump_this_post
     )
   end
 
