@@ -154,11 +154,76 @@ class ProductsController < ApplicationController
       @product.category_id = params[:product][:category_id]
       @product.store_id = params[:product][:store_id]
       @product.verified = "true"
-      if @product.save
-        redirect_to products_path
+      if params[:rimfire] == '1'
+        @product.deal_type = 'used'
+        if @product.save
+
+          redirect_to products_path
+        else
+          render :new, status: :unprocessable_entity
+        end
+      elsif params[:ninteen_eleven] == '1'
+        @product.deal_type = 'ninteen_eleven'
+        if @product.save
+
+          redirect_to products_path
+        else
+          render :new, status: :unprocessable_entity
+        end
+      elsif params[:california_legal] == '1'
+        @product.deal_type = 'california_legal'
+        if @product.save
+
+          redirect_to products_path
+        else
+          render :new, status: :unprocessable_entity
+        end
+      elsif params[:ar] == '1'
+        @product.deal_type = 'ar'
+        if @product.save
+
+          redirect_to products_path
+        else
+          render :new, status: :unprocessable_entity
+        end
+      elsif params[:revolver] == '1'
+        @product.deal_type = 'revolver'
+        if @product.save
+
+          redirect_to products_path
+        else
+          render :new, status: :unprocessable_entity
+        end
+      elsif params[:c_and_r] == '1'
+        @product.deal_type = 'c_and_r'
+        if @product.save
+
+          redirect_to products_path
+        else
+          render :new, status: :unprocessable_entity
+        end
+      elsif params[:ak] == '1'
+        @product.deal_type = 'ak'
+        if @product.save
+
+          redirect_to products_path
+        else
+          render :new, status: :unprocessable_entity
+        end
+      elsif params[:used] == '1'
+        @product.deal_type = 'used'
+        if @product.save
+
+          redirect_to products_path
+        else
+          render :new, status: :unprocessable_entity
+        end
+
       else
-        render :new, status: :unprocessable_entity
+        @product.save
+        redirect_to products_path
       end
+
     else
       redirect_to new_user_registration_path
     end
@@ -394,7 +459,16 @@ class ProductsController < ApplicationController
       :mpn,
       :upc,
       :body,
-      :image
+      :image,
+      :rimfire,
+      :ninteen_eleven,
+      :california_legal,
+      :ar,
+      :revolver,
+      :c_and_r,
+      :ak,
+      :used,
+      :deal_type
     )
   end
 
