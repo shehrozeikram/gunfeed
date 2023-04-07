@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
 
+
   # Api Section
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
+
+      get 'watchlist/add_to_watchlist'
 
       # resource :user, only: %i[show update]
       #
@@ -18,15 +21,15 @@ Rails.application.routes.draw do
 
       resource :products do
         get '/index', to: 'products#index'
+        get "/search_products" , to: "products#search_products"
+        get '/today', to: 'products#today'
+        get '/popular', to: 'products#popular'
+        get '/fetch_categories', to: 'products#fetch_categories'
+        get '/show_category_products', to: 'products#show_category_products'
+        get "/live_inventory_search" , to: "products#live_inventory_search"
       end
 
 
-
-
-      # resource :reviews do
-      #   post '/create_review', to: 'reviews#create_review'
-      #   get '/show_reviews', to: 'reviews#show_reviews'
-      # end
       #
       # resource :shops do
       #   get '/show_shop', to: 'shops#show_shop'
@@ -130,7 +133,7 @@ Rails.application.routes.draw do
   get "/unlike_product/:id" , to: "products#unlike_product", as: :unlike_product
   get "/map_price/:id" , to: "products#map_price", as: :map_price
   get "/logout_map_price/:id" , to: "products#logout_map_price", as: :logout_map_price
-  get "/logout_email" , to: "products#logout_email"
+  # get "/logout_email" , to: "products#logout_email"
 
   # main routes
   resources :products
@@ -179,26 +182,26 @@ Rails.application.routes.draw do
   get "/today" , to: "products#today"
   get "/category/:id" , to: "products#category", as: :category
 
-  # Quicklink routes
+  # Product Quicklink routes
   get "/vulcan" , to: "products#vulcan"
   get "/stores" , to: "stores#index"
   get "/blogs" , to: "blogs#index"
-  get "/revolvers" , to: "deals#revolvers"
-  get "/revolvers/:id" , to: "deals#revolver_show", as: :revolver_show
-  get "/rimfire" , to: "deals#rimfire"
-  get "/rimfire/:id" , to: "deals#rimfire_show", as: :rimfire_show
-  get "/c_and_r" , to: "deals#c_and_r"
-  get "/c_and_r/:id" , to: "deals#c_and_r_show", as: :c_and_r_show
-  get "/ar_deals" , to: "deals#ar_deals"
-  get "/ar_deal/:id" , to: "deals#ar_deal_show", as: :ar_deal_show
-  get "/ak_deals" , to: "deals#ak_deals"
-  get "/ak_deal/:id" , to: "deals#ak_deal_show", as: :ak_deal_show
-  get "/twentytwo_lr_ammo" , to: "deals#twentytwo_lr_ammo"
-  get "/twentytwo_lr_ammo/:id" , to: "deals#twentytwo_lr_ammo_show", as: :twentytwo_lr_ammo_show
-  get "/nine_mm_ammo" , to: "deals#nine_mm_ammo"
-  get "/nine_mm_ammo/:id" , to: "deals#nine_mm_ammo_show", as: :nine_mm_ammo_show
-  get "/used_guns" , to: "deals#used_guns"
-  get "/used_gun/:id" , to: "deals#used_gun_show", as: :used_gun_show
+  get "/revolvers" , to: "products#revolvers"
+  # get "/revolvers/:id" , to: "deals#revolver_show", as: :revolver_show
+  get "/rimfire" , to: "products#rimfire"
+  # get "/rimfire/:id" , to: "deals#rimfire_show", as: :rimfire_show
+  get "/c_and_r" , to: "products#c_and_r"
+  # get "/c_and_r/:id" , to: "deals#c_and_r_show", as: :c_and_r_show
+  get "/ar_deals" , to: "products#ar_deals"
+  # get "/ar_deal/:id" , to: "deals#ar_deal_show", as: :ar_deal_show
+  get "/ak_deals" , to: "products#ak_deals"
+  # get "/ak_deal/:id" , to: "deals#ak_deal_show", as: :ak_deal_show
+  get "/twenty_two_lr_ammo" , to: "products#twenty_two_lr_ammo"
+  # get "/twentytwo_lr_ammo/:id" , to: "deals#twentytwo_lr_ammo_show", as: :twentytwo_lr_ammo_show
+  get "/nine_mm_ammo" , to: "products#nine_mm_ammo"
+  # get "/nine_mm_ammo/:id" , to: "deals#nine_mm_ammo_show", as: :nine_mm_ammo_show
+  get "/used_guns" , to: "products#used_guns"
+  # get "/used_gun/:id" , to: "deals#used_gun_show", as: :used_gun_show
   get "/top_articles" , to: "deals#top_articles"
   get "/top_article/:id" , to: "deals#top_article_show", as: :top_article_show
 

@@ -20,9 +20,9 @@ class WatchlistController < ApplicationController
     if params[:watchlist].present?
       @watchlist = Watchlist.create(user_id:current_user.id, product_id:params[:product_id])
       if @watchlist.save
-        render json:  @watchlist
+        render json: {api_status: true,  watchlist: @watchlist}
       else
-        render json:  'Bad entity'
+        render json: {api_status: false,  error: 'product or user is missing Please provide both'}
       end
     end
   end

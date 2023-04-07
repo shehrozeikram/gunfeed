@@ -418,6 +418,38 @@ class ProductsController < ApplicationController
     end
   end
 
+  # Product Quicklink methods
+  def revolvers
+    @products = Product.where(revolver: true)
+  end
+  def rimfire
+    @products = Product.where(rimfire: true )
+  end
+
+  def c_and_r
+    @products = Product.where(c_and_r: true )
+  end
+
+  def ar_deals
+    @products = Product.where(ar: true )
+  end
+
+  def ak_deals
+    @products = Product.where(ak: true )
+  end
+
+  def twenty_two_lr_ammo
+    @products = Product.where(twenty_two_lr_ammo: true )
+  end
+
+  def nine_mm_ammo
+    @products = Product.where(nine_mm_ammo: true )
+  end
+
+  def used_guns
+    @products = Product.where(used: true )
+  end
+
   protected
 
   def already_liked?
