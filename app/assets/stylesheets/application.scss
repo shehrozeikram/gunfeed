@@ -1,11 +1,4 @@
 /*
-* Prefixed by Gulp
-* PostCSS: v8.4.14,
-* GULP Version: v10.4.7
-* Browsers: Compatible with 4 version
-*/
-
-/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -674,7 +667,6 @@ td.image-cell {width: 400px !important}
 .card-gun-compare img {
   height: 70px !important;
   width: 70px !important;
-  -o-object-fit: contain !important;
   object-fit: contain !important;
 }
 
@@ -686,12 +678,7 @@ td.image-cell {width: 400px !important}
 
 @media only screen and (max-width:769px) {
   .flex-categories {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
     display: flex !important;
-    -webkit-box-orient: vertical !important;
-    -webkit-box-direction: normal !important;
-    -ms-flex-direction: column !important;
     flex-direction: column !important;;
   }
 
@@ -727,22 +714,12 @@ td.image-cell {width: 400px !important}
 // Flex Search Inventory Mobile
 @media only screen and (max-width:769px){
   .flex-search-inventory {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
     display: flex !important;
-    -webkit-box-orient: vertical !important;
-    -webkit-box-direction: normal !important;
-    -ms-flex-direction: column !important;
     flex-direction: column !important;
   }
 
   .wiki__flex--search {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
     display: flex !important;
-    -webkit-box-orient: vertical !important;
-    -webkit-box-direction: normal !important;
-    -ms-flex-direction: column !important;
     flex-direction: column !important;
   }
   .dealer-comparison-info {
@@ -816,25 +793,17 @@ td.image-cell {width: 400px !important}
 
 
 
+// User Posted Deals
 .user__posted-deals-flex {
+  // background-color: red !important;
   width: 100% !important;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .posted__select {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   width: 150px !important;
 }
@@ -845,14 +814,8 @@ td.image-cell {width: 400px !important}
 
 @media only screen and (max-width:769px){
   .flex-likes {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
     display: flex !important;
-    -webkit-box-align: center !important;
-    -ms-flex-align: center !important;
     align-items: center !important;
-    -webkit-box-pack: end !important;
-    -ms-flex-pack: end !important;
     justify-content: flex-end !important;
   }
 
@@ -901,87 +864,4 @@ td.image-cell {width: 400px !important}
     display: none !important;
   }
 
-}
-
-@media (max-width: 480px) {
-  .compaire-price, .compaire-price-table2, .user-posted-deal, .sidebar__filter {
-    width: 100% !important;
-    margin-top: 5px !important;
-  }
-}
-
-@media  only screen and (max-width:769px) {
-  .dealer-comparison-info {
-    margin-top: 10px !important;
-  }
-
-  .newsletter-preview, .newsletter-generator .newsletter-form-container, .newsletter-generator__title, .table-section {
-    padding: 12px !important;
-  }
-
-  .wiki__flex {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -webkit-box-align: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    -webkit-box-orient: vertical !important;
-    -webkit-box-direction: normal !important;
-    -ms-flex-direction: column !important;
-    flex-direction: column !important;
-  }
-
-  .compare-price-link {
-    margin-right:  60px !important;
-  }
-}
-
-
-
-
-.container-show-product {
-  background-color: #fff !important;
-  width: 84% !important;
-  padding: 20px !important;
-  border-radius: 10px !important;
-  margin: 0 auto !important;
-}
-
-
-@media only screen and (max-width:769px) {
-  .container-show-product {
-    background-color: #fff !important;
-    width: 100% !important;
-    padding: 20px !important;
-    border-radius: 10px !important;
-    margin: 0 auto !important;
-  }
-
-  .discription-section {
-    width: 100% !important;
-  }
-  .card__wiki {
-    width: 95% !important;
-    margin: 0 auto !important;
-  }
-  .social-share { display: none !important;}
-  .set-width-left-card { display: none !important;}
-  input[type="text"] { width: 100% !important; }
-  [data-confirm] {
-    width: 99% !important;
-    color: #fff !important;
-    margin-top: 5px !important;
-  }
-  .tab-content .card__title h1 {
-    font-size: 20px !important;
-  }
-  .edit_user button[type="submit"] {
-    color: #fff !important;
-  }
-
-  .sub-card {  height: 240px !important;}
-}
-.sub-card {
-  height: 444px;
 }
