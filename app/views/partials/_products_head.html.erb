@@ -38,6 +38,12 @@
                                     <span class="pager-total-items" id="pager-total-items"><%= @products.all.count %></span> deals total)
                                 </span>
             </h1>
+          <% elsif @category.name == 'pistol'%>
+            <h1 class="listing-title "> Pistol
+              <span class="subtitle subtitle--listing"> (
+                                    <span class="pager-total-items" id="pager-total-items"><%= @products.all.count %></span> deals total)
+                                </span>
+            </h1>
           <% end %>
         </div>
         <div class="col-lg-3">

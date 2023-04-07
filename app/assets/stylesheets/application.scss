@@ -854,6 +854,7 @@ td.image-cell {width: 400px !important}
   border-radius: 4px; /* Optional: add rounded corners to the tooltip container */
 }
 
+.sub-card { height: 440px;}
 .tooltip-inner {
   padding: 8px; /* Adjust the padding inside the tooltip container */
 }
@@ -864,4 +865,14 @@ td.image-cell {width: 400px !important}
     display: none !important;
   }
 
+  .sub-card {
+    height: auto !important;
+  }
+
 }
+
+
+
+
+
+

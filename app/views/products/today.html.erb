@@ -1,149 +1,134 @@
 
-  <section>
-    <div class="container">
-      <div class="add-section add-banner-section">
-      </div>
+<section>
+  <div class="container">
+    <div class="add-section add-banner-section">
     </div>
-  </section>
-  <!-- ------------handgun first discription section start----------------- -->
+  </div>
+</section>
+<!-- ------------handgun first discription section start----------------- -->
 
-  <section class="pb-4">
-    <div class="container">
-      <div class="card card--listing-header card--listing-header-smaller p-3">
-        <div class="row d-flex align-items-center">
-          <div class="col-lg-9">
-            <h1 class="listing-title "> Gun Deals Posted Today
-              <span class="subtitle subtitle--listing"> (
+<section class="pb-4">
+  <div class="container">
+    <div class="card card--listing-header card--listing-header-smaller p-3">
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-9">
+          <h1 class="listing-title "> Gun Deals Posted Today
+            <span class="subtitle subtitle--listing"> (
                                     <span class="pager-total-items" id="pager-total-items"><%= @products.all.count %></span> deals total)
                                 </span>
-            </h1>
-          </div>
-          <div class="col-lg-3">
-            <div class="card--filters js-page-filters card--transparent card--filters-header">
-              <div class="card__title"></div>
-              <div class="card__content">
-                <form action="">
-                  <div class="filters filters--header mt-5">
-                    <div class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--with-icons field-toggle--product-view-control hidden-xs field-toggle--square" data-toggle="tooltip" data-title="Switch product view" data-original-title="" title="">
+          </h1>
+        </div>
+        <div class="col-lg-3">
+          <div class="card--filters js-page-filters card--transparent card--filters-header">
+            <div class="card__title"></div>
+            <div class="card__content">
+              <form action="">
+                <div class="filters filters--header mt-5">
+                  <div class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--with-icons field-toggle--product-view-control hidden-xs field-toggle--square" data-toggle="tooltip" data-title="Switch product view" data-original-title="" title="">
 
-                      <div class="form-group filters__container filters__sort-container">
-                        <label for="ddlSort" class="filters__sort-label filters__label text-nowrap">Sort by</label>
-                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
-                          <option selected>Newest date</option>
-                          <option value="1">Oldest date</option>
-                          <option value="2">Top rated</option>
-                          <option value="3">Lowest rated</option>
-                          <option value="2">Highest price</option>
-                          <option value="3">Lowest price</option>
-                        </select>
-                        <div class="field-toggle__container">
-                          <div class="create-new-border ms-2 mb-3">
+                    <div class="form-group filters__container filters__sort-container">
+                      <label for="ddlSort" class="filters__sort-label filters__label text-nowrap">Sort by</label>
+                      <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                        <option selected>Newest date</option>
+                        <option value="1">Oldest date</option>
+                        <option value="2">Top rated</option>
+                        <option value="3">Lowest rated</option>
+                        <option value="2">Highest price</option>
+                        <option value="3">Lowest price</option>
+                      </select>
+                      <div class="field-toggle__container">
+                        <div class="create-new-border ms-2 mb-3">
 
-                            <div class="d-flex justify-content-between">
-                              <div class="first-list-toogle pe-2" >
-                                <i class="fa fa-th-list" style="font-size:20px;"></i>
-                              </div>
-                              <div class="second-list-toogle">
-                                <i class="fa fa-th-list" style="font-size:20px;color:gray"></i>
-                              </div>
+                          <div class="d-flex justify-content-between">
+                            <div class="first-list-toogle pe-2" >
+                              <i class="fa fa-th-list" style="font-size:20px;"></i>
+                            </div>
+                            <div class="second-list-toogle">
+                              <i class="fa fa-th-list" style="font-size:20px;color:gray"></i>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <a class="today-yesterday-link hidden-xs" href="/yesterday">View yesterday's deals</a>
                     </div>
+                    <a class="today-yesterday-link hidden-xs" href="/yesterday">View yesterday's deals</a>
                   </div>
-                </form>
-              </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ------------handgun first discription section end----------------- -->
+<!-- ------------handgun first discription section end----------------- -->
 
-  <!-- ----------------new section for hand gun card section start--------------- -->
+<!-- ----------------new section for hand gun card section start--------------- -->
 
-  <section class="pb-4">
-    <div class="container">
-      <div class="">
-        <div class="d-flex justify-content-between gap-3">
-          <div class="set-width-left-card">
-            <div class="card card--filters js-page-filters card--filters-sidebar card--sidebar-xs card--sidebar-sm p-3 mb-3">
-              <div class="card__title">
-                <div class="page-controls">
-                  <div class="form-group">
-                    <div class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--mini field-toggle--with-title field-toggle--title-after" data-toggle="tooltip" data-title="Play sound when new deals are published" data-original-title="" title="">
-                      <div class="field-toggle__container">
-                        <input id="field-toggle-monitor-new-products" type="checkbox" class="field-toggle__checkbox js-monitor-new-products" data-query-key="monitor-new-products">
-                        <label for="field-toggle-monitor-new-products" class="field-toggle__label">
-                          <span class="field-toggle__icon"></span>
-                          <span class="field-toggle__icon"></span>
-                        </label>
-                      </div>
-                      <span class="field-toggle__title js-field-toggle-title noselect" role="button"> Monitor new deals </span>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="js-field-toggle field-toggle field-toggle--switch field-toggle--light field-toggle--mini field-toggle--with-title field-toggle--title-after" data-toggle="tooltip" data-title="Show new deals first, deals that are back in stock or price drops in
-                                    the last 24 hours, scroll down for bumped deals" data-original-title="" title="">
-                      <div class="field-toggle__container">
-                        <input id="field-toggle-only-show-new-deals" type="checkbox" class="field-toggle__checkbox js-only-show-new-deals" data-query-key="only-show-new-deals" checked="checked">
-                        <label for="field-toggle-only-show-new-deals" class="field-toggle__label">
-                          <span class="field-toggle__icon"></span>
-                          <span class="field-toggle__icon"></span>
-                        </label>
-                      </div>
-                      <span class="field-toggle__title js-field-toggle-title noselect" role="button"> New deals first </span>
-                    </div>
-                  </div>
-                </div>
-                <h3 class="visible-xs-block visible-sm-block d-none">Filter Gun Deals Posted Today</h3>
-              </div>
-            </div>
-            <%= render partial: 'partials/sidebar_filters' %>
-          </div>
-          <div class="set-width-right-card">
-            <div class="row row-cols-4">
-              <% @products.each do |product| %>
-              <div class="col mb-3">
+<section class="sidebar__section-new pb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 mb-2 side__bar--rm">
+        <%= render partial: 'partials/sidebar_filters' %>
+      </div>
+      <div class="col-md-9">
+        <div class="row">
+          <%  @products.each do |deal| %>
+            <div class="col-md-3">
+              <div class="col my-0 sub-card my-1">
                 <div class="card h-100">
                   <div class="card-body d-flex justify-content-between">
-                    <% unless product.sponsored != true %>
-                    <span class="tile__sponsored"><a href="#">Sponsored</a></span>
-                      <% end %>
+                    <% unless deal.sponsored != true %>
+                      <span class="tile__sponsored "><a href="# ">Sponsored</a></span>
+                    <% end %>
                     <a href="#" class="card-link "><span></span></a>
-                    <span class="card-link price-tag price-tag--one-line"><span>$<%= product.price %></span></span>
+                    <span class="card-link price-tag price-tag--one-line">
+            <span>$<%= deal.price %></span>
+          </span>
                   </div>
-                  <a href="<%= product_path(product) %>"><image src = "<%= product.image %>" /></a>
+                  <div class="tile__image-container">
+                    <a href="<%=product_path(deal)%>"><image src = "<%= deal.image %>" /></a>
+                  </div>
                   <div class="card-body tile__title">
-                    <p class="card-text truncate "><a href="<%= product_path(product) %>"><%= product.title %></a></p>
+                    <p class="card-text truncate ">
+                      <a href="<%=product_path(deal)%>"><%= deal.title %></a>
+                    </p>
                   </div>
-                  <div class="card-body d-flex justify-content-between tile__actions-container">
-                    <a href="#" class="card-link tile__rate-action tile__likes icon-fa-link"><i
-                      class="fa fa-thumbs-up"></i> <span>2</span></a>
-                    <a href="#" class="card-link tile__rate-action tile__dislikes icon-fa-link"><i
-                      class="fa fa-thumbs-down"></i> <span>13</span></a>
-                    <a href="#" class="card-link tile__rate-action tile__comments icon-fa-link"><i
-                      class="fa fa-comments"></i> <span>0</span></a>
+                  <div class="card-body d-flex justify-content-between tile__actions-container flex-likes">
+                    <a href="#" class="card-link tile__rate-action tile__likes icon-fa-link">
+                      <i class="fa fa-thumbs-up"></i>
+                      <span>2</span>
+                    </a>
+                    <a href="#" class="card-link tile__rate-action tile__dislikes icon-fa-link">
+                      <i class="fa fa-thumbs-down"></i>
+                      <span>13</span>
+                    </a>
+                    <a href="#" class="card-link tile__rate-action tile__comments icon-fa-link">
+                      <i class="fa fa-comments"></i>
+                      <span>0</span>
+                    </a>
                   </div>
-                  <div class="card-body d-flex justify-content-between card-footer tile__actions-container">
-                    <a href="#" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span><%= product.store %></span></a>
-                    <a href="#" class="card-link icon-fa-link"><i class="fa fa-balance-scale"></i><span></span></a>
+
+                  <div class="upc__count">
+                    <div>UPC: <span><a href="#"><%= deal.upc %></a></span></div>
+                    <div>MPN: <span><a href="#"><%= deal.mpn %></a></span></div>
+                  </div>
+                  <div class="card-body d-flex justify-content-between card-footer gun__spy">
+                    <a href="/stores/1" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span>Spy Guns</span></a>
+                    <a href="/search/1" class="card-link icon-fa-link"><i class="fa fa-balance-scale"></i><span></span></a>
                   </div>
                 </div>
               </div>
-              <%end%>
             </div>
-          </div>
+          <%end%>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ----------------new section for hand gun-end-------------- -->
+<!-- ----------------new section for hand gun-end-------------- -->
 </div>
 <!-- card section two start here  -->
 <%= render partial: 'partials/middle_adds' %>
