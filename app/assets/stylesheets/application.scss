@@ -1,3 +1,5 @@
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -667,6 +669,7 @@ td.image-cell {width: 400px !important}
 .card-gun-compare img {
   height: 70px !important;
   width: 70px !important;
+  -o-object-fit: contain !important;
   object-fit: contain !important;
 }
 
@@ -678,7 +681,12 @@ td.image-cell {width: 400px !important}
 
 @media only screen and (max-width:769px) {
   .flex-categories {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
     display: flex !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: column !important;
     flex-direction: column !important;;
   }
 
@@ -714,12 +722,22 @@ td.image-cell {width: 400px !important}
 // Flex Search Inventory Mobile
 @media only screen and (max-width:769px){
   .flex-search-inventory {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
     display: flex !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: column !important;
     flex-direction: column !important;
   }
 
   .wiki__flex--search {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
     display: flex !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: column !important;
     flex-direction: column !important;
   }
   .dealer-comparison-info {
@@ -793,17 +811,26 @@ td.image-cell {width: 400px !important}
 
 
 
-// User Posted Deals
+
 .user__posted-deals-flex {
-  // background-color: red !important;
   width: 100% !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .posted__select {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 150px !important;
 }
@@ -814,8 +841,14 @@ td.image-cell {width: 400px !important}
 
 @media only screen and (max-width:769px){
   .flex-likes {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
     display: flex !important;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
     align-items: center !important;
+    -webkit-box-pack: end !important;
+    -ms-flex-pack: end !important;
     justify-content: flex-end !important;
   }
 
@@ -854,7 +887,6 @@ td.image-cell {width: 400px !important}
   border-radius: 4px; /* Optional: add rounded corners to the tooltip container */
 }
 
-.sub-card { height: 440px;}
 .tooltip-inner {
   padding: 8px; /* Adjust the padding inside the tooltip container */
 }
@@ -865,14 +897,54 @@ td.image-cell {width: 400px !important}
     display: none !important;
   }
 
-  .sub-card {
-    height: auto !important;
+  .search-group img {
+    display: none !important;
   }
 
+  .search-group {
+    background-color: #2e66a3 !important;
+    color: #fff !important;
+    margin-bottom: 5px !important;
+  }
+  .search-group h4 {
+    margin-left: -10px !important;
+    font-size: 12px !important;
+    color: #fff !important;
+  }
+  .search-group h4 a {
+    font-weight: bold !important;
+    color: #fff !important;
+  }
+
+  .product-link-search-1 {
+    color: #fff !important;
+    font-weight: bold !important;
+  }
+
+
+  .flexible___flex-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    -ms-flex-line-pack: center;
+
+    align-content: center;
+  }
+
+  .flexible__list-group  {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[4];
+    grid-template-columns: repeat(4,1fr);
+    grid-template-areas: calc(10px);
+    grid-row: inherit;
+    grid-column: inherit;
+  }
 }
-
-
-
-
-
-
