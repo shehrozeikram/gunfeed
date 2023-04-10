@@ -27,6 +27,8 @@ Rails.application.routes.draw do
         get '/fetch_categories', to: 'products#fetch_categories'
         get '/show_category_products', to: 'products#show_category_products'
         get "/live_inventory_search" , to: "products#live_inventory_search"
+        get "/quick_links" , to: "products#quick_links"
+
       end
 
 
