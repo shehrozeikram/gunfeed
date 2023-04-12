@@ -248,7 +248,7 @@
               </td>
               <td><span>$ <%= product.price  %></span>
 
-                <% if current_user %>
+                  <% if current_user && product.price == 'MAP' || current_user && product.price == 'map' || current_user && product.price == 'Email For Price' || current_user && product.price == 'Add to Cart for best price' %>
                   <span class="rep"  data-bs-toggle="tooltip"
                         data-bs-placement="bottom"
                         data-bs-title="check your email for price link">
@@ -260,7 +260,6 @@
                   <span class="rep" data-bs-toggle="tooltip"
                         data-bs-placement="bottom"
                         data-bs-title="check your email for price link">
-                    <i class="fa fa-envelope text-primary no-border open-map" ></i>
                   </span>
                 <% end %>
               </td>
