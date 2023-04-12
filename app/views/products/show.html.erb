@@ -506,38 +506,6 @@
         </tr>
       <% end %>
 
-
-
-
-      <!-- --------out of stack table data start------ -->
-      <tr class="price-compare-table__oos-breaker">
-        <td class="oos-label">
-          <div>Out Of Stock</div>
-        </td>
-        <td></td>
-        <td></td>
-        <td class="price-compare-table__show-more-column"></td>
-      </tr>
-      <% if @stock.present?%>
-        <% @stock.each do |stock| %>
-          <tr class="is-oos ">
-            <td>
-              <% if stock.link.present? %>
-                <a href="<%= stock.link %>"><%= stock.store.title %></a>
-              <% else %>
-                <a href="/stores/<%= stock.store.id %>"><%= stock.store.title %></a>
-              <% end %>
-              <i class="fa fa-scissors"></i>
-            </td>
-            <td class=""><span>$<%= stock.price %></span></td>
-            <% if stock.shipping_cost == nil %>
-              <td>No Info</td>
-            <% else %>
-              <td>$<%= stock.shipping_cost %></td>
-            <% end %>
-          </tr>
-        <% end %>
-      <% end %>
       </tbody>
     </table>
   </div>
