@@ -365,6 +365,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def video_review
+
+  end
+
   def compare_guns
     if (params[:product_id] && params[:compared_product_id]).present?
 

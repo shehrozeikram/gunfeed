@@ -140,6 +140,7 @@ Rails.application.routes.draw do
   # main routes
   resources :products
   root to: "products#index"
+  get "/video_review" , to: "products#video_review"
   get "/search/:id" , to: "products#live_inventory_search", as: :live_inventory_search
 
   # Main compare gun route

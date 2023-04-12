@@ -948,3 +948,75 @@ td.image-cell {width: 400px !important}
     grid-column: inherit;
   }
 }
+
+
+@media (max-width: 500px) {
+  .compaire-price, .compaire-price-table2, .user-posted-deal, .sidebar__filter {
+    width: 100% !important;
+    margin-top: 5px !important;
+  }
+  .social-share { display: none !important;}
+}
+
+
+.live-inventory__search-mode {
+  background: #fff !important;
+  width: 81.8% !important;
+  margin: 5PX auto !important;
+  padding: 10PX !important;
+  BORDER-RADIUS: 10PX !important;
+}
+
+.recent-products {
+  padding-top: 20px;
+  width: 100% !important;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+.container-reviews {
+  width: 82.8%;
+  margin: 0 auto;
+}
+.container-add-review {
+  width: 82.8%;
+  margin: 0 auto;
+}
+
+ .icon-fa-link {
+  margin-left: -10px !important;
+}
+
+@media only screen and (max-width:769px) {
+  .live-inventory__search-mode {
+    background: #fff !important;
+    width: 93% !important;
+    margin: 5PX auto !important;
+    padding: 10PX !important;
+    BORDER-RADIUS: 10PX !important;
+  }
+
+  .wiki__flex {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .container-reviews {
+    width: 98.8% !important;
+    margin: 0 auto !important;
+  }
+
+  .container-add-review {
+    width: 98.8%;
+    margin: 0 auto;
+  }
+
+
+  .add-product-review {
+    width: 100% !important;
+  }
+}
+
+.review___youtube {
+  line-height: 1.3;
+}

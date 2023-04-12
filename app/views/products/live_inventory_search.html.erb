@@ -366,90 +366,7 @@
 </section>
 
 <!-- -----------------------compaire price table no.2 start here------------------------------------ -->
-<section class="compaire-price-table2 mb-4 pt-4">
-  <div class="container">
-    <div class="card p-3">
-      <div class="">
-        <div class="d-flex justify-content-between wiki__flex--search">
-          <div>
-            <h2>Wikiarms.com Search Engine Results</h2>
-          </div>
-          <div class="dealer-comparison-info"> <i class="fa fa-bullhorn" aria-hidden="true"></i> <span>Want to
-                        see your products here? Click this</span> <a href="/content/shopping-comparison">link</a>.
-          </div>
-        </div>
 
-        <div class="d-flex justify-content-between mt-3">
-          <div>
-            <p>Find Lowest Price In Stock CZ CZ P-01 Omega Convertible 9mm 91229 for sale online from over
-              100 vendors</p>
-          </div>
-          <div class="field-checkbox__container">
-            <input checked="" id="field-checkbox-firearms-only" type="checkbox"
-                   class="field-checkbox__input">
-            <label for="field-checkbox-firearms-only" class="field-checkbox__label">
-              <span class="field-checkbox__title ">Firearms only</span>
-            </label>
-          </div>
-
-        </div>
-        <div class="table-section__content">
-          <table class="table price-compare-table  wikiarms-table-2">
-            <thead class="bg-dark text-white">
-            <tr>
-              <th>Product</th>
-              <th>Price</th>
-              <th>Store</th>
-              <th>MPN</th>
-              <th>UPC</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td><a href="#">CZ 75 P-01 ? (OMEGA) CONVERTIBLE, 9MM, 15RD, BLK POLYCOAT ALUMINUM,
-                FIXED SIGHTS, SWAPPABLE SAFETY/DECOCKER, BLK RUBBER GRIPS</a></td>
-              <td class=""><span> $538.19</span></td>
-              <td> Locked Loaded</td>
-              <td><a href="#">91229</a></td>
-              <td><a href="#">806703912295</a></td>
-            </tr>
-            <tr>
-              <td><a href="#">CZ 91229 P-01 Omega 9mm Luger 3.80" 14+1 Black Black Rubber Grip</a>
-              </td>
-              <td class=""><span> $638.19</span></td>
-              <td> GunZoneDeals</td>
-              <td><a href="#">91229</a></td>
-              <td><a href="#">806703912295</a></td>
-            </tr>
-            <tr>
-              <td><a href="#">CZ-USA 91229 CZ P-01 Omega 9mm 3.75 Barrel Fixed Sights Black Alloy
-                14-round</a></td>
-              <td class=""><span> $538.19</span></td>
-              <td> TheGunDock.com</td>
-              <td><a href="#">91229</a></td>
-              <td><a href="#">806703912295</a></td>
-            </tr>
-
-            </tbody>
-          </table>
-          <div class="wikiarms-section__see-more mb-4">
-            <a target="_blank" href="#">See more results</a>
-            <span>for
-                        <b>CZ CZ P-01 Omega Convertible 9mm 91229</b> on Wikiarms.com
-                    </span>
-          </div>
-        </div>
-
-        <div class="table-section__footer">
-          <%= image_tag  'out-of-stoc.jpeg'  , class: "powered-by-img"%>
-          <span> Powered by
-                    <a target="_blank" href="#">Wikiarms.com</a>
-                </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 <!-- -----------------------compaire price table no.2 end here------------------------------------ -->
 
 <!-- ----------------out of stock section start here-------------------- -->
@@ -660,44 +577,138 @@
           </form>
         </div>
       </div>
-      <div class="col-md-8">
-        <div class="row flex-card-side">
-          <div class="col-md-4 filter-card-container">
-            <% if current_user.present? %>
-              <% @user_products.each do |user_product| %>
-                <div class="col my-3 sub-card filter-card">
-                  <div class="card h-60 flex-card-side-item">
-                    <div class="card-body d-flex justify-content-between">
-                      <% unless user_product.sponsored != true %>
-                        <span class="tile__sponsored"><a href="#">Sponsored</a></span>
-                      <% end %>
-                      <a href="#" class="card-link "><span></span></a>
-                      <span class="card-link price-tag price-tag--one-line"><span>$<%= user_product.price %></span></span>
-                    </div>
-                    <div class="tile__image-container">
-                      <% if user_product.image.present? %>
-                        <a href="<%= product_path(@product) %>"><image src = "<%= user_product.image %>"  /></a>
-                      <% else %>
-                        <a href="<%= product_path(@product) %>"><image src = "<%= user_product.image_link %>"  /></a>
-                      <% end %>
-                    </div>
-                    <div class="card-body tile__title">
-                      <p class="card-text truncate "><a href="<%= product_path(@product) %>"><%= user_product.title %></a></p>
-                    </div>
-                    <div class="card-body d-flex justify-content-between tile__actions-container">
-                      <a href="#" class="card-link tile__rate-action tile__likes icon-fa-link"><i class="fa fa-thumbs-up"></i> <span>2</span></a>
-                      <a href="#" class="card-link tile__rate-action tile__dislikes icon-fa-link"><i class="fa fa-thumbs-down"></i> <span>13</span></a>
-                      <a href="#" class="card-link tile__rate-action tile__comments icon-fa-link"><i class="fa fa-comments"></i> <span>0</span></a>
-                    </div>
-                    <div class="card-body d-flex justify-content-between card-footer tile__actions-container">
-                      <a href="<%= store_path(@product.store.id) %>" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span><%= user_product.store.title %></span></a>
-                      <a href="#" class="card-link icon-fa-link"><i class="fa fa-balance-scale"></i><span></span></a>
-                    </div>
+      <div class="col-md-9">
+        <div class="row">
+          <% @products.each do |product| %>
+            <div class="col-md-3">
+              <div class="col my-0 sub-card my-1">
+                <div class="card h-100">
+                  <div class="card-body d-flex justify-content-between">
+                    <a href="#" class="card-link "><span></span></a>
+                    <span class="card-link price-tag price-tag--one-line">
+            <span>$<%= product.price %></span>
+          </span>
+                  </div>
+                  <div class="tile__image-container">
+                    <a href="<%=product_path(product)%>"><image src = "<%= product.image %>" /></a>
+                  </div>
+                  <div class="card-body tile__title">
+                    <p class="card-text truncate ">
+                      <a href="<%=product_path(product)%>"><%= product.title %></a>
+                    </p>
+                  </div>
+                  <div class="card-body d-flex justify-content-between tile__actions-container flex-likes">
+                    <a href="#" class="card-link tile__rate-action tile__likes icon-fa-link">
+                      <i class="fa fa-thumbs-up"></i>
+                      <span>2</span>
+                    </a>
+                    <a href="#" class="card-link tile__rate-action tile__dislikes icon-fa-link">
+                      <i class="fa fa-thumbs-down"></i>
+                      <span>13</span>
+                    </a>
+                    <a href="#" class="card-link tile__rate-action tile__comments icon-fa-link">
+                      <i class="fa fa-comments"></i>
+                      <span>0</span>
+                    </a>
+                  </div>
+
+                  <div class="upc__count">
+                    <div>UPC: <span><a href="#"><%= product.upc %></a></span></div>
+                    <div>MPN: <span><a href="#"><%= product.mpn %></a></span></div>
+                  </div>
+                  <div class="card-body d-flex justify-content-between card-footer gun__spy">
+                    <a href="/stores/1" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span>Spy Guns</span></a>
+                    <a href="/search/1" class="card-link icon-fa-link"><i class="fa fa-balance-scale"></i><span></span></a>
                   </div>
                 </div>
-              <% end %>
-            <% end %>
+              </div>
+            </div>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="compaire-price-table2 mb-4 pt-4">
+  <div class="container">
+    <div class="card p-3">
+      <div class="">
+        <div class="d-flex justify-content-between wiki__flex--search">
+          <div>
+            <h2>Wikiarms.com Search Engine Results</h2>
           </div>
+          <div class="dealer-comparison-info"> <i class="fa fa-bullhorn" aria-hidden="true"></i> <span>Want to
+                        see your products here? Click this</span> <a href="/content/shopping-comparison">link</a>.
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-3">
+          <div>
+            <p>Find Lowest Price In Stock CZ CZ P-01 Omega Convertible 9mm 91229 for sale online from over
+              100 vendors</p>
+          </div>
+          <div class="field-checkbox__container">
+            <input checked="" id="field-checkbox-firearms-only" type="checkbox"
+                   class="field-checkbox__input">
+            <label for="field-checkbox-firearms-only" class="field-checkbox__label">
+              <span class="field-checkbox__title ">Firearms only</span>
+            </label>
+          </div>
+
+        </div>
+        <div class="table-section__content">
+          <table class="table price-compare-table  wikiarms-table-2">
+            <thead class="bg-dark text-white">
+            <tr>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Store</th>
+              <th>MPN</th>
+              <th>UPC</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><a href="#">CZ 75 P-01 ? (OMEGA) CONVERTIBLE, 9MM, 15RD, BLK POLYCOAT ALUMINUM,
+                FIXED SIGHTS, SWAPPABLE SAFETY/DECOCKER, BLK RUBBER GRIPS</a></td>
+              <td class=""><span> $538.19</span></td>
+              <td> Locked Loaded</td>
+              <td><a href="#">91229</a></td>
+              <td><a href="#">806703912295</a></td>
+            </tr>
+            <tr>
+              <td><a href="#">CZ 91229 P-01 Omega 9mm Luger 3.80" 14+1 Black Black Rubber Grip</a>
+              </td>
+              <td class=""><span> $638.19</span></td>
+              <td> GunZoneDeals</td>
+              <td><a href="#">91229</a></td>
+              <td><a href="#">806703912295</a></td>
+            </tr>
+            <tr>
+              <td><a href="#">CZ-USA 91229 CZ P-01 Omega 9mm 3.75 Barrel Fixed Sights Black Alloy
+                14-round</a></td>
+              <td class=""><span> $538.19</span></td>
+              <td> TheGunDock.com</td>
+              <td><a href="#">91229</a></td>
+              <td><a href="#">806703912295</a></td>
+            </tr>
+
+            </tbody>
+          </table>
+          <div class="wikiarms-section__see-more mb-4">
+            <a target="_blank" href="#">See more results</a>
+            <span>for
+                        <b>CZ CZ P-01 Omega Convertible 9mm 91229</b> on Wikiarms.com
+                    </span>
+          </div>
+        </div>
+
+        <div class="table-section__footer">
+          <%= image_tag  'out-of-stoc.jpeg'  , class: "powered-by-img"%>
+          <span> Powered by
+                    <a target="_blank" href="#">Wikiarms.com</a>
+                </span>
         </div>
       </div>
     </div>
@@ -715,7 +726,6 @@
 
 <script>
     let items = document.querySelectorAll('.carousel .carousel-item')
-
     items.forEach((el) => {
         const minPerSlide = 4
         let next = el.nextElementSibling
@@ -888,7 +898,7 @@
             }));
         });
 
-    })()
+    })();
 
 
 </script>

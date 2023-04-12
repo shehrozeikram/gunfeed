@@ -296,11 +296,11 @@
 
                 <li class="js-rating-container">
                   <%# if @product.likes.present? %>
-                    <span
-                      onclick="like_product()"
-                      class="icon-fa-link js-rate-action product-rating__like product-rating__like1076271"
-                      data-action="like" data-content-id="1076271"
-                      data-sibling=".product-rating__dislike1076271">
+                  <span
+                    onclick="like_product()"
+                    class="icon-fa-link js-rate-action product-rating__like product-rating__like1076271"
+                    data-action="like" data-content-id="1076271"
+                    data-sibling=".product-rating__dislike1076271">
                       <i class="fa fa-thumbs-up" id="my-button"></i>
                        <span class="total__likes-count"> <%= @product.likes.count %></span>
                     </span>
@@ -398,7 +398,7 @@
 </section>
 <!-- ----------------discription section end here------------------------------- -->
 <!-- --------------coupan card start------------------ -->
-<section class="mt-3">
+<section class="mt-3 mb-3">
   <div class="container">
     <div class="card card--coupons card--component-half-margin p-4">
       <div class="card__title">
@@ -450,73 +450,103 @@
 <!-- --------------coupan card end------------------ -->
 <!-- -----------live inventory search section start here ----------------------------- -->
 <section
-  class="table-section price-compare-section--product js-make-element-smaller js-price-compare-wikiarms-result js-price-compare-minified price-compare-section"
+  class="live-inventory__search-mode mb-3"
   data-smaller-sizes="xs" data-check-result-term="8053800943246">
-  <div class="container-show-product">
-    <div class="">
-
-      <div class="table-section__header">
-        <div>
-          <h2>Live Inventory Search</h2>
-          <div class="dealer-comparison-info">
-            <i class="fa fa-bullhorn" aria-hidden="true"></i>
-            <span>Want to see your products here? Click this</span>
-            <a href="#">link</a>.
-          </div>
-        </div>
-        <div>
-          <p>Compare prices for <%= @product.upc %> - <%= @product.title %></p>
-          <div></div>
-        </div>
+  <div class="pt-3">
+    <div class="d-flex justify-content-between flex-search-inventory">
+      <div>
+        <h2>Live Inventory Search</h2>
       </div>
-      <div class="table-section__content">
-        <div class="price-compare-table__wrapper" itemprop="offers" itemscope=""
-             itemtype="http://schema.org/AggregateOffer">
-          <span itemprop="offerCount" content="2"></span>
-          <table id="price-compare-table" class="table price-compare-table">
-            <thead>
-            <tr>
-              <th class="price-compare-table__store-hd">Store</th>
-              <th class="js-price price-compare-table__price-hd">Price</th>
-              <th>Shipping rate</th>
-              <th class="price-compare-table__show-hd">Show more</th>
-            </tr>
-            </thead>
-            <tbody>
-            <% @products.each do |product| %>
-              <tr data-id="9698262896" class="" itemprop="offers" itemscope=""
-                  itemtype="http://schema.org/Offer">
-                <td class="js-link-column price-compare-table__store-column">
-                  <a target="_blank" href="/stores/<%= product.store.id %>"><%= product.store.title %> </a>
-                </td>
-                <td class="js-price-column price-compare-table__price-column">
-                  <div class="">$<%= product.price %></div>
-                </td>
-                <% if product.shipping_cost == nil %>
-                  <td class="price-compare-table__shipping-column" data-header="Shipping rate: ">No Info</td>
-                  <td class="price-compare-table__show-more-column"></td>
-                <% else %>
-                  <td class="price-compare-table__shipping-column" data-header="Shipping rate: ">$<%= product.shipping_cost %></td>
-                  <td class="price-compare-table__show-more-column"></td>
-                <% end %>
-
-              </tr>
-            <% end %>
-
-            </tbody>
-          </table>
-        </div>
-        <div></div>
+      <div class="dealer-comparison-info"> <i class="fa fa-bullhorn" aria-hidden="true"></i> <span>Want to
+                      see your products here? Click this</span> <a href="/content/shopping-comparison">link</a>.
       </div>
-
     </div>
+    <p>Compare prices for <%= @product.title %> <%= @product.upc %> from all vendors</p>
+    <table class="table price-compare-table">
+      <thead class="bg-dark text-white">
+      <tr>
+        <th>Store</th>
+        <th>Price</th>
+        <th>Shipping rate</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td>
+            <% if product.link.present? %>
+              <a href="<%= product.link %>"><%= product.store.title %></a>
+            <% else %>
+              <a href="/stores/<%= product.store.id %>"><%= product.store.title %></a>
+            <% end %>
+          </td>
+          <td><span>$ <%= product.price  %></span>
+
+            <% if current_user %>
+                  <span class="rep"  data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-title="check your email for price link">
+                    <i class="fa fa-envelope text-primary no-border price-map" onclick="map_price()" ></i>
+                  </span>
+
+            <% else %>
+
+                  <span class="rep" data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-title="check your email for price link">
+                    <i class="fa fa-envelope text-primary no-border open-map" ></i>
+                  </span>
+            <% end %>
+          </td>
+          <% if product.shipping_cost == nil %>
+            <td>No Info</td>
+          <% else %>
+            <td>$<%= product.shipping_cost %></td>
+          <% end %>
+        </tr>
+      <% end %>
+
+
+
+
+      <!-- --------out of stack table data start------ -->
+      <tr class="price-compare-table__oos-breaker">
+        <td class="oos-label">
+          <div>Out Of Stock</div>
+        </td>
+        <td></td>
+        <td></td>
+        <td class="price-compare-table__show-more-column"></td>
+      </tr>
+      <% if @stock.present?%>
+        <% @stock.each do |stock| %>
+          <tr class="is-oos ">
+            <td>
+              <% if stock.link.present? %>
+                <a href="<%= stock.link %>"><%= stock.store.title %></a>
+              <% else %>
+                <a href="/stores/<%= stock.store.id %>"><%= stock.store.title %></a>
+              <% end %>
+              <i class="fa fa-scissors"></i>
+            </td>
+            <td class=""><span>$<%= stock.price %></span></td>
+            <% if stock.shipping_cost == nil %>
+              <td>No Info</td>
+            <% else %>
+              <td>$<%= stock.shipping_cost %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
   </div>
 </section>
 
 <!-- -----------live inventory search section end here ----------------------------- -->
 <!-- -----------------------similar products table start here  ------------------------>
 <% if @similar_products.present? %>
-  <section>
+  <section class="mt-3">
     <div class="container">
       <div id="async-similar-products-section" class="product-details-tiles-section card">
         <section class="table-section">
@@ -663,7 +693,7 @@
 <!-- ------------------------similar product section end--------------------------------- -->
 <!-- ---------------------------live price section start here-------------------------- -->
 <section class="py-4">
-  <div class="container">
+  <div class="container wiki___product">
     <section
       class="table-section js-collapsible-card wikiarms-section--product wikiarms-section js-wikiarms-section js-make-element-smaller card--collapsed"
       data-collapsible-card="xs sm md lg" id="wikiarms-section" data-smaller-sizes="xs">
@@ -959,7 +989,7 @@
 <!------------------ cutomer reviewes section start here ------------------------ -->
 
 <section>
-  <div class="container">
+  <div class="container-reviews">
     <div class="card customerreview-deal-page p-3">
       <div class="card__title">
         <h2 class="js-card-title customerreview-deal-page__title">Customer reviews</h2>
@@ -978,8 +1008,8 @@
 <!------------------ cutomer reviewes section start here ------------------------ -->
 <!-- ------------add reviews section start here -=======================-->
 
-<section class="add-product-review my-3">
-  <div class="container">
+<section class="add-product-review my-4">
+  <div class="container-add-review">
     <div class="card p-3">
       <div class="card__title">
         <h2 class="js-card-title">Reviews</h2>
@@ -1428,39 +1458,49 @@
 <section class="recent-card-section recent-products py-4">
   <div class="container">
     <h3 class="recent-products__heading">Recently viewed deals</h3>
-    <div class="row row-cols-5 card-devider">
+    <div class="row">
       <% if current_user.present? %>
         <% @recently_viewed_products.each do |recent_product| %>
-          <div class="col my-3 sub-card">
-            <div class="card h-100">
-              <div class="card-body d-flex justify-content-between">
-                <% unless recent_product.product.sponsored != true %>
-                  <span class="tile__sponsored"><a href="#">Sponsored</a></span>
-                <% end %>
-                <a href="#" class="card-link "><span></span></a>
-                <span class="card-link price-tag price-tag--one-line"><span>$<%= recent_product.product.price %></span></span>
-              </div>
-              <a href=""><image src = "<%= recent_product.product.image %>" , class= "tile-image" /></a>
-              <div class="card-body tile__title">
-                <p class="card-text "><a href="#"><%= recent_product.product.title %></a></p>
-              </div>
+          <div class="col-md-3">
+            <div class="col my-0 sub-card my-1">
+              <div class="card h-100">
+                <div class="card-body d-flex justify-content-between">
+                  <a href="#" class="card-link "><span></span></a>
+                  <span class="card-link price-tag price-tag--one-line">
+            <span>$<%= recent_product.product.price %></span>
+          </span>
+                </div>
+                <div class="tile__image-container">
+                  <a href="<%=product_path(recent_product.product)%>"><image src = "<%= recent_product.product.image %>" /></a>
+                </div>
+                <div class="card-body tile__title">
+                  <p class="card-text truncate ">
+                    <a href="<%=product_path(recent_product.product)%>"><%= recent_product.product.title %></a>
+                  </p>
+                </div>
+                <div class="card-body d-flex justify-content-between tile__actions-container flex-likes">
+                  <a href="#" class="card-link tile__rate-action tile__likes icon-fa-link">
+                    <i class="fa fa-thumbs-up"></i>
+                    <span>2</span>
+                  </a>
+                  <a href="#" class="card-link tile__rate-action tile__dislikes icon-fa-link">
+                    <i class="fa fa-thumbs-down"></i>
+                    <span>13</span>
+                  </a>
+                  <a href="#" class="card-link tile__rate-action tile__comments icon-fa-link">
+                    <i class="fa fa-comments"></i>
+                    <span>0</span>
+                  </a>
+                </div>
 
-              <div class="card-body d-flex justify-content-between tile__actions-container">
-
-                <a href="#" class="card-link tile__rate-action tile__likes icon-fa-link">
-                  <i class="fa fa-thumbs-up"></i>
-                  <span>2</span></a>
-
-                <a href="#" class="card-link tile__rate-action tile__dislikes icon-fa-link">
-                  <i class="fa fa-thumbs-down"></i> <span>13</span></a>
-
-                <a href="#" class="card-link tile__rate-action tile__comments icon-fa-link"><i
-                  class="fa fa-comments"></i> <span>0</span></a>
-              </div>
-              <div class="card-body d-flex justify-content-between card-footer tile__actions-container">
-                <a href="#" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span><%= recent_product.product.store.title %></span></a>
-                <a href="#" class="card-link icon-fa-link"><i
-                  class="fa fa-balance-scale"></i><span></span></a>
+                <div class="upc__count">
+                  <div>UPC: <span><a href="#"><%= recent_product.product.upc %></a></span></div>
+                  <div>MPN: <span><a href="#"><%= recent_product.product.mpn %></a></span></div>
+                </div>
+                <div class="card-body d-flex justify-content-between card-footer gun__spy">
+                  <a href="<%= recent_product.product.link %>" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span><%= recent_product.product.store.title %></span></a>
+                  <a href="/search/1" class="card-link icon-fa-link"><i class="fa fa-balance-scale"></i><span></span></a>
+                </div>
               </div>
             </div>
           </div>
