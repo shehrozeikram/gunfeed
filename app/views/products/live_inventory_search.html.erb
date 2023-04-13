@@ -30,19 +30,24 @@
   <div class="container">
     <div class="card p-3">
       <div class="row mb-5">
+        <div class="product-title-single mt-3 mobile__view">
+          <h2 itemprop="name"><strong><%= @product.title %> </strong></h2>
+        </div>
         <div class="col-md-4">
           <div class="product-image-single">
             <% if @product.verified == "true" %>
               <image class="img-responsive" src = "<%= @product.image %>" />
+              <% else %>
+              <image class="img-responsive" src = "<%= @product.image_link %>" />
             <% end %>
-            <image class="img-responsive" src = "<%= @product.image_link %>" />
+
             <div class="button-products">
-              <a class="btn btn-product-single notify-me-modal" href="<%= notify_me_path %>">
+              <a class="btn btn-product-single notify-me-modal btn-a" href="<%= notify_me_path %>">
                 <i class="fa fa-bell-o fa-fw"></i>
                 <span>Notify Me</span>
               </a>
               <% if @product.category.products.length > 6 %>
-                <a class="btn btn-product-single" href="<%= compare_guns_path(@product.id , @product_2.id) %>">
+                <a class="btn btn-product-single btn-b" href="<%= compare_guns_path(@product.id , @product_2.id) %>">
                   <i class="fa fa-exchange"></i>
                   <span>Compare Guns</span>
                 </a>
@@ -51,7 +56,7 @@
           </div>
         </div>
         <div class="col-md-8">
-          <div class="product-title-single mt-3">
+          <div class="product-title-single mt-3 desktop___view">
             <h2 itemprop="name"><strong><%= @product.title %> </strong></h2>
           </div>
           <div class="product-detail-single">
@@ -309,7 +314,7 @@
     </div>
   </div>
 </section>
-<section class="pb-4 mt-2">
+<section class="pb-4 mt-2 mobile__fix">
   <div class="container">
     <div class="card card--listing-header card--listing-header-smaller p-3">
       <div class="row d-flex align-items-center">

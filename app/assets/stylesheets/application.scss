@@ -952,10 +952,15 @@ td.image-cell {width: 400px !important}
 
 @media (max-width: 500px) {
   .compaire-price, .compaire-price-table2, .user-posted-deal, .sidebar__filter {
-    width: 100% !important;
+    width: 97% !important;
     margin-top: 5px !important;
   }
   .social-share { display: none !important;}
+
+
+  .mobile__fix {
+    width: 97% !important;
+  }
 }
 
 
@@ -1019,4 +1024,48 @@ td.image-cell {width: 400px !important}
 
 .review___youtube {
   line-height: 1.3;
+}
+
+
+
+
+/******PRODUCT SINGLE SHOW *//////
+
+@media only screen and (max-width:769px) {
+  .product-image-single img {
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 0px !important;
+    margin-bottom: 10px;
+    border: 1px solid #cacfd4;
+    height: 210px !important;
+    width: 210px !important;
+  }
+
+
+  .desktop___view {
+    display: none !important;
+  }
+
+  .mobile__view {
+    display: block !important;
+  }
+
+  .button-products .btn {
+   display: block;
+    margin: 5px 0;
+    border-radius: 3px !important;
+  }
+  .button-products .btn-a {
+    width: 130px !important;
+  }
+
+  .button-products .btn-b {
+    width: 160px !important;
+  }
+}
+
+
+.mobile__view {
+  display: none;
 }
