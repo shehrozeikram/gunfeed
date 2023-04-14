@@ -52,7 +52,9 @@
                           <a href="#"> <label for="edit-product-url"
                                               title="Link to the product on the seller's website"
                                               data-toggle="tooltip">Product URL: </label></a>
-                          <input type="text" value='<%= @product.product_url %>' maxlength="128" size="25" id="fetch-url" class="form-text required form-control">
+                          <input type="text" maxlength="255" name="product_url" id="fetch-url"
+                                 size="110" value='<%= @product.product_url  %>' class="form-text required form-control">
+<!--                          <input type="text" name="product_url" value='<%#= @product.product_url %>' maxlength="128" size="25" id="fetch-url" class="form-text required form-control">-->
                         </div>
                       </div>
                       <div class="col-xs-12 col-md-10">

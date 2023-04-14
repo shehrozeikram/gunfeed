@@ -131,12 +131,12 @@
             </div>
             <ul class="product-actions product-actions--expanded">
               <li class="product-actions__cta">
-                <a href="#" data-nid="1076271"
+                <a href="<%= @product.product_url %>" data-nid="1076271"
                    data-current-url="product/charles-daly-1911-field-grade-45-acp-5-barrel-8-rounds-wood-grips-42999"
                    data-ga-action="External Click" data-ga-category="GrabAGun.com"
                    data-ga-label="Deal page - &quot;Buy at&quot; button" target="_blank"
                    class="js-statistics-link js-ga-event" title="Buy at Gunfeed.com">
-                  <i class="fa fa-shopping-cart"></i> Buy at Gunfeed.com
+                  <i class="fa fa-shopping-cart"></i> Buy at <%= @product.store.title %>
                 </a>
               </li>
               <li type="button"

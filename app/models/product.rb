@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :store
 
+  has_many :video_reviews
   has_many :reviews
   has_many :comments
   has_many :watchlists
