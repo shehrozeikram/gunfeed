@@ -16,7 +16,7 @@ unless scheduler.down?
           product = Product.where(user_id: 1, category_id: 1, store_id: store.id, upc:  pr[:upc]).first_or_initialize
           product.title = pr[:title]
            product.description =  pr[:description]
-          product.link = pr[:link]
+          product.product_url = pr[:link]
           product.price = pr[:price]
           product.condition = pr[:condition]
           product.image_link = pr[:image_link]

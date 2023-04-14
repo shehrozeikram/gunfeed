@@ -24,16 +24,48 @@
           <p class="card-text truncate "><a href="<%= product_path(product) %>"><%= product.title %></a></p>
         </div>
         <div class="card-body d-flex justify-content-between tile__actions-container">
-          <a href="#" class="card-link tile__rate-action tile__likes icon-fa-link"><i
-            class="fa fa-thumbs-up"></i> <span>2</span></a>
-          <a href="#" class="card-link tile__rate-action tile__dislikes icon-fa-link"><i
-            class="fa fa-thumbs-down"></i> <span>13</span></a>
-          <a href="#" class="card-link tile__rate-action tile__comments icon-fa-link"><i
-            class="fa fa-comments"></i> <span>0</span></a>
+          <% if @product.likes.present? %>
+
+          <a href="/likes/<%= @product.id %>" class="card-link tile__rate-action tile__likes icon-fa-link">
+            <i class="fa fa-thumbs-up"></i>
+            <span><%= @product.likes.count %></span>
+          </a>
+
+            <% else %>
+
+            <a href="/likes/<%= @product.id %>" class="card-link tile__rate-action tile__likes icon-fa-link">
+              <i class="fa fa-thumbs-up"></i>
+              <span>0</span>
+            </a>
+
+            <% end %>
+          <% if @product.unlikes.present? %>
+
+          <a href="/unlikes/<%= @product.id %>" class="card-link tile__rate-action tile__dislikes icon-fa-link">
+            <i class="fa fa-thumbs-down"></i>
+            <span><%= @product.unlikes.count %></span>
+          </a>
+
+            <% else %>
+
+            <a href="/unlikes/<%= @product.id %>" class="card-link tile__rate-action tile__dislikes icon-fa-link">
+              <i class="fa fa-thumbs-down"></i>
+              <span>0</span>
+            </a>
+
+            <% end %>
+          <a href="#" class="card-link tile__rate-action tile__comments icon-fa-link">
+            <i class="fa fa-comments"></i>
+            <% if @product.comments.present? %>
+              <span><%= @product.comments.all.count %></span>
+            <% else %>
+              <span>0</span>
+            <% end %>
+          </a>
         </div>
         <div class="card-body d-flex justify-content-between card-footer tile__actions-container">
           <% if product.store.present? %>
-          <a href="/stores/<%=product.store_id %>" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span><%= product.store.title %></span></a>
+          <a href="<%= product.product_url %>" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span><%= product.store.title %></span></a>
             <% end %>
           <a href="<%= live_inventory_search_path(product) %>" class="card-link icon-fa-link"><i class="fa fa-balance-scale"></i><span></span></a>
         </div>

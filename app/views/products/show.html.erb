@@ -474,8 +474,8 @@
       <% @products.each do |product| %>
         <tr>
           <td>
-            <% if product.link.present? %>
-              <a href="<%= product.link %>"><%= product.store.title %></a>
+            <% if product.product_url.present? %>
+              <a href="<%= product.product_url %>"><%= product.store.title %></a>
             <% else %>
               <a href="/stores/<%= product.store.id %>"><%= product.store.title %></a>
             <% end %>
@@ -1424,6 +1424,7 @@
     <h3 class="recent-products__heading">Recently viewed deals</h3>
     <div class="row">
       <% if current_user.present? %>
+
         <% @recently_viewed_products.each do |recent_product| %>
           <div class="col-md-3">
             <div class="col my-0 sub-card my-1">
@@ -1462,7 +1463,7 @@
                   <div>MPN: <span><a href="#"><%= recent_product.product.mpn %></a></span></div>
                 </div>
                 <div class="card-body d-flex justify-content-between card-footer gun__spy">
-                  <a href="<%= recent_product.product.link %>" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span><%= recent_product.product.store.title %></span></a>
+                  <a href="<%= recent_product.product.product_url %>" class="card-link icon-fa-link"><i class="fa fa-shopping-cart"></i><span><%= recent_product.product.store.title %></span></a>
                   <a href="/search/1" class="card-link icon-fa-link"><i class="fa fa-balance-scale"></i><span></span></a>
                 </div>
               </div>
