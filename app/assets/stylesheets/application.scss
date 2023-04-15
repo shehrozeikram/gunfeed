@@ -1069,3 +1069,11 @@ td.image-cell {width: 400px !important}
 .mobile__view {
   display: none;
 }
+
+.tile__likes::after {
+  bottom: 2px !important;
+  left: 1px !important;
+  width: 70px !important;
+  background-color: #b6e2ce !important;
+  box-shadow: inset 0px 0 0 0 #fff !important;
+}
