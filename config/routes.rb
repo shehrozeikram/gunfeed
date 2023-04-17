@@ -36,6 +36,7 @@ Rails.application.routes.draw do
         get "/quick_links" , to: "products#quick_links"
         get "/fetch_comments" , to: "products#recent_comments"
         post "/create_comment", to: "products#create_comment"
+        get '/filter_products', to: 'products#filter_products'
 
       end
 

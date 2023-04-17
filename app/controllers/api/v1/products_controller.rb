@@ -316,7 +316,23 @@ class ProductsController < Api::V1::ApiController
     end
   end
 
+  def filter_products
+    if params[:lowest_price].present? && params[:lowest_price] == "true"
+      @products = Product.order(price: :asc)
+      render json: {api_status: true,  filter_products: @products.as_json( :include => [:category] )}
 
+    elsif params[:rating].present? && params[:rating] == "true"
+      @products = Product.reviews.order(created_at: :asc)
+      render json: {api_status: true,  filter_products: @products.as_json( :include => [:category] )}
+
+    elsif params[:date_newest_first].present? && params[:date_newest_first] == "true"
+      @products = Product.order(created_at: :desc)
+      render json: {api_status: true,  filter_products: @products.as_json( :include => [:category] )}
+
+    else
+      render json: {api_status: false ,  error: 'params is missing or value is not present in our database'}
+    end
+  end
 
   protected
 
