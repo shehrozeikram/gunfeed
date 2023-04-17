@@ -231,8 +231,33 @@ class ProductsController < Api::V1::ApiController
 
   end
 
+  def create_comment
+    if params[:user_id].present?
+      user = User.where(id: params[:user_id]).last
+      @comment = user.comments.new(comments_params)
+      if @comment.save
+        render json: {api_status: true,  comment: @comment}
+      else
+        render json: {api_status: false,  error: @comment.errors}
+      end
+    else
+      render json: {api_status: false,  error: 'Please provide id of user'}
+    end
+  end
+
   def recent_comments
-    @comments = current_user.comments.all
+    if params[:id].present?
+      @product = Product.find(params[:id])
+        @comments = @product.comments.all
+        @comments_count = @product.comments.all.count
+        if @comments.all.count == 0
+          render json: {api_status: false,  error: 'No comment found'}
+        else
+          render json: {api_status: true,  comments: @comments, comments_count: @comments_count}
+        end
+    else
+      render json: {api_status: false,  error: 'user id is not correct'}
+    end
   end
 
   def notify_me
@@ -338,6 +363,9 @@ class ProductsController < Api::V1::ApiController
     )
   end
 
+  def comments_params
+    params.permit(:body, :image, :product_id)
+  end
 
 
 

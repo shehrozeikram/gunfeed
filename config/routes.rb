@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     namespace :v1 do
 
       get 'watchlist/add_to_watchlist'
+      get 'watchlist/fetch_watchlist'
 
       devise_for :users
 
@@ -33,6 +34,8 @@ Rails.application.routes.draw do
         get '/show_category_products', to: 'products#show_category_products'
         get "/live_inventory_search" , to: "products#live_inventory_search"
         get "/quick_links" , to: "products#quick_links"
+        get "/fetch_comments" , to: "products#recent_comments"
+        post "/create_comment", to: "products#create_comment"
 
       end
 
