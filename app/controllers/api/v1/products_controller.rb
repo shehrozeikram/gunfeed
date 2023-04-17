@@ -12,7 +12,7 @@ class ProductsController < Api::V1::ApiController
         pr.id
         @product = Product.find(pr.id)
       end
-      render json: {api_status: true,  products: @products}
+      render json: {api_status: true,  products: @products.as_json( :include => [:category] )}
     end
   end
 
@@ -22,7 +22,7 @@ class ProductsController < Api::V1::ApiController
       if @products.all.count == 0
         render json: {api_status: false,  products: 'No products found'}
       else
-        render json: {api_status: true,  search_products: @products}
+        render json: {api_status: true,  search_products: @products.as_json( :include => [:category] )}
       end
     else
       render json: {api_status: false ,  error: 'params is missing or value is not present in our database'}
@@ -74,7 +74,7 @@ class ProductsController < Api::V1::ApiController
   def show
     if params[:id].present?
       @product = Product.find(params[:id])
-        render json: {api_status: true,  product: @product}
+        render json: {api_status: true,  product: @product.as_json( :include => [:category] )}
     else
       render json: {api_status: false ,  error: 'params is missing or value is not present in our database'}
     end
@@ -87,7 +87,7 @@ class ProductsController < Api::V1::ApiController
     if @products.all.count == 0
       render json: {api_status: false,  products: 'No products found'}
     else
-      render json: {api_status: true,  products: @products}
+      render json: {api_status: true,  products: @products.as_json( :include => [:category] )}
     end
   end
 
@@ -96,7 +96,7 @@ class ProductsController < Api::V1::ApiController
     if @products.all.count == 0
       render json: {api_status: false,  products: 'No products found'}
     else
-      render json: {api_status: true,  products: @products}
+      render json: {api_status: true,  products: @products.as_json( :include => [:category] )}
     end
   end
 
@@ -218,12 +218,12 @@ class ProductsController < Api::V1::ApiController
         user = User.find(params[:user_id])
         @deals = user.products.where(verified: "true")
         if @deals.any?
-          render json: {api_status: true,  product: @product, similar_products: @similar_products, live_inventory_products: @products, out_of_stock_products: @stock, deals: @deals  }
+          render json: {api_status: true,  product: @product.as_json( :include => [:category] ), similar_products: @similar_products, live_inventory_products: @products, out_of_stock_products: @stock, deals: @deals  }
         else
-          render json: {api_status: true,  product: @product, similar_products: @similar_products, live_inventory_products: @products, out_of_stock_products: @stock, deals: 'Sorry this user has no other deal'  }
+          render json: {api_status: true,  product: @product.as_json( :include => [:category] ), similar_products: @similar_products, live_inventory_products: @products, out_of_stock_products: @stock, deals: 'Sorry this user has no other deal'  }
         end
       else
-        render json: {api_status: true,  product: @product, similar_products: @similar_products, live_inventory_products: @products, out_of_stock_products: @stock, deals: 'No deal found'  }
+        render json: {api_status: true,  product: @product.as_json( :include => [:category] ), similar_products: @similar_products, live_inventory_products: @products, out_of_stock_products: @stock, deals: 'No deal found'  }
       end
     else
       render json: {api_status: false,  error: 'Please provide id of product'}
@@ -259,28 +259,28 @@ class ProductsController < Api::V1::ApiController
     if params[:deal_type].present?
       if params[:deal_type] == 'revolver'
         @products = Product.where(revolver: true)
-        render json: {api_status: true ,  products: @products}
+        render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       elsif params[:deal_type] == 'rimfire'
         @products = Product.where(rimfire: true )
-        render json: {api_status: true ,  products: @products}
+        render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       elsif params[:deal_type] == 'c_and_r'
         @products = Product.where(c_and_r: true )
-        render json: {api_status: true ,  products: @products}
+        render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       elsif params[:deal_type] == 'ar'
         @products = Product.where(ar: true )
-        render json: {api_status: true ,  products: @products}
+        render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       elsif params[:deal_type] == 'ak'
         @products = Product.where(ak: true )
-        render json: {api_status: true ,  products: @products}
+        render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       elsif params[:deal_type] == 'twenty_two_lr_ammo'
         @products = Product.where(twenty_two_lr_ammo: true )
-        render json: {api_status: true ,  products: @products}
+        render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       elsif params[:deal_type] == 'nine_mm_ammo'
         @products = Product.where(nine_mm_ammo: true )
-        render json: {api_status: true ,  products: @products}
+        render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       elsif params[:deal_type] == 'used'
         @products = Product.where(used: true )
-        render json: {api_status: true ,  products: @products}
+        render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       else
         render json: {api_status: false ,  error: 'Please provide valid deal_type'}
       end
