@@ -318,15 +318,15 @@ class ProductsController < Api::V1::ApiController
 
   def filter_products
     if params[:lowest_price].present? && params[:lowest_price] == "true"
-      @products = Product.order(price: :asc)
+      @products = Product.order(price: :asc).limit(100)
       render json: {api_status: true,  filter_products: @products.as_json( :include => [:category] )}
 
     elsif params[:rating].present? && params[:rating] == "true"
-      @products = Product.reviews.order(created_at: :asc)
+      @products = Product.reviews.order(created_at: :asc).limit(100)
       render json: {api_status: true,  filter_products: @products.as_json( :include => [:category] )}
 
     elsif params[:date_newest_first].present? && params[:date_newest_first] == "true"
-      @products = Product.order(created_at: :desc)
+      @products = Product.order(created_at: :desc).limit(100)
       render json: {api_status: true,  filter_products: @products.as_json( :include => [:category] )}
 
     else
