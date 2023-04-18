@@ -37,6 +37,9 @@ Rails.application.routes.draw do
         get "/fetch_comments" , to: "products#recent_comments"
         post "/create_comment", to: "products#create_comment"
         get '/filter_products', to: 'products#filter_products'
+        get "/like_product" , to: "products#like_product"
+        get "/unlike_product" , to: "products#unlike_product"
+        get "/fetch_rebates" , to: "products#fetch_rebates"
 
       end
 

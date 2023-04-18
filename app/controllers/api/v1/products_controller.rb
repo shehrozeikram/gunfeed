@@ -334,15 +334,76 @@ class ProductsController < Api::V1::ApiController
     end
   end
 
+  def like_product
+    if params[:product_id].present?
+      @product = Product.find(params[:product_id])
+      if already_liked?
+        @already_liked_product = @product.likes.all.count
+        render json: {api_status: true,  total_liked_products: @already_liked_product, error: "You have already liked this product you can't like more than once" }
+      else
+        @like_product =  @product.likes.create(like_params)
+          @like_product.user_like = 1
+        @like_product.save
+        @like_product.total_likes =  Like.all.count
+        @like_product.save
+        render json: {api_status: true , like_product: @like_product }
+      end
+    else
+      render json: {api_status: false ,  error: 'params is missing or value is not present in our database'}
+    end
+  end
+
+  def unlike_product
+    if params[:product_id].present?
+      @product = Product.find(params[:product_id])
+      if already_unliked?
+        @already_unliked_product = @product.unlikes.all.count
+        render json: {api_status: true,  total_unliked_products: @already_unliked_product, error: "You have already unliked this product you can't unlike more than once" }
+      else
+        @unlike_product =  @product.unlikes.create(unlike_params)
+        @unlike_product.user_unlike = 1
+        @unlike_product.save
+        @unlike_product.total_unlikes =  Unlike.all.count
+        @unlike_product.save
+        render json: {api_status: true , unlike_product: @unlike_product }
+      end
+    else
+      render json: {api_status: false ,  error: 'params is missing or value is not present in our database'}
+    end
+  end
+
+  def fetch_rebates
+    if params[:product_id].present?
+      @product = Product.find(params[:product_id])
+      @rebates = @product.rebates
+      @rebates_count = @rebates.all.count
+      if @rebates.all.count == 0
+        render json: {api_status: false,  error: 'No rebate found'}
+      else
+        render json: {api_status: true,  discounts: @rebates, discount_count: @rebates_count}
+      end
+    else
+      render json: {api_status: false ,  error: 'product_id is missing or value is not present in our database'}
+      end
+  end
+
   protected
 
+  def like_params
+    params.permit(:user_id, :product_id, :user_like, :total_likes)
+  end
+
+  def unlike_params
+    params.permit(:user_id, :product_id, :user_unlike, :total_unlikes)
+  end
+
   def already_liked?
-    Like.where(user_id: current_user.id, product_id:
+    Like.where(user_id: params[:user_id], product_id:
       params[:product_id]).exists?
   end
 
   def already_unliked?
-    Unlike.where(user_id: current_user.id, product_id:
+    Unlike.where(user_id: params[:user_id], product_id:
       params[:product_id]).exists?
   end
 
