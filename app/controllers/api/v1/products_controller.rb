@@ -272,12 +272,12 @@ class ProductsController < Api::V1::ApiController
   def recent_comments
     if params[:id].present?
       @product = Product.find(params[:id])
-        @comments = @product.comments.all
+        @comments = @product.comments
         @comments_count = @product.comments.all.count
         if @comments.all.count == 0
           render json: {api_status: false,  error: 'No comment found'}
         else
-          render json: {api_status: true,  comments: @comments.as_json( :include => [:users] ), comments_count: @comments_count}
+          render json: {api_status: true,  comments: @comments.as_json( :include => [:user] ), comments_count: @comments_count}
         end
     else
       render json: {api_status: false,  error: 'product id is not correct'}
