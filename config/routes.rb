@@ -40,6 +40,7 @@ Rails.application.routes.draw do
         get "/like_product" , to: "products#like_product"
         get "/unlike_product" , to: "products#unlike_product"
         get "/fetch_rebates" , to: "products#fetch_rebates"
+        post "/create_review", to: "products#create_review"
 
       end
 

@@ -29,52 +29,56 @@ class ProductsController < Api::V1::ApiController
     end
   end
 
-  def like_product
-    if params[:product_id].present?
-      @product = Product.find(params[:product_id])
-      if already_liked?
-        @already_liked_product = @product.likes.all.count
-        render json: {already_liked_product: @already_unliked_product, error: "You can't like more than once"}
-      else
-        @like_product =  @product.likes.create(
-          user_id: current_user.id,
-          user_like: 1
-        )
-        @like_product.save
-        @like_product.total_likes =  Like.all.count
-        @like_product.save
-        render json: @like_product
-      end
-    else
-      render json: @like_product, error: 'product_id is not present'
-    end
-  end
-
-  def unlike_product
-    if params[:product_id].present?
-      @product = Product.find(params[:product_id])
-      if already_unliked?
-        @already_unliked_product = @product.unlikes.all.count
-        render json: {already_unliked_product: @already_unliked_product, error: "You can't unlike more than once"}
-      else
-        @unlike_product =  @product.unlikes.create(
-          user_id: current_user.id,
-          user_unlike: 1
-        )
-        @unlike_product.save
-        @unlike_product.total_unlikes =  Unlike.all.count
-        @unlike_product.save
-        render json: @unlike_product
-      end
-    else
-      render json: @unlike_product, error: 'product_id is not present'
-    end
-  end
+  # def like_product
+  #   if params[:product_id].present?
+  #     @product = Product.find(params[:product_id])
+  #     if already_liked?
+  #       @already_liked_product = @product.likes.all.count
+  #       render json: {already_liked_product: @already_unliked_product, error: "You can't like more than once"}
+  #     else
+  #       @like_product =  @product.likes.create(
+  #         user_id: current_user.id,
+  #         user_like: 1
+  #       )
+  #       @like_product.save
+  #       @like_product.total_likes =  Like.all.count
+  #       @like_product.save
+  #       render json: @like_product
+  #     end
+  #   else
+  #     render json: @like_product, error: 'product_id is not present'
+  #   end
+  # end
+  #
+  # def unlike_product
+  #   if params[:product_id].present?
+  #     @product = Product.find(params[:product_id])
+  #     if already_unliked?
+  #       @already_unliked_product = @product.unlikes.all.count
+  #       render json: {already_unliked_product: @already_unliked_product, error: "You can't unlike more than once"}
+  #     else
+  #       @unlike_product =  @product.unlikes.create(
+  #         user_id: current_user.id,
+  #         user_unlike: 1
+  #       )
+  #       @unlike_product.save
+  #       @unlike_product.total_unlikes =  Unlike.all.count
+  #       @unlike_product.save
+  #       render json: @unlike_product
+  #     end
+  #   else
+  #     render json: @unlike_product, error: 'product_id is not present'
+  #   end
+  # end
 
   def show
     if params[:id].present?
       @product = Product.find(params[:id])
-        render json: {api_status: true,  product: @product.as_json( :include => [:category] )}
+      @like_product = @product.likes.all.count
+      @dislike_product = @product.unlikes.all.count
+      @comments = @product.comments.all.count
+      @reviews = @product.reviews.all.count
+        render json: {api_status: true,  product: @product.as_json( :include => [:category]) }
     else
       render json: {api_status: false ,  error: 'params is missing or value is not present in our database'}
     end
@@ -231,11 +235,31 @@ class ProductsController < Api::V1::ApiController
 
   end
 
+  def create_review
+    if params[:user_id].present?
+      user = User.where(id: params[:user_id]).last
+      @review = user.reviews.new(review_params)
+      if @review.save
+        @product = Product.find(params[:product_id])
+        @product.total_reviews = @product.reviews.all.count
+        @product.save
+        render json: {api_status: true,  review: @review}
+      else
+        render json: {api_status: false,  error: @review.errors}
+      end
+    else
+      render json: {api_status: false,  error: 'Please provide id of user'}
+    end
+  end
+
   def create_comment
     if params[:user_id].present?
       user = User.where(id: params[:user_id]).last
       @comment = user.comments.new(comments_params)
       if @comment.save
+        @product = Product.find(params[:product_id])
+        @product.total_comments = @product.comments.all.count
+        @product.save
         render json: {api_status: true,  comment: @comment}
       else
         render json: {api_status: false,  error: @comment.errors}
@@ -344,9 +368,11 @@ class ProductsController < Api::V1::ApiController
         @like_product =  @product.likes.create(like_params)
           @like_product.user_like = 1
         @like_product.save
-        @like_product.total_likes =  Like.all.count
+        @like_product.total_likes =  @product.likes.all.count
         @like_product.save
-        render json: {api_status: true , like_product: @like_product }
+        @product.total_likes = @like_product.total_likes
+        @product.save
+        render json: {api_status: true , like_product: @like_product, product: @product }
       end
     else
       render json: {api_status: false ,  error: 'params is missing or value is not present in our database'}
@@ -365,6 +391,8 @@ class ProductsController < Api::V1::ApiController
         @unlike_product.save
         @unlike_product.total_unlikes =  Unlike.all.count
         @unlike_product.save
+        @product.total_unlikes = @unlike_product.total_unlikes
+        @product.save
         render json: {api_status: true , unlike_product: @unlike_product }
       end
     else
@@ -372,6 +400,22 @@ class ProductsController < Api::V1::ApiController
     end
   end
 
+  def create_rebate
+    if params[:user_id].present?
+      user = User.where(id: params[:user_id]).last
+      @rebate = user.rebates.new(rebate_params)
+      if @rebate.save
+        @product = Product.find(params[:product_id])
+        @product.total_rebates = @product.rebates.all.count
+        @product.save
+        render json: {api_status: true,  rebate: @rebate}
+      else
+        render json: {api_status: false,  error: @rebate.errors}
+      end
+    else
+      render json: {api_status: false,  error: 'Please provide id of user'}
+    end
+  end
   def fetch_rebates
     if params[:product_id].present?
       @product = Product.find(params[:product_id])
@@ -436,12 +480,25 @@ class ProductsController < Api::V1::ApiController
       :mpn,
       :upc,
       :body,
-      :image
+      :image,
+      :total_likes,
+      :total_unlikes,
+      :total_comments,
+      :total_reviews,
+      :total_rebates
     )
   end
 
   def comments_params
     params.permit(:body, :image, :product_id)
+  end
+
+  def review_params
+    params.permit(:rating, :body, :image, :product_id, :user_id)
+  end
+
+  def rebate_params
+    params.permit(:rating, :body, :image, :product_id, :user_id)
   end
 
 
