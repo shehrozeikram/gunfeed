@@ -277,10 +277,10 @@ class ProductsController < Api::V1::ApiController
         if @comments.all.count == 0
           render json: {api_status: false,  error: 'No comment found'}
         else
-          render json: {api_status: true,  comments: @comments, comments_count: @comments_count}
+          render json: {api_status: true,  comments: @comments.as_json( :include => [:users] ), comments_count: @comments_count}
         end
     else
-      render json: {api_status: false,  error: 'user id is not correct'}
+      render json: {api_status: false,  error: 'product id is not correct'}
     end
   end
 
