@@ -10,7 +10,7 @@ class WatchlistController < Api::V1::ApiController
     if @watchlist.all.count == 0
       render json: {api_status: false,  error: 'No watchlist found'}
     else
-      render json: {api_status: true,  watchlist: @watchlist}
+      render json: {api_status: true,  watchlist: @watchlist.as_json( :include => [:product] )}
     end
     else
       render json: {api_status: false ,  error: 'params is missing or value is not present in our database'}
