@@ -222,12 +222,12 @@ class ProductsController < Api::V1::ApiController
         user = User.find(params[:user_id])
         @deals = user.products.where(verified: "true")
         if @deals.any?
-          render json: {api_status: true,  product: @product.as_json( :include => [:category] ), similar_products: @similar_products, live_inventory_products: @products, out_of_stock_products: @stock, deals: @deals  }
+          render json: {api_status: true,  product: @product.as_json( :include => [:category] ), similar_products: @similar_products, live_inventory_products: @products.as_json( :include => [:store] ), out_of_stock_products: @stock.as_json( :include => [:store] ), deals: @deals  }
         else
-          render json: {api_status: true,  product: @product.as_json( :include => [:category] ), similar_products: @similar_products, live_inventory_products: @products, out_of_stock_products: @stock, deals: 'Sorry this user has no other deal'  }
+          render json: {api_status: true,  product: @product.as_json( :include => [:category] ), similar_products: @similar_products, live_inventory_products: @products.as_json( :include => [:store] ), out_of_stock_products: @stock.as_json( :include => [:store] ), deals: 'Sorry this user has no other deal'  }
         end
       else
-        render json: {api_status: true,  product: @product.as_json( :include => [:category] ), similar_products: @similar_products, live_inventory_products: @products, out_of_stock_products: @stock, deals: 'No deal found'  }
+        render json: {api_status: true,  product: @product.as_json( :include => [:category] ), similar_products: @similar_products, live_inventory_products: @products.as_json( :include => [:store] ), out_of_stock_products: @stock.as_json( :include => [:store] ), deals: 'No deal found'  }
       end
     else
       render json: {api_status: false,  error: 'Please provide id of product'}
