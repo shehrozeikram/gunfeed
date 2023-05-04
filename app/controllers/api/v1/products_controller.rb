@@ -74,11 +74,12 @@ class ProductsController < Api::V1::ApiController
   def show
     if params[:id].present?
       @product = Product.find(params[:id])
+      @store = @product.store
       @like_product = @product.likes.all.count
       @dislike_product = @product.unlikes.all.count
       @comments = @product.comments.all.count
       @reviews = @product.reviews.all.count
-        render json: {api_status: true,  product: @product.as_json( :include => [:category]) }
+        render json: {api_status: true,  product: @product.as_json( :include => [:category]), store: @store }
     else
       render json: {api_status: false ,  error: 'params is missing or value is not present in our database'}
     end
