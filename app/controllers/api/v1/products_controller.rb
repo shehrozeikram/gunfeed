@@ -117,7 +117,7 @@ class ProductsController < Api::V1::ApiController
 
   def show_category_products
     if params[:category_id].present?
-      @products = Product.where(category_id: params[:category_id])
+      @products = Product.where(category_id: params[:category_id]).limit(50)
       if @products.all.count == 0
         render json: {api_status: false,  error: 'No product found'}
       else
