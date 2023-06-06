@@ -14,7 +14,7 @@ module Api
             return display_error('All params are not present')
           end
           if new_user_params.present?
-            @user = User.where(email: params[:email]).last
+            @user = User.find_by(email: params[:email].downcase)
             if @user == nil
               render json: {api_status: false, error: 'Sorry email is incorrect'}
             else
