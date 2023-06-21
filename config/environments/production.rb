@@ -78,7 +78,7 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-
+  config.hosts << "gundeals.me"
 
 
   # Use a different logger for distributed setups.
@@ -95,5 +95,3 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 end
 
-
-Rails.application.config.hosts << "gundeals.me"
