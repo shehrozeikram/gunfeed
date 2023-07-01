@@ -11,6 +11,8 @@ Rails.application.configure do
 
   config.hosts << "www.gundeals.me"
 
+  config.hosts << "gundeals.me"
+
   # Do not eager load code on boot.
   config.eager_load = false
 
