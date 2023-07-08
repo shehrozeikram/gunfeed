@@ -93,6 +93,7 @@
       <div id="block-comment-0" class="block block-comment">
         <div class="content">
           <ul class="list-group">
+            <% if @comments.present? %>
             <% @comments.each do |comment| %>
             <li class="list-group-item recent-comment-wrapper">
               <div class="recent-comment">
@@ -113,11 +114,14 @@
                 <div class="recent-comment__footer">
                   <span class="recent-comment__time-ago">32 min 21 sec ago</span>
                   <span>By</span>
+                  <% if comment.user.present? %>
                   <a href="#"><%= comment.user.username %></a>
+                    <% end %>
                 </div>
               </div>
             </li>
             <% end %>
+              <% end %>
           </ul>
           <div id="more-comments-link">
             <a href="#">More comments</a>
