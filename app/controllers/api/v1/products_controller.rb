@@ -308,28 +308,28 @@ class ProductsController < Api::V1::ApiController
   def quick_links
     if params[:deal_type].present?
       if params[:deal_type] == 'revolver'
-        @products = Product.where( deal_type: 'revolver')
+        @products = Product.where(revolver: true)
         render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       elsif params[:deal_type] == 'rimfire'
-        @products = Product.where( deal_type: 'rimfire' )
+        @products = Product.where(rimfire: true )
         render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       elsif params[:deal_type] == 'c_and_r'
-        @products = Product.where( deal_type: 'c_and_r' )
+        @products = Product.where(c_and_r: true )
         render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       elsif params[:deal_type] == 'ar'
-        @products = Product.where(deal_type: 'ar' )
+        @products = Product.where(ar: true )
         render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       elsif params[:deal_type] == 'ak'
-        @products = Product.where(deal_type: 'ak' )
+        @products = Product.where(ak: true )
         render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       elsif params[:deal_type] == 'twenty_two_lr_ammo'
-        @products = Product.where(deal_type: 'twenty_two_lr_ammo')
+        @products = Product.where(twenty_two_lr_ammo: true )
         render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       elsif params[:deal_type] == 'nine_mm_ammo'
-        @products = Product.where(deal_type: 'nine_mm_ammo' )
+        @products = Product.where(nine_mm_ammo: true )
         render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       elsif params[:deal_type] == 'used'
-        @products = Product.where(deal_type: 'used' )
+        @products = Product.where(used: true )
         render json: {api_status: true ,  products: @products.as_json( :include => [:category] )}
       else
         render json: {api_status: false ,  error: 'Please provide valid deal_type'}
