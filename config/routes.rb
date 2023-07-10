@@ -11,18 +11,11 @@ Rails.application.routes.draw do
       get 'watchlist/add_to_watchlist'
       get 'watchlist/fetch_watchlist'
 
+
+
+
       devise_for :users
 
-
-      # resource :user, only: %i[show update]
-      #
-      # devise_scope :user do
-      #   resources :users, only: [] do
-      #     controller :registrations do
-      #       post :create, on: :collection
-      #     end
-      #   end
-      # end
 
 
       resource :products do
@@ -44,6 +37,9 @@ Rails.application.routes.draw do
 
       end
 
+      resource :stores do
+
+      end
 
       #
       # resource :shops do
