@@ -255,7 +255,7 @@ class ProductsController < ApplicationController
   end
 
   def category
-    @category =  Category.find(params[:id])
+    @category =  Category.friendly.find(params[:id])
     @products = Product.where(category_id: params[:id])
   end
 
