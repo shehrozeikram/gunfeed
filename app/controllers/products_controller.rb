@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
 
   def select_gun
     if params[:id].present?
-      @product = Product.find(params[:id])
+      @product = Product.friendly.find(params[:id])
       render json:  @product
     end
   end
@@ -231,7 +231,7 @@ class ProductsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @product = Product.find(params[:id])
+    @product = Product.friendly.find(params[:id])
     @products = Product.where(upc: @product.upc ).where.not(stock: nil).where.not(id: @product.id).where.not(stock:"out of stock").limit(50)
     @similar_products = Product.where(category_id: @product.category_id).where.not(id: @product.id ).limit(20)
     @product_2 = Product.where(category_id: @product.category_id ).where.not(id: @product.id).last
@@ -355,7 +355,7 @@ class ProductsController < ApplicationController
     end
   end
   def live_inventory_search
-    @product = Product.find(params[:id])
+    @product = Product.friendly.find(params[:id])
     @product_2 = Product.where(category_id: @product.category_id ).where.not(id: @product.id).last
     @products = Product.where(upc: @product.upc ).where.not(stock: nil).where.not(id: @product.id).where.not(stock: 'out of stock').limit(50)
     # @stock = Product.where(upc: @product.upc, stock: nil).or(Product.where(upc: @product.upc, stock: 'out of stock')).limit(50)
@@ -517,7 +517,12 @@ class ProductsController < ApplicationController
       :expires,
       :expired,
       :out_of_stock,
-      :bump_this_post
+      :bump_this_post,
+      :total_likes,
+      :total_unlikes,
+      :total_comments,
+      :total_reviews,
+      :total_rebates
     )
   end
 

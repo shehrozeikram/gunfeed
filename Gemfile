@@ -13,7 +13,7 @@ gem "net-http"
 gem 'sass-rails'
 
 gem 'devise'
-
+gem 'devise_token_auth'
 
 
 gem 'activeadmin'
@@ -97,3 +97,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'friendly_id', '~> 5.4.0'
