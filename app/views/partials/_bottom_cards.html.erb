@@ -27,7 +27,7 @@
                 <span class="pill"><span class="pill__title">Expiration date</span><span class="pill__value">Unknown</span></span>
                 <span class="pill">
                         <span class="pill__title">Store</span>
-                        <span class="pill__value"><a href="#"><%= coupon.store.title %></a></span>
+                        <span class="pill__value"><a href="#"><%= coupon.store.title unless coupon.store.present?%></a></span>
                       </span>
                 <span class="pill js-report-problem pill--value_only" data-toggle="modal" data-target="#modalReportProblem" data-reset-content-on-close="1" data-content-path="/report-a-problem?nid=1140271&amp;title=10%25%20Off%20%28one%20time%20use%29">
                         <span class="pill__value">Report</span>
