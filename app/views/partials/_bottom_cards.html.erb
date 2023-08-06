@@ -28,7 +28,7 @@
                 <span class="pill">
                         <span class="pill__title">Store</span>
                         <span class="pill__value"><a href="#">
-                        <% if coupon.store.title %>
+                        <% if coupon.store.title.present? %>
                           <%= coupon.store.title %>
                         <% else %>
                             "Store not Preset"
