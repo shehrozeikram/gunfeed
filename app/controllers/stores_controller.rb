@@ -22,7 +22,7 @@ class StoresController < ApplicationController
 
 
   def show
-    @store = Store.find(params[:id])
+    @store = Store.friendly.find(params[:id])
     @products = Product.where(store_id: params[:id] ).limit(100)
     @categories = Category.all
   end
