@@ -232,7 +232,9 @@ class ProductsController < ApplicationController
   def show
     @comment = Comment.new
     @product = Product.friendly.find(params[:id])
-    @products = Product.where(upc: @product.upc ).where.not(stock: nil).where.not(id: @product.id).where.not(stock:"out of stock").limit(50)
+    # @products = Product.where(upc: @product.upc ).where.not(stock: nil).where.not(id: @product.id).where.not(stock:"out of stock").limit(50)
+    @products = Product.where(upc: @product.upc).limit(50)
+
     @similar_products = Product.where(category_id: @product.category_id).where.not(id: @product.id ).limit(20)
     @product_2 = Product.where(category_id: @product.category_id ).where.not(id: @product.id).last
 
