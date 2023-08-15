@@ -80,6 +80,7 @@ Rails.application.configure do
 
   config.hosts << "gundeals.me"
 
+  config.logger = Logger.new(config.log_path, 'monthly')
 
   # Use a different logger for distributed setups.
   # require "syslog/logger"
