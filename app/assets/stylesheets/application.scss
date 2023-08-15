@@ -1116,8 +1116,10 @@ td.image-cell {width: 400px !important}
 
 }
 
-.sub-card { height: 440px;}
-
+.sub-card { height: 339px;}
+.remove-radius {
+ border-radius: 0 !important;
+}
 
 .sub-card-dispaly {
   display: -ms-grid;

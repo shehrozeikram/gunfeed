@@ -3295,7 +3295,8 @@ html.enter {
 .tile__image-container {
   position: relative;
   height: 180px;
-  padding: 3px;
+  padding: 0 !important;
+  margin-top: -45px;
 }
 
 .card-img {
@@ -4586,7 +4587,7 @@ table.table.price-compare-table tbody {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
+  width: 95% !important;
   height: 39px;
   padding: 0 10px;
   color: #3b3f47;
@@ -4596,6 +4597,7 @@ table.table.price-compare-table tbody {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  margin: 0 auto !important;
 }
 
 .tile__actions-container .card-links {
@@ -8520,6 +8522,11 @@ img.img-logo-2 {
 .tile__actions-container .icon-fa-link {
   color: #3b3f47;
   line-height: 39px;
+  font-size: 14px !important;
+}
+
+.tile__actions-container .icon-fa-link span {
+  font-size: 14px !important;
 }
 
 // 1 nov 2022 changes here
