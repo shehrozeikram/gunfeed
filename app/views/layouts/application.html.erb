@@ -23,8 +23,12 @@
 
     <% if content_for?(:title) %>
       <%= yield :title %>
+      <% elsif content_for?(:upc) %>
+      <%= yield :upc %>
+      <% else %>
+      Gundeals.me | Guns and Ammo Search Engine and Gun Deals
     <% end %>
-    Gundeals.me | Guns and Ammo Search Engine and Gun Deals
+
   </title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>

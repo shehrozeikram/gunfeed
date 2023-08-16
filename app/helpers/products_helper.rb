@@ -4,4 +4,8 @@ module ProductsHelper
     content_for :title, title
   end
 
+  def upc(upc)
+    content_for :upc, upc
+  end
+
 end
