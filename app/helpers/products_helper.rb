@@ -8,4 +8,8 @@ module ProductsHelper
     content_for :upc, upc
   end
 
+  def name(name)
+    content_for :name, name
+  end
+
 end

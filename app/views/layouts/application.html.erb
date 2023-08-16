@@ -23,8 +23,13 @@
 
     <% if content_for?(:title) %>
       <%= yield :title %>
+
       <% elsif content_for?(:upc) %>
       <%= yield :upc %>
+
+    <% elsif content_for?(:name) %>
+      <%= yield :name %>
+
       <% else %>
       Gundeals.me | Guns and Ammo Search Engine and Gun Deals
     <% end %>
