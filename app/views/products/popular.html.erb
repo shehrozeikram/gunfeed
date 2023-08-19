@@ -1,12 +1,10 @@
 
 <%= title "Most Popular "  + " Gun Deals " + " | Gundeals.me "  %>
 
-<section>
-  <div class="container">
-    <div class="add-section add-banner-section">
-    </div>
-  </div>
-</section>
+<div class="container-banner">
+  <a href="https://www.uslawshield.com?affid=a00fff3c-944f-11e9-a753-02fcb63ac2fe" target="_blank"><img src="https://www.uslawshield.com/media/us/banners/Generic1-LargeLeaderboard-970x90.png" alt="Sign up for U.S. LawShield" ></a>
+</div>
+
 <!-- ------------handgun first discription section start----------------- -->
 
 <section class="pb-4">
@@ -75,7 +73,9 @@
     <div class="row">
       <div class="col-md-3 mb-2 side__bar--rm">
         <%= render partial: 'partials/sidebar_filters' %>
+        <%= render partial: 'partials/vertical_banners' %>
       </div>
+
       <div class="col-md-9">
         <div class="row">
           <% @products.each do |product| %>
@@ -128,8 +128,6 @@
     </div>
   </div>
 </section>
-
-
 
 
 <!-- card section two start here  -->
