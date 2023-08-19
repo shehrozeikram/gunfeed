@@ -1146,3 +1146,16 @@ td.image-cell {width: 400px !important}
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+
+
+.banner__top  img {
+  width: 65% !important;
+  object-fit: cover !important;
+}
+
+.side__banner {
+  margin: 20px 0 !important;
+}
+.side__banner img {
+  width: 50% !important;
+}
