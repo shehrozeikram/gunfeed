@@ -151,6 +151,14 @@ class ProductsController < ApplicationController
   def create
     if user_signed_in?
       @product = current_user.products.new(product_params)
+      if params[:product][:caliber_id] == '1'
+        @product.caliber = '50 BMG'
+      else
+        @product.caliber = '9 mm'
+      end
+      if params[:product][:brand_id] == '1'
+        @product.brand = 'Gunprime'
+      end
       @product.category_id = params[:product][:category_id]
       @product.store_id = params[:product][:store_id]
       @product.verified = "true"
@@ -325,7 +333,7 @@ class ProductsController < ApplicationController
       if params[:product_id].present?
         @product = Product.find(params[:product_id])
         end
-      # PriceMailer.with(user_email:@user_email,product: @product ).map_price.deliver_now!
+      PriceMailer.with(user_email:@user_email,product: @product ).map_price.deliver_now!
       render json: @user_email
     else
       render json error: 'Please login '
@@ -339,7 +347,7 @@ class ProductsController < ApplicationController
       if params[:product_id].present?
         @product = Product.find(params[:product_id])
       end
-      # PriceMailer.with(user_email:@user_email,product: @product ).map_price.deliver_now!
+      PriceMailer.with(user_email:@user_email,product: @product ).map_price.deliver_now!
       render json: @user_email
     else
       render json error: 'Sorry for the trouble there is an internal error '
