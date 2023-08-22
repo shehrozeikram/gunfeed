@@ -158,6 +158,8 @@ class ProductsController < ApplicationController
       end
       if params[:product][:brand_id] == '1'
         @product.brand = 'Gunprime'
+      else
+        @product.brand = 'Kel-Tec'
       end
       @product.category_id = params[:product][:category_id]
       @product.store_id = params[:product][:store_id]
